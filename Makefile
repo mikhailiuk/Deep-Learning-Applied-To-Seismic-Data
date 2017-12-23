@@ -3,10 +3,10 @@ CC=g++-5
 EXE=nn
 
 CFLAGS=-std=c++11 -fopenmp -mavx2 -ftree-vectorize -Ofast -ffast-math  -g 
-# 
+ 
 SRCPATH=./src/cpp/
 OBJPATH=./obj
-
+$(shell   mkdir -p $(OBJPATH))
 #Variable setting the number of threads executing in parallel
 export OMP_NUM_THREADS=4
 
