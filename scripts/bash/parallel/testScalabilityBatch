@@ -1,0 +1,15 @@
+#!/bin/bash
+
+# Script to run through the batch sizes (alters config file and runs the algorithm)
+
+cd ../../
+
+for i in `seq 1 1 200`
+do      
+        echo $i
+	varold='        miniBatch = '$i';'
+	sed -i.bu '11 s/.*/'"$varold"'/' ./config/config.cfg
+	make run
+done
+
+

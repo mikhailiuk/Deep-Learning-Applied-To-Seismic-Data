@@ -1,0 +1,21 @@
+#!/bin/bash
+
+arrayTestOutCube=(`find /local/data/public/am2442/seismic/output/results/ -name testoutCube.dat`)
+arrayTestInCubeNoize=(`find /local/data/public/am2442/seismic/output/results/ -name testinCubeNoize.dat`)
+arrayTestInCubeClean=(`find /local/data/public/am2442/seismic/output/results/ -name testinCubeClean.dat`)
+
+for i in "${arrayTestOutCube[@]}"
+do :
+        sed -i '1 s|.*|'"128 128 128"'|' $i
+done
+
+for i in "${arrayTestInCubeNoize[@]}"
+do :
+        sed -i '1 s|.*|'"128 128 128"'|' $i
+done
+
+for i in "${arrayTestInCubeClean[@]}"
+do :
+        sed -i '1 s|.*|'"128 128 128"'|' $i
+done
+

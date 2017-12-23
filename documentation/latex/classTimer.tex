@@ -1,0 +1,113 @@
+\hypertarget{classTimer}{}\section{Timer Class Reference}
+\label{classTimer}\index{Timer@{Timer}}
+
+
+Used to time bits of code in the \hyperlink{classTrainingAlgorithm}{Training\+Algorithm} class.  
+
+
+
+
+{\ttfamily \#include \char`\"{}Timer.\+h\char`\"{}}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{classTimer_afea3900d493fb20a135cd57007d8cf9c}{start\+Timing} ()
+\begin{DoxyCompactList}\small\item\em Called when timing is started. \end{DoxyCompactList}\item 
+double \hyperlink{classTimer_a45f3ff9aa3a4b1fe814bc02355fc1377}{end\+Timing} ()
+\begin{DoxyCompactList}\small\item\em Called to end the timing. \end{DoxyCompactList}\item 
+double \hyperlink{classTimer_a71aa716bd43676a5a340eeca5f41cece}{get\+Elapsed\+Time} ()
+\begin{DoxyCompactList}\small\item\em Used to access private field of the m\+\_\+elapsed\+Time. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+struct timeval m\+\_\+start \hyperlink{classTimer_a68f37c9bd07027d23798fd80deb37c25}{m\+\_\+end}
+\begin{DoxyCompactList}\small\item\em Used to get the timing from the system. \end{DoxyCompactList}\item 
+double \hyperlink{classTimer_ab8501c3b3cf597a2040f3508baad1306}{m\+\_\+elapsed\+Time}
+\begin{DoxyCompactList}\small\item\em Final elapsed time. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Used to time bits of code in the \hyperlink{classTrainingAlgorithm}{Training\+Algorithm} class. 
+
+Definition at line 14 of file Timer.\+h.
+
+
+
+\subsection{Member Function Documentation}
+\index{Timer@{Timer}!end\+Timing@{end\+Timing}}
+\index{end\+Timing@{end\+Timing}!Timer@{Timer}}
+\subsubsection[{\texorpdfstring{end\+Timing()}{endTiming()}}]{\setlength{\rightskip}{0pt plus 5cm}double Timer\+::end\+Timing (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classTimer_a45f3ff9aa3a4b1fe814bc02355fc1377}{}\label{classTimer_a45f3ff9aa3a4b1fe814bc02355fc1377}
+
+
+Called to end the timing. 
+
+
+
+Definition at line 8 of file timer.\+cpp.
+
+\index{Timer@{Timer}!get\+Elapsed\+Time@{get\+Elapsed\+Time}}
+\index{get\+Elapsed\+Time@{get\+Elapsed\+Time}!Timer@{Timer}}
+\subsubsection[{\texorpdfstring{get\+Elapsed\+Time()}{getElapsedTime()}}]{\setlength{\rightskip}{0pt plus 5cm}double Timer\+::get\+Elapsed\+Time (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classTimer_a71aa716bd43676a5a340eeca5f41cece}{}\label{classTimer_a71aa716bd43676a5a340eeca5f41cece}
+
+
+Used to access private field of the m\+\_\+elapsed\+Time. 
+
+
+
+Definition at line 31 of file Timer.\+h.
+
+\index{Timer@{Timer}!start\+Timing@{start\+Timing}}
+\index{start\+Timing@{start\+Timing}!Timer@{Timer}}
+\subsubsection[{\texorpdfstring{start\+Timing()}{startTiming()}}]{\setlength{\rightskip}{0pt plus 5cm}void Timer\+::start\+Timing (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classTimer_afea3900d493fb20a135cd57007d8cf9c}{}\label{classTimer_afea3900d493fb20a135cd57007d8cf9c}
+
+
+Called when timing is started. 
+
+
+
+Definition at line 4 of file timer.\+cpp.
+
+
+
+\subsection{Member Data Documentation}
+\index{Timer@{Timer}!m\+\_\+elapsed\+Time@{m\+\_\+elapsed\+Time}}
+\index{m\+\_\+elapsed\+Time@{m\+\_\+elapsed\+Time}!Timer@{Timer}}
+\subsubsection[{\texorpdfstring{m\+\_\+elapsed\+Time}{m_elapsedTime}}]{\setlength{\rightskip}{0pt plus 5cm}double Timer\+::m\+\_\+elapsed\+Time\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classTimer_ab8501c3b3cf597a2040f3508baad1306}{}\label{classTimer_ab8501c3b3cf597a2040f3508baad1306}
+
+
+Final elapsed time. 
+
+
+
+Definition at line 21 of file Timer.\+h.
+
+\index{Timer@{Timer}!m\+\_\+end@{m\+\_\+end}}
+\index{m\+\_\+end@{m\+\_\+end}!Timer@{Timer}}
+\subsubsection[{\texorpdfstring{m\+\_\+end}{m_end}}]{\setlength{\rightskip}{0pt plus 5cm}struct timeval m\+\_\+start Timer\+::m\+\_\+end\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classTimer_a68f37c9bd07027d23798fd80deb37c25}{}\label{classTimer_a68f37c9bd07027d23798fd80deb37c25}
+
+
+Used to get the timing from the system. 
+
+
+
+Definition at line 18 of file Timer.\+h.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/headers/\hyperlink{Timer_8h}{Timer.\+h}\item 
+src/cpp/\hyperlink{timer_8cpp}{timer.\+cpp}\end{DoxyCompactItemize}

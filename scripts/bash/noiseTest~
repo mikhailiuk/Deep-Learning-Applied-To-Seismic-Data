@@ -1,0 +1,37 @@
+#!/bin/bash
+
+# Script to run through the batch sizes (alters config file and runs the algorithm)
+
+
+#Go to the head folder with a Makefile in it
+cd ../../
+
+#Declaring arrays of the parameters we want to test
+declare -a noise=(5 10 15 20 25 30 35 40 45 50 55 60 65 70 75 80 85 90 95)
+
+
+#Iterate through batch array
+for k in `seq 0 1 $[${#noise[@]}-1]`
+do      
+        #Set a new value for batch variable in config
+        varNoise='        nameMaskTest          = "/local/data/public/am2442/seismic/parihaka128/mask128x128/mask'${noise[k]}'noize.txt";'
+
+        #Change a batch variable in the config
+        sed -i.bu '35 s|.*|'"$varNoise"'|' ./config/config.cfg
+
+        #Set the path to a new directory
+        saveDir="/local/data/public/am2442/seismic/output/results/doubleCheck2/${noise[k]}"
+
+        #Create a new directory for output      
+        mkdir -p $saveDir
+
+        #Change a save folder to a created directory
+        varoldSave='        saveFolder         ="'$saveDir'/";'
+
+        #Set new variables in the config file
+        sed -i.bu '20 s|.*|'"$varoldSave"'|' ./config/config.cfg
+
+        #Run the neural network with a new configuration file
+        make run
+done
+

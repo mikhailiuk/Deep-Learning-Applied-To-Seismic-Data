@@ -1,0 +1,197 @@
+\hypertarget{classContractiveAutoencoder}{}\section{Contractive\+Autoencoder Class Reference}
+\label{classContractiveAutoencoder}\index{Contractive\+Autoencoder@{Contractive\+Autoencoder}}
+
+
+Class inherets functions from the Neural Network class.  
+
+
+
+
+{\ttfamily \#include \char`\"{}Contractive\+Autoencoder.\+h\char`\"{}}
+
+Inheritance diagram for Contractive\+Autoencoder\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classContractiveAutoencoder}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classContractiveAutoencoder_a0817944843aa751ae7391d36d9f7a717}{$\sim$\+Contractive\+Autoencoder} ()
+\item 
+int \hyperlink{classContractiveAutoencoder_ab10b3558c21939bed2654a0110b6bc08}{update\+Weights} (int ii, int jj, int kk, double val, double penalty)
+\item 
+int \hyperlink{classContractiveAutoencoder_a66faa7d13437de0e864a6adec9994cd8}{update\+Weights\+Fast} (int ii, int jj, int kk, double val, double penalty)
+\item 
+int \hyperlink{classContractiveAutoencoder_a66bf959d85d09b2f5cc2e06d6bdfe6bf}{backpropagate} (double learning\+Rate, double lambda)
+\item 
+int \hyperlink{classContractiveAutoencoder_a65daf5136737423ee6b0fd89442cbf70}{backpropagate\+Node\+Parallel} (double learning\+Rate, double lambda, int)
+\item 
+std\+::string \hyperlink{classContractiveAutoencoder_a8db3fc9434f66e1a7e036a49f2d19ac6}{type} () const 
+\begin{DoxyCompactList}\small\item\em Returns the type (string) of the autoencoder. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+Class inherets functions from the Neural Network class. 
+
+The main difference is in backpropagation function, which needs to accomodate calculations associated with the penalty term. 
+
+Definition at line 12 of file Contractive\+Autoencoder.\+h.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Contractive\+Autoencoder@{Contractive\+Autoencoder}!````~Contractive\+Autoencoder@{$\sim$\+Contractive\+Autoencoder}}
+\index{````~Contractive\+Autoencoder@{$\sim$\+Contractive\+Autoencoder}!Contractive\+Autoencoder@{Contractive\+Autoencoder}}
+\subsubsection[{\texorpdfstring{$\sim$\+Contractive\+Autoencoder()}{~ContractiveAutoencoder()}}]{\setlength{\rightskip}{0pt plus 5cm}Contractive\+Autoencoder\+::$\sim$\+Contractive\+Autoencoder (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classContractiveAutoencoder_a0817944843aa751ae7391d36d9f7a717}{}\label{classContractiveAutoencoder_a0817944843aa751ae7391d36d9f7a717}
+
+
+Definition at line 112 of file contractiveautoencoder.\+cpp.
+
+
+
+\subsection{Member Function Documentation}
+\index{Contractive\+Autoencoder@{Contractive\+Autoencoder}!backpropagate@{backpropagate}}
+\index{backpropagate@{backpropagate}!Contractive\+Autoencoder@{Contractive\+Autoencoder}}
+\subsubsection[{\texorpdfstring{backpropagate(double learning\+Rate, double lambda)}{backpropagate(double learningRate, double lambda)}}]{\setlength{\rightskip}{0pt plus 5cm}int Contractive\+Autoencoder\+::backpropagate (
+\begin{DoxyParamCaption}
+\item[{double}]{learning\+Rate, }
+\item[{double}]{lambda}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{classContractiveAutoencoder_a66bf959d85d09b2f5cc2e06d6bdfe6bf}{}\label{classContractiveAutoencoder_a66bf959d85d09b2f5cc2e06d6bdfe6bf}
+The backpropagation algorithm 
+\begin{DoxyParams}{Parameters}
+{\em learning\+Rate} & -\/ the learning rate \\
+\hline
+{\em lambda} & -\/ the contractive autoencoder parameter \\
+\hline
+\end{DoxyParams}
+
+
+Implements \hyperlink{classNeuralNetwork_af21bec3f1affe1a95346a57fd332f734}{Neural\+Network}.
+
+
+
+Definition at line 50 of file contractiveautoencoder.\+cpp.
+
+\index{Contractive\+Autoencoder@{Contractive\+Autoencoder}!backpropagate\+Node\+Parallel@{backpropagate\+Node\+Parallel}}
+\index{backpropagate\+Node\+Parallel@{backpropagate\+Node\+Parallel}!Contractive\+Autoencoder@{Contractive\+Autoencoder}}
+\subsubsection[{\texorpdfstring{backpropagate\+Node\+Parallel(double learning\+Rate, double lambda, int)}{backpropagateNodeParallel(double learningRate, double lambda, int)}}]{\setlength{\rightskip}{0pt plus 5cm}int Contractive\+Autoencoder\+::backpropagate\+Node\+Parallel (
+\begin{DoxyParamCaption}
+\item[{double}]{learning\+Rate, }
+\item[{double}]{lambda, }
+\item[{int}]{a}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{classContractiveAutoencoder_a65daf5136737423ee6b0fd89442cbf70}{}\label{classContractiveAutoencoder_a65daf5136737423ee6b0fd89442cbf70}
+The backpropagation algorithm with parallel nodes 
+\begin{DoxyParams}{Parameters}
+{\em learning\+Rate} & -\/ the learning rate \\
+\hline
+{\em lambda} & -\/ the contractive autoencoder parameter \\
+\hline
+{\em flag\+Release} & -\/ 0 if the weights are to be released \\
+\hline
+\end{DoxyParams}
+
+
+Implements \hyperlink{classNeuralNetwork_a01f72adec49e446ad4305bd6ad9859da}{Neural\+Network}.
+
+
+
+Definition at line 5 of file contractiveautoencoder.\+cpp.
+
+\index{Contractive\+Autoencoder@{Contractive\+Autoencoder}!type@{type}}
+\index{type@{type}!Contractive\+Autoencoder@{Contractive\+Autoencoder}}
+\subsubsection[{\texorpdfstring{type() const }{type() const }}]{\setlength{\rightskip}{0pt plus 5cm}std\+::string Contractive\+Autoencoder\+::type (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}\hypertarget{classContractiveAutoencoder_a8db3fc9434f66e1a7e036a49f2d19ac6}{}\label{classContractiveAutoencoder_a8db3fc9434f66e1a7e036a49f2d19ac6}
+
+
+Returns the type (string) of the autoencoder. 
+
+
+
+Implements \hyperlink{classNeuralNetwork_aa3edc74bdbc4d8730c0fcc935dad2af0}{Neural\+Network}.
+
+
+
+Definition at line 46 of file Contractive\+Autoencoder.\+h.
+
+\index{Contractive\+Autoencoder@{Contractive\+Autoencoder}!update\+Weights@{update\+Weights}}
+\index{update\+Weights@{update\+Weights}!Contractive\+Autoencoder@{Contractive\+Autoencoder}}
+\subsubsection[{\texorpdfstring{update\+Weights(int ii, int jj, int kk, double val, double penalty)}{updateWeights(int ii, int jj, int kk, double val, double penalty)}}]{\setlength{\rightskip}{0pt plus 5cm}int Contractive\+Autoencoder\+::update\+Weights (
+\begin{DoxyParamCaption}
+\item[{int}]{ii, }
+\item[{int}]{jj, }
+\item[{int}]{kk, }
+\item[{double}]{val, }
+\item[{double}]{penalty}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}\hypertarget{classContractiveAutoencoder_ab10b3558c21939bed2654a0110b6bc08}{}\label{classContractiveAutoencoder_ab10b3558c21939bed2654a0110b6bc08}
+A function to update the weights with the gradient 
+\begin{DoxyParams}{Parameters}
+{\em ii} & layer \\
+\hline
+{\em jj} & node in the current layer \\
+\hline
+{\em kk} & node in the previous layer \\
+\hline
+{\em learning\+Rate} & learning rate \\
+\hline
+{\em penalty} & lambda for the contractive autoencoder \\
+\hline
+\end{DoxyParams}
+
+
+Implements \hyperlink{classNeuralNetwork_acd83d73dbae85f80c1173bdb53e37726}{Neural\+Network}.
+
+
+
+Definition at line 106 of file contractiveautoencoder.\+cpp.
+
+\index{Contractive\+Autoencoder@{Contractive\+Autoencoder}!update\+Weights\+Fast@{update\+Weights\+Fast}}
+\index{update\+Weights\+Fast@{update\+Weights\+Fast}!Contractive\+Autoencoder@{Contractive\+Autoencoder}}
+\subsubsection[{\texorpdfstring{update\+Weights\+Fast(int ii, int jj, int kk, double val, double penalty)}{updateWeightsFast(int ii, int jj, int kk, double val, double penalty)}}]{\setlength{\rightskip}{0pt plus 5cm}int Contractive\+Autoencoder\+::update\+Weights\+Fast (
+\begin{DoxyParamCaption}
+\item[{int}]{ii, }
+\item[{int}]{jj, }
+\item[{int}]{kk, }
+\item[{double}]{val, }
+\item[{double}]{penalty}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}\hypertarget{classContractiveAutoencoder_a66faa7d13437de0e864a6adec9994cd8}{}\label{classContractiveAutoencoder_a66faa7d13437de0e864a6adec9994cd8}
+A function to update the weights with the gradient (fast, no redundunt calculations for momentum and ada\+Grad if both are not used) 
+\begin{DoxyParams}{Parameters}
+{\em ii} & layer \\
+\hline
+{\em jj} & node in the current layer \\
+\hline
+{\em kk} & node in the previous layer \\
+\hline
+{\em learning\+Rate} & learning rate \\
+\hline
+{\em penalty} & lambda for the contractive autoencoder \\
+\hline
+\end{DoxyParams}
+
+
+Implements \hyperlink{classNeuralNetwork_a1bc1c063c3048b0551ae92352b553060}{Neural\+Network}.
+
+
+
+Definition at line 100 of file contractiveautoencoder.\+cpp.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/headers/\hyperlink{ContractiveAutoencoder_8h}{Contractive\+Autoencoder.\+h}\item 
+src/cpp/\hyperlink{contractiveautoencoder_8cpp}{contractiveautoencoder.\+cpp}\end{DoxyCompactItemize}

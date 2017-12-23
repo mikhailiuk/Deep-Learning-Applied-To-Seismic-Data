@@ -1,0 +1,292 @@
+\hypertarget{classActivation}{}\section{Activation Class Reference}
+\label{classActivation}\index{Activation@{Activation}}
+
+
+Holds activation functions.  
+
+
+
+
+{\ttfamily \#include \char`\"{}Activation.\+h\char`\"{}}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+double \hyperlink{classActivation_a8318a7d7aa656862c929e8f8e68b07ba}{activate} (int activation, int stage, double x) const 
+\item 
+double \hyperlink{classActivation_a793912761e5ad16e5175b4fa5113133d}{gaus} (double x) const 
+\begin{DoxyCompactList}\small\item\em gausian activation function \end{DoxyCompactList}\item 
+double \hyperlink{classActivation_abc436fdeb1ff801223c7ebf67a748ebe}{gausder} (double x) const 
+\begin{DoxyCompactList}\small\item\em derivative of gausian activation function \end{DoxyCompactList}\item 
+double \hyperlink{classActivation_a5e9bf6975636c6d05b83d7d1acdf7df2}{softplus} (double x) const 
+\begin{DoxyCompactList}\small\item\em softplus activation function \end{DoxyCompactList}\item 
+double \hyperlink{classActivation_a2bac437e6009823d94b6be2d3c99971a}{softplusder} (double x) const 
+\begin{DoxyCompactList}\small\item\em derivative of softplus activation function \end{DoxyCompactList}\item 
+double \hyperlink{classActivation_a3bdc501310dfd0cef7c95d69faa3bc00}{sigmf} (double x) const 
+\begin{DoxyCompactList}\small\item\em sigmoid activation function \end{DoxyCompactList}\item 
+double \hyperlink{classActivation_a4464adcd12fb089af4341e136c7884b3}{sigmfder} (double x) const 
+\begin{DoxyCompactList}\small\item\em derivative of a sigmoid activation function \end{DoxyCompactList}\item 
+double \hyperlink{classActivation_ad226ba33b77633d0c6f7135a31bcc655}{linef} (double x) const 
+\begin{DoxyCompactList}\small\item\em linear activation function \end{DoxyCompactList}\item 
+double \hyperlink{classActivation_af3c02c76ebc566d579dc92ec84c93a87}{linefder} () const 
+\begin{DoxyCompactList}\small\item\em derivative of a linear activation function \end{DoxyCompactList}\item 
+double \hyperlink{classActivation_ad41af90f5c776edda91437f16d449598}{rectifier} (double x) const 
+\begin{DoxyCompactList}\small\item\em rectifier activation function \end{DoxyCompactList}\item 
+double \hyperlink{classActivation_ae57f9f782c48b9704e000dcb5237658b}{rectifierder} (double x) const 
+\begin{DoxyCompactList}\small\item\em derivative of rectifier activation function \end{DoxyCompactList}\item 
+double \hyperlink{classActivation_a2148835f7651b4d057c8bf33389293f2}{steprectifier} (double x) const 
+\begin{DoxyCompactList}\small\item\em steprectifier activation function \end{DoxyCompactList}\item 
+double \hyperlink{classActivation_a0a0400c04a72f3e5b22750ca6f93c793}{steprectifierder} (double x) const 
+\begin{DoxyCompactList}\small\item\em derivative of steprectifier activation function \end{DoxyCompactList}\item 
+double \hyperlink{classActivation_a5709cafbe5391c32b76f6816ad506d2c}{invtg} (double x) const 
+\begin{DoxyCompactList}\small\item\em inversetangent activation function \end{DoxyCompactList}\item 
+double \hyperlink{classActivation_a7b8967b6b29b76e67c567ddf9498da4c}{invtgder} (double x) const 
+\begin{DoxyCompactList}\small\item\em derivative of an inversetangent activation function \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Holds activation functions. 
+
+Used to compute feedforaward and backpropagation activation of the neurons 
+
+Definition at line 11 of file Activation.\+h.
+
+
+
+\subsection{Member Function Documentation}
+\index{Activation@{Activation}!activate@{activate}}
+\index{activate@{activate}!Activation@{Activation}}
+\subsubsection[{\texorpdfstring{activate(int activation, int stage, double x) const }{activate(int activation, int stage, double x) const }}]{\setlength{\rightskip}{0pt plus 5cm}double Activation\+::activate (
+\begin{DoxyParamCaption}
+\item[{int}]{activation, }
+\item[{int}]{stage, }
+\item[{double}]{x}
+\end{DoxyParamCaption}
+) const}\hypertarget{classActivation_a8318a7d7aa656862c929e8f8e68b07ba}{}\label{classActivation_a8318a7d7aa656862c929e8f8e68b07ba}
+function called by a neuron. Decides which activation function should be used 
+\begin{DoxyParams}{Parameters}
+{\em activation} & id of the neuron activation function \\
+\hline
+{\em stage} & either feedforward or backpropagate  value to be updated \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 6 of file activation.\+cpp.
+
+\index{Activation@{Activation}!gaus@{gaus}}
+\index{gaus@{gaus}!Activation@{Activation}}
+\subsubsection[{\texorpdfstring{gaus(double x) const }{gaus(double x) const }}]{\setlength{\rightskip}{0pt plus 5cm}double Activation\+::gaus (
+\begin{DoxyParamCaption}
+\item[{double}]{x}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classActivation_a793912761e5ad16e5175b4fa5113133d}{}\label{classActivation_a793912761e5ad16e5175b4fa5113133d}
+
+
+gausian activation function 
+
+
+
+Definition at line 33 of file activation.\+cpp.
+
+\index{Activation@{Activation}!gausder@{gausder}}
+\index{gausder@{gausder}!Activation@{Activation}}
+\subsubsection[{\texorpdfstring{gausder(double x) const }{gausder(double x) const }}]{\setlength{\rightskip}{0pt plus 5cm}double Activation\+::gausder (
+\begin{DoxyParamCaption}
+\item[{double}]{x}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classActivation_abc436fdeb1ff801223c7ebf67a748ebe}{}\label{classActivation_abc436fdeb1ff801223c7ebf67a748ebe}
+
+
+derivative of gausian activation function 
+
+
+
+Definition at line 37 of file activation.\+cpp.
+
+\index{Activation@{Activation}!invtg@{invtg}}
+\index{invtg@{invtg}!Activation@{Activation}}
+\subsubsection[{\texorpdfstring{invtg(double x) const }{invtg(double x) const }}]{\setlength{\rightskip}{0pt plus 5cm}double Activation\+::invtg (
+\begin{DoxyParamCaption}
+\item[{double}]{x}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classActivation_a5709cafbe5391c32b76f6816ad506d2c}{}\label{classActivation_a5709cafbe5391c32b76f6816ad506d2c}
+
+
+inversetangent activation function 
+
+
+
+Definition at line 95 of file activation.\+cpp.
+
+\index{Activation@{Activation}!invtgder@{invtgder}}
+\index{invtgder@{invtgder}!Activation@{Activation}}
+\subsubsection[{\texorpdfstring{invtgder(double x) const }{invtgder(double x) const }}]{\setlength{\rightskip}{0pt plus 5cm}double Activation\+::invtgder (
+\begin{DoxyParamCaption}
+\item[{double}]{x}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classActivation_a7b8967b6b29b76e67c567ddf9498da4c}{}\label{classActivation_a7b8967b6b29b76e67c567ddf9498da4c}
+
+
+derivative of an inversetangent activation function 
+
+
+
+Definition at line 91 of file activation.\+cpp.
+
+\index{Activation@{Activation}!linef@{linef}}
+\index{linef@{linef}!Activation@{Activation}}
+\subsubsection[{\texorpdfstring{linef(double x) const }{linef(double x) const }}]{\setlength{\rightskip}{0pt plus 5cm}double Activation\+::linef (
+\begin{DoxyParamCaption}
+\item[{double}]{x}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classActivation_ad226ba33b77633d0c6f7135a31bcc655}{}\label{classActivation_ad226ba33b77633d0c6f7135a31bcc655}
+
+
+linear activation function 
+
+
+
+Definition at line 65 of file activation.\+cpp.
+
+\index{Activation@{Activation}!linefder@{linefder}}
+\index{linefder@{linefder}!Activation@{Activation}}
+\subsubsection[{\texorpdfstring{linefder() const }{linefder() const }}]{\setlength{\rightskip}{0pt plus 5cm}double Activation\+::linefder (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classActivation_af3c02c76ebc566d579dc92ec84c93a87}{}\label{classActivation_af3c02c76ebc566d579dc92ec84c93a87}
+
+
+derivative of a linear activation function 
+
+
+
+Definition at line 69 of file activation.\+cpp.
+
+\index{Activation@{Activation}!rectifier@{rectifier}}
+\index{rectifier@{rectifier}!Activation@{Activation}}
+\subsubsection[{\texorpdfstring{rectifier(double x) const }{rectifier(double x) const }}]{\setlength{\rightskip}{0pt plus 5cm}double Activation\+::rectifier (
+\begin{DoxyParamCaption}
+\item[{double}]{x}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classActivation_ad41af90f5c776edda91437f16d449598}{}\label{classActivation_ad41af90f5c776edda91437f16d449598}
+
+
+rectifier activation function 
+
+
+
+Definition at line 41 of file activation.\+cpp.
+
+\index{Activation@{Activation}!rectifierder@{rectifierder}}
+\index{rectifierder@{rectifierder}!Activation@{Activation}}
+\subsubsection[{\texorpdfstring{rectifierder(double x) const }{rectifierder(double x) const }}]{\setlength{\rightskip}{0pt plus 5cm}double Activation\+::rectifierder (
+\begin{DoxyParamCaption}
+\item[{double}]{x}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classActivation_ae57f9f782c48b9704e000dcb5237658b}{}\label{classActivation_ae57f9f782c48b9704e000dcb5237658b}
+
+
+derivative of rectifier activation function 
+
+
+
+Definition at line 49 of file activation.\+cpp.
+
+\index{Activation@{Activation}!sigmf@{sigmf}}
+\index{sigmf@{sigmf}!Activation@{Activation}}
+\subsubsection[{\texorpdfstring{sigmf(double x) const }{sigmf(double x) const }}]{\setlength{\rightskip}{0pt plus 5cm}double Activation\+::sigmf (
+\begin{DoxyParamCaption}
+\item[{double}]{x}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classActivation_a3bdc501310dfd0cef7c95d69faa3bc00}{}\label{classActivation_a3bdc501310dfd0cef7c95d69faa3bc00}
+
+
+sigmoid activation function 
+
+
+
+Definition at line 57 of file activation.\+cpp.
+
+\index{Activation@{Activation}!sigmfder@{sigmfder}}
+\index{sigmfder@{sigmfder}!Activation@{Activation}}
+\subsubsection[{\texorpdfstring{sigmfder(double x) const }{sigmfder(double x) const }}]{\setlength{\rightskip}{0pt plus 5cm}double Activation\+::sigmfder (
+\begin{DoxyParamCaption}
+\item[{double}]{x}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classActivation_a4464adcd12fb089af4341e136c7884b3}{}\label{classActivation_a4464adcd12fb089af4341e136c7884b3}
+
+
+derivative of a sigmoid activation function 
+
+
+
+Definition at line 61 of file activation.\+cpp.
+
+\index{Activation@{Activation}!softplus@{softplus}}
+\index{softplus@{softplus}!Activation@{Activation}}
+\subsubsection[{\texorpdfstring{softplus(double x) const }{softplus(double x) const }}]{\setlength{\rightskip}{0pt plus 5cm}double Activation\+::softplus (
+\begin{DoxyParamCaption}
+\item[{double}]{x}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classActivation_a5e9bf6975636c6d05b83d7d1acdf7df2}{}\label{classActivation_a5e9bf6975636c6d05b83d7d1acdf7df2}
+
+
+softplus activation function 
+
+
+
+Definition at line 25 of file activation.\+cpp.
+
+\index{Activation@{Activation}!softplusder@{softplusder}}
+\index{softplusder@{softplusder}!Activation@{Activation}}
+\subsubsection[{\texorpdfstring{softplusder(double x) const }{softplusder(double x) const }}]{\setlength{\rightskip}{0pt plus 5cm}double Activation\+::softplusder (
+\begin{DoxyParamCaption}
+\item[{double}]{x}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classActivation_a2bac437e6009823d94b6be2d3c99971a}{}\label{classActivation_a2bac437e6009823d94b6be2d3c99971a}
+
+
+derivative of softplus activation function 
+
+
+
+Definition at line 29 of file activation.\+cpp.
+
+\index{Activation@{Activation}!steprectifier@{steprectifier}}
+\index{steprectifier@{steprectifier}!Activation@{Activation}}
+\subsubsection[{\texorpdfstring{steprectifier(double x) const }{steprectifier(double x) const }}]{\setlength{\rightskip}{0pt plus 5cm}double Activation\+::steprectifier (
+\begin{DoxyParamCaption}
+\item[{double}]{x}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classActivation_a2148835f7651b4d057c8bf33389293f2}{}\label{classActivation_a2148835f7651b4d057c8bf33389293f2}
+
+
+steprectifier activation function 
+
+
+
+Definition at line 73 of file activation.\+cpp.
+
+\index{Activation@{Activation}!steprectifierder@{steprectifierder}}
+\index{steprectifierder@{steprectifierder}!Activation@{Activation}}
+\subsubsection[{\texorpdfstring{steprectifierder(double x) const }{steprectifierder(double x) const }}]{\setlength{\rightskip}{0pt plus 5cm}double Activation\+::steprectifierder (
+\begin{DoxyParamCaption}
+\item[{double}]{x}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classActivation_a0a0400c04a72f3e5b22750ca6f93c793}{}\label{classActivation_a0a0400c04a72f3e5b22750ca6f93c793}
+
+
+derivative of steprectifier activation function 
+
+
+
+Definition at line 83 of file activation.\+cpp.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/headers/\hyperlink{Activation_8h}{Activation.\+h}\item 
+src/cpp/\hyperlink{activation_8cpp}{activation.\+cpp}\end{DoxyCompactItemize}

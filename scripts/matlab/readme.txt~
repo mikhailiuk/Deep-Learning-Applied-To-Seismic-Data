@@ -1,0 +1,128 @@
+This folder contains the following folders and documents:
+
+
+
+============================================================================================
+FOLDER: additional
+============================================================================================
+
+//Funciton which treagers FeatureSIM
+calculateFSIM.m
+
+//Function to remove all new plots and files created by matlab main.m from a directory 
+cleanDirectories.m
+
+//Open source sctipt to calculate feature similarity index measure
+FeatureSIM.m
+
+//A function to plot the stats in a plot with a colorbar
+plotStats.m
+
+//Function to read a txt file with statistics about neuron activations
+readStats.m
+
+//Open source script to adjust gaps in a standard subplot function
+subplot_tight.m
+
+============================================================================================
+FOLDER: correlation
+============================================================================================
+
+//Calculates and plots correlation between the features in the encoder or decoder
+plotCorrelation.m
+
+//Calculates and plots cross correlation between the encoder and decoder
+plotCrossCorrelation.m
+
+============================================================================================
+FOLDER: dataProcessing
+============================================================================================
+
+--------------------------------------------------------------------------------------------
+SUBFOLDER: whitening
+--------------------------------------------------------------------------------------------
+cubeWhitening.m
+meanX.mat
+S.mat
+U.mat
+--------------------------------------------------------------------------------------------
+
+//Function to plot the slices and shots in the output directory
+plotOutputTest.m
+
+//Function to read the data cubes from a file
+readDataCubes.m
+
+//Function to set the alocated memory to 0
+zeroCubes.m
+
+============================================================================================
+FOLDER: featureProcessing
+============================================================================================
+
+//A function which takes one layer of weights and plots it
+plotLayerOfWeights.m
+
+//A function to read the weights of the decoder
+plotWeightsDecoder.m
+
+//A function to read the weights of the encoder
+plotWeightsEncoder.m
+
+//A function to plot the weights
+plotWeightsOut.m
+
+//Function to read the weights from weights_.data
+readWeights.m
+
+//Function to calculate the number of weights in every plot of subplots and find there sizes
+setFaces.m
+
+//Iterates through the created images of weights and writes them into video
+videoWeights.m
+
+//Function to save the video
+writeVideoWeights.m
+
+
+============================================================================================
+FOLDER: licenses
+============================================================================================
+
+license.txt
+
+============================================================================================
+FOLDER: plotFunctions
+============================================================================================
+
+//Function to set the parameters of the plots
+generateOutputPlot.m
+
+//Used to plot weights 
+plotOutSubplot.m
+
+============================================================================================
+FOLDER: sequentialInfoResults
+============================================================================================
+
+//Function to read the sequential data (learning rate, validation, train error)
+plotSequentialData.m
+
+//Function to actually plot the sequential data
+plotSeries.m
+
+============================================================================================
+head
+============================================================================================
+
+//A function called by make plot, calls one of the functions below
+main.m
+
+//A function to plot _fu, _es 
+plotNoSubDir.m
+
+//A function to plot xx/_fu, xx/_es 
+plotOneSubDir.m
+
+//A function to plot yy/xx/_fu, yy/xx/_es 
+plotThreeSubDir.m

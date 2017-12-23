@@ -1,0 +1,1150 @@
+\hypertarget{classNeuralNetwork}{}\section{Neural\+Network Class Reference}
+\label{classNeuralNetwork}\index{Neural\+Network@{Neural\+Network}}
+
+
+A base class for Neural Network Algorithms.  
+
+
+
+
+{\ttfamily \#include \char`\"{}Neural\+Network.\+h\char`\"{}}
+
+Inheritance diagram for Neural\+Network\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classNeuralNetwork}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classNeuralNetwork_accce4a7728e89a009a9d4ca1758c9b9d}{Neural\+Network} ()
+\item 
+double \hyperlink{classNeuralNetwork_a3c92371fb8eb9363460223b67f2716f4}{get\+L\+S\+Error} (double target, double predicted, int dist\+From\+Center)
+\item 
+int \hyperlink{classNeuralNetwork_a30196e8390fead450b9495b3a782b198}{make\+Weight\+Cpy} ()
+\begin{DoxyCompactList}\small\item\em A function called when local minimum in the validation error is achieved, to store the combination of weights. \end{DoxyCompactList}\item 
+double \hyperlink{classNeuralNetwork_a49f0a71b2cfd1bd2a4af986354fa103c}{delta\+Compute} (int mb)
+\item 
+double \hyperlink{classNeuralNetwork_aff3f167f69f75a74ce3c425b8783d321}{delta\+Compute\+Node\+Parallel} (int mb)
+\item 
+int \hyperlink{classNeuralNetwork_ae3d909ef30a5c179a236571e126aa841}{feedforward} (int mb)
+\item 
+int \hyperlink{classNeuralNetwork_aad8fc497e54c397d3e4e91376e02e939}{feedforward\+Node\+Parallel} (int mb)
+\item 
+int \hyperlink{classNeuralNetwork_a82af0b25c1099ac3818a36911b63e8db}{feedforward\+Node\+Parallel\+Comp\+Sparse} (int mb)
+\item 
+double \hyperlink{classNeuralNetwork_a9d80cfaedb341a1a94e5b932665904d4}{back\+PropagateU} (int mb, int la, int ii)
+\item 
+void \hyperlink{classNeuralNetwork_ab72a0bebc4933c5e495636fe15d33982}{initialise} (\hyperlink{classParamsInit}{Params\+Init} parameters)
+\item 
+void \hyperlink{classNeuralNetwork_a4e078c8f704a0118f9ed9457b5e6c74d}{initialise\+Drop\+Out} ()
+\begin{DoxyCompactList}\small\item\em A function to initialise the vectors holding positions of the nodes to be set to 0. \end{DoxyCompactList}\item 
+void \hyperlink{classNeuralNetwork_ae27621b39d0afef732ca36e5ab0a6b73}{initialise\+Stats\+Hidden\+Units} ()
+\begin{DoxyCompactList}\small\item\em Allocate memory for the array holding the statistics about hidden units. \end{DoxyCompactList}\item 
+void \hyperlink{classNeuralNetwork_a36525085d71d9aa8d755e5e19ebae7cc}{initialise\+Weights} (\hyperlink{classParamsInit}{Params\+Init} parameters)
+\item 
+void \hyperlink{classNeuralNetwork_ae8bd77cbaa88df5152db8a745254141c}{initialise\+Delta\+Bias} (\hyperlink{classParamsInit}{Params\+Init} parameters)
+\item 
+void \hyperlink{classNeuralNetwork_a77e3c1107530a1cb28021c7c2864c81f}{init\+Weights\+From\+File} (std\+::string path)
+\item 
+double \hyperlink{classNeuralNetwork_af0c6f4203d6c3b823a575954102bdf5d}{get\+Grad} (int kk, int jj, int ii)
+\item 
+double \hyperlink{classNeuralNetwork_adca7f84b7b063acebef819bae1abbaf7}{dot\+Product} (int mb, int kk, int jj)
+\item 
+void \hyperlink{classNeuralNetwork_af8a0997a14c97e1fb6ef97d3c132f808}{dot\+Product\+Prop} (int mb, int kk, int jj)
+\item 
+void \hyperlink{classNeuralNetwork_ad5d0e3d069c7ce2fbde30161771ba507}{set\+Layer\+U\+Output} (int mb, int la, int u, double val)
+\item 
+int \hyperlink{classNeuralNetwork_a1d0b90f44982811b3e28e3b9a4dfa810}{set\+Drop\+Out} ()
+\begin{DoxyCompactList}\small\item\em A function to set the values of the drop out (shuffle the vectors) \end{DoxyCompactList}\item 
+void \hyperlink{classNeuralNetwork_a2a84fe4a996154130853f031c6e475aa}{set\+Layer\+U\+Delta} (int mb, int la, int u, double val)
+\item 
+void \hyperlink{classNeuralNetwork_aeccccbe1b61dec7e4e76bd55bad7e591}{swap\+Weights} ()
+\begin{DoxyCompactList}\small\item\em A function to swap the weights (current with the save with which the local minimum in the error is obtained) \end{DoxyCompactList}\item 
+void \hyperlink{classNeuralNetwork_ad70d1e2802185f0126f0c52ac2dc55f1}{set\+Time\+Step} (int step)
+\begin{DoxyCompactList}\small\item\em The function to set timestep. \end{DoxyCompactList}\item 
+virtual int \hyperlink{classNeuralNetwork_acd83d73dbae85f80c1173bdb53e37726}{update\+Weights} (int ii, int jj, int kk, double val, double penalty)=0
+\begin{DoxyCompactList}\small\item\em A virtual function implemented by C\+AE and AE to w = w-\/lr$\ast$grad with momentum and ada\+Grad. \end{DoxyCompactList}\item 
+virtual int \hyperlink{classNeuralNetwork_a1bc1c063c3048b0551ae92352b553060}{update\+Weights\+Fast} (int ii, int jj, int kk, double val, double penalty)=0
+\begin{DoxyCompactList}\small\item\em A virtual function implemented by C\+AE and AE to w = w-\/lr$\ast$grad without momentum and ada\+Grad. \end{DoxyCompactList}\item 
+virtual int \hyperlink{classNeuralNetwork_af21bec3f1affe1a95346a57fd332f734}{backpropagate} (double learning\+Rate, double lambda)=0
+\begin{DoxyCompactList}\small\item\em A virtual function implemented by C\+AE and AE to compute the backpropagation. \end{DoxyCompactList}\item 
+virtual int \hyperlink{classNeuralNetwork_a01f72adec49e446ad4305bd6ad9859da}{backpropagate\+Node\+Parallel} (double learning\+Rate, double lambda, int flag\+Release)=0
+\begin{DoxyCompactList}\small\item\em A virtual function implemented by C\+AE and AE to compute the backpropagation in parallel. \end{DoxyCompactList}\item 
+virtual \hyperlink{classNeuralNetwork_a65475a7d7b05d302392333302626b2f8}{$\sim$\+Neural\+Network} ()
+\begin{DoxyCompactList}\small\item\em A virtual destructor. \end{DoxyCompactList}\item 
+virtual std\+::string \hyperlink{classNeuralNetwork_aa3edc74bdbc4d8730c0fcc935dad2af0}{type} () const  =0
+\begin{DoxyCompactList}\small\item\em A virtual function giving the type of the encder (string) \end{DoxyCompactList}\item 
+\hyperlink{classLayer}{Layer} $\ast$ \hyperlink{classNeuralNetwork_a6e03934244dc6512a2d7a481cce51ffc}{get\+Layer} (int mb, int id) const 
+\item 
+int \hyperlink{classNeuralNetwork_a715c7cc10103a070b270c44b25924608}{get\+Numb\+Layers} () const 
+\item 
+int \hyperlink{classNeuralNetwork_aa264beacf67eeeb94a869647c07c692b}{get\+Mini\+Batch} () const 
+\item 
+double \hyperlink{classNeuralNetwork_a3182abfff4d633ac07cdfb35f32169ae}{get\+Layer\+U\+Delta} (int mb, int la, int u) const 
+\item 
+int \hyperlink{classNeuralNetwork_a516fbda3ce38841218d09bb823c17994}{get\+Layer\+NumbU} (int la) const 
+\item 
+double \hyperlink{classNeuralNetwork_ae61ce4f7b97b61398b0087afe6ac6d82}{get\+Layer\+U\+Output} (int mb, int la, int u) const 
+\item 
+float \hyperlink{classNeuralNetwork_a837e0348677eee2872de3f78de404870}{get\+Stats} (int ii, int jj) const 
+\item 
+int \hyperlink{classNeuralNetwork_ad9fccddee1743c2428bcc3e8bc3e29ae}{get\+Layer\+Act} (int mb, int la) const 
+\item 
+double \hyperlink{classNeuralNetwork_a660717474efe687f8b7b4bfadd643fee}{get\+WeightO} (int ii, int jj, int kk) const 
+\item 
+double \hyperlink{classNeuralNetwork_a73d05958b2b8a1f8c4ffb7a82509928f}{get\+Momentum} () const 
+\item 
+double \hyperlink{classNeuralNetwork_a92237c8f168045e56c6d3953d56dcc51}{get\+Drop\+Out} () const 
+\item 
+double \hyperlink{classNeuralNetwork_a5eaca7be1f8654a7bcd0ff8bdbd8dcfa}{get\+Ada\+Grad} () const 
+\item 
+int \hyperlink{classNeuralNetwork_adeafd6db805901beaad9930dda8c904b}{get\+Stats\+Flag} () const 
+\item 
+bool \hyperlink{classNeuralNetwork_a81f82e65356f4698fe412f7a2f6203da}{get\+Swapped} () const 
+\end{DoxyCompactItemize}
+\subsection*{Protected Types}
+\begin{DoxyCompactItemize}
+\item 
+enum \hyperlink{classNeuralNetwork_a4c1c6e488b842002a6d327726ff92dc5}{Flag} \{ \hyperlink{classNeuralNetwork_a4c1c6e488b842002a6d327726ff92dc5a0a2addaf6a0e180369ecaecb25f84d64}{disabled}, 
+\hyperlink{classNeuralNetwork_a4c1c6e488b842002a6d327726ff92dc5ab40dedbb237d7d5e7aeef947a8f1cbc6}{enabled}
+ \}\begin{DoxyCompactList}\small\item\em Flag to hold activated and deactivated values. \end{DoxyCompactList}
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classNeuralNetwork_a4c1c6e488b842002a6d327726ff92dc5}{Flag} \hyperlink{classNeuralNetwork_af7766960680b9a413ee4b36acad1e83d}{m\+\_\+flag\+Fast}
+\begin{DoxyCompactList}\small\item\em Flag used to mark whether fast versions of the functions can be used. \end{DoxyCompactList}\item 
+\hyperlink{classNeuralNetwork_a4c1c6e488b842002a6d327726ff92dc5}{Flag} \hyperlink{classNeuralNetwork_accd035b1b93fd424025aeb4b40a31394}{m\+\_\+stats\+Flag}
+\begin{DoxyCompactList}\small\item\em Flag to mark whether the user wants to gather statistics. \end{DoxyCompactList}\item 
+bool \hyperlink{classNeuralNetwork_a5009762781007f09860915f307701a60}{m\+\_\+flag\+Swapped}
+\begin{DoxyCompactList}\small\item\em Flag to mark whether the weights have been swapped (i.\+e. local minimum reached) \end{DoxyCompactList}\item 
+int \hyperlink{classNeuralNetwork_a1efaefc2c42a3d309c0b5e4a80a55f52}{m\+\_\+number\+Layers}
+\begin{DoxyCompactList}\small\item\em Number of layers in the neural network. \end{DoxyCompactList}\item 
+int \hyperlink{classNeuralNetwork_ad29fd15c4f0fc4c8fd214b4e815093b9}{m\+\_\+mini\+Batch}
+\begin{DoxyCompactList}\small\item\em Mini-\/batch size. \end{DoxyCompactList}\item 
+int \hyperlink{classNeuralNetwork_ae4f1fb12e7f5df8dac69abda6fe4d141}{m\+\_\+it\+Test}
+\begin{DoxyCompactList}\small\item\em Number of test iterations. \end{DoxyCompactList}\item 
+int \hyperlink{classNeuralNetwork_a25ea37c7b768bf2ade89c55b9e159ee2}{m\+\_\+it\+Train}
+\begin{DoxyCompactList}\small\item\em Number of train iterations. \end{DoxyCompactList}\item 
+int \hyperlink{classNeuralNetwork_aea6b9756c3ef7e82b2d40414beb37984}{m\+\_\+time\+Step}
+\begin{DoxyCompactList}\small\item\em Time step. \end{DoxyCompactList}\item 
+float \hyperlink{classNeuralNetwork_a30141464584fc2cc51599ffec4ce8dd8}{m\+\_\+ada\+Grad}
+\begin{DoxyCompactList}\small\item\em Magnitude of the adaptive gradient \mbox{[}0;1) \end{DoxyCompactList}\item 
+float \hyperlink{classNeuralNetwork_a8940dc6859b38907717cfec54e0929b1}{m\+\_\+momentum}
+\begin{DoxyCompactList}\small\item\em Magnitude of the momentum \mbox{[}0;1) \end{DoxyCompactList}\item 
+float \hyperlink{classNeuralNetwork_a754d963a6f58aee1e253f64d266ab487}{m\+\_\+drop\+Out}
+\begin{DoxyCompactList}\small\item\em Fraction of the units set to 0. \end{DoxyCompactList}\item 
+double \hyperlink{classNeuralNetwork_a5ff4dd9b7b90474cce090c37d7127366}{m\+\_\+sparse}
+\begin{DoxyCompactList}\small\item\em Magnitude of the penalty. \end{DoxyCompactList}\item 
+double \hyperlink{classNeuralNetwork_ac6e586b8ab49ef7ca1f07dab6f197f6c}{m\+\_\+sparsity\+Parameter}
+\begin{DoxyCompactList}\small\item\em The maximum value of the output neurons expected. \end{DoxyCompactList}\item 
+\hyperlink{classObjective}{Objective} \hyperlink{classNeuralNetwork_a296fef6f667d2bcf1080a16c8c3aceb2}{m\+\_\+objective}
+\begin{DoxyCompactList}\small\item\em Variable to hold objective function. \end{DoxyCompactList}\item 
+vector$<$ vector$<$ \hyperlink{classLayer}{Layer} $\ast$ $>$ $>$ \hyperlink{classNeuralNetwork_ab2bc4d407ef6b85a0089aaaa600e0fb8}{m\+\_\+layers}
+\begin{DoxyCompactList}\small\item\em Matrix of layers (1D -\/ minibatch, 2D -\/ layers) \end{DoxyCompactList}\item 
+vector$<$ int $>$ \hyperlink{classNeuralNetwork_a91b00cd0bb975be91e76eb13ffcfe78f}{m\+\_\+layers\+Size\+Vec}
+\begin{DoxyCompactList}\small\item\em Vector to hold the sizes of layers. \end{DoxyCompactList}\item 
+vector$<$ vector$<$ float $>$ $>$ \hyperlink{classNeuralNetwork_a15f7c03ca694dadc97a4290711ca2101}{m\+\_\+stats\+Hidden\+Units}
+\begin{DoxyCompactList}\small\item\em Matrix to hold the stats about output of the hidden units. \end{DoxyCompactList}\item 
+vector$<$ double $>$ \hyperlink{classNeuralNetwork_a257969584b79a83070b07462b1ec7fb2}{m\+\_\+av\+Units}
+\begin{DoxyCompactList}\small\item\em Vector to hold regularization for the sparse autoencoder. \end{DoxyCompactList}\item 
+vector$<$ double $>$ \hyperlink{classNeuralNetwork_ac447314a2315cd10f63b0b330857024a}{m\+\_\+sum\+Delta}
+\begin{DoxyCompactList}\small\item\em Vector used for Open\+MP to store calculations produced by different threads. \end{DoxyCompactList}\item 
+vector$<$ vector$<$ double $>$ $>$ \hyperlink{classNeuralNetwork_a456d6c273c0bd4f160f4d20f8b26f37b}{m\+\_\+drop\+Out\+Vec}
+\begin{DoxyCompactList}\small\item\em Vector with elements 1 and 0 marking the neurons set to 0. \end{DoxyCompactList}\item 
+vector$<$ vector$<$ vector$<$ double $>$ $>$ $>$ \hyperlink{classNeuralNetwork_ad489169464f3a6e827e6fb5de4419061}{m\+\_\+weights}
+\begin{DoxyCompactList}\small\item\em Cube of weights. \end{DoxyCompactList}\item 
+vector$<$ vector$<$ vector$<$ double $>$ $>$ $>$ \hyperlink{classNeuralNetwork_a9ac6bc441d6e2bfe7521d0b23ac8efdb}{m\+\_\+weights\+Min\+Cp}
+\begin{DoxyCompactList}\small\item\em Cube of weights with which local minimum is achieved. \end{DoxyCompactList}\item 
+vector$<$ vector$<$ vector$<$ double $>$ $>$ $>$ \hyperlink{classNeuralNetwork_a4345c084a3e1f604a3757e3b1ae3ad54}{m\+\_\+momentum\+Arr}
+\begin{DoxyCompactList}\small\item\em Holding momentum for each weight. \end{DoxyCompactList}\item 
+vector$<$ vector$<$ vector$<$ double $>$ $>$ $>$ \hyperlink{classNeuralNetwork_a0b6c7ff6e00c4f91e684217be91b0a28}{m\+\_\+sum\+Delta\+Arr}
+\begin{DoxyCompactList}\small\item\em Holding deltas for the ada\+Grad. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+A base class for Neural Network Algorithms. 
+
+A base class for contractive autoencoder and simple autoencoder. 
+
+Definition at line 27 of file Neural\+Network.\+h.
+
+
+
+\subsection{Member Enumeration Documentation}
+\index{Neural\+Network@{Neural\+Network}!Flag@{Flag}}
+\index{Flag@{Flag}!Neural\+Network@{Neural\+Network}}
+\subsubsection[{\texorpdfstring{Flag}{Flag}}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf Neural\+Network\+::\+Flag}\hspace{0.3cm}{\ttfamily [protected]}}\hypertarget{classNeuralNetwork_a4c1c6e488b842002a6d327726ff92dc5}{}\label{classNeuralNetwork_a4c1c6e488b842002a6d327726ff92dc5}
+
+
+Flag to hold activated and deactivated values. 
+
+\begin{Desc}
+\item[Enumerator]\par
+\begin{description}
+\index{disabled@{disabled}!Neural\+Network@{Neural\+Network}}\index{Neural\+Network@{Neural\+Network}!disabled@{disabled}}\item[{\em 
+disabled\hypertarget{classNeuralNetwork_a4c1c6e488b842002a6d327726ff92dc5a0a2addaf6a0e180369ecaecb25f84d64}{}\label{classNeuralNetwork_a4c1c6e488b842002a6d327726ff92dc5a0a2addaf6a0e180369ecaecb25f84d64}
+}]\index{enabled@{enabled}!Neural\+Network@{Neural\+Network}}\index{Neural\+Network@{Neural\+Network}!enabled@{enabled}}\item[{\em 
+enabled\hypertarget{classNeuralNetwork_a4c1c6e488b842002a6d327726ff92dc5ab40dedbb237d7d5e7aeef947a8f1cbc6}{}\label{classNeuralNetwork_a4c1c6e488b842002a6d327726ff92dc5ab40dedbb237d7d5e7aeef947a8f1cbc6}
+}]\end{description}
+\end{Desc}
+
+
+Definition at line 32 of file Neural\+Network.\+h.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Neural\+Network@{Neural\+Network}!Neural\+Network@{Neural\+Network}}
+\index{Neural\+Network@{Neural\+Network}!Neural\+Network@{Neural\+Network}}
+\subsubsection[{\texorpdfstring{Neural\+Network()}{NeuralNetwork()}}]{\setlength{\rightskip}{0pt plus 5cm}Neural\+Network\+::\+Neural\+Network (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classNeuralNetwork_accce4a7728e89a009a9d4ca1758c9b9d}{}\label{classNeuralNetwork_accce4a7728e89a009a9d4ca1758c9b9d}
+
+
+Definition at line 3 of file neuralnetwork.\+cpp.
+
+\index{Neural\+Network@{Neural\+Network}!````~Neural\+Network@{$\sim$\+Neural\+Network}}
+\index{````~Neural\+Network@{$\sim$\+Neural\+Network}!Neural\+Network@{Neural\+Network}}
+\subsubsection[{\texorpdfstring{$\sim$\+Neural\+Network()}{~NeuralNetwork()}}]{\setlength{\rightskip}{0pt plus 5cm}Neural\+Network\+::$\sim$\+Neural\+Network (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{classNeuralNetwork_a65475a7d7b05d302392333302626b2f8}{}\label{classNeuralNetwork_a65475a7d7b05d302392333302626b2f8}
+
+
+A virtual destructor. 
+
+
+
+Definition at line 476 of file neuralnetwork.\+cpp.
+
+
+
+\subsection{Member Function Documentation}
+\index{Neural\+Network@{Neural\+Network}!backpropagate@{backpropagate}}
+\index{backpropagate@{backpropagate}!Neural\+Network@{Neural\+Network}}
+\subsubsection[{\texorpdfstring{backpropagate(double learning\+Rate, double lambda)=0}{backpropagate(double learningRate, double lambda)=0}}]{\setlength{\rightskip}{0pt plus 5cm}virtual int Neural\+Network\+::backpropagate (
+\begin{DoxyParamCaption}
+\item[{double}]{learning\+Rate, }
+\item[{double}]{lambda}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}\hypertarget{classNeuralNetwork_af21bec3f1affe1a95346a57fd332f734}{}\label{classNeuralNetwork_af21bec3f1affe1a95346a57fd332f734}
+
+
+A virtual function implemented by C\+AE and AE to compute the backpropagation. 
+
+
+
+Implemented in \hyperlink{classAutoencoder_a1a52083d0822fec947b93edf0797880f}{Autoencoder}, and \hyperlink{classContractiveAutoencoder_a66bf959d85d09b2f5cc2e06d6bdfe6bf}{Contractive\+Autoencoder}.
+
+\index{Neural\+Network@{Neural\+Network}!backpropagate\+Node\+Parallel@{backpropagate\+Node\+Parallel}}
+\index{backpropagate\+Node\+Parallel@{backpropagate\+Node\+Parallel}!Neural\+Network@{Neural\+Network}}
+\subsubsection[{\texorpdfstring{backpropagate\+Node\+Parallel(double learning\+Rate, double lambda, int flag\+Release)=0}{backpropagateNodeParallel(double learningRate, double lambda, int flagRelease)=0}}]{\setlength{\rightskip}{0pt plus 5cm}virtual int Neural\+Network\+::backpropagate\+Node\+Parallel (
+\begin{DoxyParamCaption}
+\item[{double}]{learning\+Rate, }
+\item[{double}]{lambda, }
+\item[{int}]{flag\+Release}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}\hypertarget{classNeuralNetwork_a01f72adec49e446ad4305bd6ad9859da}{}\label{classNeuralNetwork_a01f72adec49e446ad4305bd6ad9859da}
+
+
+A virtual function implemented by C\+AE and AE to compute the backpropagation in parallel. 
+
+
+
+Implemented in \hyperlink{classAutoencoder_aa5832a7ff94e5af13d6fa41489796d82}{Autoencoder}, and \hyperlink{classContractiveAutoencoder_a65daf5136737423ee6b0fd89442cbf70}{Contractive\+Autoencoder}.
+
+\index{Neural\+Network@{Neural\+Network}!back\+PropagateU@{back\+PropagateU}}
+\index{back\+PropagateU@{back\+PropagateU}!Neural\+Network@{Neural\+Network}}
+\subsubsection[{\texorpdfstring{back\+Propagate\+U(int mb, int la, int ii)}{backPropagateU(int mb, int la, int ii)}}]{\setlength{\rightskip}{0pt plus 5cm}double Neural\+Network\+::back\+PropagateU (
+\begin{DoxyParamCaption}
+\item[{int}]{mb, }
+\item[{int}]{la, }
+\item[{int}]{ii}
+\end{DoxyParamCaption}
+)}\hypertarget{classNeuralNetwork_a9d80cfaedb341a1a94e5b932665904d4}{}\label{classNeuralNetwork_a9d80cfaedb341a1a94e5b932665904d4}
+A function to apply the derivative of the non-\/linearity and get the propagated value 
+\begin{DoxyParams}{Parameters}
+{\em mb} & mini-\/batch \\
+\hline
+{\em la} & layer \\
+\hline
+{\em ii} & unit in the layer \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 251 of file neuralnetwork.\+cpp.
+
+\index{Neural\+Network@{Neural\+Network}!delta\+Compute@{delta\+Compute}}
+\index{delta\+Compute@{delta\+Compute}!Neural\+Network@{Neural\+Network}}
+\subsubsection[{\texorpdfstring{delta\+Compute(int mb)}{deltaCompute(int mb)}}]{\setlength{\rightskip}{0pt plus 5cm}double Neural\+Network\+::delta\+Compute (
+\begin{DoxyParamCaption}
+\item[{int}]{mb}
+\end{DoxyParamCaption}
+)}\hypertarget{classNeuralNetwork_a49f0a71b2cfd1bd2a4af986354fa103c}{}\label{classNeuralNetwork_a49f0a71b2cfd1bd2a4af986354fa103c}
+A function to compute deltas for a given mini-\/batch 
+\begin{DoxyParams}{Parameters}
+{\em mb} & mini-\/batch \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 212 of file neuralnetwork.\+cpp.
+
+\index{Neural\+Network@{Neural\+Network}!delta\+Compute\+Node\+Parallel@{delta\+Compute\+Node\+Parallel}}
+\index{delta\+Compute\+Node\+Parallel@{delta\+Compute\+Node\+Parallel}!Neural\+Network@{Neural\+Network}}
+\subsubsection[{\texorpdfstring{delta\+Compute\+Node\+Parallel(int mb)}{deltaComputeNodeParallel(int mb)}}]{\setlength{\rightskip}{0pt plus 5cm}double Neural\+Network\+::delta\+Compute\+Node\+Parallel (
+\begin{DoxyParamCaption}
+\item[{int}]{mb}
+\end{DoxyParamCaption}
+)}\hypertarget{classNeuralNetwork_aff3f167f69f75a74ce3c425b8783d321}{}\label{classNeuralNetwork_aff3f167f69f75a74ce3c425b8783d321}
+A parallel function to compute deltas for a given mini-\/batch 
+\begin{DoxyParams}{Parameters}
+{\em mb} & mini-\/batch \\
+\hline
+\end{DoxyParams}
+m\+\_\+av\+Units\mbox{[}jj\mbox{]}=0.\+0; Y\+OU C\+A\+N\+N\+OT 0, beacuse the value is used in the next iteration 
+
+Definition at line 133 of file neuralnetwork.\+cpp.
+
+\index{Neural\+Network@{Neural\+Network}!dot\+Product@{dot\+Product}}
+\index{dot\+Product@{dot\+Product}!Neural\+Network@{Neural\+Network}}
+\subsubsection[{\texorpdfstring{dot\+Product(int mb, int kk, int jj)}{dotProduct(int mb, int kk, int jj)}}]{\setlength{\rightskip}{0pt plus 5cm}double Neural\+Network\+::dot\+Product (
+\begin{DoxyParamCaption}
+\item[{int}]{mb, }
+\item[{int}]{kk, }
+\item[{int}]{jj}
+\end{DoxyParamCaption}
+)}\hypertarget{classNeuralNetwork_adca7f84b7b063acebef819bae1abbaf7}{}\label{classNeuralNetwork_adca7f84b7b063acebef819bae1abbaf7}
+A function 
+\begin{DoxyParams}{Parameters}
+{\em mb} & \\
+\hline
+{\em kk} & \\
+\hline
+{\em jj} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 111 of file neuralnetwork.\+cpp.
+
+\index{Neural\+Network@{Neural\+Network}!dot\+Product\+Prop@{dot\+Product\+Prop}}
+\index{dot\+Product\+Prop@{dot\+Product\+Prop}!Neural\+Network@{Neural\+Network}}
+\subsubsection[{\texorpdfstring{dot\+Product\+Prop(int mb, int kk, int jj)}{dotProductProp(int mb, int kk, int jj)}}]{\setlength{\rightskip}{0pt plus 5cm}void Neural\+Network\+::dot\+Product\+Prop (
+\begin{DoxyParamCaption}
+\item[{int}]{mb, }
+\item[{int}]{kk, }
+\item[{int}]{jj}
+\end{DoxyParamCaption}
+)}\hypertarget{classNeuralNetwork_af8a0997a14c97e1fb6ef97d3c132f808}{}\label{classNeuralNetwork_af8a0997a14c97e1fb6ef97d3c132f808}
+A function called from the feedforward to compute the dot product of the neuron outputs with associated weights and pass it through the non-\/linearity 
+\begin{DoxyParams}{Parameters}
+{\em mb} & \\
+\hline
+{\em kk} & \\
+\hline
+{\em jj} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 124 of file neuralnetwork.\+cpp.
+
+\index{Neural\+Network@{Neural\+Network}!feedforward@{feedforward}}
+\index{feedforward@{feedforward}!Neural\+Network@{Neural\+Network}}
+\subsubsection[{\texorpdfstring{feedforward(int mb)}{feedforward(int mb)}}]{\setlength{\rightskip}{0pt plus 5cm}int Neural\+Network\+::feedforward (
+\begin{DoxyParamCaption}
+\item[{int}]{mb}
+\end{DoxyParamCaption}
+)}\hypertarget{classNeuralNetwork_ae3d909ef30a5c179a236571e126aa841}{}\label{classNeuralNetwork_ae3d909ef30a5c179a236571e126aa841}
+Feedforward 
+\begin{DoxyParams}{Parameters}
+{\em mb} & -\/ mini-\/batch \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 49 of file neuralnetwork.\+cpp.
+
+\index{Neural\+Network@{Neural\+Network}!feedforward\+Node\+Parallel@{feedforward\+Node\+Parallel}}
+\index{feedforward\+Node\+Parallel@{feedforward\+Node\+Parallel}!Neural\+Network@{Neural\+Network}}
+\subsubsection[{\texorpdfstring{feedforward\+Node\+Parallel(int mb)}{feedforwardNodeParallel(int mb)}}]{\setlength{\rightskip}{0pt plus 5cm}int Neural\+Network\+::feedforward\+Node\+Parallel (
+\begin{DoxyParamCaption}
+\item[{int}]{mb}
+\end{DoxyParamCaption}
+)}\hypertarget{classNeuralNetwork_aad8fc497e54c397d3e4e91376e02e939}{}\label{classNeuralNetwork_aad8fc497e54c397d3e4e91376e02e939}
+Node parallel feedforward 
+\begin{DoxyParams}{Parameters}
+{\em mb} & -\/ mini-\/batch \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 93 of file neuralnetwork.\+cpp.
+
+\index{Neural\+Network@{Neural\+Network}!feedforward\+Node\+Parallel\+Comp\+Sparse@{feedforward\+Node\+Parallel\+Comp\+Sparse}}
+\index{feedforward\+Node\+Parallel\+Comp\+Sparse@{feedforward\+Node\+Parallel\+Comp\+Sparse}!Neural\+Network@{Neural\+Network}}
+\subsubsection[{\texorpdfstring{feedforward\+Node\+Parallel\+Comp\+Sparse(int mb)}{feedforwardNodeParallelCompSparse(int mb)}}]{\setlength{\rightskip}{0pt plus 5cm}int Neural\+Network\+::feedforward\+Node\+Parallel\+Comp\+Sparse (
+\begin{DoxyParamCaption}
+\item[{int}]{mb}
+\end{DoxyParamCaption}
+)}\hypertarget{classNeuralNetwork_a82af0b25c1099ac3818a36911b63e8db}{}\label{classNeuralNetwork_a82af0b25c1099ac3818a36911b63e8db}
+A feed forward function used to compute the penalty for the sparse autoencoder 
+\begin{DoxyParams}{Parameters}
+{\em mb} & mini-\/batch \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 72 of file neuralnetwork.\+cpp.
+
+\index{Neural\+Network@{Neural\+Network}!get\+Ada\+Grad@{get\+Ada\+Grad}}
+\index{get\+Ada\+Grad@{get\+Ada\+Grad}!Neural\+Network@{Neural\+Network}}
+\subsubsection[{\texorpdfstring{get\+Ada\+Grad() const }{getAdaGrad() const }}]{\setlength{\rightskip}{0pt plus 5cm}double Neural\+Network\+::get\+Ada\+Grad (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classNeuralNetwork_a5eaca7be1f8654a7bcd0ff8bdbd8dcfa}{}\label{classNeuralNetwork_a5eaca7be1f8654a7bcd0ff8bdbd8dcfa}
+
+
+Definition at line 252 of file Neural\+Network.\+h.
+
+\index{Neural\+Network@{Neural\+Network}!get\+Drop\+Out@{get\+Drop\+Out}}
+\index{get\+Drop\+Out@{get\+Drop\+Out}!Neural\+Network@{Neural\+Network}}
+\subsubsection[{\texorpdfstring{get\+Drop\+Out() const }{getDropOut() const }}]{\setlength{\rightskip}{0pt plus 5cm}double Neural\+Network\+::get\+Drop\+Out (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classNeuralNetwork_a92237c8f168045e56c6d3953d56dcc51}{}\label{classNeuralNetwork_a92237c8f168045e56c6d3953d56dcc51}
+
+
+Definition at line 250 of file Neural\+Network.\+h.
+
+\index{Neural\+Network@{Neural\+Network}!get\+Grad@{get\+Grad}}
+\index{get\+Grad@{get\+Grad}!Neural\+Network@{Neural\+Network}}
+\subsubsection[{\texorpdfstring{get\+Grad(int kk, int jj, int ii)}{getGrad(int kk, int jj, int ii)}}]{\setlength{\rightskip}{0pt plus 5cm}double Neural\+Network\+::get\+Grad (
+\begin{DoxyParamCaption}
+\item[{int}]{kk, }
+\item[{int}]{jj, }
+\item[{int}]{ii}
+\end{DoxyParamCaption}
+)}\hypertarget{classNeuralNetwork_af0c6f4203d6c3b823a575954102bdf5d}{}\label{classNeuralNetwork_af0c6f4203d6c3b823a575954102bdf5d}
+A function used to get the gradient in the backporapagation stage 
+\begin{DoxyParams}{Parameters}
+{\em kk} & -\/ layer \\
+\hline
+{\em jj} & -\/ unit in the kk layer \\
+\hline
+{\em ii} & -\/ unit in the (kk-\/1) layer \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 256 of file neuralnetwork.\+cpp.
+
+\index{Neural\+Network@{Neural\+Network}!get\+Layer@{get\+Layer}}
+\index{get\+Layer@{get\+Layer}!Neural\+Network@{Neural\+Network}}
+\subsubsection[{\texorpdfstring{get\+Layer(int mb, int id) const }{getLayer(int mb, int id) const }}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Layer}$\ast$ Neural\+Network\+::get\+Layer (
+\begin{DoxyParamCaption}
+\item[{int}]{mb, }
+\item[{int}]{id}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classNeuralNetwork_a6e03934244dc6512a2d7a481cce51ffc}{}\label{classNeuralNetwork_a6e03934244dc6512a2d7a481cce51ffc}
+
+
+Definition at line 230 of file Neural\+Network.\+h.
+
+\index{Neural\+Network@{Neural\+Network}!get\+Layer\+Act@{get\+Layer\+Act}}
+\index{get\+Layer\+Act@{get\+Layer\+Act}!Neural\+Network@{Neural\+Network}}
+\subsubsection[{\texorpdfstring{get\+Layer\+Act(int mb, int la) const }{getLayerAct(int mb, int la) const }}]{\setlength{\rightskip}{0pt plus 5cm}int Neural\+Network\+::get\+Layer\+Act (
+\begin{DoxyParamCaption}
+\item[{int}]{mb, }
+\item[{int}]{la}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classNeuralNetwork_ad9fccddee1743c2428bcc3e8bc3e29ae}{}\label{classNeuralNetwork_ad9fccddee1743c2428bcc3e8bc3e29ae}
+
+
+Definition at line 244 of file Neural\+Network.\+h.
+
+\index{Neural\+Network@{Neural\+Network}!get\+Layer\+NumbU@{get\+Layer\+NumbU}}
+\index{get\+Layer\+NumbU@{get\+Layer\+NumbU}!Neural\+Network@{Neural\+Network}}
+\subsubsection[{\texorpdfstring{get\+Layer\+Numb\+U(int la) const }{getLayerNumbU(int la) const }}]{\setlength{\rightskip}{0pt plus 5cm}int Neural\+Network\+::get\+Layer\+NumbU (
+\begin{DoxyParamCaption}
+\item[{int}]{la}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classNeuralNetwork_a516fbda3ce38841218d09bb823c17994}{}\label{classNeuralNetwork_a516fbda3ce38841218d09bb823c17994}
+
+
+Definition at line 238 of file Neural\+Network.\+h.
+
+\index{Neural\+Network@{Neural\+Network}!get\+Layer\+U\+Delta@{get\+Layer\+U\+Delta}}
+\index{get\+Layer\+U\+Delta@{get\+Layer\+U\+Delta}!Neural\+Network@{Neural\+Network}}
+\subsubsection[{\texorpdfstring{get\+Layer\+U\+Delta(int mb, int la, int u) const }{getLayerUDelta(int mb, int la, int u) const }}]{\setlength{\rightskip}{0pt plus 5cm}double Neural\+Network\+::get\+Layer\+U\+Delta (
+\begin{DoxyParamCaption}
+\item[{int}]{mb, }
+\item[{int}]{la, }
+\item[{int}]{u}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classNeuralNetwork_a3182abfff4d633ac07cdfb35f32169ae}{}\label{classNeuralNetwork_a3182abfff4d633ac07cdfb35f32169ae}
+
+
+Definition at line 236 of file Neural\+Network.\+h.
+
+\index{Neural\+Network@{Neural\+Network}!get\+Layer\+U\+Output@{get\+Layer\+U\+Output}}
+\index{get\+Layer\+U\+Output@{get\+Layer\+U\+Output}!Neural\+Network@{Neural\+Network}}
+\subsubsection[{\texorpdfstring{get\+Layer\+U\+Output(int mb, int la, int u) const }{getLayerUOutput(int mb, int la, int u) const }}]{\setlength{\rightskip}{0pt plus 5cm}double Neural\+Network\+::get\+Layer\+U\+Output (
+\begin{DoxyParamCaption}
+\item[{int}]{mb, }
+\item[{int}]{la, }
+\item[{int}]{u}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classNeuralNetwork_ae61ce4f7b97b61398b0087afe6ac6d82}{}\label{classNeuralNetwork_ae61ce4f7b97b61398b0087afe6ac6d82}
+
+
+Definition at line 240 of file Neural\+Network.\+h.
+
+\index{Neural\+Network@{Neural\+Network}!get\+L\+S\+Error@{get\+L\+S\+Error}}
+\index{get\+L\+S\+Error@{get\+L\+S\+Error}!Neural\+Network@{Neural\+Network}}
+\subsubsection[{\texorpdfstring{get\+L\+S\+Error(double target, double predicted, int dist\+From\+Center)}{getLSError(double target, double predicted, int distFromCenter)}}]{\setlength{\rightskip}{0pt plus 5cm}double Neural\+Network\+::get\+L\+S\+Error (
+\begin{DoxyParamCaption}
+\item[{double}]{target, }
+\item[{double}]{predicted, }
+\item[{int}]{dist\+From\+Center}
+\end{DoxyParamCaption}
+)}\hypertarget{classNeuralNetwork_a3c92371fb8eb9363460223b67f2716f4}{}\label{classNeuralNetwork_a3c92371fb8eb9363460223b67f2716f4}
+The function to get the Squared error between the target and predicted values used in to weight error on the edges of the patches 
+\begin{DoxyParams}{Parameters}
+{\em target} & -\/ target value \\
+\hline
+{\em predicted} & -\/ predicted value \\
+\hline
+{\em dist\+From\+Center} & -\/ distance of the point from the center of the patch \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 8 of file neuralnetwork.\+cpp.
+
+\index{Neural\+Network@{Neural\+Network}!get\+Mini\+Batch@{get\+Mini\+Batch}}
+\index{get\+Mini\+Batch@{get\+Mini\+Batch}!Neural\+Network@{Neural\+Network}}
+\subsubsection[{\texorpdfstring{get\+Mini\+Batch() const }{getMiniBatch() const }}]{\setlength{\rightskip}{0pt plus 5cm}int Neural\+Network\+::get\+Mini\+Batch (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classNeuralNetwork_aa264beacf67eeeb94a869647c07c692b}{}\label{classNeuralNetwork_aa264beacf67eeeb94a869647c07c692b}
+
+
+Definition at line 234 of file Neural\+Network.\+h.
+
+\index{Neural\+Network@{Neural\+Network}!get\+Momentum@{get\+Momentum}}
+\index{get\+Momentum@{get\+Momentum}!Neural\+Network@{Neural\+Network}}
+\subsubsection[{\texorpdfstring{get\+Momentum() const }{getMomentum() const }}]{\setlength{\rightskip}{0pt plus 5cm}double Neural\+Network\+::get\+Momentum (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classNeuralNetwork_a73d05958b2b8a1f8c4ffb7a82509928f}{}\label{classNeuralNetwork_a73d05958b2b8a1f8c4ffb7a82509928f}
+
+
+Definition at line 248 of file Neural\+Network.\+h.
+
+\index{Neural\+Network@{Neural\+Network}!get\+Numb\+Layers@{get\+Numb\+Layers}}
+\index{get\+Numb\+Layers@{get\+Numb\+Layers}!Neural\+Network@{Neural\+Network}}
+\subsubsection[{\texorpdfstring{get\+Numb\+Layers() const }{getNumbLayers() const }}]{\setlength{\rightskip}{0pt plus 5cm}int Neural\+Network\+::get\+Numb\+Layers (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classNeuralNetwork_a715c7cc10103a070b270c44b25924608}{}\label{classNeuralNetwork_a715c7cc10103a070b270c44b25924608}
+
+
+Definition at line 232 of file Neural\+Network.\+h.
+
+\index{Neural\+Network@{Neural\+Network}!get\+Stats@{get\+Stats}}
+\index{get\+Stats@{get\+Stats}!Neural\+Network@{Neural\+Network}}
+\subsubsection[{\texorpdfstring{get\+Stats(int ii, int jj) const }{getStats(int ii, int jj) const }}]{\setlength{\rightskip}{0pt plus 5cm}float Neural\+Network\+::get\+Stats (
+\begin{DoxyParamCaption}
+\item[{int}]{ii, }
+\item[{int}]{jj}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classNeuralNetwork_a837e0348677eee2872de3f78de404870}{}\label{classNeuralNetwork_a837e0348677eee2872de3f78de404870}
+
+
+Definition at line 242 of file Neural\+Network.\+h.
+
+\index{Neural\+Network@{Neural\+Network}!get\+Stats\+Flag@{get\+Stats\+Flag}}
+\index{get\+Stats\+Flag@{get\+Stats\+Flag}!Neural\+Network@{Neural\+Network}}
+\subsubsection[{\texorpdfstring{get\+Stats\+Flag() const }{getStatsFlag() const }}]{\setlength{\rightskip}{0pt plus 5cm}int Neural\+Network\+::get\+Stats\+Flag (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classNeuralNetwork_adeafd6db805901beaad9930dda8c904b}{}\label{classNeuralNetwork_adeafd6db805901beaad9930dda8c904b}
+
+
+Definition at line 254 of file Neural\+Network.\+h.
+
+\index{Neural\+Network@{Neural\+Network}!get\+Swapped@{get\+Swapped}}
+\index{get\+Swapped@{get\+Swapped}!Neural\+Network@{Neural\+Network}}
+\subsubsection[{\texorpdfstring{get\+Swapped() const }{getSwapped() const }}]{\setlength{\rightskip}{0pt plus 5cm}bool Neural\+Network\+::get\+Swapped (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classNeuralNetwork_a81f82e65356f4698fe412f7a2f6203da}{}\label{classNeuralNetwork_a81f82e65356f4698fe412f7a2f6203da}
+
+
+Definition at line 256 of file Neural\+Network.\+h.
+
+\index{Neural\+Network@{Neural\+Network}!get\+WeightO@{get\+WeightO}}
+\index{get\+WeightO@{get\+WeightO}!Neural\+Network@{Neural\+Network}}
+\subsubsection[{\texorpdfstring{get\+Weight\+O(int ii, int jj, int kk) const }{getWeightO(int ii, int jj, int kk) const }}]{\setlength{\rightskip}{0pt plus 5cm}double Neural\+Network\+::get\+WeightO (
+\begin{DoxyParamCaption}
+\item[{int}]{ii, }
+\item[{int}]{jj, }
+\item[{int}]{kk}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classNeuralNetwork_a660717474efe687f8b7b4bfadd643fee}{}\label{classNeuralNetwork_a660717474efe687f8b7b4bfadd643fee}
+
+
+Definition at line 246 of file Neural\+Network.\+h.
+
+\index{Neural\+Network@{Neural\+Network}!initialise@{initialise}}
+\index{initialise@{initialise}!Neural\+Network@{Neural\+Network}}
+\subsubsection[{\texorpdfstring{initialise(\+Params\+Init parameters)}{initialise(ParamsInit parameters)}}]{\setlength{\rightskip}{0pt plus 5cm}void Neural\+Network\+::initialise (
+\begin{DoxyParamCaption}
+\item[{{\bf Params\+Init}}]{parameters}
+\end{DoxyParamCaption}
+)}\hypertarget{classNeuralNetwork_ab72a0bebc4933c5e495636fe15d33982}{}\label{classNeuralNetwork_ab72a0bebc4933c5e495636fe15d33982}
+A function to initialise the Neural netowrk 
+\begin{DoxyParams}{Parameters}
+{\em parameters} & used to stor contents of the config file \\
+\hline
+\end{DoxyParams}
+Drop out initialise
+
+Stats hidden units initialise
+
+Bias set
+
+Function to Initialise Weights 
+
+Definition at line 276 of file neuralnetwork.\+cpp.
+
+\index{Neural\+Network@{Neural\+Network}!initialise\+Delta\+Bias@{initialise\+Delta\+Bias}}
+\index{initialise\+Delta\+Bias@{initialise\+Delta\+Bias}!Neural\+Network@{Neural\+Network}}
+\subsubsection[{\texorpdfstring{initialise\+Delta\+Bias(\+Params\+Init parameters)}{initialiseDeltaBias(ParamsInit parameters)}}]{\setlength{\rightskip}{0pt plus 5cm}void Neural\+Network\+::initialise\+Delta\+Bias (
+\begin{DoxyParamCaption}
+\item[{{\bf Params\+Init}}]{parameters}
+\end{DoxyParamCaption}
+)}\hypertarget{classNeuralNetwork_ae8bd77cbaa88df5152db8a745254141c}{}\label{classNeuralNetwork_ae8bd77cbaa88df5152db8a745254141c}
+A function to set bias and delta values 
+\begin{DoxyParams}{Parameters}
+{\em parameters} & -\/ used to stor the results from the config file \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 327 of file neuralnetwork.\+cpp.
+
+\index{Neural\+Network@{Neural\+Network}!initialise\+Drop\+Out@{initialise\+Drop\+Out}}
+\index{initialise\+Drop\+Out@{initialise\+Drop\+Out}!Neural\+Network@{Neural\+Network}}
+\subsubsection[{\texorpdfstring{initialise\+Drop\+Out()}{initialiseDropOut()}}]{\setlength{\rightskip}{0pt plus 5cm}void Neural\+Network\+::initialise\+Drop\+Out (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classNeuralNetwork_a4e078c8f704a0118f9ed9457b5e6c74d}{}\label{classNeuralNetwork_a4e078c8f704a0118f9ed9457b5e6c74d}
+
+
+A function to initialise the vectors holding positions of the nodes to be set to 0. 
+
+
+
+Definition at line 344 of file neuralnetwork.\+cpp.
+
+\index{Neural\+Network@{Neural\+Network}!initialise\+Stats\+Hidden\+Units@{initialise\+Stats\+Hidden\+Units}}
+\index{initialise\+Stats\+Hidden\+Units@{initialise\+Stats\+Hidden\+Units}!Neural\+Network@{Neural\+Network}}
+\subsubsection[{\texorpdfstring{initialise\+Stats\+Hidden\+Units()}{initialiseStatsHiddenUnits()}}]{\setlength{\rightskip}{0pt plus 5cm}void Neural\+Network\+::initialise\+Stats\+Hidden\+Units (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classNeuralNetwork_ae27621b39d0afef732ca36e5ab0a6b73}{}\label{classNeuralNetwork_ae27621b39d0afef732ca36e5ab0a6b73}
+
+
+Allocate memory for the array holding the statistics about hidden units. 
+
+
+
+Definition at line 366 of file neuralnetwork.\+cpp.
+
+\index{Neural\+Network@{Neural\+Network}!initialise\+Weights@{initialise\+Weights}}
+\index{initialise\+Weights@{initialise\+Weights}!Neural\+Network@{Neural\+Network}}
+\subsubsection[{\texorpdfstring{initialise\+Weights(\+Params\+Init parameters)}{initialiseWeights(ParamsInit parameters)}}]{\setlength{\rightskip}{0pt plus 5cm}void Neural\+Network\+::initialise\+Weights (
+\begin{DoxyParamCaption}
+\item[{{\bf Params\+Init}}]{parameters}
+\end{DoxyParamCaption}
+)}\hypertarget{classNeuralNetwork_a36525085d71d9aa8d755e5e19ebae7cc}{}\label{classNeuralNetwork_a36525085d71d9aa8d755e5e19ebae7cc}
+A function to initialise weights 
+\begin{DoxyParams}{Parameters}
+{\em parameters} & -\/ used to stor the results from the config file \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 382 of file neuralnetwork.\+cpp.
+
+\index{Neural\+Network@{Neural\+Network}!init\+Weights\+From\+File@{init\+Weights\+From\+File}}
+\index{init\+Weights\+From\+File@{init\+Weights\+From\+File}!Neural\+Network@{Neural\+Network}}
+\subsubsection[{\texorpdfstring{init\+Weights\+From\+File(std\+::string path)}{initWeightsFromFile(std::string path)}}]{\setlength{\rightskip}{0pt plus 5cm}void Neural\+Network\+::init\+Weights\+From\+File (
+\begin{DoxyParamCaption}
+\item[{std\+::string}]{path}
+\end{DoxyParamCaption}
+)}\hypertarget{classNeuralNetwork_a77e3c1107530a1cb28021c7c2864c81f}{}\label{classNeuralNetwork_a77e3c1107530a1cb28021c7c2864c81f}
+A function used to initialise weights from the file 
+\begin{DoxyParams}{Parameters}
+{\em path} & -\/ a path to the weights file \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 431 of file neuralnetwork.\+cpp.
+
+\index{Neural\+Network@{Neural\+Network}!make\+Weight\+Cpy@{make\+Weight\+Cpy}}
+\index{make\+Weight\+Cpy@{make\+Weight\+Cpy}!Neural\+Network@{Neural\+Network}}
+\subsubsection[{\texorpdfstring{make\+Weight\+Cpy()}{makeWeightCpy()}}]{\setlength{\rightskip}{0pt plus 5cm}int Neural\+Network\+::make\+Weight\+Cpy (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classNeuralNetwork_a30196e8390fead450b9495b3a782b198}{}\label{classNeuralNetwork_a30196e8390fead450b9495b3a782b198}
+
+
+A function called when local minimum in the validation error is achieved, to store the combination of weights. 
+
+
+
+Definition at line 21 of file neuralnetwork.\+cpp.
+
+\index{Neural\+Network@{Neural\+Network}!set\+Drop\+Out@{set\+Drop\+Out}}
+\index{set\+Drop\+Out@{set\+Drop\+Out}!Neural\+Network@{Neural\+Network}}
+\subsubsection[{\texorpdfstring{set\+Drop\+Out()}{setDropOut()}}]{\setlength{\rightskip}{0pt plus 5cm}int Neural\+Network\+::set\+Drop\+Out (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classNeuralNetwork_a1d0b90f44982811b3e28e3b9a4dfa810}{}\label{classNeuralNetwork_a1d0b90f44982811b3e28e3b9a4dfa810}
+
+
+A function to set the values of the drop out (shuffle the vectors) 
+
+
+
+Definition at line 40 of file neuralnetwork.\+cpp.
+
+\index{Neural\+Network@{Neural\+Network}!set\+Layer\+U\+Delta@{set\+Layer\+U\+Delta}}
+\index{set\+Layer\+U\+Delta@{set\+Layer\+U\+Delta}!Neural\+Network@{Neural\+Network}}
+\subsubsection[{\texorpdfstring{set\+Layer\+U\+Delta(int mb, int la, int u, double val)}{setLayerUDelta(int mb, int la, int u, double val)}}]{\setlength{\rightskip}{0pt plus 5cm}void Neural\+Network\+::set\+Layer\+U\+Delta (
+\begin{DoxyParamCaption}
+\item[{int}]{mb, }
+\item[{int}]{la, }
+\item[{int}]{u, }
+\item[{double}]{val}
+\end{DoxyParamCaption}
+)}\hypertarget{classNeuralNetwork_a2a84fe4a996154130853f031c6e475aa}{}\label{classNeuralNetwork_a2a84fe4a996154130853f031c6e475aa}
+A function to set the delta of the unit 
+\begin{DoxyParams}{Parameters}
+{\em mb} & -\/ mini-\/batch \\
+\hline
+{\em la} & -\/ layer \\
+\hline
+{\em u} & -\/ unit \\
+\hline
+{\em val} & -\/ value \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 271 of file neuralnetwork.\+cpp.
+
+\index{Neural\+Network@{Neural\+Network}!set\+Layer\+U\+Output@{set\+Layer\+U\+Output}}
+\index{set\+Layer\+U\+Output@{set\+Layer\+U\+Output}!Neural\+Network@{Neural\+Network}}
+\subsubsection[{\texorpdfstring{set\+Layer\+U\+Output(int mb, int la, int u, double val)}{setLayerUOutput(int mb, int la, int u, double val)}}]{\setlength{\rightskip}{0pt plus 5cm}void Neural\+Network\+::set\+Layer\+U\+Output (
+\begin{DoxyParamCaption}
+\item[{int}]{mb, }
+\item[{int}]{la, }
+\item[{int}]{u, }
+\item[{double}]{val}
+\end{DoxyParamCaption}
+)}\hypertarget{classNeuralNetwork_ad5d0e3d069c7ce2fbde30161771ba507}{}\label{classNeuralNetwork_ad5d0e3d069c7ce2fbde30161771ba507}
+A function to set the output of the unit 
+\begin{DoxyParams}{Parameters}
+{\em mb} & -\/ mini-\/batch \\
+\hline
+{\em la} & -\/ layer \\
+\hline
+{\em u} & -\/ unit \\
+\hline
+{\em val} & -\/ value \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 267 of file neuralnetwork.\+cpp.
+
+\index{Neural\+Network@{Neural\+Network}!set\+Time\+Step@{set\+Time\+Step}}
+\index{set\+Time\+Step@{set\+Time\+Step}!Neural\+Network@{Neural\+Network}}
+\subsubsection[{\texorpdfstring{set\+Time\+Step(int step)}{setTimeStep(int step)}}]{\setlength{\rightskip}{0pt plus 5cm}void Neural\+Network\+::set\+Time\+Step (
+\begin{DoxyParamCaption}
+\item[{int}]{step}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classNeuralNetwork_ad70d1e2802185f0126f0c52ac2dc55f1}{}\label{classNeuralNetwork_ad70d1e2802185f0126f0c52ac2dc55f1}
+
+
+The function to set timestep. 
+
+
+
+Definition at line 209 of file Neural\+Network.\+h.
+
+\index{Neural\+Network@{Neural\+Network}!swap\+Weights@{swap\+Weights}}
+\index{swap\+Weights@{swap\+Weights}!Neural\+Network@{Neural\+Network}}
+\subsubsection[{\texorpdfstring{swap\+Weights()}{swapWeights()}}]{\setlength{\rightskip}{0pt plus 5cm}void Neural\+Network\+::swap\+Weights (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classNeuralNetwork_aeccccbe1b61dec7e4e76bd55bad7e591}{}\label{classNeuralNetwork_aeccccbe1b61dec7e4e76bd55bad7e591}
+
+
+A function to swap the weights (current with the save with which the local minimum in the error is obtained) 
+
+
+
+Definition at line 15 of file neuralnetwork.\+cpp.
+
+\index{Neural\+Network@{Neural\+Network}!type@{type}}
+\index{type@{type}!Neural\+Network@{Neural\+Network}}
+\subsubsection[{\texorpdfstring{type() const  =0}{type() const  =0}}]{\setlength{\rightskip}{0pt plus 5cm}virtual std\+::string Neural\+Network\+::type (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [pure virtual]}}\hypertarget{classNeuralNetwork_aa3edc74bdbc4d8730c0fcc935dad2af0}{}\label{classNeuralNetwork_aa3edc74bdbc4d8730c0fcc935dad2af0}
+
+
+A virtual function giving the type of the encder (string) 
+
+
+
+Implemented in \hyperlink{classAutoencoder_a0a306ad1b822c63cdcfe99a33233f7ea}{Autoencoder}, and \hyperlink{classContractiveAutoencoder_a8db3fc9434f66e1a7e036a49f2d19ac6}{Contractive\+Autoencoder}.
+
+\index{Neural\+Network@{Neural\+Network}!update\+Weights@{update\+Weights}}
+\index{update\+Weights@{update\+Weights}!Neural\+Network@{Neural\+Network}}
+\subsubsection[{\texorpdfstring{update\+Weights(int ii, int jj, int kk, double val, double penalty)=0}{updateWeights(int ii, int jj, int kk, double val, double penalty)=0}}]{\setlength{\rightskip}{0pt plus 5cm}virtual int Neural\+Network\+::update\+Weights (
+\begin{DoxyParamCaption}
+\item[{int}]{ii, }
+\item[{int}]{jj, }
+\item[{int}]{kk, }
+\item[{double}]{val, }
+\item[{double}]{penalty}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [pure virtual]}}\hypertarget{classNeuralNetwork_acd83d73dbae85f80c1173bdb53e37726}{}\label{classNeuralNetwork_acd83d73dbae85f80c1173bdb53e37726}
+
+
+A virtual function implemented by C\+AE and AE to w = w-\/lr$\ast$grad with momentum and ada\+Grad. 
+
+
+
+Implemented in \hyperlink{classAutoencoder_a4730a37272e51bef6c1a50efc9322fbe}{Autoencoder}, and \hyperlink{classContractiveAutoencoder_ab10b3558c21939bed2654a0110b6bc08}{Contractive\+Autoencoder}.
+
+\index{Neural\+Network@{Neural\+Network}!update\+Weights\+Fast@{update\+Weights\+Fast}}
+\index{update\+Weights\+Fast@{update\+Weights\+Fast}!Neural\+Network@{Neural\+Network}}
+\subsubsection[{\texorpdfstring{update\+Weights\+Fast(int ii, int jj, int kk, double val, double penalty)=0}{updateWeightsFast(int ii, int jj, int kk, double val, double penalty)=0}}]{\setlength{\rightskip}{0pt plus 5cm}virtual int Neural\+Network\+::update\+Weights\+Fast (
+\begin{DoxyParamCaption}
+\item[{int}]{ii, }
+\item[{int}]{jj, }
+\item[{int}]{kk, }
+\item[{double}]{val, }
+\item[{double}]{penalty}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [pure virtual]}}\hypertarget{classNeuralNetwork_a1bc1c063c3048b0551ae92352b553060}{}\label{classNeuralNetwork_a1bc1c063c3048b0551ae92352b553060}
+
+
+A virtual function implemented by C\+AE and AE to w = w-\/lr$\ast$grad without momentum and ada\+Grad. 
+
+
+
+Implemented in \hyperlink{classAutoencoder_aba5d429d35741aadbaf350364f64af7c}{Autoencoder}, and \hyperlink{classContractiveAutoencoder_a66faa7d13437de0e864a6adec9994cd8}{Contractive\+Autoencoder}.
+
+
+
+\subsection{Member Data Documentation}
+\index{Neural\+Network@{Neural\+Network}!m\+\_\+ada\+Grad@{m\+\_\+ada\+Grad}}
+\index{m\+\_\+ada\+Grad@{m\+\_\+ada\+Grad}!Neural\+Network@{Neural\+Network}}
+\subsubsection[{\texorpdfstring{m\+\_\+ada\+Grad}{m_adaGrad}}]{\setlength{\rightskip}{0pt plus 5cm}float Neural\+Network\+::m\+\_\+ada\+Grad\hspace{0.3cm}{\ttfamily [protected]}}\hypertarget{classNeuralNetwork_a30141464584fc2cc51599ffec4ce8dd8}{}\label{classNeuralNetwork_a30141464584fc2cc51599ffec4ce8dd8}
+
+
+Magnitude of the adaptive gradient \mbox{[}0;1) 
+
+
+
+Definition at line 59 of file Neural\+Network.\+h.
+
+\index{Neural\+Network@{Neural\+Network}!m\+\_\+av\+Units@{m\+\_\+av\+Units}}
+\index{m\+\_\+av\+Units@{m\+\_\+av\+Units}!Neural\+Network@{Neural\+Network}}
+\subsubsection[{\texorpdfstring{m\+\_\+av\+Units}{m_avUnits}}]{\setlength{\rightskip}{0pt plus 5cm}vector$<$ double $>$ Neural\+Network\+::m\+\_\+av\+Units\hspace{0.3cm}{\ttfamily [protected]}}\hypertarget{classNeuralNetwork_a257969584b79a83070b07462b1ec7fb2}{}\label{classNeuralNetwork_a257969584b79a83070b07462b1ec7fb2}
+
+
+Vector to hold regularization for the sparse autoencoder. 
+
+
+
+Definition at line 86 of file Neural\+Network.\+h.
+
+\index{Neural\+Network@{Neural\+Network}!m\+\_\+drop\+Out@{m\+\_\+drop\+Out}}
+\index{m\+\_\+drop\+Out@{m\+\_\+drop\+Out}!Neural\+Network@{Neural\+Network}}
+\subsubsection[{\texorpdfstring{m\+\_\+drop\+Out}{m_dropOut}}]{\setlength{\rightskip}{0pt plus 5cm}float Neural\+Network\+::m\+\_\+drop\+Out\hspace{0.3cm}{\ttfamily [protected]}}\hypertarget{classNeuralNetwork_a754d963a6f58aee1e253f64d266ab487}{}\label{classNeuralNetwork_a754d963a6f58aee1e253f64d266ab487}
+
+
+Fraction of the units set to 0. 
+
+
+
+Definition at line 65 of file Neural\+Network.\+h.
+
+\index{Neural\+Network@{Neural\+Network}!m\+\_\+drop\+Out\+Vec@{m\+\_\+drop\+Out\+Vec}}
+\index{m\+\_\+drop\+Out\+Vec@{m\+\_\+drop\+Out\+Vec}!Neural\+Network@{Neural\+Network}}
+\subsubsection[{\texorpdfstring{m\+\_\+drop\+Out\+Vec}{m_dropOutVec}}]{\setlength{\rightskip}{0pt plus 5cm}vector$<$ vector $<$ double $>$ $>$ Neural\+Network\+::m\+\_\+drop\+Out\+Vec\hspace{0.3cm}{\ttfamily [protected]}}\hypertarget{classNeuralNetwork_a456d6c273c0bd4f160f4d20f8b26f37b}{}\label{classNeuralNetwork_a456d6c273c0bd4f160f4d20f8b26f37b}
+
+
+Vector with elements 1 and 0 marking the neurons set to 0. 
+
+
+
+Definition at line 92 of file Neural\+Network.\+h.
+
+\index{Neural\+Network@{Neural\+Network}!m\+\_\+flag\+Fast@{m\+\_\+flag\+Fast}}
+\index{m\+\_\+flag\+Fast@{m\+\_\+flag\+Fast}!Neural\+Network@{Neural\+Network}}
+\subsubsection[{\texorpdfstring{m\+\_\+flag\+Fast}{m_flagFast}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Flag} Neural\+Network\+::m\+\_\+flag\+Fast\hspace{0.3cm}{\ttfamily [protected]}}\hypertarget{classNeuralNetwork_af7766960680b9a413ee4b36acad1e83d}{}\label{classNeuralNetwork_af7766960680b9a413ee4b36acad1e83d}
+
+
+Flag used to mark whether fast versions of the functions can be used. 
+
+
+
+Definition at line 35 of file Neural\+Network.\+h.
+
+\index{Neural\+Network@{Neural\+Network}!m\+\_\+flag\+Swapped@{m\+\_\+flag\+Swapped}}
+\index{m\+\_\+flag\+Swapped@{m\+\_\+flag\+Swapped}!Neural\+Network@{Neural\+Network}}
+\subsubsection[{\texorpdfstring{m\+\_\+flag\+Swapped}{m_flagSwapped}}]{\setlength{\rightskip}{0pt plus 5cm}bool Neural\+Network\+::m\+\_\+flag\+Swapped\hspace{0.3cm}{\ttfamily [protected]}}\hypertarget{classNeuralNetwork_a5009762781007f09860915f307701a60}{}\label{classNeuralNetwork_a5009762781007f09860915f307701a60}
+
+
+Flag to mark whether the weights have been swapped (i.\+e. local minimum reached) 
+
+
+
+Definition at line 41 of file Neural\+Network.\+h.
+
+\index{Neural\+Network@{Neural\+Network}!m\+\_\+it\+Test@{m\+\_\+it\+Test}}
+\index{m\+\_\+it\+Test@{m\+\_\+it\+Test}!Neural\+Network@{Neural\+Network}}
+\subsubsection[{\texorpdfstring{m\+\_\+it\+Test}{m_itTest}}]{\setlength{\rightskip}{0pt plus 5cm}int Neural\+Network\+::m\+\_\+it\+Test\hspace{0.3cm}{\ttfamily [protected]}}\hypertarget{classNeuralNetwork_ae4f1fb12e7f5df8dac69abda6fe4d141}{}\label{classNeuralNetwork_ae4f1fb12e7f5df8dac69abda6fe4d141}
+
+
+Number of test iterations. 
+
+
+
+Definition at line 50 of file Neural\+Network.\+h.
+
+\index{Neural\+Network@{Neural\+Network}!m\+\_\+it\+Train@{m\+\_\+it\+Train}}
+\index{m\+\_\+it\+Train@{m\+\_\+it\+Train}!Neural\+Network@{Neural\+Network}}
+\subsubsection[{\texorpdfstring{m\+\_\+it\+Train}{m_itTrain}}]{\setlength{\rightskip}{0pt plus 5cm}int Neural\+Network\+::m\+\_\+it\+Train\hspace{0.3cm}{\ttfamily [protected]}}\hypertarget{classNeuralNetwork_a25ea37c7b768bf2ade89c55b9e159ee2}{}\label{classNeuralNetwork_a25ea37c7b768bf2ade89c55b9e159ee2}
+
+
+Number of train iterations. 
+
+
+
+Definition at line 53 of file Neural\+Network.\+h.
+
+\index{Neural\+Network@{Neural\+Network}!m\+\_\+layers@{m\+\_\+layers}}
+\index{m\+\_\+layers@{m\+\_\+layers}!Neural\+Network@{Neural\+Network}}
+\subsubsection[{\texorpdfstring{m\+\_\+layers}{m_layers}}]{\setlength{\rightskip}{0pt plus 5cm}vector$<$ vector $<$ {\bf Layer} $\ast$$>$ $>$ Neural\+Network\+::m\+\_\+layers\hspace{0.3cm}{\ttfamily [protected]}}\hypertarget{classNeuralNetwork_ab2bc4d407ef6b85a0089aaaa600e0fb8}{}\label{classNeuralNetwork_ab2bc4d407ef6b85a0089aaaa600e0fb8}
+
+
+Matrix of layers (1D -\/ minibatch, 2D -\/ layers) 
+
+
+
+Definition at line 77 of file Neural\+Network.\+h.
+
+\index{Neural\+Network@{Neural\+Network}!m\+\_\+layers\+Size\+Vec@{m\+\_\+layers\+Size\+Vec}}
+\index{m\+\_\+layers\+Size\+Vec@{m\+\_\+layers\+Size\+Vec}!Neural\+Network@{Neural\+Network}}
+\subsubsection[{\texorpdfstring{m\+\_\+layers\+Size\+Vec}{m_layersSizeVec}}]{\setlength{\rightskip}{0pt plus 5cm}vector$<$ int $>$ Neural\+Network\+::m\+\_\+layers\+Size\+Vec\hspace{0.3cm}{\ttfamily [protected]}}\hypertarget{classNeuralNetwork_a91b00cd0bb975be91e76eb13ffcfe78f}{}\label{classNeuralNetwork_a91b00cd0bb975be91e76eb13ffcfe78f}
+
+
+Vector to hold the sizes of layers. 
+
+
+
+Definition at line 80 of file Neural\+Network.\+h.
+
+\index{Neural\+Network@{Neural\+Network}!m\+\_\+mini\+Batch@{m\+\_\+mini\+Batch}}
+\index{m\+\_\+mini\+Batch@{m\+\_\+mini\+Batch}!Neural\+Network@{Neural\+Network}}
+\subsubsection[{\texorpdfstring{m\+\_\+mini\+Batch}{m_miniBatch}}]{\setlength{\rightskip}{0pt plus 5cm}int Neural\+Network\+::m\+\_\+mini\+Batch\hspace{0.3cm}{\ttfamily [protected]}}\hypertarget{classNeuralNetwork_ad29fd15c4f0fc4c8fd214b4e815093b9}{}\label{classNeuralNetwork_ad29fd15c4f0fc4c8fd214b4e815093b9}
+
+
+Mini-\/batch size. 
+
+
+
+Definition at line 47 of file Neural\+Network.\+h.
+
+\index{Neural\+Network@{Neural\+Network}!m\+\_\+momentum@{m\+\_\+momentum}}
+\index{m\+\_\+momentum@{m\+\_\+momentum}!Neural\+Network@{Neural\+Network}}
+\subsubsection[{\texorpdfstring{m\+\_\+momentum}{m_momentum}}]{\setlength{\rightskip}{0pt plus 5cm}float Neural\+Network\+::m\+\_\+momentum\hspace{0.3cm}{\ttfamily [protected]}}\hypertarget{classNeuralNetwork_a8940dc6859b38907717cfec54e0929b1}{}\label{classNeuralNetwork_a8940dc6859b38907717cfec54e0929b1}
+
+
+Magnitude of the momentum \mbox{[}0;1) 
+
+
+
+Definition at line 62 of file Neural\+Network.\+h.
+
+\index{Neural\+Network@{Neural\+Network}!m\+\_\+momentum\+Arr@{m\+\_\+momentum\+Arr}}
+\index{m\+\_\+momentum\+Arr@{m\+\_\+momentum\+Arr}!Neural\+Network@{Neural\+Network}}
+\subsubsection[{\texorpdfstring{m\+\_\+momentum\+Arr}{m_momentumArr}}]{\setlength{\rightskip}{0pt plus 5cm}vector$<$ vector $<$ vector $<$ double $>$ $>$ $>$ Neural\+Network\+::m\+\_\+momentum\+Arr\hspace{0.3cm}{\ttfamily [protected]}}\hypertarget{classNeuralNetwork_a4345c084a3e1f604a3757e3b1ae3ad54}{}\label{classNeuralNetwork_a4345c084a3e1f604a3757e3b1ae3ad54}
+
+
+Holding momentum for each weight. 
+
+
+
+Definition at line 101 of file Neural\+Network.\+h.
+
+\index{Neural\+Network@{Neural\+Network}!m\+\_\+number\+Layers@{m\+\_\+number\+Layers}}
+\index{m\+\_\+number\+Layers@{m\+\_\+number\+Layers}!Neural\+Network@{Neural\+Network}}
+\subsubsection[{\texorpdfstring{m\+\_\+number\+Layers}{m_numberLayers}}]{\setlength{\rightskip}{0pt plus 5cm}int Neural\+Network\+::m\+\_\+number\+Layers\hspace{0.3cm}{\ttfamily [protected]}}\hypertarget{classNeuralNetwork_a1efaefc2c42a3d309c0b5e4a80a55f52}{}\label{classNeuralNetwork_a1efaefc2c42a3d309c0b5e4a80a55f52}
+
+
+Number of layers in the neural network. 
+
+
+
+Definition at line 44 of file Neural\+Network.\+h.
+
+\index{Neural\+Network@{Neural\+Network}!m\+\_\+objective@{m\+\_\+objective}}
+\index{m\+\_\+objective@{m\+\_\+objective}!Neural\+Network@{Neural\+Network}}
+\subsubsection[{\texorpdfstring{m\+\_\+objective}{m_objective}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Objective} Neural\+Network\+::m\+\_\+objective\hspace{0.3cm}{\ttfamily [protected]}}\hypertarget{classNeuralNetwork_a296fef6f667d2bcf1080a16c8c3aceb2}{}\label{classNeuralNetwork_a296fef6f667d2bcf1080a16c8c3aceb2}
+
+
+Variable to hold objective function. 
+
+
+
+Definition at line 74 of file Neural\+Network.\+h.
+
+\index{Neural\+Network@{Neural\+Network}!m\+\_\+sparse@{m\+\_\+sparse}}
+\index{m\+\_\+sparse@{m\+\_\+sparse}!Neural\+Network@{Neural\+Network}}
+\subsubsection[{\texorpdfstring{m\+\_\+sparse}{m_sparse}}]{\setlength{\rightskip}{0pt plus 5cm}double Neural\+Network\+::m\+\_\+sparse\hspace{0.3cm}{\ttfamily [protected]}}\hypertarget{classNeuralNetwork_a5ff4dd9b7b90474cce090c37d7127366}{}\label{classNeuralNetwork_a5ff4dd9b7b90474cce090c37d7127366}
+
+
+Magnitude of the penalty. 
+
+
+
+Definition at line 68 of file Neural\+Network.\+h.
+
+\index{Neural\+Network@{Neural\+Network}!m\+\_\+sparsity\+Parameter@{m\+\_\+sparsity\+Parameter}}
+\index{m\+\_\+sparsity\+Parameter@{m\+\_\+sparsity\+Parameter}!Neural\+Network@{Neural\+Network}}
+\subsubsection[{\texorpdfstring{m\+\_\+sparsity\+Parameter}{m_sparsityParameter}}]{\setlength{\rightskip}{0pt plus 5cm}double Neural\+Network\+::m\+\_\+sparsity\+Parameter\hspace{0.3cm}{\ttfamily [protected]}}\hypertarget{classNeuralNetwork_ac6e586b8ab49ef7ca1f07dab6f197f6c}{}\label{classNeuralNetwork_ac6e586b8ab49ef7ca1f07dab6f197f6c}
+
+
+The maximum value of the output neurons expected. 
+
+
+
+Definition at line 71 of file Neural\+Network.\+h.
+
+\index{Neural\+Network@{Neural\+Network}!m\+\_\+stats\+Flag@{m\+\_\+stats\+Flag}}
+\index{m\+\_\+stats\+Flag@{m\+\_\+stats\+Flag}!Neural\+Network@{Neural\+Network}}
+\subsubsection[{\texorpdfstring{m\+\_\+stats\+Flag}{m_statsFlag}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Flag} Neural\+Network\+::m\+\_\+stats\+Flag\hspace{0.3cm}{\ttfamily [protected]}}\hypertarget{classNeuralNetwork_accd035b1b93fd424025aeb4b40a31394}{}\label{classNeuralNetwork_accd035b1b93fd424025aeb4b40a31394}
+
+
+Flag to mark whether the user wants to gather statistics. 
+
+
+
+Definition at line 38 of file Neural\+Network.\+h.
+
+\index{Neural\+Network@{Neural\+Network}!m\+\_\+stats\+Hidden\+Units@{m\+\_\+stats\+Hidden\+Units}}
+\index{m\+\_\+stats\+Hidden\+Units@{m\+\_\+stats\+Hidden\+Units}!Neural\+Network@{Neural\+Network}}
+\subsubsection[{\texorpdfstring{m\+\_\+stats\+Hidden\+Units}{m_statsHiddenUnits}}]{\setlength{\rightskip}{0pt plus 5cm}vector$<$ vector $<$ float $>$ $>$ Neural\+Network\+::m\+\_\+stats\+Hidden\+Units\hspace{0.3cm}{\ttfamily [protected]}}\hypertarget{classNeuralNetwork_a15f7c03ca694dadc97a4290711ca2101}{}\label{classNeuralNetwork_a15f7c03ca694dadc97a4290711ca2101}
+
+
+Matrix to hold the stats about output of the hidden units. 
+
+
+
+Definition at line 83 of file Neural\+Network.\+h.
+
+\index{Neural\+Network@{Neural\+Network}!m\+\_\+sum\+Delta@{m\+\_\+sum\+Delta}}
+\index{m\+\_\+sum\+Delta@{m\+\_\+sum\+Delta}!Neural\+Network@{Neural\+Network}}
+\subsubsection[{\texorpdfstring{m\+\_\+sum\+Delta}{m_sumDelta}}]{\setlength{\rightskip}{0pt plus 5cm}vector$<$ double $>$ Neural\+Network\+::m\+\_\+sum\+Delta\hspace{0.3cm}{\ttfamily [protected]}}\hypertarget{classNeuralNetwork_ac447314a2315cd10f63b0b330857024a}{}\label{classNeuralNetwork_ac447314a2315cd10f63b0b330857024a}
+
+
+Vector used for Open\+MP to store calculations produced by different threads. 
+
+
+
+Definition at line 89 of file Neural\+Network.\+h.
+
+\index{Neural\+Network@{Neural\+Network}!m\+\_\+sum\+Delta\+Arr@{m\+\_\+sum\+Delta\+Arr}}
+\index{m\+\_\+sum\+Delta\+Arr@{m\+\_\+sum\+Delta\+Arr}!Neural\+Network@{Neural\+Network}}
+\subsubsection[{\texorpdfstring{m\+\_\+sum\+Delta\+Arr}{m_sumDeltaArr}}]{\setlength{\rightskip}{0pt plus 5cm}vector$<$ vector $<$ vector $<$ double $>$ $>$ $>$ Neural\+Network\+::m\+\_\+sum\+Delta\+Arr\hspace{0.3cm}{\ttfamily [protected]}}\hypertarget{classNeuralNetwork_a0b6c7ff6e00c4f91e684217be91b0a28}{}\label{classNeuralNetwork_a0b6c7ff6e00c4f91e684217be91b0a28}
+
+
+Holding deltas for the ada\+Grad. 
+
+
+
+Definition at line 104 of file Neural\+Network.\+h.
+
+\index{Neural\+Network@{Neural\+Network}!m\+\_\+time\+Step@{m\+\_\+time\+Step}}
+\index{m\+\_\+time\+Step@{m\+\_\+time\+Step}!Neural\+Network@{Neural\+Network}}
+\subsubsection[{\texorpdfstring{m\+\_\+time\+Step}{m_timeStep}}]{\setlength{\rightskip}{0pt plus 5cm}int Neural\+Network\+::m\+\_\+time\+Step\hspace{0.3cm}{\ttfamily [protected]}}\hypertarget{classNeuralNetwork_aea6b9756c3ef7e82b2d40414beb37984}{}\label{classNeuralNetwork_aea6b9756c3ef7e82b2d40414beb37984}
+
+
+Time step. 
+
+
+
+Definition at line 56 of file Neural\+Network.\+h.
+
+\index{Neural\+Network@{Neural\+Network}!m\+\_\+weights@{m\+\_\+weights}}
+\index{m\+\_\+weights@{m\+\_\+weights}!Neural\+Network@{Neural\+Network}}
+\subsubsection[{\texorpdfstring{m\+\_\+weights}{m_weights}}]{\setlength{\rightskip}{0pt plus 5cm}vector$<$ vector $<$ vector $<$ double $>$ $>$ $>$ Neural\+Network\+::m\+\_\+weights\hspace{0.3cm}{\ttfamily [protected]}}\hypertarget{classNeuralNetwork_ad489169464f3a6e827e6fb5de4419061}{}\label{classNeuralNetwork_ad489169464f3a6e827e6fb5de4419061}
+
+
+Cube of weights. 
+
+
+
+Definition at line 95 of file Neural\+Network.\+h.
+
+\index{Neural\+Network@{Neural\+Network}!m\+\_\+weights\+Min\+Cp@{m\+\_\+weights\+Min\+Cp}}
+\index{m\+\_\+weights\+Min\+Cp@{m\+\_\+weights\+Min\+Cp}!Neural\+Network@{Neural\+Network}}
+\subsubsection[{\texorpdfstring{m\+\_\+weights\+Min\+Cp}{m_weightsMinCp}}]{\setlength{\rightskip}{0pt plus 5cm}vector$<$ vector $<$ vector $<$ double $>$ $>$ $>$ Neural\+Network\+::m\+\_\+weights\+Min\+Cp\hspace{0.3cm}{\ttfamily [protected]}}\hypertarget{classNeuralNetwork_a9ac6bc441d6e2bfe7521d0b23ac8efdb}{}\label{classNeuralNetwork_a9ac6bc441d6e2bfe7521d0b23ac8efdb}
+
+
+Cube of weights with which local minimum is achieved. 
+
+
+
+Definition at line 98 of file Neural\+Network.\+h.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/headers/\hyperlink{NeuralNetwork_8h}{Neural\+Network.\+h}\item 
+src/cpp/\hyperlink{neuralnetwork_8cpp}{neuralnetwork.\+cpp}\end{DoxyCompactItemize}

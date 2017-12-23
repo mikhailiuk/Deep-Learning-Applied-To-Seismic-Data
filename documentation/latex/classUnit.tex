@@ -1,0 +1,248 @@
+\hypertarget{classUnit}{}\section{Unit Class Reference}
+\label{classUnit}\index{Unit@{Unit}}
+
+
+Encapsulates information and functions associated with neurons.  
+
+
+
+
+{\ttfamily \#include \char`\"{}Unit.\+h\char`\"{}}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classUnit_a8e46f663a95736c8002d85ab271a7581}{Unit} ()
+\begin{DoxyCompactList}\small\item\em Constructor default. \end{DoxyCompactList}\item 
+double \hyperlink{classUnit_afb1bb7be67560f6b9ea6631f7afc7f92}{back\+Propagate} ()
+\begin{DoxyCompactList}\small\item\em Function returns the value of the output passed through the derivative of the activation function. \end{DoxyCompactList}\item 
+double \hyperlink{classUnit_a62892313644dee7b63663ce95bd7b505}{propagate\+Val} (double val)
+\begin{DoxyCompactList}\small\item\em Function aplies activation to the supplied value and sets output of the neuron to this value. \end{DoxyCompactList}\item 
+void \hyperlink{classUnit_a9d9a98227aebd25718f9a8afcca9d387}{set\+Output} (double output)
+\begin{DoxyCompactList}\small\item\em Function to set output. \end{DoxyCompactList}\item 
+void \hyperlink{classUnit_aead5837864d17e39c8ffee702d7c9f3a}{set\+Delta} (double delta)
+\begin{DoxyCompactList}\small\item\em Function to set delta. \end{DoxyCompactList}\item 
+void \hyperlink{classUnit_a2225e9daca5d114f537f2b4b27a6ece3}{set\+Act} (int activation)
+\begin{DoxyCompactList}\small\item\em Function to set activation function. \end{DoxyCompactList}\item 
+double \hyperlink{classUnit_ac3ee1ea3d7e06539bf7fe7d4750a5d9d}{get\+Output} () const 
+\begin{DoxyCompactList}\small\item\em Function returns the value of the ouput field of the neuron. \end{DoxyCompactList}\item 
+double \hyperlink{classUnit_afe55cf9b57e9eb382449cf72b3896d99}{get\+Delta} () const 
+\begin{DoxyCompactList}\small\item\em Function returns the value of the delta field of the neuron. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+double \hyperlink{classUnit_a7866b2f28d164ca1f51229114dd8adfc}{m\+\_\+output}
+\begin{DoxyCompactList}\small\item\em Output valuer of the neuron. \end{DoxyCompactList}\item 
+double \hyperlink{classUnit_ad76aecbc14a56812e250991a2db4a176}{m\+\_\+delta}
+\begin{DoxyCompactList}\small\item\em Delta is used to store contribution of the unit towards overall error. \end{DoxyCompactList}\item 
+\hyperlink{classActivation}{Activation} \hyperlink{classUnit_a91c559e1e32ca2beb316d315943845e0}{m\+\_\+activation}
+\begin{DoxyCompactList}\small\item\em Every unit has a member activation function to use functionality. \end{DoxyCompactList}\item 
+int \hyperlink{classUnit_a20a0aafb8a4a19a09636f15ebdbbda9a}{m\+\_\+activation\+Id}
+\begin{DoxyCompactList}\small\item\em Every unit has an activation function associated with it (id from 1 to 7). \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{classUnit_a834e4e869446be644f61b4b456604f31}{Layer}
+\begin{DoxyCompactList}\small\item\em Let \hyperlink{classLayer}{Layer} have access to private fields to remove redundunt function calls. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Encapsulates information and functions associated with neurons. 
+
+Units are separate entities, have own output and delta values, every neuron also has an associated activation function. 
+
+Definition at line 12 of file Unit.\+h.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Unit@{Unit}!Unit@{Unit}}
+\index{Unit@{Unit}!Unit@{Unit}}
+\subsubsection[{\texorpdfstring{Unit()}{Unit()}}]{\setlength{\rightskip}{0pt plus 5cm}Unit\+::\+Unit (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classUnit_a8e46f663a95736c8002d85ab271a7581}{}\label{classUnit_a8e46f663a95736c8002d85ab271a7581}
+
+
+Constructor default. 
+
+
+
+Definition at line 4 of file unit.\+cpp.
+
+
+
+\subsection{Member Function Documentation}
+\index{Unit@{Unit}!back\+Propagate@{back\+Propagate}}
+\index{back\+Propagate@{back\+Propagate}!Unit@{Unit}}
+\subsubsection[{\texorpdfstring{back\+Propagate()}{backPropagate()}}]{\setlength{\rightskip}{0pt plus 5cm}double Unit\+::back\+Propagate (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classUnit_afb1bb7be67560f6b9ea6631f7afc7f92}{}\label{classUnit_afb1bb7be67560f6b9ea6631f7afc7f92}
+
+
+Function returns the value of the output passed through the derivative of the activation function. 
+
+
+
+Definition at line 9 of file unit.\+cpp.
+
+\index{Unit@{Unit}!get\+Delta@{get\+Delta}}
+\index{get\+Delta@{get\+Delta}!Unit@{Unit}}
+\subsubsection[{\texorpdfstring{get\+Delta() const }{getDelta() const }}]{\setlength{\rightskip}{0pt plus 5cm}double Unit\+::get\+Delta (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classUnit_afe55cf9b57e9eb382449cf72b3896d99}{}\label{classUnit_afe55cf9b57e9eb382449cf72b3896d99}
+
+
+Function returns the value of the delta field of the neuron. 
+
+
+
+Definition at line 57 of file Unit.\+h.
+
+\index{Unit@{Unit}!get\+Output@{get\+Output}}
+\index{get\+Output@{get\+Output}!Unit@{Unit}}
+\subsubsection[{\texorpdfstring{get\+Output() const }{getOutput() const }}]{\setlength{\rightskip}{0pt plus 5cm}double Unit\+::get\+Output (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classUnit_ac3ee1ea3d7e06539bf7fe7d4750a5d9d}{}\label{classUnit_ac3ee1ea3d7e06539bf7fe7d4750a5d9d}
+
+
+Function returns the value of the ouput field of the neuron. 
+
+
+
+Definition at line 54 of file Unit.\+h.
+
+\index{Unit@{Unit}!propagate\+Val@{propagate\+Val}}
+\index{propagate\+Val@{propagate\+Val}!Unit@{Unit}}
+\subsubsection[{\texorpdfstring{propagate\+Val(double val)}{propagateVal(double val)}}]{\setlength{\rightskip}{0pt plus 5cm}double Unit\+::propagate\+Val (
+\begin{DoxyParamCaption}
+\item[{double}]{val}
+\end{DoxyParamCaption}
+)}\hypertarget{classUnit_a62892313644dee7b63663ce95bd7b505}{}\label{classUnit_a62892313644dee7b63663ce95bd7b505}
+
+
+Function aplies activation to the supplied value and sets output of the neuron to this value. 
+
+
+
+Definition at line 16 of file unit.\+cpp.
+
+\index{Unit@{Unit}!set\+Act@{set\+Act}}
+\index{set\+Act@{set\+Act}!Unit@{Unit}}
+\subsubsection[{\texorpdfstring{set\+Act(int activation)}{setAct(int activation)}}]{\setlength{\rightskip}{0pt plus 5cm}void Unit\+::set\+Act (
+\begin{DoxyParamCaption}
+\item[{int}]{activation}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classUnit_a2225e9daca5d114f537f2b4b27a6ece3}{}\label{classUnit_a2225e9daca5d114f537f2b4b27a6ece3}
+
+
+Function to set activation function. 
+
+
+
+Definition at line 51 of file Unit.\+h.
+
+\index{Unit@{Unit}!set\+Delta@{set\+Delta}}
+\index{set\+Delta@{set\+Delta}!Unit@{Unit}}
+\subsubsection[{\texorpdfstring{set\+Delta(double delta)}{setDelta(double delta)}}]{\setlength{\rightskip}{0pt plus 5cm}void Unit\+::set\+Delta (
+\begin{DoxyParamCaption}
+\item[{double}]{delta}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classUnit_aead5837864d17e39c8ffee702d7c9f3a}{}\label{classUnit_aead5837864d17e39c8ffee702d7c9f3a}
+
+
+Function to set delta. 
+
+
+
+Definition at line 48 of file Unit.\+h.
+
+\index{Unit@{Unit}!set\+Output@{set\+Output}}
+\index{set\+Output@{set\+Output}!Unit@{Unit}}
+\subsubsection[{\texorpdfstring{set\+Output(double output)}{setOutput(double output)}}]{\setlength{\rightskip}{0pt plus 5cm}void Unit\+::set\+Output (
+\begin{DoxyParamCaption}
+\item[{double}]{output}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classUnit_a9d9a98227aebd25718f9a8afcca9d387}{}\label{classUnit_a9d9a98227aebd25718f9a8afcca9d387}
+
+
+Function to set output. 
+
+
+
+Definition at line 45 of file Unit.\+h.
+
+
+
+\subsection{Friends And Related Function Documentation}
+\index{Unit@{Unit}!Layer@{Layer}}
+\index{Layer@{Layer}!Unit@{Unit}}
+\subsubsection[{\texorpdfstring{Layer}{Layer}}]{\setlength{\rightskip}{0pt plus 5cm}friend class {\bf Layer}\hspace{0.3cm}{\ttfamily [friend]}}\hypertarget{classUnit_a834e4e869446be644f61b4b456604f31}{}\label{classUnit_a834e4e869446be644f61b4b456604f31}
+
+
+Let \hyperlink{classLayer}{Layer} have access to private fields to remove redundunt function calls. 
+
+
+
+Definition at line 16 of file Unit.\+h.
+
+
+
+\subsection{Member Data Documentation}
+\index{Unit@{Unit}!m\+\_\+activation@{m\+\_\+activation}}
+\index{m\+\_\+activation@{m\+\_\+activation}!Unit@{Unit}}
+\subsubsection[{\texorpdfstring{m\+\_\+activation}{m_activation}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Activation} Unit\+::m\+\_\+activation\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classUnit_a91c559e1e32ca2beb316d315943845e0}{}\label{classUnit_a91c559e1e32ca2beb316d315943845e0}
+
+
+Every unit has a member activation function to use functionality. 
+
+
+
+Definition at line 27 of file Unit.\+h.
+
+\index{Unit@{Unit}!m\+\_\+activation\+Id@{m\+\_\+activation\+Id}}
+\index{m\+\_\+activation\+Id@{m\+\_\+activation\+Id}!Unit@{Unit}}
+\subsubsection[{\texorpdfstring{m\+\_\+activation\+Id}{m_activationId}}]{\setlength{\rightskip}{0pt plus 5cm}int Unit\+::m\+\_\+activation\+Id\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classUnit_a20a0aafb8a4a19a09636f15ebdbbda9a}{}\label{classUnit_a20a0aafb8a4a19a09636f15ebdbbda9a}
+
+
+Every unit has an activation function associated with it (id from 1 to 7). 
+
+
+
+Definition at line 30 of file Unit.\+h.
+
+\index{Unit@{Unit}!m\+\_\+delta@{m\+\_\+delta}}
+\index{m\+\_\+delta@{m\+\_\+delta}!Unit@{Unit}}
+\subsubsection[{\texorpdfstring{m\+\_\+delta}{m_delta}}]{\setlength{\rightskip}{0pt plus 5cm}double Unit\+::m\+\_\+delta\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classUnit_ad76aecbc14a56812e250991a2db4a176}{}\label{classUnit_ad76aecbc14a56812e250991a2db4a176}
+
+
+Delta is used to store contribution of the unit towards overall error. 
+
+
+
+Definition at line 24 of file Unit.\+h.
+
+\index{Unit@{Unit}!m\+\_\+output@{m\+\_\+output}}
+\index{m\+\_\+output@{m\+\_\+output}!Unit@{Unit}}
+\subsubsection[{\texorpdfstring{m\+\_\+output}{m_output}}]{\setlength{\rightskip}{0pt plus 5cm}double Unit\+::m\+\_\+output\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classUnit_a7866b2f28d164ca1f51229114dd8adfc}{}\label{classUnit_a7866b2f28d164ca1f51229114dd8adfc}
+
+
+Output valuer of the neuron. 
+
+
+
+Definition at line 21 of file Unit.\+h.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/headers/\hyperlink{Unit_8h}{Unit.\+h}\item 
+src/cpp/\hyperlink{unit_8cpp}{unit.\+cpp}\end{DoxyCompactItemize}

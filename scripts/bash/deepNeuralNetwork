@@ -1,0 +1,36 @@
+#!/bin/bash
+
+# Script to run through the batch sizes (alters config file and runs the algorithm)
+
+cd ../../
+declare -a hiddenLayersFirst=(8 16 32 32 48 48 48 56 56 56 56)
+declare -a hiddenLayersSecond=(4 8 16 24 16 24 32 16 24 32 48)
+declare -a learningRate=(0.01 0.1)
+declare -a batch=(4 8 16 32 64)
+declare -a lrName=(0_01 0_1)
+for k in `seq 0 1 5`
+do      
+        varbatch='        miniBatch          = '${batch[k]}';'
+        sed -i.bu '22 s|.*|'"$varbatch"'|' ./config/config.cfg
+
+        for j in `seq 0 1 2`
+        do
+                varLearning='        learningRate       = '${learningRate[j]}';'
+                varLearningRange='        dynamicLearningR   = ['${learningRate[j]}','${learningRate[j]}'];'
+	        sed -i.bu '23 s|.*|'"$varLearning"'|' ./config/config.cfg
+                sed -i.bu '24 s|.*|'"$varLearningRange"'|' ./config/config.cfg
+                for i in `seq 0 1 10`
+                do                                   
+                        mkdir -p "/local/data/public/am2442/seismic/output/DeepNN/MB${batch[k]}/LR${lrName[j]}/${hiddenLayersFirst[i]}/${hiddenLayersSecond[i]}"
+
+                        varold='        layers             = [64, '${hiddenLayersFirst[i]}','${hiddenLayersSecond[i]}','${hiddenLayersFirst[i]}', 64];'
+
+                        varoldSave='        saveFolder         = "/local/data/public/am2442/seismic/output/DeepNN/MB'${batch[k]}'/LR'${lrName[j]}'/'${hiddenLayersFirst[i]}'/'${hiddenLayersSecond[i]}'/";'
+
+	                sed -i.bu '20 s|.*|'"$varold"'|' ./config/config.cfg
+	                sed -i.bu '4 s|.*|'"$varoldSave"'|' ./config/config.cfg
+	                make run
+                done
+        done
+done
+

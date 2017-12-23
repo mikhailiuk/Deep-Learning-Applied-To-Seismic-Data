@@ -1,0 +1,24 @@
+var searchData=
+[
+  ['sanitycheck',['sanityCheck',['../classParamsInit.html#a83871ddd30d35b0b350730a6ed7c210f',1,'ParamsInit']]],
+  ['setact',['setAct',['../classUnit.html#a2225e9daca5d114f537f2b4b27a6ece3',1,'Unit']]],
+  ['setactivation',['setActivation',['../classLayer.html#a530d7d38d135f5ebe4183c587c0343ab',1,'Layer']]],
+  ['setdelta',['setDelta',['../classUnit.html#aead5837864d17e39c8ffee702d7c9f3a',1,'Unit']]],
+  ['setdropout',['setDropOut',['../classNeuralNetwork.html#a1d0b90f44982811b3e28e3b9a4dfa810',1,'NeuralNetwork']]],
+  ['setlayerudelta',['setLayerUDelta',['../classNeuralNetwork.html#a2a84fe4a996154130853f031c6e475aa',1,'NeuralNetwork']]],
+  ['setlayeruoutprop',['setLayerUOutProp',['../classLayer.html#ad557f21443c82b6f9527881b4040a251',1,'Layer']]],
+  ['setlayeruoutput',['setLayerUOutput',['../classNeuralNetwork.html#ad5d0e3d069c7ce2fbde30161771ba507',1,'NeuralNetwork']]],
+  ['setnumbunits',['setNumbUnits',['../classLayer.html#a15e429b9b73a7b561fbb1235ccb2cf65',1,'Layer']]],
+  ['setoutput',['setOutput',['../classUnit.html#a9d9a98227aebd25718f9a8afcca9d387',1,'Unit']]],
+  ['settimestep',['setTimeStep',['../classNeuralNetwork.html#ad70d1e2802185f0126f0c52ac2dc55f1',1,'NeuralNetwork']]],
+  ['setunitdelta',['setUnitDelta',['../classLayer.html#af9116e59830024fb9862577f2043706a',1,'Layer']]],
+  ['setunitoutput',['setUnitOutput',['../classLayer.html#a55b20e4d3a98a3ec660d8777c7fae170',1,'Layer']]],
+  ['sigmf',['sigmf',['../classActivation.html#a3bdc501310dfd0cef7c95d69faa3bc00',1,'Activation']]],
+  ['sigmfder',['sigmfder',['../classActivation.html#a4464adcd12fb089af4341e136c7884b3',1,'Activation']]],
+  ['softplus',['softplus',['../classActivation.html#a5e9bf6975636c6d05b83d7d1acdf7df2',1,'Activation']]],
+  ['softplusder',['softplusder',['../classActivation.html#a2bac437e6009823d94b6be2d3c99971a',1,'Activation']]],
+  ['starttiming',['startTiming',['../classTimer.html#afea3900d493fb20a135cd57007d8cf9c',1,'Timer']]],
+  ['steprectifier',['steprectifier',['../classActivation.html#a2148835f7651b4d057c8bf33389293f2',1,'Activation']]],
+  ['steprectifierder',['steprectifierder',['../classActivation.html#a0a0400c04a72f3e5b22750ca6f93c793',1,'Activation']]],
+  ['swapweights',['swapWeights',['../classNeuralNetwork.html#aeccccbe1b61dec7e4e76bd55bad7e591',1,'NeuralNetwork']]]
+];

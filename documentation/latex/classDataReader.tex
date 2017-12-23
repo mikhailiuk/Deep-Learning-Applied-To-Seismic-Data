@@ -1,0 +1,918 @@
+\hypertarget{classDataReader}{}\section{Data\+Reader Class Reference}
+\label{classDataReader}\index{Data\+Reader@{Data\+Reader}}
+
+
+{\ttfamily \#include \char`\"{}Data\+Reader.\+h\char`\"{}}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{classDataReader_a3af651bdeb6b8613b5c1e5c20d135fee}{read\+Data\+Train} (vector$<$ double $>$ $\ast$data\+Train\+In, int $\ast$numb\+In, int $\ast$numb\+It\+Train, vector$<$ double $>$ $\ast$mask\+Rearanged\+Train, int $\ast$x\+Width\+Train, int $\ast$y\+Width\+Train)
+\item 
+int \hyperlink{classDataReader_a9816af31c4b15b59379622346d3782f7}{read\+Data\+Test} (vector$<$ double $>$ $\ast$data\+Test\+In, int $\ast$numb\+It\+Test, vector$<$ double $>$ $\ast$mask\+Rearanged, vector$<$ double $>$ $\ast$mask\+Rearanged\+Validation)
+\item 
+int \hyperlink{classDataReader_adc671d5bc1196eb8a99b37d7f87440de}{write\+Data\+Cube} (vector$<$ double $>$ data, std\+::string path, double flag\+Mask)
+\item 
+void \hyperlink{classDataReader_af0251b5edd10a372d9f30a836472357f}{zero\+Cube} ()
+\begin{DoxyCompactList}\small\item\em A function used to set all the values of the data cubes to zero. \end{DoxyCompactList}\item 
+void \hyperlink{classDataReader_a3cbc317ede9f646ec01f5cacf90781a0}{write\+Cube\+Into\+File} (std\+::string path, double flag\+Mask)
+\item 
+int \hyperlink{classDataReader_aa2f408b750df89a6d6ab2a0ce286a914}{write\+Data\+Cube\+Prediction} (vector$<$ double $>$ data\+Target, vector$<$ double $>$ data\+Pred, std\+::string path)
+\item 
+double \hyperlink{classDataReader_a22c2992f3d00c30f9b53e46a6a38571f}{calculate\+Coefficient\+Cube} ()
+\item 
+int \hyperlink{classDataReader_ae6645eba51e680bd59cc3c9fe297e5b5}{check\+Dimensions\+Patch} ()
+\begin{DoxyCompactList}\small\item\em A sensibility check function for the dimentions of the Patch. \end{DoxyCompactList}\item 
+int \hyperlink{classDataReader_af6056c45ad47ad45ab8e6663280e55fc}{check\+Dimensions\+Mask} ()
+\begin{DoxyCompactList}\small\item\em A sensibility check function for the dimentions of the Mask. \end{DoxyCompactList}\item 
+int \hyperlink{classDataReader_a28b365a9335395e679c56074c56262d3}{calculate\+Bounds} (int train\+Flag, int $\ast$start\+Y\+Width, int $\ast$start\+X\+Width, int $\ast$start\+Z\+Width, int ii, int $\ast$numb\+Iterations)
+\item 
+int \hyperlink{classDataReader_afb618b0fafa0acb2365509a122f3602a}{initialise} (\hyperlink{classParamsInit}{Params\+Init} parameters)
+\item 
+int \hyperlink{classDataReader_aefcb38bd08e3941a328ff64aa558e7a8}{read\+Train\+Cube} ()
+\begin{DoxyCompactList}\small\item\em A function to read the Training cube from the file. \end{DoxyCompactList}\item 
+int \hyperlink{classDataReader_a6fda577c7a39231af8ff7bad9821dd94}{read\+Test\+Cube} ()
+\begin{DoxyCompactList}\small\item\em A function to read the Test cube from the file. \end{DoxyCompactList}\item 
+int \hyperlink{classDataReader_abad2eb24821cb6097c7eb9e017d0123f}{read\+Masks} ()
+\begin{DoxyCompactList}\small\item\em A function to read the mask from the file. \end{DoxyCompactList}\item 
+double \hyperlink{classDataReader_a1384d31286da6be6715687ecf5ebbc58}{calculate\+S\+NR} (vector$<$ double $>$ data\+Clean, vector$<$ double $>$ data\+Predicted, std\+::string path)
+\end{DoxyCompactItemize}
+\subsection*{Private Types}
+\begin{DoxyCompactItemize}
+\item 
+enum \hyperlink{classDataReader_a4d7ac2e743b4d00d62ce3ac86dd35f76}{Flag} \{ \hyperlink{classDataReader_a4d7ac2e743b4d00d62ce3ac86dd35f76aac0022634ec9e261a5f03eebe88fed11}{disabled}, 
+\hyperlink{classDataReader_a4d7ac2e743b4d00d62ce3ac86dd35f76a469181e07fca749b48a38f7c7ed9b619}{enabled}
+ \}\begin{DoxyCompactList}\small\item\em A flag (more verbal than 0 and 1) \end{DoxyCompactList}
+\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classDataReader_a4d7ac2e743b4d00d62ce3ac86dd35f76}{Flag} \hyperlink{classDataReader_a047fea2d4cf25627f3df820b560d95be}{m\+\_\+flag\+Mask\+Validation}
+\begin{DoxyCompactList}\small\item\em Enabled if validation mask is used. \end{DoxyCompactList}\item 
+\hyperlink{classDataReader_a4d7ac2e743b4d00d62ce3ac86dd35f76}{Flag} \hyperlink{classDataReader_a71945ad4af9366b1d4060d49e01e34f9}{m\+\_\+flag\+Mask\+Test}
+\begin{DoxyCompactList}\small\item\em Enabled if test mask is used. \end{DoxyCompactList}\item 
+\hyperlink{classDataReader_a4d7ac2e743b4d00d62ce3ac86dd35f76}{Flag} \hyperlink{classDataReader_a09cceda2cf4ac5522c6e05b1424660d4}{m\+\_\+augment\+Flag}
+\begin{DoxyCompactList}\small\item\em Enabled if augmentation is used. \end{DoxyCompactList}\item 
+std\+::string \hyperlink{classDataReader_a0fe9a400035e0ce40b7f9adee9759fd3}{m\+\_\+name\+Data\+Train\+In}
+\begin{DoxyCompactList}\small\item\em A path to the training data. \end{DoxyCompactList}\item 
+std\+::string \hyperlink{classDataReader_ad1604383cd367336e8d3aa00ef3b4396}{m\+\_\+name\+Data\+Test\+In}
+\begin{DoxyCompactList}\small\item\em A path to the test data. \end{DoxyCompactList}\item 
+std\+::string \hyperlink{classDataReader_ad0b4aa478a29fe29c71230d6ba1582ce}{m\+\_\+name\+Mask\+Test}
+\begin{DoxyCompactList}\small\item\em A path to the test mask. \end{DoxyCompactList}\item 
+std\+::string \hyperlink{classDataReader_a5b59718d2007d1bb2f7b502788df8752}{m\+\_\+name\+Mask\+Validation}
+\begin{DoxyCompactList}\small\item\em A path to the validation mask. \end{DoxyCompactList}\item 
+vector$<$ vector$<$ vector$<$ double $>$ $>$ $>$ \hyperlink{classDataReader_a27c2e4c67ca778cb720a3d56beb8ee7f}{m\+\_\+coef\+Cube}
+\item 
+vector$<$ vector$<$ vector$<$ double $>$ $>$ $>$ \hyperlink{classDataReader_a0a9bb36b0b16402e27008f4327e1bb92}{m\+\_\+cube}
+\begin{DoxyCompactList}\small\item\em A cube with final (predicted values) \end{DoxyCompactList}\item 
+vector$<$ vector$<$ vector$<$ double $>$ $>$ $>$ \hyperlink{classDataReader_a3647b5fff6dff6a92c8f2f83dfcfa055}{m\+\_\+cube\+Clean}
+\begin{DoxyCompactList}\small\item\em A cube with clean data to write. \end{DoxyCompactList}\item 
+vector$<$ vector$<$ double $>$ $>$ \hyperlink{classDataReader_afadf320f5ab08a34b8b06c839a8192e0}{m\+\_\+mask\+Validation}
+\begin{DoxyCompactList}\small\item\em A matrix to hold validation mask. \end{DoxyCompactList}\item 
+vector$<$ vector$<$ double $>$ $>$ \hyperlink{classDataReader_a8eb1e7630b4efd101708fb3b5a6856c6}{m\+\_\+mask}
+\begin{DoxyCompactList}\small\item\em A matrix to hold the mask for test and traing (real missing values) \end{DoxyCompactList}\item 
+double \hyperlink{classDataReader_a4dbda7a5c05acd673c2188ef37913e40}{m\+\_\+input\+Scale}
+\item 
+double \hyperlink{classDataReader_ad2afd61ea40bdaa3d6678adc1548a057}{m\+\_\+max}
+\begin{DoxyCompactList}\small\item\em Maximum value of the seismic data cube. \end{DoxyCompactList}\item 
+double \hyperlink{classDataReader_aba740a2b8be42c25449e1c91e0e03805}{m\+\_\+min}
+\begin{DoxyCompactList}\small\item\em Minimum value of the seismic data cube. \end{DoxyCompactList}\item 
+double \hyperlink{classDataReader_a9a9066f2dafe278b3acd45e84cc2126e}{m\+\_\+max\+Abs}
+\begin{DoxyCompactList}\small\item\em Maximum absolute value of the seismic data cube. \end{DoxyCompactList}\item 
+double \hyperlink{classDataReader_aeb1b06be9af5ea726e9b8ad11b5b34f1}{m\+\_\+\+M\+S\+Error}
+\begin{DoxyCompactList}\small\item\em Total M\+SE error of the reconstruction. \end{DoxyCompactList}\item 
+double \hyperlink{classDataReader_a5bba6f4ec228522330fda878214f7395}{m\+\_\+q\+Measure}
+\begin{DoxyCompactList}\small\item\em S\+NR measure of the reconstructed cube (see Georgious paper) \end{DoxyCompactList}\item 
+int \hyperlink{classDataReader_ae74053a5592498d373fc12254145ce39}{m\+\_\+z\+Width\+Train}
+\begin{DoxyCompactList}\small\item\em Z dimention of the Train Cube. \end{DoxyCompactList}\item 
+int \hyperlink{classDataReader_a0c4b86a80694b557fe1509b615b76244}{m\+\_\+x\+Width\+Train}
+\begin{DoxyCompactList}\small\item\em X dimention of the Train Cube. \end{DoxyCompactList}\item 
+int \hyperlink{classDataReader_a4a627c7884969007b149ce1023ee3e11}{m\+\_\+y\+Width\+Train}
+\begin{DoxyCompactList}\small\item\em Y dimention of the Train Cube. \end{DoxyCompactList}\item 
+int \hyperlink{classDataReader_a2c029cc64a4c674ee19477c9bfcc2ae6}{m\+\_\+z\+Width\+Test}
+\begin{DoxyCompactList}\small\item\em Z dimention of the Test Cube. \end{DoxyCompactList}\item 
+int \hyperlink{classDataReader_a3b70edeb59564609bc13d11761586225}{m\+\_\+x\+Width\+Test}
+\begin{DoxyCompactList}\small\item\em X dimention of the Test Cube. \end{DoxyCompactList}\item 
+int \hyperlink{classDataReader_ac8debe3d06ff92d1d57e90bb5d18a812}{m\+\_\+y\+Width\+Test}
+\begin{DoxyCompactList}\small\item\em Y dimention of the Test Cube. \end{DoxyCompactList}\item 
+int \hyperlink{classDataReader_a95d075ccc3b12ec30a97d6664642efc2}{m\+\_\+patchX}
+\begin{DoxyCompactList}\small\item\em Size of the patch in X dimention. \end{DoxyCompactList}\item 
+int \hyperlink{classDataReader_a68b54683e0e0581e3dd76874ea5b6941}{m\+\_\+patchZ}
+\begin{DoxyCompactList}\small\item\em Size of the patch in Z dimention. \end{DoxyCompactList}\item 
+int \hyperlink{classDataReader_aed3b404cf78c6973363402e5e871e46a}{m\+\_\+patchY}
+\begin{DoxyCompactList}\small\item\em Size of the patch in Y dimention. \end{DoxyCompactList}\item 
+int \hyperlink{classDataReader_a6d2cc22f742392bafb485fe0f07b13e8}{m\+\_\+shift\+X\+Train}
+\begin{DoxyCompactList}\small\item\em Shift in X dimention of the patch while training. \end{DoxyCompactList}\item 
+int \hyperlink{classDataReader_a2d564c01ed2225f2c853063113ef87b8}{m\+\_\+shift\+Y\+Train}
+\begin{DoxyCompactList}\small\item\em Shift in Y dimention of the patch while training. \end{DoxyCompactList}\item 
+int \hyperlink{classDataReader_a0edec69c662462ca0189a5a47a567596}{m\+\_\+shift\+Z\+Train}
+\begin{DoxyCompactList}\small\item\em Shift in Z dimention of the patch while training. \end{DoxyCompactList}\item 
+int \hyperlink{classDataReader_a066a1c0f512fccdb2b21d23cce551ee7}{m\+\_\+shift\+X\+Test}
+\begin{DoxyCompactList}\small\item\em Shift in X dimention of the patch while testing. \end{DoxyCompactList}\item 
+int \hyperlink{classDataReader_ab5002c766c4cebca361dd21f1d2cbc86}{m\+\_\+shift\+Y\+Test}
+\begin{DoxyCompactList}\small\item\em Shift in Y dimention of the patch while testing. \end{DoxyCompactList}\item 
+int \hyperlink{classDataReader_a9f9ae5a90b34758f37671671e1f002f7}{m\+\_\+shift\+Z\+Test}
+\begin{DoxyCompactList}\small\item\em Shift in Z dimention of the patch while testing. \end{DoxyCompactList}\item 
+int \hyperlink{classDataReader_a1a78f7b37cb3908c3db5ee4538c2c932}{m\+\_\+numb\+It\+Train}
+\begin{DoxyCompactList}\small\item\em Number of training iterations. \end{DoxyCompactList}\item 
+int \hyperlink{classDataReader_a9a9f00295f7d5aaca78539802fe09c6c}{m\+\_\+numb\+It\+Test}
+\begin{DoxyCompactList}\small\item\em Number of test iterations. \end{DoxyCompactList}\item 
+int \hyperlink{classDataReader_a9ae84cb0ea7dd165616880737280e6b6}{m\+\_\+patch\+Size}
+\begin{DoxyCompactList}\small\item\em Total patch size (m\+\_\+patch\+X$\ast$m\+\_\+patch\+Y$\ast$m\+\_\+patchZ) \end{DoxyCompactList}\item 
+int \hyperlink{classDataReader_a1a13928367a9c5d02f6e11d2d742e429}{m\+\_\+tot\+Cubes\+Test}
+\begin{DoxyCompactList}\small\item\em Total number of test examples. \end{DoxyCompactList}\item 
+int \hyperlink{classDataReader_af20e42b5dc09a33b2c2704cb58d01803}{m\+\_\+x\+Width\+Mask}
+\begin{DoxyCompactList}\small\item\em Width of the mask in X dimention. \end{DoxyCompactList}\item 
+int \hyperlink{classDataReader_aa381a07a34d528a39ae493aba4d42521}{m\+\_\+y\+Width\+Mask}
+\begin{DoxyCompactList}\small\item\em Width of the mask in Y direction. \end{DoxyCompactList}\item 
+int \hyperlink{classDataReader_a3857860c363d6127fc8b6b54fd53d81f}{m\+\_\+augmentX}
+\begin{DoxyCompactList}\small\item\em Size of the band of additional values in X direction. \end{DoxyCompactList}\item 
+int \hyperlink{classDataReader_a139941a6fc5ba0546a1ddb892b2ec958}{m\+\_\+augmentY}
+\begin{DoxyCompactList}\small\item\em Size of the band of additional values in Y direction. \end{DoxyCompactList}\item 
+int \hyperlink{classDataReader_a71318eba05d2c7dbf8ac6bd804f5d5da}{m\+\_\+augmentZ}
+\begin{DoxyCompactList}\small\item\em Size of the band of additional values in Z direction. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+
+
+Definition at line 21 of file Data\+Reader.\+h.
+
+
+
+\subsection{Member Enumeration Documentation}
+\index{Data\+Reader@{Data\+Reader}!Flag@{Flag}}
+\index{Flag@{Flag}!Data\+Reader@{Data\+Reader}}
+\subsubsection[{\texorpdfstring{Flag}{Flag}}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf Data\+Reader\+::\+Flag}\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classDataReader_a4d7ac2e743b4d00d62ce3ac86dd35f76}{}\label{classDataReader_a4d7ac2e743b4d00d62ce3ac86dd35f76}
+
+
+A flag (more verbal than 0 and 1) 
+
+\begin{Desc}
+\item[Enumerator]\par
+\begin{description}
+\index{disabled@{disabled}!Data\+Reader@{Data\+Reader}}\index{Data\+Reader@{Data\+Reader}!disabled@{disabled}}\item[{\em 
+disabled\hypertarget{classDataReader_a4d7ac2e743b4d00d62ce3ac86dd35f76aac0022634ec9e261a5f03eebe88fed11}{}\label{classDataReader_a4d7ac2e743b4d00d62ce3ac86dd35f76aac0022634ec9e261a5f03eebe88fed11}
+}]\index{enabled@{enabled}!Data\+Reader@{Data\+Reader}}\index{Data\+Reader@{Data\+Reader}!enabled@{enabled}}\item[{\em 
+enabled\hypertarget{classDataReader_a4d7ac2e743b4d00d62ce3ac86dd35f76a469181e07fca749b48a38f7c7ed9b619}{}\label{classDataReader_a4d7ac2e743b4d00d62ce3ac86dd35f76a469181e07fca749b48a38f7c7ed9b619}
+}]\end{description}
+\end{Desc}
+
+
+Definition at line 25 of file Data\+Reader.\+h.
+
+
+
+\subsection{Member Function Documentation}
+\index{Data\+Reader@{Data\+Reader}!calculate\+Bounds@{calculate\+Bounds}}
+\index{calculate\+Bounds@{calculate\+Bounds}!Data\+Reader@{Data\+Reader}}
+\subsubsection[{\texorpdfstring{calculate\+Bounds(int train\+Flag, int $\ast$start\+Y\+Width, int $\ast$start\+X\+Width, int $\ast$start\+Z\+Width, int ii, int $\ast$numb\+Iterations)}{calculateBounds(int trainFlag, int *startYWidth, int *startXWidth, int *startZWidth, int ii, int *numbIterations)}}]{\setlength{\rightskip}{0pt plus 5cm}int Data\+Reader\+::calculate\+Bounds (
+\begin{DoxyParamCaption}
+\item[{int}]{train\+Flag, }
+\item[{int $\ast$}]{start\+Y\+Width, }
+\item[{int $\ast$}]{start\+X\+Width, }
+\item[{int $\ast$}]{start\+Z\+Width, }
+\item[{int}]{ii, }
+\item[{int $\ast$}]{numb\+Iterations}
+\end{DoxyParamCaption}
+)}\hypertarget{classDataReader_a28b365a9335395e679c56074c56262d3}{}\label{classDataReader_a28b365a9335395e679c56074c56262d3}
+A function used to map the cube coefficients to the coefficients of the patches 
+\begin{DoxyParams}{Parameters}
+{\em train\+Flag} & -\/ set to 1 if called from the function calculating bounds for training patches \\
+\hline
+{\em start\+Y\+Width} & -\/ starting index in the Y in the data cube from where the patch is taken \\
+\hline
+{\em start\+X\+Width} & -\/ starting index in the X in the data cube from where the patch is taken \\
+\hline
+{\em start\+Z\+Width} & -\/ starting index in the Z in the data cube from where the patch is taken \\
+\hline
+{\em ii} & -\/ current iteration of the \\
+\hline
+{\em numb\+Iterations} & -\/ total number of patches \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 338 of file datareader.\+cpp.
+
+\index{Data\+Reader@{Data\+Reader}!calculate\+Coefficient\+Cube@{calculate\+Coefficient\+Cube}}
+\index{calculate\+Coefficient\+Cube@{calculate\+Coefficient\+Cube}!Data\+Reader@{Data\+Reader}}
+\subsubsection[{\texorpdfstring{calculate\+Coefficient\+Cube()}{calculateCoefficientCube()}}]{\setlength{\rightskip}{0pt plus 5cm}double Data\+Reader\+::calculate\+Coefficient\+Cube (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classDataReader_a22c2992f3d00c30f9b53e46a6a38571f}{}\label{classDataReader_a22c2992f3d00c30f9b53e46a6a38571f}
+A function to calculate the values stored in m\+\_\+coef\+Cube, used to scale the overlapping patches in the final data cube 
+
+Definition at line 393 of file datareader.\+cpp.
+
+\index{Data\+Reader@{Data\+Reader}!calculate\+S\+NR@{calculate\+S\+NR}}
+\index{calculate\+S\+NR@{calculate\+S\+NR}!Data\+Reader@{Data\+Reader}}
+\subsubsection[{\texorpdfstring{calculate\+S\+N\+R(vector$<$ double $>$ data\+Clean, vector$<$ double $>$ data\+Predicted, std\+::string path)}{calculateSNR(vector< double > dataClean, vector< double > dataPredicted, std::string path)}}]{\setlength{\rightskip}{0pt plus 5cm}double Data\+Reader\+::calculate\+S\+NR (
+\begin{DoxyParamCaption}
+\item[{vector$<$ double $>$}]{data\+Clean, }
+\item[{vector$<$ double $>$}]{data\+Predicted, }
+\item[{std\+::string}]{path}
+\end{DoxyParamCaption}
+)}\hypertarget{classDataReader_a1384d31286da6be6715687ecf5ebbc58}{}\label{classDataReader_a1384d31286da6be6715687ecf5ebbc58}
+A function to calculate the S\+NR 
+\begin{DoxyParams}{Parameters}
+{\em data\+Clean} & target data \\
+\hline
+{\em data\+Predicted} & predicted data \\
+\hline
+{\em path} & -\/ path to the file where to write the S\+NR \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 433 of file datareader.\+cpp.
+
+\index{Data\+Reader@{Data\+Reader}!check\+Dimensions\+Mask@{check\+Dimensions\+Mask}}
+\index{check\+Dimensions\+Mask@{check\+Dimensions\+Mask}!Data\+Reader@{Data\+Reader}}
+\subsubsection[{\texorpdfstring{check\+Dimensions\+Mask()}{checkDimensionsMask()}}]{\setlength{\rightskip}{0pt plus 5cm}int Data\+Reader\+::check\+Dimensions\+Mask (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classDataReader_af6056c45ad47ad45ab8e6663280e55fc}{}\label{classDataReader_af6056c45ad47ad45ab8e6663280e55fc}
+
+
+A sensibility check function for the dimentions of the Mask. 
+
+
+
+Definition at line 666 of file datareader.\+cpp.
+
+\index{Data\+Reader@{Data\+Reader}!check\+Dimensions\+Patch@{check\+Dimensions\+Patch}}
+\index{check\+Dimensions\+Patch@{check\+Dimensions\+Patch}!Data\+Reader@{Data\+Reader}}
+\subsubsection[{\texorpdfstring{check\+Dimensions\+Patch()}{checkDimensionsPatch()}}]{\setlength{\rightskip}{0pt plus 5cm}int Data\+Reader\+::check\+Dimensions\+Patch (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classDataReader_ae6645eba51e680bd59cc3c9fe297e5b5}{}\label{classDataReader_ae6645eba51e680bd59cc3c9fe297e5b5}
+
+
+A sensibility check function for the dimentions of the Patch. 
+
+
+
+Definition at line 645 of file datareader.\+cpp.
+
+\index{Data\+Reader@{Data\+Reader}!initialise@{initialise}}
+\index{initialise@{initialise}!Data\+Reader@{Data\+Reader}}
+\subsubsection[{\texorpdfstring{initialise(\+Params\+Init parameters)}{initialise(ParamsInit parameters)}}]{\setlength{\rightskip}{0pt plus 5cm}int Data\+Reader\+::initialise (
+\begin{DoxyParamCaption}
+\item[{{\bf Params\+Init}}]{parameters}
+\end{DoxyParamCaption}
+)}\hypertarget{classDataReader_afb618b0fafa0acb2365509a122f3602a}{}\label{classDataReader_afb618b0fafa0acb2365509a122f3602a}
+A function to initialise the \hyperlink{classDataReader}{Data\+Reader} class (setting private variables) 
+\begin{DoxyParams}{Parameters}
+{\em parameters} & hold all values red from the config file \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 4 of file datareader.\+cpp.
+
+\index{Data\+Reader@{Data\+Reader}!read\+Data\+Test@{read\+Data\+Test}}
+\index{read\+Data\+Test@{read\+Data\+Test}!Data\+Reader@{Data\+Reader}}
+\subsubsection[{\texorpdfstring{read\+Data\+Test(vector$<$ double $>$ $\ast$data\+Test\+In, int $\ast$numb\+It\+Test, vector$<$ double $>$ $\ast$mask\+Rearanged, vector$<$ double $>$ $\ast$mask\+Rearanged\+Validation)}{readDataTest(vector< double > *dataTestIn, int *numbItTest, vector< double > *maskRearanged, vector< double > *maskRearangedValidation)}}]{\setlength{\rightskip}{0pt plus 5cm}int Data\+Reader\+::read\+Data\+Test (
+\begin{DoxyParamCaption}
+\item[{vector$<$ double $>$ $\ast$}]{data\+Test\+In, }
+\item[{int $\ast$}]{numb\+It\+Test, }
+\item[{vector$<$ double $>$ $\ast$}]{mask\+Rearanged, }
+\item[{vector$<$ double $>$ $\ast$}]{mask\+Rearanged\+Validation}
+\end{DoxyParamCaption}
+)}\hypertarget{classDataReader_a9816af31c4b15b59379622346d3782f7}{}\label{classDataReader_a9816af31c4b15b59379622346d3782f7}
+A function to read the test data and pass it back to the training algorithm 
+\begin{DoxyParams}{Parameters}
+{\em data\+Test\+In} & the vector holding the test data used in the training algorithm \\
+\hline
+{\em numb\+It\+Test} & number of test iterations (number of exemplars) \\
+\hline
+{\em mask\+Rearanged} & the vector holding the test mask, so that it corresponds to the order of patches \\
+\hline
+{\em mask\+Rearanged\+Validation} & the vector holding the validation mask, so that it corresponds to the order of patches \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 283 of file datareader.\+cpp.
+
+\index{Data\+Reader@{Data\+Reader}!read\+Data\+Train@{read\+Data\+Train}}
+\index{read\+Data\+Train@{read\+Data\+Train}!Data\+Reader@{Data\+Reader}}
+\subsubsection[{\texorpdfstring{read\+Data\+Train(vector$<$ double $>$ $\ast$data\+Train\+In, int $\ast$numb\+In, int $\ast$numb\+It\+Train, vector$<$ double $>$ $\ast$mask\+Rearanged\+Train, int $\ast$x\+Width\+Train, int $\ast$y\+Width\+Train)}{readDataTrain(vector< double > *dataTrainIn, int *numbIn, int *numbItTrain, vector< double > *maskRearangedTrain, int *xWidthTrain, int *yWidthTrain)}}]{\setlength{\rightskip}{0pt plus 5cm}int Data\+Reader\+::read\+Data\+Train (
+\begin{DoxyParamCaption}
+\item[{vector$<$ double $>$ $\ast$}]{data\+Train\+In, }
+\item[{int $\ast$}]{numb\+In, }
+\item[{int $\ast$}]{numb\+It\+Train, }
+\item[{vector$<$ double $>$ $\ast$}]{mask\+Rearanged\+Train, }
+\item[{int $\ast$}]{x\+Width\+Train, }
+\item[{int $\ast$}]{y\+Width\+Train}
+\end{DoxyParamCaption}
+)}\hypertarget{classDataReader_a3af651bdeb6b8613b5c1e5c20d135fee}{}\label{classDataReader_a3af651bdeb6b8613b5c1e5c20d135fee}
+A function to read the training data and pass it back to the training algorithm 
+\begin{DoxyParams}{Parameters}
+{\em data\+Train\+In} & the vector holding the training data used in the training algorithm \\
+\hline
+{\em numb\+In} & \\
+\hline
+{\em numb\+It\+Train} & number of training iterations (number of exemplars) \\
+\hline
+{\em mask\+Rearanged\+Train} & the vector holding the mask, so that it corresponds to the order of patches \\
+\hline
+{\em x\+Width\+Train} & -\/ x dimention of the training cube \\
+\hline
+{\em y\+Width\+Train} & -\/ y dimention of the training cube \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 182 of file datareader.\+cpp.
+
+\index{Data\+Reader@{Data\+Reader}!read\+Masks@{read\+Masks}}
+\index{read\+Masks@{read\+Masks}!Data\+Reader@{Data\+Reader}}
+\subsubsection[{\texorpdfstring{read\+Masks()}{readMasks()}}]{\setlength{\rightskip}{0pt plus 5cm}int Data\+Reader\+::read\+Masks (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classDataReader_abad2eb24821cb6097c7eb9e017d0123f}{}\label{classDataReader_abad2eb24821cb6097c7eb9e017d0123f}
+
+
+A function to read the mask from the file. 
+
+
+
+Definition at line 35 of file datareader.\+cpp.
+
+\index{Data\+Reader@{Data\+Reader}!read\+Test\+Cube@{read\+Test\+Cube}}
+\index{read\+Test\+Cube@{read\+Test\+Cube}!Data\+Reader@{Data\+Reader}}
+\subsubsection[{\texorpdfstring{read\+Test\+Cube()}{readTestCube()}}]{\setlength{\rightskip}{0pt plus 5cm}int Data\+Reader\+::read\+Test\+Cube (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classDataReader_a6fda577c7a39231af8ff7bad9821dd94}{}\label{classDataReader_a6fda577c7a39231af8ff7bad9821dd94}
+
+
+A function to read the Test cube from the file. 
+
+
+
+Definition at line 246 of file datareader.\+cpp.
+
+\index{Data\+Reader@{Data\+Reader}!read\+Train\+Cube@{read\+Train\+Cube}}
+\index{read\+Train\+Cube@{read\+Train\+Cube}!Data\+Reader@{Data\+Reader}}
+\subsubsection[{\texorpdfstring{read\+Train\+Cube()}{readTrainCube()}}]{\setlength{\rightskip}{0pt plus 5cm}int Data\+Reader\+::read\+Train\+Cube (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classDataReader_aefcb38bd08e3941a328ff64aa558e7a8}{}\label{classDataReader_aefcb38bd08e3941a328ff64aa558e7a8}
+
+
+A function to read the Training cube from the file. 
+
+
+
+Definition at line 122 of file datareader.\+cpp.
+
+\index{Data\+Reader@{Data\+Reader}!write\+Cube\+Into\+File@{write\+Cube\+Into\+File}}
+\index{write\+Cube\+Into\+File@{write\+Cube\+Into\+File}!Data\+Reader@{Data\+Reader}}
+\subsubsection[{\texorpdfstring{write\+Cube\+Into\+File(std\+::string path, double flag\+Mask)}{writeCubeIntoFile(std::string path, double flagMask)}}]{\setlength{\rightskip}{0pt plus 5cm}void Data\+Reader\+::write\+Cube\+Into\+File (
+\begin{DoxyParamCaption}
+\item[{std\+::string}]{path, }
+\item[{double}]{flag\+Mask}
+\end{DoxyParamCaption}
+)}\hypertarget{classDataReader_a3cbc317ede9f646ec01f5cacf90781a0}{}\label{classDataReader_a3cbc317ede9f646ec01f5cacf90781a0}
+A function to write the data into a file 
+\begin{DoxyParams}{Parameters}
+{\em path} & to the save file \\
+\hline
+{\em flag\+Mask} & -\/ whether to apply the mask or not \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 593 of file datareader.\+cpp.
+
+\index{Data\+Reader@{Data\+Reader}!write\+Data\+Cube@{write\+Data\+Cube}}
+\index{write\+Data\+Cube@{write\+Data\+Cube}!Data\+Reader@{Data\+Reader}}
+\subsubsection[{\texorpdfstring{write\+Data\+Cube(vector$<$ double $>$ data, std\+::string path, double flag\+Mask)}{writeDataCube(vector< double > data, std::string path, double flagMask)}}]{\setlength{\rightskip}{0pt plus 5cm}int Data\+Reader\+::write\+Data\+Cube (
+\begin{DoxyParamCaption}
+\item[{vector$<$ double $>$}]{data, }
+\item[{std\+::string}]{path, }
+\item[{double}]{flag\+Mask}
+\end{DoxyParamCaption}
+)}\hypertarget{classDataReader_adc671d5bc1196eb8a99b37d7f87440de}{}\label{classDataReader_adc671d5bc1196eb8a99b37d7f87440de}
+A function to convert an array of data into a cube with predicted values 
+\begin{DoxyParams}{Parameters}
+{\em data} & target data \\
+\hline
+{\em path} & to the file to save \\
+\hline
+{\em flag\+Mask} & whether to apply mask or not (1.\+0 if the input cube is written, 0.\+0 if target) \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 525 of file datareader.\+cpp.
+
+\index{Data\+Reader@{Data\+Reader}!write\+Data\+Cube\+Prediction@{write\+Data\+Cube\+Prediction}}
+\index{write\+Data\+Cube\+Prediction@{write\+Data\+Cube\+Prediction}!Data\+Reader@{Data\+Reader}}
+\subsubsection[{\texorpdfstring{write\+Data\+Cube\+Prediction(vector$<$ double $>$ data\+Target, vector$<$ double $>$ data\+Pred, std\+::string path)}{writeDataCubePrediction(vector< double > dataTarget, vector< double > dataPred, std::string path)}}]{\setlength{\rightskip}{0pt plus 5cm}int Data\+Reader\+::write\+Data\+Cube\+Prediction (
+\begin{DoxyParamCaption}
+\item[{vector$<$ double $>$}]{data\+Target, }
+\item[{vector$<$ double $>$}]{data\+Pred, }
+\item[{std\+::string}]{path}
+\end{DoxyParamCaption}
+)}\hypertarget{classDataReader_aa2f408b750df89a6d6ab2a0ce286a914}{}\label{classDataReader_aa2f408b750df89a6d6ab2a0ce286a914}
+A function to convert an array of data into a cube with predicted values 
+\begin{DoxyParams}{Parameters}
+{\em data\+Target} & target data \\
+\hline
+{\em data\+Pred} & predicted data \\
+\hline
+{\em path} & to the file to save \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 557 of file datareader.\+cpp.
+
+\index{Data\+Reader@{Data\+Reader}!zero\+Cube@{zero\+Cube}}
+\index{zero\+Cube@{zero\+Cube}!Data\+Reader@{Data\+Reader}}
+\subsubsection[{\texorpdfstring{zero\+Cube()}{zeroCube()}}]{\setlength{\rightskip}{0pt plus 5cm}void Data\+Reader\+::zero\+Cube (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classDataReader_af0251b5edd10a372d9f30a836472357f}{}\label{classDataReader_af0251b5edd10a372d9f30a836472357f}
+
+
+A function used to set all the values of the data cubes to zero. 
+
+
+
+Definition at line 632 of file datareader.\+cpp.
+
+
+
+\subsection{Member Data Documentation}
+\index{Data\+Reader@{Data\+Reader}!m\+\_\+augment\+Flag@{m\+\_\+augment\+Flag}}
+\index{m\+\_\+augment\+Flag@{m\+\_\+augment\+Flag}!Data\+Reader@{Data\+Reader}}
+\subsubsection[{\texorpdfstring{m\+\_\+augment\+Flag}{m_augmentFlag}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Flag} Data\+Reader\+::m\+\_\+augment\+Flag\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classDataReader_a09cceda2cf4ac5522c6e05b1424660d4}{}\label{classDataReader_a09cceda2cf4ac5522c6e05b1424660d4}
+
+
+Enabled if augmentation is used. 
+
+
+
+Definition at line 34 of file Data\+Reader.\+h.
+
+\index{Data\+Reader@{Data\+Reader}!m\+\_\+augmentX@{m\+\_\+augmentX}}
+\index{m\+\_\+augmentX@{m\+\_\+augmentX}!Data\+Reader@{Data\+Reader}}
+\subsubsection[{\texorpdfstring{m\+\_\+augmentX}{m_augmentX}}]{\setlength{\rightskip}{0pt plus 5cm}int Data\+Reader\+::m\+\_\+augmentX\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classDataReader_a3857860c363d6127fc8b6b54fd53d81f}{}\label{classDataReader_a3857860c363d6127fc8b6b54fd53d81f}
+
+
+Size of the band of additional values in X direction. 
+
+
+
+Definition at line 148 of file Data\+Reader.\+h.
+
+\index{Data\+Reader@{Data\+Reader}!m\+\_\+augmentY@{m\+\_\+augmentY}}
+\index{m\+\_\+augmentY@{m\+\_\+augmentY}!Data\+Reader@{Data\+Reader}}
+\subsubsection[{\texorpdfstring{m\+\_\+augmentY}{m_augmentY}}]{\setlength{\rightskip}{0pt plus 5cm}int Data\+Reader\+::m\+\_\+augmentY\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classDataReader_a139941a6fc5ba0546a1ddb892b2ec958}{}\label{classDataReader_a139941a6fc5ba0546a1ddb892b2ec958}
+
+
+Size of the band of additional values in Y direction. 
+
+
+
+Definition at line 151 of file Data\+Reader.\+h.
+
+\index{Data\+Reader@{Data\+Reader}!m\+\_\+augmentZ@{m\+\_\+augmentZ}}
+\index{m\+\_\+augmentZ@{m\+\_\+augmentZ}!Data\+Reader@{Data\+Reader}}
+\subsubsection[{\texorpdfstring{m\+\_\+augmentZ}{m_augmentZ}}]{\setlength{\rightskip}{0pt plus 5cm}int Data\+Reader\+::m\+\_\+augmentZ\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classDataReader_a71318eba05d2c7dbf8ac6bd804f5d5da}{}\label{classDataReader_a71318eba05d2c7dbf8ac6bd804f5d5da}
+
+
+Size of the band of additional values in Z direction. 
+
+
+
+Definition at line 154 of file Data\+Reader.\+h.
+
+\index{Data\+Reader@{Data\+Reader}!m\+\_\+coef\+Cube@{m\+\_\+coef\+Cube}}
+\index{m\+\_\+coef\+Cube@{m\+\_\+coef\+Cube}!Data\+Reader@{Data\+Reader}}
+\subsubsection[{\texorpdfstring{m\+\_\+coef\+Cube}{m_coefCube}}]{\setlength{\rightskip}{0pt plus 5cm}vector$<$ vector $<$ vector $<$ double $>$ $>$ $>$ Data\+Reader\+::m\+\_\+coef\+Cube\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classDataReader_a27c2e4c67ca778cb720a3d56beb8ee7f}{}\label{classDataReader_a27c2e4c67ca778cb720a3d56beb8ee7f}
+A cube with coefficients (used to scale overlaps when writing the output cube (if the shift in test is used) 
+
+Definition at line 50 of file Data\+Reader.\+h.
+
+\index{Data\+Reader@{Data\+Reader}!m\+\_\+cube@{m\+\_\+cube}}
+\index{m\+\_\+cube@{m\+\_\+cube}!Data\+Reader@{Data\+Reader}}
+\subsubsection[{\texorpdfstring{m\+\_\+cube}{m_cube}}]{\setlength{\rightskip}{0pt plus 5cm}vector$<$ vector $<$ vector $<$ double $>$ $>$ $>$ Data\+Reader\+::m\+\_\+cube\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classDataReader_a0a9bb36b0b16402e27008f4327e1bb92}{}\label{classDataReader_a0a9bb36b0b16402e27008f4327e1bb92}
+
+
+A cube with final (predicted values) 
+
+
+
+Definition at line 53 of file Data\+Reader.\+h.
+
+\index{Data\+Reader@{Data\+Reader}!m\+\_\+cube\+Clean@{m\+\_\+cube\+Clean}}
+\index{m\+\_\+cube\+Clean@{m\+\_\+cube\+Clean}!Data\+Reader@{Data\+Reader}}
+\subsubsection[{\texorpdfstring{m\+\_\+cube\+Clean}{m_cubeClean}}]{\setlength{\rightskip}{0pt plus 5cm}vector$<$ vector $<$ vector $<$ double $>$ $>$ $>$ Data\+Reader\+::m\+\_\+cube\+Clean\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classDataReader_a3647b5fff6dff6a92c8f2f83dfcfa055}{}\label{classDataReader_a3647b5fff6dff6a92c8f2f83dfcfa055}
+
+
+A cube with clean data to write. 
+
+
+
+Definition at line 56 of file Data\+Reader.\+h.
+
+\index{Data\+Reader@{Data\+Reader}!m\+\_\+flag\+Mask\+Test@{m\+\_\+flag\+Mask\+Test}}
+\index{m\+\_\+flag\+Mask\+Test@{m\+\_\+flag\+Mask\+Test}!Data\+Reader@{Data\+Reader}}
+\subsubsection[{\texorpdfstring{m\+\_\+flag\+Mask\+Test}{m_flagMaskTest}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Flag} Data\+Reader\+::m\+\_\+flag\+Mask\+Test\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classDataReader_a71945ad4af9366b1d4060d49e01e34f9}{}\label{classDataReader_a71945ad4af9366b1d4060d49e01e34f9}
+
+
+Enabled if test mask is used. 
+
+
+
+Definition at line 31 of file Data\+Reader.\+h.
+
+\index{Data\+Reader@{Data\+Reader}!m\+\_\+flag\+Mask\+Validation@{m\+\_\+flag\+Mask\+Validation}}
+\index{m\+\_\+flag\+Mask\+Validation@{m\+\_\+flag\+Mask\+Validation}!Data\+Reader@{Data\+Reader}}
+\subsubsection[{\texorpdfstring{m\+\_\+flag\+Mask\+Validation}{m_flagMaskValidation}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Flag} Data\+Reader\+::m\+\_\+flag\+Mask\+Validation\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classDataReader_a047fea2d4cf25627f3df820b560d95be}{}\label{classDataReader_a047fea2d4cf25627f3df820b560d95be}
+
+
+Enabled if validation mask is used. 
+
+
+
+Definition at line 28 of file Data\+Reader.\+h.
+
+\index{Data\+Reader@{Data\+Reader}!m\+\_\+input\+Scale@{m\+\_\+input\+Scale}}
+\index{m\+\_\+input\+Scale@{m\+\_\+input\+Scale}!Data\+Reader@{Data\+Reader}}
+\subsubsection[{\texorpdfstring{m\+\_\+input\+Scale}{m_inputScale}}]{\setlength{\rightskip}{0pt plus 5cm}double Data\+Reader\+::m\+\_\+input\+Scale\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classDataReader_a4dbda7a5c05acd673c2188ef37913e40}{}\label{classDataReader_a4dbda7a5c05acd673c2188ef37913e40}
+The scaling factor of the input -\/ e.\+g. if 0.\+001 all values in the cube are divided by 1000. If -\/1.\+0, cube/m\+\_\+max\+Abs, if -\/2.\+0, (cube -\/ m\+\_\+min)/(m\+\_\+max-\/m\+\_\+min) 
+
+Definition at line 67 of file Data\+Reader.\+h.
+
+\index{Data\+Reader@{Data\+Reader}!m\+\_\+mask@{m\+\_\+mask}}
+\index{m\+\_\+mask@{m\+\_\+mask}!Data\+Reader@{Data\+Reader}}
+\subsubsection[{\texorpdfstring{m\+\_\+mask}{m_mask}}]{\setlength{\rightskip}{0pt plus 5cm}vector$<$ vector $<$ double $>$ $>$ Data\+Reader\+::m\+\_\+mask\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classDataReader_a8eb1e7630b4efd101708fb3b5a6856c6}{}\label{classDataReader_a8eb1e7630b4efd101708fb3b5a6856c6}
+
+
+A matrix to hold the mask for test and traing (real missing values) 
+
+
+
+Definition at line 62 of file Data\+Reader.\+h.
+
+\index{Data\+Reader@{Data\+Reader}!m\+\_\+mask\+Validation@{m\+\_\+mask\+Validation}}
+\index{m\+\_\+mask\+Validation@{m\+\_\+mask\+Validation}!Data\+Reader@{Data\+Reader}}
+\subsubsection[{\texorpdfstring{m\+\_\+mask\+Validation}{m_maskValidation}}]{\setlength{\rightskip}{0pt plus 5cm}vector$<$ vector $<$ double $>$ $>$ Data\+Reader\+::m\+\_\+mask\+Validation\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classDataReader_afadf320f5ab08a34b8b06c839a8192e0}{}\label{classDataReader_afadf320f5ab08a34b8b06c839a8192e0}
+
+
+A matrix to hold validation mask. 
+
+
+
+Definition at line 59 of file Data\+Reader.\+h.
+
+\index{Data\+Reader@{Data\+Reader}!m\+\_\+max@{m\+\_\+max}}
+\index{m\+\_\+max@{m\+\_\+max}!Data\+Reader@{Data\+Reader}}
+\subsubsection[{\texorpdfstring{m\+\_\+max}{m_max}}]{\setlength{\rightskip}{0pt plus 5cm}double Data\+Reader\+::m\+\_\+max\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classDataReader_ad2afd61ea40bdaa3d6678adc1548a057}{}\label{classDataReader_ad2afd61ea40bdaa3d6678adc1548a057}
+
+
+Maximum value of the seismic data cube. 
+
+
+
+Definition at line 70 of file Data\+Reader.\+h.
+
+\index{Data\+Reader@{Data\+Reader}!m\+\_\+max\+Abs@{m\+\_\+max\+Abs}}
+\index{m\+\_\+max\+Abs@{m\+\_\+max\+Abs}!Data\+Reader@{Data\+Reader}}
+\subsubsection[{\texorpdfstring{m\+\_\+max\+Abs}{m_maxAbs}}]{\setlength{\rightskip}{0pt plus 5cm}double Data\+Reader\+::m\+\_\+max\+Abs\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classDataReader_a9a9066f2dafe278b3acd45e84cc2126e}{}\label{classDataReader_a9a9066f2dafe278b3acd45e84cc2126e}
+
+
+Maximum absolute value of the seismic data cube. 
+
+
+
+Definition at line 76 of file Data\+Reader.\+h.
+
+\index{Data\+Reader@{Data\+Reader}!m\+\_\+min@{m\+\_\+min}}
+\index{m\+\_\+min@{m\+\_\+min}!Data\+Reader@{Data\+Reader}}
+\subsubsection[{\texorpdfstring{m\+\_\+min}{m_min}}]{\setlength{\rightskip}{0pt plus 5cm}double Data\+Reader\+::m\+\_\+min\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classDataReader_aba740a2b8be42c25449e1c91e0e03805}{}\label{classDataReader_aba740a2b8be42c25449e1c91e0e03805}
+
+
+Minimum value of the seismic data cube. 
+
+
+
+Definition at line 73 of file Data\+Reader.\+h.
+
+\index{Data\+Reader@{Data\+Reader}!m\+\_\+\+M\+S\+Error@{m\+\_\+\+M\+S\+Error}}
+\index{m\+\_\+\+M\+S\+Error@{m\+\_\+\+M\+S\+Error}!Data\+Reader@{Data\+Reader}}
+\subsubsection[{\texorpdfstring{m\+\_\+\+M\+S\+Error}{m_MSError}}]{\setlength{\rightskip}{0pt plus 5cm}double Data\+Reader\+::m\+\_\+\+M\+S\+Error\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classDataReader_aeb1b06be9af5ea726e9b8ad11b5b34f1}{}\label{classDataReader_aeb1b06be9af5ea726e9b8ad11b5b34f1}
+
+
+Total M\+SE error of the reconstruction. 
+
+
+
+Definition at line 79 of file Data\+Reader.\+h.
+
+\index{Data\+Reader@{Data\+Reader}!m\+\_\+name\+Data\+Test\+In@{m\+\_\+name\+Data\+Test\+In}}
+\index{m\+\_\+name\+Data\+Test\+In@{m\+\_\+name\+Data\+Test\+In}!Data\+Reader@{Data\+Reader}}
+\subsubsection[{\texorpdfstring{m\+\_\+name\+Data\+Test\+In}{m_nameDataTestIn}}]{\setlength{\rightskip}{0pt plus 5cm}std\+::string Data\+Reader\+::m\+\_\+name\+Data\+Test\+In\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classDataReader_ad1604383cd367336e8d3aa00ef3b4396}{}\label{classDataReader_ad1604383cd367336e8d3aa00ef3b4396}
+
+
+A path to the test data. 
+
+
+
+Definition at line 40 of file Data\+Reader.\+h.
+
+\index{Data\+Reader@{Data\+Reader}!m\+\_\+name\+Data\+Train\+In@{m\+\_\+name\+Data\+Train\+In}}
+\index{m\+\_\+name\+Data\+Train\+In@{m\+\_\+name\+Data\+Train\+In}!Data\+Reader@{Data\+Reader}}
+\subsubsection[{\texorpdfstring{m\+\_\+name\+Data\+Train\+In}{m_nameDataTrainIn}}]{\setlength{\rightskip}{0pt plus 5cm}std\+::string Data\+Reader\+::m\+\_\+name\+Data\+Train\+In\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classDataReader_a0fe9a400035e0ce40b7f9adee9759fd3}{}\label{classDataReader_a0fe9a400035e0ce40b7f9adee9759fd3}
+
+
+A path to the training data. 
+
+
+
+Definition at line 37 of file Data\+Reader.\+h.
+
+\index{Data\+Reader@{Data\+Reader}!m\+\_\+name\+Mask\+Test@{m\+\_\+name\+Mask\+Test}}
+\index{m\+\_\+name\+Mask\+Test@{m\+\_\+name\+Mask\+Test}!Data\+Reader@{Data\+Reader}}
+\subsubsection[{\texorpdfstring{m\+\_\+name\+Mask\+Test}{m_nameMaskTest}}]{\setlength{\rightskip}{0pt plus 5cm}std\+::string Data\+Reader\+::m\+\_\+name\+Mask\+Test\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classDataReader_ad0b4aa478a29fe29c71230d6ba1582ce}{}\label{classDataReader_ad0b4aa478a29fe29c71230d6ba1582ce}
+
+
+A path to the test mask. 
+
+
+
+Definition at line 43 of file Data\+Reader.\+h.
+
+\index{Data\+Reader@{Data\+Reader}!m\+\_\+name\+Mask\+Validation@{m\+\_\+name\+Mask\+Validation}}
+\index{m\+\_\+name\+Mask\+Validation@{m\+\_\+name\+Mask\+Validation}!Data\+Reader@{Data\+Reader}}
+\subsubsection[{\texorpdfstring{m\+\_\+name\+Mask\+Validation}{m_nameMaskValidation}}]{\setlength{\rightskip}{0pt plus 5cm}std\+::string Data\+Reader\+::m\+\_\+name\+Mask\+Validation\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classDataReader_a5b59718d2007d1bb2f7b502788df8752}{}\label{classDataReader_a5b59718d2007d1bb2f7b502788df8752}
+
+
+A path to the validation mask. 
+
+
+
+Definition at line 46 of file Data\+Reader.\+h.
+
+\index{Data\+Reader@{Data\+Reader}!m\+\_\+numb\+It\+Test@{m\+\_\+numb\+It\+Test}}
+\index{m\+\_\+numb\+It\+Test@{m\+\_\+numb\+It\+Test}!Data\+Reader@{Data\+Reader}}
+\subsubsection[{\texorpdfstring{m\+\_\+numb\+It\+Test}{m_numbItTest}}]{\setlength{\rightskip}{0pt plus 5cm}int Data\+Reader\+::m\+\_\+numb\+It\+Test\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classDataReader_a9a9f00295f7d5aaca78539802fe09c6c}{}\label{classDataReader_a9a9f00295f7d5aaca78539802fe09c6c}
+
+
+Number of test iterations. 
+
+
+
+Definition at line 133 of file Data\+Reader.\+h.
+
+\index{Data\+Reader@{Data\+Reader}!m\+\_\+numb\+It\+Train@{m\+\_\+numb\+It\+Train}}
+\index{m\+\_\+numb\+It\+Train@{m\+\_\+numb\+It\+Train}!Data\+Reader@{Data\+Reader}}
+\subsubsection[{\texorpdfstring{m\+\_\+numb\+It\+Train}{m_numbItTrain}}]{\setlength{\rightskip}{0pt plus 5cm}int Data\+Reader\+::m\+\_\+numb\+It\+Train\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classDataReader_a1a78f7b37cb3908c3db5ee4538c2c932}{}\label{classDataReader_a1a78f7b37cb3908c3db5ee4538c2c932}
+
+
+Number of training iterations. 
+
+
+
+Definition at line 130 of file Data\+Reader.\+h.
+
+\index{Data\+Reader@{Data\+Reader}!m\+\_\+patch\+Size@{m\+\_\+patch\+Size}}
+\index{m\+\_\+patch\+Size@{m\+\_\+patch\+Size}!Data\+Reader@{Data\+Reader}}
+\subsubsection[{\texorpdfstring{m\+\_\+patch\+Size}{m_patchSize}}]{\setlength{\rightskip}{0pt plus 5cm}int Data\+Reader\+::m\+\_\+patch\+Size\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classDataReader_a9ae84cb0ea7dd165616880737280e6b6}{}\label{classDataReader_a9ae84cb0ea7dd165616880737280e6b6}
+
+
+Total patch size (m\+\_\+patch\+X$\ast$m\+\_\+patch\+Y$\ast$m\+\_\+patchZ) 
+
+
+
+Definition at line 136 of file Data\+Reader.\+h.
+
+\index{Data\+Reader@{Data\+Reader}!m\+\_\+patchX@{m\+\_\+patchX}}
+\index{m\+\_\+patchX@{m\+\_\+patchX}!Data\+Reader@{Data\+Reader}}
+\subsubsection[{\texorpdfstring{m\+\_\+patchX}{m_patchX}}]{\setlength{\rightskip}{0pt plus 5cm}int Data\+Reader\+::m\+\_\+patchX\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classDataReader_a95d075ccc3b12ec30a97d6664642efc2}{}\label{classDataReader_a95d075ccc3b12ec30a97d6664642efc2}
+
+
+Size of the patch in X dimention. 
+
+
+
+Definition at line 103 of file Data\+Reader.\+h.
+
+\index{Data\+Reader@{Data\+Reader}!m\+\_\+patchY@{m\+\_\+patchY}}
+\index{m\+\_\+patchY@{m\+\_\+patchY}!Data\+Reader@{Data\+Reader}}
+\subsubsection[{\texorpdfstring{m\+\_\+patchY}{m_patchY}}]{\setlength{\rightskip}{0pt plus 5cm}int Data\+Reader\+::m\+\_\+patchY\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classDataReader_aed3b404cf78c6973363402e5e871e46a}{}\label{classDataReader_aed3b404cf78c6973363402e5e871e46a}
+
+
+Size of the patch in Y dimention. 
+
+
+
+Definition at line 109 of file Data\+Reader.\+h.
+
+\index{Data\+Reader@{Data\+Reader}!m\+\_\+patchZ@{m\+\_\+patchZ}}
+\index{m\+\_\+patchZ@{m\+\_\+patchZ}!Data\+Reader@{Data\+Reader}}
+\subsubsection[{\texorpdfstring{m\+\_\+patchZ}{m_patchZ}}]{\setlength{\rightskip}{0pt plus 5cm}int Data\+Reader\+::m\+\_\+patchZ\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classDataReader_a68b54683e0e0581e3dd76874ea5b6941}{}\label{classDataReader_a68b54683e0e0581e3dd76874ea5b6941}
+
+
+Size of the patch in Z dimention. 
+
+
+
+Definition at line 106 of file Data\+Reader.\+h.
+
+\index{Data\+Reader@{Data\+Reader}!m\+\_\+q\+Measure@{m\+\_\+q\+Measure}}
+\index{m\+\_\+q\+Measure@{m\+\_\+q\+Measure}!Data\+Reader@{Data\+Reader}}
+\subsubsection[{\texorpdfstring{m\+\_\+q\+Measure}{m_qMeasure}}]{\setlength{\rightskip}{0pt plus 5cm}double Data\+Reader\+::m\+\_\+q\+Measure\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classDataReader_a5bba6f4ec228522330fda878214f7395}{}\label{classDataReader_a5bba6f4ec228522330fda878214f7395}
+
+
+S\+NR measure of the reconstructed cube (see Georgious paper) 
+
+
+
+Definition at line 82 of file Data\+Reader.\+h.
+
+\index{Data\+Reader@{Data\+Reader}!m\+\_\+shift\+X\+Test@{m\+\_\+shift\+X\+Test}}
+\index{m\+\_\+shift\+X\+Test@{m\+\_\+shift\+X\+Test}!Data\+Reader@{Data\+Reader}}
+\subsubsection[{\texorpdfstring{m\+\_\+shift\+X\+Test}{m_shiftXTest}}]{\setlength{\rightskip}{0pt plus 5cm}int Data\+Reader\+::m\+\_\+shift\+X\+Test\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classDataReader_a066a1c0f512fccdb2b21d23cce551ee7}{}\label{classDataReader_a066a1c0f512fccdb2b21d23cce551ee7}
+
+
+Shift in X dimention of the patch while testing. 
+
+
+
+Definition at line 121 of file Data\+Reader.\+h.
+
+\index{Data\+Reader@{Data\+Reader}!m\+\_\+shift\+X\+Train@{m\+\_\+shift\+X\+Train}}
+\index{m\+\_\+shift\+X\+Train@{m\+\_\+shift\+X\+Train}!Data\+Reader@{Data\+Reader}}
+\subsubsection[{\texorpdfstring{m\+\_\+shift\+X\+Train}{m_shiftXTrain}}]{\setlength{\rightskip}{0pt plus 5cm}int Data\+Reader\+::m\+\_\+shift\+X\+Train\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classDataReader_a6d2cc22f742392bafb485fe0f07b13e8}{}\label{classDataReader_a6d2cc22f742392bafb485fe0f07b13e8}
+
+
+Shift in X dimention of the patch while training. 
+
+
+
+Definition at line 112 of file Data\+Reader.\+h.
+
+\index{Data\+Reader@{Data\+Reader}!m\+\_\+shift\+Y\+Test@{m\+\_\+shift\+Y\+Test}}
+\index{m\+\_\+shift\+Y\+Test@{m\+\_\+shift\+Y\+Test}!Data\+Reader@{Data\+Reader}}
+\subsubsection[{\texorpdfstring{m\+\_\+shift\+Y\+Test}{m_shiftYTest}}]{\setlength{\rightskip}{0pt plus 5cm}int Data\+Reader\+::m\+\_\+shift\+Y\+Test\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classDataReader_ab5002c766c4cebca361dd21f1d2cbc86}{}\label{classDataReader_ab5002c766c4cebca361dd21f1d2cbc86}
+
+
+Shift in Y dimention of the patch while testing. 
+
+
+
+Definition at line 124 of file Data\+Reader.\+h.
+
+\index{Data\+Reader@{Data\+Reader}!m\+\_\+shift\+Y\+Train@{m\+\_\+shift\+Y\+Train}}
+\index{m\+\_\+shift\+Y\+Train@{m\+\_\+shift\+Y\+Train}!Data\+Reader@{Data\+Reader}}
+\subsubsection[{\texorpdfstring{m\+\_\+shift\+Y\+Train}{m_shiftYTrain}}]{\setlength{\rightskip}{0pt plus 5cm}int Data\+Reader\+::m\+\_\+shift\+Y\+Train\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classDataReader_a2d564c01ed2225f2c853063113ef87b8}{}\label{classDataReader_a2d564c01ed2225f2c853063113ef87b8}
+
+
+Shift in Y dimention of the patch while training. 
+
+
+
+Definition at line 115 of file Data\+Reader.\+h.
+
+\index{Data\+Reader@{Data\+Reader}!m\+\_\+shift\+Z\+Test@{m\+\_\+shift\+Z\+Test}}
+\index{m\+\_\+shift\+Z\+Test@{m\+\_\+shift\+Z\+Test}!Data\+Reader@{Data\+Reader}}
+\subsubsection[{\texorpdfstring{m\+\_\+shift\+Z\+Test}{m_shiftZTest}}]{\setlength{\rightskip}{0pt plus 5cm}int Data\+Reader\+::m\+\_\+shift\+Z\+Test\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classDataReader_a9f9ae5a90b34758f37671671e1f002f7}{}\label{classDataReader_a9f9ae5a90b34758f37671671e1f002f7}
+
+
+Shift in Z dimention of the patch while testing. 
+
+
+
+Definition at line 127 of file Data\+Reader.\+h.
+
+\index{Data\+Reader@{Data\+Reader}!m\+\_\+shift\+Z\+Train@{m\+\_\+shift\+Z\+Train}}
+\index{m\+\_\+shift\+Z\+Train@{m\+\_\+shift\+Z\+Train}!Data\+Reader@{Data\+Reader}}
+\subsubsection[{\texorpdfstring{m\+\_\+shift\+Z\+Train}{m_shiftZTrain}}]{\setlength{\rightskip}{0pt plus 5cm}int Data\+Reader\+::m\+\_\+shift\+Z\+Train\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classDataReader_a0edec69c662462ca0189a5a47a567596}{}\label{classDataReader_a0edec69c662462ca0189a5a47a567596}
+
+
+Shift in Z dimention of the patch while training. 
+
+
+
+Definition at line 118 of file Data\+Reader.\+h.
+
+\index{Data\+Reader@{Data\+Reader}!m\+\_\+tot\+Cubes\+Test@{m\+\_\+tot\+Cubes\+Test}}
+\index{m\+\_\+tot\+Cubes\+Test@{m\+\_\+tot\+Cubes\+Test}!Data\+Reader@{Data\+Reader}}
+\subsubsection[{\texorpdfstring{m\+\_\+tot\+Cubes\+Test}{m_totCubesTest}}]{\setlength{\rightskip}{0pt plus 5cm}int Data\+Reader\+::m\+\_\+tot\+Cubes\+Test\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classDataReader_a1a13928367a9c5d02f6e11d2d742e429}{}\label{classDataReader_a1a13928367a9c5d02f6e11d2d742e429}
+
+
+Total number of test examples. 
+
+
+
+Definition at line 139 of file Data\+Reader.\+h.
+
+\index{Data\+Reader@{Data\+Reader}!m\+\_\+x\+Width\+Mask@{m\+\_\+x\+Width\+Mask}}
+\index{m\+\_\+x\+Width\+Mask@{m\+\_\+x\+Width\+Mask}!Data\+Reader@{Data\+Reader}}
+\subsubsection[{\texorpdfstring{m\+\_\+x\+Width\+Mask}{m_xWidthMask}}]{\setlength{\rightskip}{0pt plus 5cm}int Data\+Reader\+::m\+\_\+x\+Width\+Mask\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classDataReader_af20e42b5dc09a33b2c2704cb58d01803}{}\label{classDataReader_af20e42b5dc09a33b2c2704cb58d01803}
+
+
+Width of the mask in X dimention. 
+
+
+
+Definition at line 142 of file Data\+Reader.\+h.
+
+\index{Data\+Reader@{Data\+Reader}!m\+\_\+x\+Width\+Test@{m\+\_\+x\+Width\+Test}}
+\index{m\+\_\+x\+Width\+Test@{m\+\_\+x\+Width\+Test}!Data\+Reader@{Data\+Reader}}
+\subsubsection[{\texorpdfstring{m\+\_\+x\+Width\+Test}{m_xWidthTest}}]{\setlength{\rightskip}{0pt plus 5cm}int Data\+Reader\+::m\+\_\+x\+Width\+Test\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classDataReader_a3b70edeb59564609bc13d11761586225}{}\label{classDataReader_a3b70edeb59564609bc13d11761586225}
+
+
+X dimention of the Test Cube. 
+
+
+
+Definition at line 97 of file Data\+Reader.\+h.
+
+\index{Data\+Reader@{Data\+Reader}!m\+\_\+x\+Width\+Train@{m\+\_\+x\+Width\+Train}}
+\index{m\+\_\+x\+Width\+Train@{m\+\_\+x\+Width\+Train}!Data\+Reader@{Data\+Reader}}
+\subsubsection[{\texorpdfstring{m\+\_\+x\+Width\+Train}{m_xWidthTrain}}]{\setlength{\rightskip}{0pt plus 5cm}int Data\+Reader\+::m\+\_\+x\+Width\+Train\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classDataReader_a0c4b86a80694b557fe1509b615b76244}{}\label{classDataReader_a0c4b86a80694b557fe1509b615b76244}
+
+
+X dimention of the Train Cube. 
+
+
+
+Definition at line 88 of file Data\+Reader.\+h.
+
+\index{Data\+Reader@{Data\+Reader}!m\+\_\+y\+Width\+Mask@{m\+\_\+y\+Width\+Mask}}
+\index{m\+\_\+y\+Width\+Mask@{m\+\_\+y\+Width\+Mask}!Data\+Reader@{Data\+Reader}}
+\subsubsection[{\texorpdfstring{m\+\_\+y\+Width\+Mask}{m_yWidthMask}}]{\setlength{\rightskip}{0pt plus 5cm}int Data\+Reader\+::m\+\_\+y\+Width\+Mask\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classDataReader_aa381a07a34d528a39ae493aba4d42521}{}\label{classDataReader_aa381a07a34d528a39ae493aba4d42521}
+
+
+Width of the mask in Y direction. 
+
+
+
+Definition at line 145 of file Data\+Reader.\+h.
+
+\index{Data\+Reader@{Data\+Reader}!m\+\_\+y\+Width\+Test@{m\+\_\+y\+Width\+Test}}
+\index{m\+\_\+y\+Width\+Test@{m\+\_\+y\+Width\+Test}!Data\+Reader@{Data\+Reader}}
+\subsubsection[{\texorpdfstring{m\+\_\+y\+Width\+Test}{m_yWidthTest}}]{\setlength{\rightskip}{0pt plus 5cm}int Data\+Reader\+::m\+\_\+y\+Width\+Test\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classDataReader_ac8debe3d06ff92d1d57e90bb5d18a812}{}\label{classDataReader_ac8debe3d06ff92d1d57e90bb5d18a812}
+
+
+Y dimention of the Test Cube. 
+
+
+
+Definition at line 100 of file Data\+Reader.\+h.
+
+\index{Data\+Reader@{Data\+Reader}!m\+\_\+y\+Width\+Train@{m\+\_\+y\+Width\+Train}}
+\index{m\+\_\+y\+Width\+Train@{m\+\_\+y\+Width\+Train}!Data\+Reader@{Data\+Reader}}
+\subsubsection[{\texorpdfstring{m\+\_\+y\+Width\+Train}{m_yWidthTrain}}]{\setlength{\rightskip}{0pt plus 5cm}int Data\+Reader\+::m\+\_\+y\+Width\+Train\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classDataReader_a4a627c7884969007b149ce1023ee3e11}{}\label{classDataReader_a4a627c7884969007b149ce1023ee3e11}
+
+
+Y dimention of the Train Cube. 
+
+
+
+Definition at line 91 of file Data\+Reader.\+h.
+
+\index{Data\+Reader@{Data\+Reader}!m\+\_\+z\+Width\+Test@{m\+\_\+z\+Width\+Test}}
+\index{m\+\_\+z\+Width\+Test@{m\+\_\+z\+Width\+Test}!Data\+Reader@{Data\+Reader}}
+\subsubsection[{\texorpdfstring{m\+\_\+z\+Width\+Test}{m_zWidthTest}}]{\setlength{\rightskip}{0pt plus 5cm}int Data\+Reader\+::m\+\_\+z\+Width\+Test\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classDataReader_a2c029cc64a4c674ee19477c9bfcc2ae6}{}\label{classDataReader_a2c029cc64a4c674ee19477c9bfcc2ae6}
+
+
+Z dimention of the Test Cube. 
+
+
+
+Definition at line 94 of file Data\+Reader.\+h.
+
+\index{Data\+Reader@{Data\+Reader}!m\+\_\+z\+Width\+Train@{m\+\_\+z\+Width\+Train}}
+\index{m\+\_\+z\+Width\+Train@{m\+\_\+z\+Width\+Train}!Data\+Reader@{Data\+Reader}}
+\subsubsection[{\texorpdfstring{m\+\_\+z\+Width\+Train}{m_zWidthTrain}}]{\setlength{\rightskip}{0pt plus 5cm}int Data\+Reader\+::m\+\_\+z\+Width\+Train\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classDataReader_ae74053a5592498d373fc12254145ce39}{}\label{classDataReader_ae74053a5592498d373fc12254145ce39}
+
+
+Z dimention of the Train Cube. 
+
+
+
+Definition at line 85 of file Data\+Reader.\+h.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/headers/\hyperlink{DataReader_8h}{Data\+Reader.\+h}\item 
+src/cpp/\hyperlink{datareader_8cpp}{datareader.\+cpp}\end{DoxyCompactItemize}

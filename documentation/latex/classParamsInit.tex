@@ -1,0 +1,716 @@
+\hypertarget{classParamsInit}{}\section{Params\+Init Class Reference}
+\label{classParamsInit}\index{Params\+Init@{Params\+Init}}
+
+
+Used to store parameters read in \hyperlink{classInitialiser}{Initialiser}.  
+
+
+
+
+{\ttfamily \#include \char`\"{}Params\+Init.\+h\char`\"{}}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{classParamsInit_aa3c0769a2a57329b230a93b8df4c99fd}{update\+Patch\+Size} ()
+\begin{DoxyCompactList}\small\item\em A function to alter the patch size if it is augmented. \end{DoxyCompactList}\item 
+void \hyperlink{classParamsInit_a83871ddd30d35b0b350730a6ed7c210f}{sanity\+Check} ()
+\begin{DoxyCompactList}\small\item\em Check the input parameters. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+double \hyperlink{classParamsInit_a7f0aab2366101f688a811824b60c1cc9}{lambda}
+\begin{DoxyCompactList}\small\item\em Lambda penalty for the contractive autoencoder. \end{DoxyCompactList}\item 
+double \hyperlink{classParamsInit_a357170aa7b277285467a6a5c8e073a9c}{learning\+Rate}
+\begin{DoxyCompactList}\small\item\em The learning rate. \end{DoxyCompactList}\item 
+double \hyperlink{classParamsInit_ae6e008da84ddff1c1114eb2e196f3801}{learning\+Rate\+Upper}
+\begin{DoxyCompactList}\small\item\em The lower limit of the learning rate. \end{DoxyCompactList}\item 
+double \hyperlink{classParamsInit_a5d17698322bd5df72c2040594810e6b0}{learning\+Rate\+Lower}
+\begin{DoxyCompactList}\small\item\em The upper limit of the learning rate. \end{DoxyCompactList}\item 
+double \hyperlink{classParamsInit_add858efe10c28c501be79318a041811e}{annealing}
+\begin{DoxyCompactList}\small\item\em Annealing. \end{DoxyCompactList}\item 
+double \hyperlink{classParamsInit_a31710ca6cd4d0d80f994b45554ba00b0}{bias}
+\begin{DoxyCompactList}\small\item\em Bias. \end{DoxyCompactList}\item 
+double \hyperlink{classParamsInit_a5583548cf1c2400d0e6260fc5f757957}{random\+Flag}
+\begin{DoxyCompactList}\small\item\em Randomly set the weight inputs or not. \end{DoxyCompactList}\item 
+double \hyperlink{classParamsInit_a587ab88af68e6f229c8c10642fafd455}{huber\+Delta}
+\begin{DoxyCompactList}\small\item\em Value of Delta in huber\+Delta. \end{DoxyCompactList}\item 
+double \hyperlink{classParamsInit_accff049590c6fb6e86cf2152e8c0a1b5}{momentum}
+\begin{DoxyCompactList}\small\item\em Momentum -\/ ranges from \mbox{[}0;1\mbox{]}. \end{DoxyCompactList}\item 
+double \hyperlink{classParamsInit_a1367327b42e60bab2e2ac1f1c74fb8ec}{ada\+Grad}
+\begin{DoxyCompactList}\small\item\em Ada\+Grad -\/ ranges from \mbox{[}0;1\mbox{]}. \end{DoxyCompactList}\item 
+double \hyperlink{classParamsInit_a2258ae5b7eb9489ca58421ac674e012b}{weight\+Magnitude}
+\begin{DoxyCompactList}\small\item\em The scaling factor for the weights. \end{DoxyCompactList}\item 
+double \hyperlink{classParamsInit_aa76f649c6aa95c27f13bc382d3ea46b7}{drop\+Out}
+\begin{DoxyCompactList}\small\item\em The drop out rate \mbox{[}0;1\mbox{]}. \end{DoxyCompactList}\item 
+double \hyperlink{classParamsInit_a39a3a45f1d0f32ddf55a302ae1c767ba}{input\+Scale}
+\begin{DoxyCompactList}\small\item\em The scaling factor of the input. \end{DoxyCompactList}\item 
+double \hyperlink{classParamsInit_aa065f164bd6831a5cc6ecb0ee5234466}{sparsity\+Parameter}
+\begin{DoxyCompactList}\small\item\em The maximum value of the output neurons expected. \end{DoxyCompactList}\item 
+double \hyperlink{classParamsInit_ab65c93afa1f704b359b25f90f81c1edc}{sparse}
+\begin{DoxyCompactList}\small\item\em Magnitude of the penalty. \end{DoxyCompactList}\item 
+int \hyperlink{classParamsInit_a5b75660e32158581daeb48a8b648c19a}{mini\+Batch}
+\begin{DoxyCompactList}\small\item\em Mini-\/batch. \end{DoxyCompactList}\item 
+int \hyperlink{classParamsInit_a7a7a2071cd2454eef8f2a1a0515cff0c}{curriculum}
+\begin{DoxyCompactList}\small\item\em Whether to use or not the curriculum learning. \end{DoxyCompactList}\item 
+int \hyperlink{classParamsInit_af816db821e4c8e19d599806617f11176}{shuffle\+Flag}
+\begin{DoxyCompactList}\small\item\em Shuffle the data or not. \end{DoxyCompactList}\item 
+int \hyperlink{classParamsInit_a290d2b18df1f4b1ceba37d2882ad2338}{numb\+Layers}
+\begin{DoxyCompactList}\small\item\em The number of layers in the neural network. \end{DoxyCompactList}\item 
+int \hyperlink{classParamsInit_aeddf1c385f0a769fffb6025335e6eb0b}{numb\+It\+Train}
+\begin{DoxyCompactList}\small\item\em The number of training iterations. \end{DoxyCompactList}\item 
+int \hyperlink{classParamsInit_af362ca101eef0ea95d5d63654f22f33b}{numb\+It\+Test}
+\begin{DoxyCompactList}\small\item\em The number of test iterations. \end{DoxyCompactList}\item 
+int \hyperlink{classParamsInit_a8b2c46d51b5b121b74e318423ef12343}{numb\+Epoches}
+\begin{DoxyCompactList}\small\item\em The number of epochs. \end{DoxyCompactList}\item 
+int \hyperlink{classParamsInit_a1ba43becf89da7f807f84f9bf6edf1a3}{weights\+Init\+Flag}
+\begin{DoxyCompactList}\small\item\em The scaling factor for the weights. \end{DoxyCompactList}\item 
+int \hyperlink{classParamsInit_a717a075db2987b04c493a113fc6e85a5}{type}
+\begin{DoxyCompactList}\small\item\em The type of the neural network. \end{DoxyCompactList}\item 
+int \hyperlink{classParamsInit_a35823956c18d02a7368e96374741715f}{augment}
+\begin{DoxyCompactList}\small\item\em The augmentation size of the patch. \end{DoxyCompactList}\item 
+int \hyperlink{classParamsInit_ad21a67901ba8054119cf4bb79c9ac643}{objective}
+\begin{DoxyCompactList}\small\item\em \hyperlink{classObjective}{Objective} function. \end{DoxyCompactList}\item 
+int \hyperlink{classParamsInit_affe0ae5142a7411e07e526f967072e68}{patchX}
+\begin{DoxyCompactList}\small\item\em Size of patch x. \end{DoxyCompactList}\item 
+int \hyperlink{classParamsInit_a8949fa6f3429556f98e9b977ba357544}{patchY}
+\begin{DoxyCompactList}\small\item\em Size of patch y. \end{DoxyCompactList}\item 
+int \hyperlink{classParamsInit_adfec2a432494a34c90f46c145f9097b8}{patchZ}
+\begin{DoxyCompactList}\small\item\em Size of patch z. \end{DoxyCompactList}\item 
+int \hyperlink{classParamsInit_ad6f71f2be6a9cc06dba80c8bbf5c6057}{shift\+X\+Test}
+\begin{DoxyCompactList}\small\item\em Shift in X direction test. \end{DoxyCompactList}\item 
+int \hyperlink{classParamsInit_aaa4711487fb5ce99b8d7c96dc4b6bada}{shift\+Y\+Test}
+\begin{DoxyCompactList}\small\item\em Shift in Y direction test. \end{DoxyCompactList}\item 
+int \hyperlink{classParamsInit_af40abf536ea366152b0832bb915f4a9c}{shift\+Z\+Test}
+\begin{DoxyCompactList}\small\item\em Shift in Z direction test. \end{DoxyCompactList}\item 
+int \hyperlink{classParamsInit_a0e7b7f5e071877b9de571607d1fa0063}{shift\+X\+Train}
+\begin{DoxyCompactList}\small\item\em Shift in X direction train. \end{DoxyCompactList}\item 
+int \hyperlink{classParamsInit_a189f3eeefe98e0f42003ead7775cd415}{shift\+Y\+Train}
+\begin{DoxyCompactList}\small\item\em Shift in Y direction train. \end{DoxyCompactList}\item 
+int \hyperlink{classParamsInit_a97c904605860c9b8d9f2c6a7cc037f0d}{shift\+Z\+Train}
+\begin{DoxyCompactList}\small\item\em Shift in Z direction train. \end{DoxyCompactList}\item 
+int \hyperlink{classParamsInit_add25cddec66c83e2ba79aa31df1ba3a6}{mask\+Flag\+Validation}
+\begin{DoxyCompactList}\small\item\em Flag mask validation, if 1 -\/ there is mask. \end{DoxyCompactList}\item 
+int \hyperlink{classParamsInit_a18bc89c715b973546c7295e11a14a0c0}{mask\+Flag\+Test}
+\begin{DoxyCompactList}\small\item\em Flag mask test, if 1 -\/ there is mask. \end{DoxyCompactList}\item 
+int \hyperlink{classParamsInit_aebf6eb0407471bda84bcb1a3c4a0ea12}{stats\+Flag}
+\begin{DoxyCompactList}\small\item\em Stats flag, if 1, gather the statistics. \end{DoxyCompactList}\item 
+int \hyperlink{classParamsInit_ac98a22ad5adfcef9d3ac4f56e25dc8ca}{weighted\+Error\+Flag}
+\begin{DoxyCompactList}\small\item\em Weight the error on the edges, if 1 then yes. \end{DoxyCompactList}\item 
+int \hyperlink{classParamsInit_a4d892718b54db6189abe285406e49972}{numb\+It\+Validation}
+\begin{DoxyCompactList}\small\item\em Number of the validation iterations. \end{DoxyCompactList}\item 
+int \hyperlink{classParamsInit_aac355778c92c0ea796fc29d329809624}{weight\+Freeze\+Flag}
+\item 
+double \hyperlink{classParamsInit_a57741539dedc3c7d0ca48096076e12f2}{freeze\+Fraction\+Epochs}
+\begin{DoxyCompactList}\small\item\em Freeze the weights for a fraction of epochs. \end{DoxyCompactList}\item 
+vector$<$ int $>$ \hyperlink{classParamsInit_aeee8365494660fa642a057d5497d46e1}{layers\+Vec}
+\begin{DoxyCompactList}\small\item\em Vector holding the sizes of the layers. \end{DoxyCompactList}\item 
+vector$<$ int $>$ \hyperlink{classParamsInit_aa95e42f8c7f50d5ed9186dd2cb4f07aa}{act\+Vec}
+\begin{DoxyCompactList}\small\item\em Vector holding the activation functions. \end{DoxyCompactList}\item 
+string \hyperlink{classParamsInit_a8ccf3dc572e5db746f8f8f865f58cfea}{name\+Data\+Train\+In}
+\begin{DoxyCompactList}\small\item\em Path to the training data. \end{DoxyCompactList}\item 
+string \hyperlink{classParamsInit_a767cac558a94a14a9b4ea3fc5693747c}{name\+Data\+Test\+In}
+\begin{DoxyCompactList}\small\item\em Path to the test data. \end{DoxyCompactList}\item 
+string \hyperlink{classParamsInit_a88906d27914ea5df98f5f997de2f3b0a}{weights\+Init}
+\begin{DoxyCompactList}\small\item\em Path to the file initialising the weights. \end{DoxyCompactList}\item 
+string \hyperlink{classParamsInit_ac2da7da7a633fff9ac0b95f08a135aaf}{name\+Mask\+Test}
+\begin{DoxyCompactList}\small\item\em Path to the test mask. \end{DoxyCompactList}\item 
+string \hyperlink{classParamsInit_a2c6331d140b040ecda807c8749d3199c}{name\+Mask\+Validation}
+\begin{DoxyCompactList}\small\item\em Path to the validation mask. \end{DoxyCompactList}\item 
+string \hyperlink{classParamsInit_a105b1ccbe7c5b4cc1ff8b2484f960353}{save\+Folder}
+\begin{DoxyCompactList}\small\item\em Path to the folder to save the result. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Used to store parameters read in \hyperlink{classInitialiser}{Initialiser}. 
+
+Definition at line 17 of file Params\+Init.\+h.
+
+
+
+\subsection{Member Function Documentation}
+\index{Params\+Init@{Params\+Init}!sanity\+Check@{sanity\+Check}}
+\index{sanity\+Check@{sanity\+Check}!Params\+Init@{Params\+Init}}
+\subsubsection[{\texorpdfstring{sanity\+Check()}{sanityCheck()}}]{\setlength{\rightskip}{0pt plus 5cm}void Params\+Init\+::sanity\+Check (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classParamsInit_a83871ddd30d35b0b350730a6ed7c210f}{}\label{classParamsInit_a83871ddd30d35b0b350730a6ed7c210f}
+
+
+Check the input parameters. 
+
+
+
+Definition at line 30 of file paramsinit.\+cpp.
+
+\index{Params\+Init@{Params\+Init}!update\+Patch\+Size@{update\+Patch\+Size}}
+\index{update\+Patch\+Size@{update\+Patch\+Size}!Params\+Init@{Params\+Init}}
+\subsubsection[{\texorpdfstring{update\+Patch\+Size()}{updatePatchSize()}}]{\setlength{\rightskip}{0pt plus 5cm}void Params\+Init\+::update\+Patch\+Size (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classParamsInit_aa3c0769a2a57329b230a93b8df4c99fd}{}\label{classParamsInit_aa3c0769a2a57329b230a93b8df4c99fd}
+
+
+A function to alter the patch size if it is augmented. 
+
+
+
+Definition at line 3 of file paramsinit.\+cpp.
+
+
+
+\subsection{Member Data Documentation}
+\index{Params\+Init@{Params\+Init}!act\+Vec@{act\+Vec}}
+\index{act\+Vec@{act\+Vec}!Params\+Init@{Params\+Init}}
+\subsubsection[{\texorpdfstring{act\+Vec}{actVec}}]{\setlength{\rightskip}{0pt plus 5cm}vector$<$int$>$ Params\+Init\+::act\+Vec}\hypertarget{classParamsInit_aa95e42f8c7f50d5ed9186dd2cb4f07aa}{}\label{classParamsInit_aa95e42f8c7f50d5ed9186dd2cb4f07aa}
+
+
+Vector holding the activation functions. 
+
+
+
+Definition at line 161 of file Params\+Init.\+h.
+
+\index{Params\+Init@{Params\+Init}!ada\+Grad@{ada\+Grad}}
+\index{ada\+Grad@{ada\+Grad}!Params\+Init@{Params\+Init}}
+\subsubsection[{\texorpdfstring{ada\+Grad}{adaGrad}}]{\setlength{\rightskip}{0pt plus 5cm}double Params\+Init\+::ada\+Grad}\hypertarget{classParamsInit_a1367327b42e60bab2e2ac1f1c74fb8ec}{}\label{classParamsInit_a1367327b42e60bab2e2ac1f1c74fb8ec}
+
+
+Ada\+Grad -\/ ranges from \mbox{[}0;1\mbox{]}. 
+
+
+
+Definition at line 56 of file Params\+Init.\+h.
+
+\index{Params\+Init@{Params\+Init}!annealing@{annealing}}
+\index{annealing@{annealing}!Params\+Init@{Params\+Init}}
+\subsubsection[{\texorpdfstring{annealing}{annealing}}]{\setlength{\rightskip}{0pt plus 5cm}double Params\+Init\+::annealing}\hypertarget{classParamsInit_add858efe10c28c501be79318a041811e}{}\label{classParamsInit_add858efe10c28c501be79318a041811e}
+
+
+Annealing. 
+
+
+
+Definition at line 41 of file Params\+Init.\+h.
+
+\index{Params\+Init@{Params\+Init}!augment@{augment}}
+\index{augment@{augment}!Params\+Init@{Params\+Init}}
+\subsubsection[{\texorpdfstring{augment}{augment}}]{\setlength{\rightskip}{0pt plus 5cm}int Params\+Init\+::augment}\hypertarget{classParamsInit_a35823956c18d02a7368e96374741715f}{}\label{classParamsInit_a35823956c18d02a7368e96374741715f}
+
+
+The augmentation size of the patch. 
+
+
+
+Definition at line 101 of file Params\+Init.\+h.
+
+\index{Params\+Init@{Params\+Init}!bias@{bias}}
+\index{bias@{bias}!Params\+Init@{Params\+Init}}
+\subsubsection[{\texorpdfstring{bias}{bias}}]{\setlength{\rightskip}{0pt plus 5cm}double Params\+Init\+::bias}\hypertarget{classParamsInit_a31710ca6cd4d0d80f994b45554ba00b0}{}\label{classParamsInit_a31710ca6cd4d0d80f994b45554ba00b0}
+
+
+Bias. 
+
+
+
+Definition at line 44 of file Params\+Init.\+h.
+
+\index{Params\+Init@{Params\+Init}!curriculum@{curriculum}}
+\index{curriculum@{curriculum}!Params\+Init@{Params\+Init}}
+\subsubsection[{\texorpdfstring{curriculum}{curriculum}}]{\setlength{\rightskip}{0pt plus 5cm}int Params\+Init\+::curriculum}\hypertarget{classParamsInit_a7a7a2071cd2454eef8f2a1a0515cff0c}{}\label{classParamsInit_a7a7a2071cd2454eef8f2a1a0515cff0c}
+
+
+Whether to use or not the curriculum learning. 
+
+
+
+Definition at line 77 of file Params\+Init.\+h.
+
+\index{Params\+Init@{Params\+Init}!drop\+Out@{drop\+Out}}
+\index{drop\+Out@{drop\+Out}!Params\+Init@{Params\+Init}}
+\subsubsection[{\texorpdfstring{drop\+Out}{dropOut}}]{\setlength{\rightskip}{0pt plus 5cm}double Params\+Init\+::drop\+Out}\hypertarget{classParamsInit_aa76f649c6aa95c27f13bc382d3ea46b7}{}\label{classParamsInit_aa76f649c6aa95c27f13bc382d3ea46b7}
+
+
+The drop out rate \mbox{[}0;1\mbox{]}. 
+
+
+
+Definition at line 62 of file Params\+Init.\+h.
+
+\index{Params\+Init@{Params\+Init}!freeze\+Fraction\+Epochs@{freeze\+Fraction\+Epochs}}
+\index{freeze\+Fraction\+Epochs@{freeze\+Fraction\+Epochs}!Params\+Init@{Params\+Init}}
+\subsubsection[{\texorpdfstring{freeze\+Fraction\+Epochs}{freezeFractionEpochs}}]{\setlength{\rightskip}{0pt plus 5cm}double Params\+Init\+::freeze\+Fraction\+Epochs}\hypertarget{classParamsInit_a57741539dedc3c7d0ca48096076e12f2}{}\label{classParamsInit_a57741539dedc3c7d0ca48096076e12f2}
+
+
+Freeze the weights for a fraction of epochs. 
+
+
+
+Definition at line 155 of file Params\+Init.\+h.
+
+\index{Params\+Init@{Params\+Init}!huber\+Delta@{huber\+Delta}}
+\index{huber\+Delta@{huber\+Delta}!Params\+Init@{Params\+Init}}
+\subsubsection[{\texorpdfstring{huber\+Delta}{huberDelta}}]{\setlength{\rightskip}{0pt plus 5cm}double Params\+Init\+::huber\+Delta}\hypertarget{classParamsInit_a587ab88af68e6f229c8c10642fafd455}{}\label{classParamsInit_a587ab88af68e6f229c8c10642fafd455}
+
+
+Value of Delta in huber\+Delta. 
+
+
+
+Definition at line 50 of file Params\+Init.\+h.
+
+\index{Params\+Init@{Params\+Init}!input\+Scale@{input\+Scale}}
+\index{input\+Scale@{input\+Scale}!Params\+Init@{Params\+Init}}
+\subsubsection[{\texorpdfstring{input\+Scale}{inputScale}}]{\setlength{\rightskip}{0pt plus 5cm}double Params\+Init\+::input\+Scale}\hypertarget{classParamsInit_a39a3a45f1d0f32ddf55a302ae1c767ba}{}\label{classParamsInit_a39a3a45f1d0f32ddf55a302ae1c767ba}
+
+
+The scaling factor of the input. 
+
+
+
+Definition at line 65 of file Params\+Init.\+h.
+
+\index{Params\+Init@{Params\+Init}!lambda@{lambda}}
+\index{lambda@{lambda}!Params\+Init@{Params\+Init}}
+\subsubsection[{\texorpdfstring{lambda}{lambda}}]{\setlength{\rightskip}{0pt plus 5cm}double Params\+Init\+::lambda}\hypertarget{classParamsInit_a7f0aab2366101f688a811824b60c1cc9}{}\label{classParamsInit_a7f0aab2366101f688a811824b60c1cc9}
+
+
+Lambda penalty for the contractive autoencoder. 
+
+
+
+Definition at line 29 of file Params\+Init.\+h.
+
+\index{Params\+Init@{Params\+Init}!layers\+Vec@{layers\+Vec}}
+\index{layers\+Vec@{layers\+Vec}!Params\+Init@{Params\+Init}}
+\subsubsection[{\texorpdfstring{layers\+Vec}{layersVec}}]{\setlength{\rightskip}{0pt plus 5cm}vector$<$int$>$ Params\+Init\+::layers\+Vec}\hypertarget{classParamsInit_aeee8365494660fa642a057d5497d46e1}{}\label{classParamsInit_aeee8365494660fa642a057d5497d46e1}
+
+
+Vector holding the sizes of the layers. 
+
+
+
+Definition at line 158 of file Params\+Init.\+h.
+
+\index{Params\+Init@{Params\+Init}!learning\+Rate@{learning\+Rate}}
+\index{learning\+Rate@{learning\+Rate}!Params\+Init@{Params\+Init}}
+\subsubsection[{\texorpdfstring{learning\+Rate}{learningRate}}]{\setlength{\rightskip}{0pt plus 5cm}double Params\+Init\+::learning\+Rate}\hypertarget{classParamsInit_a357170aa7b277285467a6a5c8e073a9c}{}\label{classParamsInit_a357170aa7b277285467a6a5c8e073a9c}
+
+
+The learning rate. 
+
+
+
+Definition at line 32 of file Params\+Init.\+h.
+
+\index{Params\+Init@{Params\+Init}!learning\+Rate\+Lower@{learning\+Rate\+Lower}}
+\index{learning\+Rate\+Lower@{learning\+Rate\+Lower}!Params\+Init@{Params\+Init}}
+\subsubsection[{\texorpdfstring{learning\+Rate\+Lower}{learningRateLower}}]{\setlength{\rightskip}{0pt plus 5cm}double Params\+Init\+::learning\+Rate\+Lower}\hypertarget{classParamsInit_a5d17698322bd5df72c2040594810e6b0}{}\label{classParamsInit_a5d17698322bd5df72c2040594810e6b0}
+
+
+The upper limit of the learning rate. 
+
+
+
+Definition at line 38 of file Params\+Init.\+h.
+
+\index{Params\+Init@{Params\+Init}!learning\+Rate\+Upper@{learning\+Rate\+Upper}}
+\index{learning\+Rate\+Upper@{learning\+Rate\+Upper}!Params\+Init@{Params\+Init}}
+\subsubsection[{\texorpdfstring{learning\+Rate\+Upper}{learningRateUpper}}]{\setlength{\rightskip}{0pt plus 5cm}double Params\+Init\+::learning\+Rate\+Upper}\hypertarget{classParamsInit_ae6e008da84ddff1c1114eb2e196f3801}{}\label{classParamsInit_ae6e008da84ddff1c1114eb2e196f3801}
+
+
+The lower limit of the learning rate. 
+
+
+
+Definition at line 35 of file Params\+Init.\+h.
+
+\index{Params\+Init@{Params\+Init}!mask\+Flag\+Test@{mask\+Flag\+Test}}
+\index{mask\+Flag\+Test@{mask\+Flag\+Test}!Params\+Init@{Params\+Init}}
+\subsubsection[{\texorpdfstring{mask\+Flag\+Test}{maskFlagTest}}]{\setlength{\rightskip}{0pt plus 5cm}int Params\+Init\+::mask\+Flag\+Test}\hypertarget{classParamsInit_a18bc89c715b973546c7295e11a14a0c0}{}\label{classParamsInit_a18bc89c715b973546c7295e11a14a0c0}
+
+
+Flag mask test, if 1 -\/ there is mask. 
+
+
+
+Definition at line 137 of file Params\+Init.\+h.
+
+\index{Params\+Init@{Params\+Init}!mask\+Flag\+Validation@{mask\+Flag\+Validation}}
+\index{mask\+Flag\+Validation@{mask\+Flag\+Validation}!Params\+Init@{Params\+Init}}
+\subsubsection[{\texorpdfstring{mask\+Flag\+Validation}{maskFlagValidation}}]{\setlength{\rightskip}{0pt plus 5cm}int Params\+Init\+::mask\+Flag\+Validation}\hypertarget{classParamsInit_add25cddec66c83e2ba79aa31df1ba3a6}{}\label{classParamsInit_add25cddec66c83e2ba79aa31df1ba3a6}
+
+
+Flag mask validation, if 1 -\/ there is mask. 
+
+
+
+Definition at line 134 of file Params\+Init.\+h.
+
+\index{Params\+Init@{Params\+Init}!mini\+Batch@{mini\+Batch}}
+\index{mini\+Batch@{mini\+Batch}!Params\+Init@{Params\+Init}}
+\subsubsection[{\texorpdfstring{mini\+Batch}{miniBatch}}]{\setlength{\rightskip}{0pt plus 5cm}int Params\+Init\+::mini\+Batch}\hypertarget{classParamsInit_a5b75660e32158581daeb48a8b648c19a}{}\label{classParamsInit_a5b75660e32158581daeb48a8b648c19a}
+
+
+Mini-\/batch. 
+
+
+
+Definition at line 74 of file Params\+Init.\+h.
+
+\index{Params\+Init@{Params\+Init}!momentum@{momentum}}
+\index{momentum@{momentum}!Params\+Init@{Params\+Init}}
+\subsubsection[{\texorpdfstring{momentum}{momentum}}]{\setlength{\rightskip}{0pt plus 5cm}double Params\+Init\+::momentum}\hypertarget{classParamsInit_accff049590c6fb6e86cf2152e8c0a1b5}{}\label{classParamsInit_accff049590c6fb6e86cf2152e8c0a1b5}
+
+
+Momentum -\/ ranges from \mbox{[}0;1\mbox{]}. 
+
+
+
+Definition at line 53 of file Params\+Init.\+h.
+
+\index{Params\+Init@{Params\+Init}!name\+Data\+Test\+In@{name\+Data\+Test\+In}}
+\index{name\+Data\+Test\+In@{name\+Data\+Test\+In}!Params\+Init@{Params\+Init}}
+\subsubsection[{\texorpdfstring{name\+Data\+Test\+In}{nameDataTestIn}}]{\setlength{\rightskip}{0pt plus 5cm}string Params\+Init\+::name\+Data\+Test\+In}\hypertarget{classParamsInit_a767cac558a94a14a9b4ea3fc5693747c}{}\label{classParamsInit_a767cac558a94a14a9b4ea3fc5693747c}
+
+
+Path to the test data. 
+
+
+
+Definition at line 167 of file Params\+Init.\+h.
+
+\index{Params\+Init@{Params\+Init}!name\+Data\+Train\+In@{name\+Data\+Train\+In}}
+\index{name\+Data\+Train\+In@{name\+Data\+Train\+In}!Params\+Init@{Params\+Init}}
+\subsubsection[{\texorpdfstring{name\+Data\+Train\+In}{nameDataTrainIn}}]{\setlength{\rightskip}{0pt plus 5cm}string Params\+Init\+::name\+Data\+Train\+In}\hypertarget{classParamsInit_a8ccf3dc572e5db746f8f8f865f58cfea}{}\label{classParamsInit_a8ccf3dc572e5db746f8f8f865f58cfea}
+
+
+Path to the training data. 
+
+
+
+Definition at line 164 of file Params\+Init.\+h.
+
+\index{Params\+Init@{Params\+Init}!name\+Mask\+Test@{name\+Mask\+Test}}
+\index{name\+Mask\+Test@{name\+Mask\+Test}!Params\+Init@{Params\+Init}}
+\subsubsection[{\texorpdfstring{name\+Mask\+Test}{nameMaskTest}}]{\setlength{\rightskip}{0pt plus 5cm}string Params\+Init\+::name\+Mask\+Test}\hypertarget{classParamsInit_ac2da7da7a633fff9ac0b95f08a135aaf}{}\label{classParamsInit_ac2da7da7a633fff9ac0b95f08a135aaf}
+
+
+Path to the test mask. 
+
+
+
+Definition at line 173 of file Params\+Init.\+h.
+
+\index{Params\+Init@{Params\+Init}!name\+Mask\+Validation@{name\+Mask\+Validation}}
+\index{name\+Mask\+Validation@{name\+Mask\+Validation}!Params\+Init@{Params\+Init}}
+\subsubsection[{\texorpdfstring{name\+Mask\+Validation}{nameMaskValidation}}]{\setlength{\rightskip}{0pt plus 5cm}string Params\+Init\+::name\+Mask\+Validation}\hypertarget{classParamsInit_a2c6331d140b040ecda807c8749d3199c}{}\label{classParamsInit_a2c6331d140b040ecda807c8749d3199c}
+
+
+Path to the validation mask. 
+
+
+
+Definition at line 176 of file Params\+Init.\+h.
+
+\index{Params\+Init@{Params\+Init}!numb\+Epoches@{numb\+Epoches}}
+\index{numb\+Epoches@{numb\+Epoches}!Params\+Init@{Params\+Init}}
+\subsubsection[{\texorpdfstring{numb\+Epoches}{numbEpoches}}]{\setlength{\rightskip}{0pt plus 5cm}int Params\+Init\+::numb\+Epoches}\hypertarget{classParamsInit_a8b2c46d51b5b121b74e318423ef12343}{}\label{classParamsInit_a8b2c46d51b5b121b74e318423ef12343}
+
+
+The number of epochs. 
+
+
+
+Definition at line 92 of file Params\+Init.\+h.
+
+\index{Params\+Init@{Params\+Init}!numb\+It\+Test@{numb\+It\+Test}}
+\index{numb\+It\+Test@{numb\+It\+Test}!Params\+Init@{Params\+Init}}
+\subsubsection[{\texorpdfstring{numb\+It\+Test}{numbItTest}}]{\setlength{\rightskip}{0pt plus 5cm}int Params\+Init\+::numb\+It\+Test}\hypertarget{classParamsInit_af362ca101eef0ea95d5d63654f22f33b}{}\label{classParamsInit_af362ca101eef0ea95d5d63654f22f33b}
+
+
+The number of test iterations. 
+
+
+
+Definition at line 89 of file Params\+Init.\+h.
+
+\index{Params\+Init@{Params\+Init}!numb\+It\+Train@{numb\+It\+Train}}
+\index{numb\+It\+Train@{numb\+It\+Train}!Params\+Init@{Params\+Init}}
+\subsubsection[{\texorpdfstring{numb\+It\+Train}{numbItTrain}}]{\setlength{\rightskip}{0pt plus 5cm}int Params\+Init\+::numb\+It\+Train}\hypertarget{classParamsInit_aeddf1c385f0a769fffb6025335e6eb0b}{}\label{classParamsInit_aeddf1c385f0a769fffb6025335e6eb0b}
+
+
+The number of training iterations. 
+
+
+
+Definition at line 86 of file Params\+Init.\+h.
+
+\index{Params\+Init@{Params\+Init}!numb\+It\+Validation@{numb\+It\+Validation}}
+\index{numb\+It\+Validation@{numb\+It\+Validation}!Params\+Init@{Params\+Init}}
+\subsubsection[{\texorpdfstring{numb\+It\+Validation}{numbItValidation}}]{\setlength{\rightskip}{0pt plus 5cm}int Params\+Init\+::numb\+It\+Validation}\hypertarget{classParamsInit_a4d892718b54db6189abe285406e49972}{}\label{classParamsInit_a4d892718b54db6189abe285406e49972}
+
+
+Number of the validation iterations. 
+
+
+
+Definition at line 146 of file Params\+Init.\+h.
+
+\index{Params\+Init@{Params\+Init}!numb\+Layers@{numb\+Layers}}
+\index{numb\+Layers@{numb\+Layers}!Params\+Init@{Params\+Init}}
+\subsubsection[{\texorpdfstring{numb\+Layers}{numbLayers}}]{\setlength{\rightskip}{0pt plus 5cm}int Params\+Init\+::numb\+Layers}\hypertarget{classParamsInit_a290d2b18df1f4b1ceba37d2882ad2338}{}\label{classParamsInit_a290d2b18df1f4b1ceba37d2882ad2338}
+
+
+The number of layers in the neural network. 
+
+
+
+Definition at line 83 of file Params\+Init.\+h.
+
+\index{Params\+Init@{Params\+Init}!objective@{objective}}
+\index{objective@{objective}!Params\+Init@{Params\+Init}}
+\subsubsection[{\texorpdfstring{objective}{objective}}]{\setlength{\rightskip}{0pt plus 5cm}int Params\+Init\+::objective}\hypertarget{classParamsInit_ad21a67901ba8054119cf4bb79c9ac643}{}\label{classParamsInit_ad21a67901ba8054119cf4bb79c9ac643}
+
+
+\hyperlink{classObjective}{Objective} function. 
+
+
+
+Definition at line 104 of file Params\+Init.\+h.
+
+\index{Params\+Init@{Params\+Init}!patchX@{patchX}}
+\index{patchX@{patchX}!Params\+Init@{Params\+Init}}
+\subsubsection[{\texorpdfstring{patchX}{patchX}}]{\setlength{\rightskip}{0pt plus 5cm}int Params\+Init\+::patchX}\hypertarget{classParamsInit_affe0ae5142a7411e07e526f967072e68}{}\label{classParamsInit_affe0ae5142a7411e07e526f967072e68}
+
+
+Size of patch x. 
+
+
+
+Definition at line 107 of file Params\+Init.\+h.
+
+\index{Params\+Init@{Params\+Init}!patchY@{patchY}}
+\index{patchY@{patchY}!Params\+Init@{Params\+Init}}
+\subsubsection[{\texorpdfstring{patchY}{patchY}}]{\setlength{\rightskip}{0pt plus 5cm}int Params\+Init\+::patchY}\hypertarget{classParamsInit_a8949fa6f3429556f98e9b977ba357544}{}\label{classParamsInit_a8949fa6f3429556f98e9b977ba357544}
+
+
+Size of patch y. 
+
+
+
+Definition at line 110 of file Params\+Init.\+h.
+
+\index{Params\+Init@{Params\+Init}!patchZ@{patchZ}}
+\index{patchZ@{patchZ}!Params\+Init@{Params\+Init}}
+\subsubsection[{\texorpdfstring{patchZ}{patchZ}}]{\setlength{\rightskip}{0pt plus 5cm}int Params\+Init\+::patchZ}\hypertarget{classParamsInit_adfec2a432494a34c90f46c145f9097b8}{}\label{classParamsInit_adfec2a432494a34c90f46c145f9097b8}
+
+
+Size of patch z. 
+
+
+
+Definition at line 113 of file Params\+Init.\+h.
+
+\index{Params\+Init@{Params\+Init}!random\+Flag@{random\+Flag}}
+\index{random\+Flag@{random\+Flag}!Params\+Init@{Params\+Init}}
+\subsubsection[{\texorpdfstring{random\+Flag}{randomFlag}}]{\setlength{\rightskip}{0pt plus 5cm}double Params\+Init\+::random\+Flag}\hypertarget{classParamsInit_a5583548cf1c2400d0e6260fc5f757957}{}\label{classParamsInit_a5583548cf1c2400d0e6260fc5f757957}
+
+
+Randomly set the weight inputs or not. 
+
+
+
+Definition at line 47 of file Params\+Init.\+h.
+
+\index{Params\+Init@{Params\+Init}!save\+Folder@{save\+Folder}}
+\index{save\+Folder@{save\+Folder}!Params\+Init@{Params\+Init}}
+\subsubsection[{\texorpdfstring{save\+Folder}{saveFolder}}]{\setlength{\rightskip}{0pt plus 5cm}string Params\+Init\+::save\+Folder}\hypertarget{classParamsInit_a105b1ccbe7c5b4cc1ff8b2484f960353}{}\label{classParamsInit_a105b1ccbe7c5b4cc1ff8b2484f960353}
+
+
+Path to the folder to save the result. 
+
+
+
+Definition at line 179 of file Params\+Init.\+h.
+
+\index{Params\+Init@{Params\+Init}!shift\+X\+Test@{shift\+X\+Test}}
+\index{shift\+X\+Test@{shift\+X\+Test}!Params\+Init@{Params\+Init}}
+\subsubsection[{\texorpdfstring{shift\+X\+Test}{shiftXTest}}]{\setlength{\rightskip}{0pt plus 5cm}int Params\+Init\+::shift\+X\+Test}\hypertarget{classParamsInit_ad6f71f2be6a9cc06dba80c8bbf5c6057}{}\label{classParamsInit_ad6f71f2be6a9cc06dba80c8bbf5c6057}
+
+
+Shift in X direction test. 
+
+
+
+Definition at line 116 of file Params\+Init.\+h.
+
+\index{Params\+Init@{Params\+Init}!shift\+X\+Train@{shift\+X\+Train}}
+\index{shift\+X\+Train@{shift\+X\+Train}!Params\+Init@{Params\+Init}}
+\subsubsection[{\texorpdfstring{shift\+X\+Train}{shiftXTrain}}]{\setlength{\rightskip}{0pt plus 5cm}int Params\+Init\+::shift\+X\+Train}\hypertarget{classParamsInit_a0e7b7f5e071877b9de571607d1fa0063}{}\label{classParamsInit_a0e7b7f5e071877b9de571607d1fa0063}
+
+
+Shift in X direction train. 
+
+
+
+Definition at line 125 of file Params\+Init.\+h.
+
+\index{Params\+Init@{Params\+Init}!shift\+Y\+Test@{shift\+Y\+Test}}
+\index{shift\+Y\+Test@{shift\+Y\+Test}!Params\+Init@{Params\+Init}}
+\subsubsection[{\texorpdfstring{shift\+Y\+Test}{shiftYTest}}]{\setlength{\rightskip}{0pt plus 5cm}int Params\+Init\+::shift\+Y\+Test}\hypertarget{classParamsInit_aaa4711487fb5ce99b8d7c96dc4b6bada}{}\label{classParamsInit_aaa4711487fb5ce99b8d7c96dc4b6bada}
+
+
+Shift in Y direction test. 
+
+
+
+Definition at line 119 of file Params\+Init.\+h.
+
+\index{Params\+Init@{Params\+Init}!shift\+Y\+Train@{shift\+Y\+Train}}
+\index{shift\+Y\+Train@{shift\+Y\+Train}!Params\+Init@{Params\+Init}}
+\subsubsection[{\texorpdfstring{shift\+Y\+Train}{shiftYTrain}}]{\setlength{\rightskip}{0pt plus 5cm}int Params\+Init\+::shift\+Y\+Train}\hypertarget{classParamsInit_a189f3eeefe98e0f42003ead7775cd415}{}\label{classParamsInit_a189f3eeefe98e0f42003ead7775cd415}
+
+
+Shift in Y direction train. 
+
+
+
+Definition at line 128 of file Params\+Init.\+h.
+
+\index{Params\+Init@{Params\+Init}!shift\+Z\+Test@{shift\+Z\+Test}}
+\index{shift\+Z\+Test@{shift\+Z\+Test}!Params\+Init@{Params\+Init}}
+\subsubsection[{\texorpdfstring{shift\+Z\+Test}{shiftZTest}}]{\setlength{\rightskip}{0pt plus 5cm}int Params\+Init\+::shift\+Z\+Test}\hypertarget{classParamsInit_af40abf536ea366152b0832bb915f4a9c}{}\label{classParamsInit_af40abf536ea366152b0832bb915f4a9c}
+
+
+Shift in Z direction test. 
+
+
+
+Definition at line 122 of file Params\+Init.\+h.
+
+\index{Params\+Init@{Params\+Init}!shift\+Z\+Train@{shift\+Z\+Train}}
+\index{shift\+Z\+Train@{shift\+Z\+Train}!Params\+Init@{Params\+Init}}
+\subsubsection[{\texorpdfstring{shift\+Z\+Train}{shiftZTrain}}]{\setlength{\rightskip}{0pt plus 5cm}int Params\+Init\+::shift\+Z\+Train}\hypertarget{classParamsInit_a97c904605860c9b8d9f2c6a7cc037f0d}{}\label{classParamsInit_a97c904605860c9b8d9f2c6a7cc037f0d}
+
+
+Shift in Z direction train. 
+
+
+
+Definition at line 131 of file Params\+Init.\+h.
+
+\index{Params\+Init@{Params\+Init}!shuffle\+Flag@{shuffle\+Flag}}
+\index{shuffle\+Flag@{shuffle\+Flag}!Params\+Init@{Params\+Init}}
+\subsubsection[{\texorpdfstring{shuffle\+Flag}{shuffleFlag}}]{\setlength{\rightskip}{0pt plus 5cm}int Params\+Init\+::shuffle\+Flag}\hypertarget{classParamsInit_af816db821e4c8e19d599806617f11176}{}\label{classParamsInit_af816db821e4c8e19d599806617f11176}
+
+
+Shuffle the data or not. 
+
+
+
+Definition at line 80 of file Params\+Init.\+h.
+
+\index{Params\+Init@{Params\+Init}!sparse@{sparse}}
+\index{sparse@{sparse}!Params\+Init@{Params\+Init}}
+\subsubsection[{\texorpdfstring{sparse}{sparse}}]{\setlength{\rightskip}{0pt plus 5cm}double Params\+Init\+::sparse}\hypertarget{classParamsInit_ab65c93afa1f704b359b25f90f81c1edc}{}\label{classParamsInit_ab65c93afa1f704b359b25f90f81c1edc}
+
+
+Magnitude of the penalty. 
+
+
+
+Definition at line 71 of file Params\+Init.\+h.
+
+\index{Params\+Init@{Params\+Init}!sparsity\+Parameter@{sparsity\+Parameter}}
+\index{sparsity\+Parameter@{sparsity\+Parameter}!Params\+Init@{Params\+Init}}
+\subsubsection[{\texorpdfstring{sparsity\+Parameter}{sparsityParameter}}]{\setlength{\rightskip}{0pt plus 5cm}double Params\+Init\+::sparsity\+Parameter}\hypertarget{classParamsInit_aa065f164bd6831a5cc6ecb0ee5234466}{}\label{classParamsInit_aa065f164bd6831a5cc6ecb0ee5234466}
+
+
+The maximum value of the output neurons expected. 
+
+
+
+Definition at line 68 of file Params\+Init.\+h.
+
+\index{Params\+Init@{Params\+Init}!stats\+Flag@{stats\+Flag}}
+\index{stats\+Flag@{stats\+Flag}!Params\+Init@{Params\+Init}}
+\subsubsection[{\texorpdfstring{stats\+Flag}{statsFlag}}]{\setlength{\rightskip}{0pt plus 5cm}int Params\+Init\+::stats\+Flag}\hypertarget{classParamsInit_aebf6eb0407471bda84bcb1a3c4a0ea12}{}\label{classParamsInit_aebf6eb0407471bda84bcb1a3c4a0ea12}
+
+
+Stats flag, if 1, gather the statistics. 
+
+
+
+Definition at line 140 of file Params\+Init.\+h.
+
+\index{Params\+Init@{Params\+Init}!type@{type}}
+\index{type@{type}!Params\+Init@{Params\+Init}}
+\subsubsection[{\texorpdfstring{type}{type}}]{\setlength{\rightskip}{0pt plus 5cm}int Params\+Init\+::type}\hypertarget{classParamsInit_a717a075db2987b04c493a113fc6e85a5}{}\label{classParamsInit_a717a075db2987b04c493a113fc6e85a5}
+
+
+The type of the neural network. 
+
+
+
+Definition at line 98 of file Params\+Init.\+h.
+
+\index{Params\+Init@{Params\+Init}!weighted\+Error\+Flag@{weighted\+Error\+Flag}}
+\index{weighted\+Error\+Flag@{weighted\+Error\+Flag}!Params\+Init@{Params\+Init}}
+\subsubsection[{\texorpdfstring{weighted\+Error\+Flag}{weightedErrorFlag}}]{\setlength{\rightskip}{0pt plus 5cm}int Params\+Init\+::weighted\+Error\+Flag}\hypertarget{classParamsInit_ac98a22ad5adfcef9d3ac4f56e25dc8ca}{}\label{classParamsInit_ac98a22ad5adfcef9d3ac4f56e25dc8ca}
+
+
+Weight the error on the edges, if 1 then yes. 
+
+
+
+Definition at line 143 of file Params\+Init.\+h.
+
+\index{Params\+Init@{Params\+Init}!weight\+Freeze\+Flag@{weight\+Freeze\+Flag}}
+\index{weight\+Freeze\+Flag@{weight\+Freeze\+Flag}!Params\+Init@{Params\+Init}}
+\subsubsection[{\texorpdfstring{weight\+Freeze\+Flag}{weightFreezeFlag}}]{\setlength{\rightskip}{0pt plus 5cm}int Params\+Init\+::weight\+Freeze\+Flag}\hypertarget{classParamsInit_aac355778c92c0ea796fc29d329809624}{}\label{classParamsInit_aac355778c92c0ea796fc29d329809624}
+Weight freeze flag 0 -\/ no weight freezing 1 -\/ freeze encoder for fraction\+Of\+Epochs 2 -\/ freeze decoder for fraction\+Of\+Epochs 3 -\/freeze decoder for fraction\+Of\+Epochs and then freeze encoder for fraction\+Of\+Epochs, the remaining of time both trained together 
+
+Definition at line 152 of file Params\+Init.\+h.
+
+\index{Params\+Init@{Params\+Init}!weight\+Magnitude@{weight\+Magnitude}}
+\index{weight\+Magnitude@{weight\+Magnitude}!Params\+Init@{Params\+Init}}
+\subsubsection[{\texorpdfstring{weight\+Magnitude}{weightMagnitude}}]{\setlength{\rightskip}{0pt plus 5cm}double Params\+Init\+::weight\+Magnitude}\hypertarget{classParamsInit_a2258ae5b7eb9489ca58421ac674e012b}{}\label{classParamsInit_a2258ae5b7eb9489ca58421ac674e012b}
+
+
+The scaling factor for the weights. 
+
+
+
+Definition at line 59 of file Params\+Init.\+h.
+
+\index{Params\+Init@{Params\+Init}!weights\+Init@{weights\+Init}}
+\index{weights\+Init@{weights\+Init}!Params\+Init@{Params\+Init}}
+\subsubsection[{\texorpdfstring{weights\+Init}{weightsInit}}]{\setlength{\rightskip}{0pt plus 5cm}string Params\+Init\+::weights\+Init}\hypertarget{classParamsInit_a88906d27914ea5df98f5f997de2f3b0a}{}\label{classParamsInit_a88906d27914ea5df98f5f997de2f3b0a}
+
+
+Path to the file initialising the weights. 
+
+
+
+Definition at line 170 of file Params\+Init.\+h.
+
+\index{Params\+Init@{Params\+Init}!weights\+Init\+Flag@{weights\+Init\+Flag}}
+\index{weights\+Init\+Flag@{weights\+Init\+Flag}!Params\+Init@{Params\+Init}}
+\subsubsection[{\texorpdfstring{weights\+Init\+Flag}{weightsInitFlag}}]{\setlength{\rightskip}{0pt plus 5cm}int Params\+Init\+::weights\+Init\+Flag}\hypertarget{classParamsInit_a1ba43becf89da7f807f84f9bf6edf1a3}{}\label{classParamsInit_a1ba43becf89da7f807f84f9bf6edf1a3}
+
+
+The scaling factor for the weights. 
+
+
+
+Definition at line 95 of file Params\+Init.\+h.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/headers/\hyperlink{ParamsInit_8h}{Params\+Init.\+h}\item 
+src/cpp/\hyperlink{paramsinit_8cpp}{paramsinit.\+cpp}\end{DoxyCompactItemize}

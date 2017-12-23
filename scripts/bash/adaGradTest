@@ -1,0 +1,62 @@
+#!/bin/bash
+
+# Script to run through the batch sizes (alters config file and runs the algorithm)
+
+
+#Go to the head folder with a Makefile in it
+cd ../../
+
+#Declaring arrays of the parameters we want to test
+declare -a adaGradArray=(0.1 0.3 0.5 0.7 0.9) #should be lambda
+#declare -a learningRate=(0.001 0.01 0.1)
+declare -a learningRate=(0.01 0.1)
+#declare -a learningRate=(0.0001 0.001 0.01 0.1)
+declare -a batch=(4 16 64)
+
+
+#Iterate through batch array
+for k in `seq 0 1 $[${#batch[@]}-1]`
+do      
+        #Set a new value for batch variable in config
+        varbatch='        miniBatch          = '${batch[k]}';'
+
+        #Change a batch variable in the config
+        sed -i.bu '22 s|.*|'"$varbatch"'|' ./config/config.cfg
+
+
+        #Iterate through learning rate array
+        for j in `seq 0 1 $[${#learningRate[@]}-1]`
+        do
+                #Set a new value for Learning rate variables
+                varLearning='        learningRate       = '${learningRate[j]}';'
+                varLearningRange='        dynamicLearningR   = ['${learningRate[j]}','${learningRate[j]}'];'
+
+                #Change values in the config file
+	        sed -i.bu '23 s|.*|'"$varLearning"'|' ./config/config.cfg
+                sed -i.bu '24 s|.*|'"$varLearningRange"'|' ./config/config.cfg
+
+                #Iterate through hidden layers
+                for i in `seq 0 1 $[${#adaGradArray[@]}-1]`
+                do
+                        #Set the path to a new directory
+                        saveDir="/local/data/public/am2442/seismic/output/results/adaGrad/tanh/${batch[k]}/${learningRate[j]}/${adaGradArray[i]}"
+
+                        #Create a new directory for output      
+                        mkdir -p $saveDir
+
+                        #Set a new value for lambda
+                        varold='        adaGrad             = '${adaGradArray[i]}';'
+
+                        #Change a save folder to a created directory
+                        varoldSave='        saveFolder         ="'$saveDir'/";'
+
+                        #Set new variables in the config file
+	                sed -i.bu '34 s|.*|'"$varold"'|' ./config/config.cfg
+	                sed -i.bu '4 s|.*|'"$varoldSave"'|' ./config/config.cfg
+
+                        #Run the neural network with a new configuration file
+	                make run
+                done
+        done
+done
+

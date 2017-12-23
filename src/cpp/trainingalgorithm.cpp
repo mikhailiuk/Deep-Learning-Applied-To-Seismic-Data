@@ -1,0 +1,722 @@
+#include "../headers/TrainingAlgorithm.h"
+
+
+TrainingAlgorithm::TrainingAlgorithm(){
+        
+        m_timeFeedForward    = 0.0;
+        m_timeDeltaCompute   = 0.0;
+        m_timeBackPropagate  = 0.0;
+
+        m_averageTestValid   = 0.0;
+        m_minValueValidation = 0.0;
+
+}
+
+int TrainingAlgorithm::leariningRateControl(double change){
+
+
+        // If there is no annealing
+        if (getAnnealing() == 0.0){
+                
+                // Update the learning rate with the changed one
+                m_learningRate = m_learningRate*change;
+
+                // If the learning rate is less than the lower bound, set to the lower bound
+                if (m_learningRate < m_learningRateLower){
+                        m_learningRate = m_learningRateLower;
+                }
+
+                // If the learning rate is greater than the upper bound, set it to the upper bound
+                if( m_learningRate > m_learningRateUpper){
+                        m_learningRate = m_learningRateUpper;
+                }
+        }
+
+        return 0;
+}
+
+int TrainingAlgorithm::weightFreezeUpdate(int ii){
+
+        // Convert integer values to double
+        double iiD = static_cast<double>(ii);
+        double numbEpochesD = static_cast<double>(m_numbEpoches);
+
+
+        //Switch case
+        switch(m_weightFreezeFlag){
+                
+                // If the weight freezing is not used
+                case none: 
+                        // Release
+                        return 0;
+
+                // If the encoder is to be frothen
+                case encoder: {
+                        
+                        // If the current iteration is grater than the number of epochs frozen
+                        if (iiD > (numbEpochesD*m_freezeFractionEpochs+1.0)){
+                                // Release                                
+                                return 0;
+                        } else {
+
+                                // Return that the encoder is still frozen
+                                return 1;
+                        }
+                }
+
+                // If the decoder is frozen
+                case decoder: {
+
+                        // If the current iteration is grater than the number of epochs frozen
+                        if (iiD > (numbEpochesD*m_freezeFractionEpochs+1.0)){
+                                // Release                        
+                                return 0;
+                        
+                        } else {
+
+                                // The decoder is still frozen
+                                return 2;
+                        } 
+                }        
+
+                // If the decoder and the encoder are frozen in turn
+                case decoderEncoder: {
+
+                        // If the current iteration is grater than the number of epochs frozen
+                        if (iiD > (numbEpochesD*m_freezeFractionEpochs+1.0)){
+        
+                                // Set the encoder to be frozen
+                                m_weightFreezeFlag = encoder;
+        
+                                // Set the number of epoches on which it is frozen as twice the current number
+                                m_freezeFractionEpochs=m_freezeFractionEpochs*2.0;
+
+                                // Return that the encoder is still frozen
+                                return 1;
+
+                        } else {
+                                
+                                // Return that the decoder is still frozen
+                                return 2;
+                        } 
+                } default: 
+                        return 0;
+        
+        }
+
+}
+
+int TrainingAlgorithm::updateShuffle(int mb){
+
+        // If shuffling is enabled
+        if (m_shuffleFlag == enabled){
+
+                // 
+                m_currIterations+=mb;
+
+                // 
+                if (m_currIterations>getNumbItTrain()){
+                        m_currIterations=getNumbItTrain();
+                }
+
+                // endPosition = end - flag*(#iterations-currentIt)
+                std::vector<int>::iterator endPosition = m_orderTraining.end()-m_curriculum*(m_orderTraining.end()-m_orderTraining.begin()-m_currIterations);
+
+                // shuffle the data between the start and endPosition
+                std::random_shuffle ( m_orderTraining.begin(), endPosition);
+
+        }
+        return 0;
+}
+
+int TrainingAlgorithm::updateLearningRate(int ii) {
+
+        // If annealing is used
+        if(getAnnealing() != 0.0) {
+
+                // If the learning rate is grater than the lowe bound
+                if (m_learningRate > m_learningRateLower){
+
+                        // Update learningRate = learningRate*(1.0/(1.0+annealing*iteration));
+                        m_learningRate = m_learningRate*(1.0/(1.0+getAnnealing()*static_cast<double>(ii)));
+
+                // If the learning rate is smaller than the bound
+                } else {                        
+
+                        // Set the learning rate to the bound
+                        m_learningRate = m_learningRateLower;
+                }
+        }
+        return 0;
+}
+
+
+int TrainingAlgorithm::updateTrainingParameters(int ii, int mb){
+        
+        // Update the learning rate
+        updateLearningRate(ii);
+
+        // Shuffle the data
+        updateShuffle(mb);
+
+        //Weight freeze update
+        return weightFreezeUpdate(ii);
+}
+
+int TrainingAlgorithm::updateCounters(int *ff, int *maskCounter){
+
+        // Batch counter
+        (*ff)++;
+
+        // Mask counter
+        (*maskCounter)++;
+
+        // If mask counter got beyond the boundaries, set to 0
+
+        if(m_imageHeight*m_imageWidth*(*maskCounter)>=static_cast<int>(m_maskTrain.size())){
+        
+                (*maskCounter) = 0;
+        }
+
+        return 0;   
+}
+
+
+int TrainingAlgorithm::updateValidation(double error, NeuralNetwork * neuralNetwork){
+
+        // Error now
+        double now  = 0.0;
+
+        // Error in the past iterations
+        double past = 0.0;    
+  
+
+        // The size of the validation array must be greater than 3
+        if (m_errorValidation.size() > 3){
+
+                // Iterate over old validation error
+                for (std::vector<double>::iterator it = m_errorValidation.end()-3; it > (m_errorValidation.end()-5); --it){
+
+                        past+=*it;
+
+                }
+
+                // Itterate over current validation error
+                for (std::vector<double>::iterator it = m_errorValidation.end()-1; it > (m_errorValidation.end()-3); --it){
+
+                        now+=*it;
+
+                }
+
+
+                // If the minimum validation error has not been updated yet, set it to the old validation error
+                if(m_minValueValidation == 0) {
+
+                         m_minValueValidation = past;
+
+                }
+
+                // If minimum validation error is greater than the past one
+                if (m_minValueValidation > past) {
+
+                        // Set minimum to past
+                        m_minValueValidation = past;
+
+                        // If the error is increasing (now/past is the gradient of the validation error)
+                        if (now/past > 1.0) {
+
+                                // Copy the current configuration of the neural network
+                                neuralNetwork->makeWeightCpy();
+
+                                // Ratio is set to zero (helps when plotted to see where the data is coppied)
+                                //m_ratioOfErrors.push_back(0.0);
+
+                        }
+
+                }
+
+                // If the error is decreasing
+                        if(now/past < 1.0 ) {
+
+                                // Increase the learning rate
+                                leariningRateControl(1.01);                                        
+
+                        } else {
+
+                                // Decrease the learning rate
+                                leariningRateControl(0.99);
+
+                        }
+        }
+
+
+        // Training error, set error
+        m_errorTrain.push_back(error);
+
+        // Push back average error over all validation iterations 
+        m_errorValidation.push_back(m_averageTestValid/static_cast<double>(getNumbItValidation()));
+
+        // Push the gradient of the validation error
+        m_ratioOfErrors.push_back(now/past);
+
+        // Push the learning rate into the learning rate array
+        m_learningRateArr.push_back(m_learningRate);
+
+        return 0;
+}
+
+void TrainingAlgorithm::copyDataToNN(int kk, int ff, int maskCounter, NeuralNetwork *neuralNetwork){
+
+        // set indeces
+        int idMask;
+        int idxIn;
+        int outLayer = neuralNetwork->getNumbLayers()-1;
+        double maskValue;
+        int  tid = omp_get_thread_num();
+
+        // Iterate over all the inputs in the neural network
+        #pragma omp for schedule(guided)
+        for (int jj = 0; jj < m_numbInputs; ++jj){
+
+                // if = maskCouner*patchArea + the current element in the mask
+                idMask = maskCounter*m_imageWidth*m_imageHeight+jj%(m_imageWidth*m_imageHeight);
+
+                // The current training iteration is obtained from the shuffled array of order in which examples should be executed
+                idxIn = m_orderTraining.at(kk+ff);
+
+
+                //printf ("%d %d %d %d %d %d %d\n", idxIn, kk,ff, idMask, maskCounter,jj,m_maskTrain.size());
+                // The mask value is 0 if either of validation or train masks are 0
+                maskValue = m_maskValidation[idMask]*m_maskTrain[idMask];
+
+                // Set the output (ff - mini-batch, 0 - layer, jj, current unit, value)
+                neuralNetwork->setLayerUOutput(ff,0,jj,m_dataTrainIn[(idxIn)*m_numbInputs+jj]*maskValue);
+
+                // Set the delta of the 0 layer to the mask value
+                neuralNetwork->setLayerUDelta(ff,0,jj,maskValue);
+        
+                // Set the delta of the last layer to the target_value*mask (0 if the value is missing, target otherwise)
+                neuralNetwork->setLayerUDelta(ff,outLayer,jj,m_dataTrainIn[idxIn*m_numbInputs+jj]*maskValue);
+
+
+        }
+
+
+}
+
+
+//Task parallelism
+int TrainingAlgorithm::trainNeuralNetworkTaskParallel(NeuralNetwork *neuralNetwork){
+
+        // Test whether the network inputs correspond to what's to the expected size
+	consistencyTest(neuralNetwork);
+
+        // Timer class used to time the functions
+        Timer timer;
+
+        // The old mask counter (used in sparse autoencoder, since need to precompute the values for regularization)
+        int maskCounterOld;
+
+        // Set the initial values (outside the loop since using OpenMP)
+        int ii = 0, kk = 0, ff = 0, maskCounterV, kkV = 0, idMask = 0, maskCounter = 0;
+	double outunit = 0.0, maskValue, error = 0.0, flag = 0.0;
+
+#pragma omp parallel default(shared) private(error,idMask,maskValue)
+{
+        int  tid = omp_get_thread_num();
+	for (ii = 0; ii < m_numbEpoches;){      
+
+                error = 0.0;
+                #pragma omp barrier
+	        for (kk = 0; kk<(getNumbItCurr()-neuralNetwork->getMiniBatch()+1);){
+                        // If sparse autoencoder is used, need to compute the penalty for the magnitude of the hidden layer
+		        if (m_spraceFlag == enabled) {
+                                
+                                // If the thread id is 0
+                                if (tid == 0) {
+        
+                                        // Save the old mask counter
+                                        maskCounterOld = maskCounter;                            
+                                }
+
+                                // Go through all values in the mini-batch
+                                for (ff=0; ff<neuralNetwork->getMiniBatch();) {      
+
+                                        // Set the neural network              
+                                        copyDataToNN(kk,ff,maskCounter,neuralNetwork);
+
+                                        // Run feedforward with getting regularization for the sparse autoencoder
+         	  			neuralNetwork->feedforwardNodeParallelCompSparse(ff); 
+
+                                        // If the thread id is 0
+                                        if (tid == 0) {
+
+                                                // Update the batch and mask counters
+                                                updateCounters(&ff,&maskCounter);
+			                }
+
+                                        // All other threads should wait for thread 0
+		                        #pragma omp barrier
+			        }
+
+                                // If the thread id is 0;
+                                if (tid == 0) {
+
+                                       // Retrieve the value of the saved counter
+                                       maskCounter = maskCounterOld;
+			        }
+                                
+                                // All other threads must wait for 0
+                                #pragma omp barrier
+                         }
+                        
+
+                         // Go through all values in the mini-batch again
+			 for (ff=0; ff<neuralNetwork->getMiniBatch();) {                    
+  
+                                // If thread id is 0
+                                if (tid == 0) {     
+
+                                        // If the autoencoder is not sparse and drop out is enabled                             
+                                        if (neuralNetwork->getDropOut() != 0.0 && m_spraceFlag == disabled) {
+
+                                                // Set portion of neurons to 0
+                                                neuralNetwork->setDropOut();
+                                        }
+
+                                        // Set the current iteration 
+                                        neuralNetwork->setTimeStep(ii*getNumbItTrain()+kk*neuralNetwork->getMiniBatch()+ff+1);
+                                }
+
+
+                                // Set the neural network  
+                                copyDataToNN(kk,ff,maskCounter,neuralNetwork);
+        
+                                // Start timing FeedForward function
+                                if (tid == 0) {
+                                        timer.startTiming(); 
+                                }
+
+                                #pragma omp barrier
+                                // FeedForward function
+ 	  			neuralNetwork->feedforwardNodeParallel(ff); 
+                                
+                                // End timing FeedForward function, start timing delta
+                                if (tid == 0) {
+                                        m_timeFeedForward += timer.endTiming();
+                                        timer.startTiming(); 
+                                }
+
+                                #pragma omp barrier
+
+                                // Delta function
+                                error += sqrt(neuralNetwork->deltaComputeNodeParallel(ff)/static_cast<double>(getNumbItTrain()));
+                                // End timing delta function, increasse counter
+                                if (tid == 0) {
+                                        m_timeDeltaCompute+=timer.endTiming();
+                                        updateCounters(&ff,&maskCounter);
+			        }
+		                #pragma omp barrier
+			}
+                        
+                        #pragma omp barrier
+
+                        if (tid == 0) {
+                                timer.startTiming();
+                        }
+                        
+                        // Node parallel backpropagate
+                        neuralNetwork->backpropagateNodeParallel(m_learningRate,m_lambda,flag);
+
+                        if (tid == 0) { 
+                                m_timeBackPropagate+=timer.endTiming();
+		  		kk+=neuralNetwork->getMiniBatch();
+			}
+		        #pragma omp barrier	
+
+		}//End train set
+
+
+                // Do this every x iterations (if ii%x==0)
+                if (ii%1==0) {
+
+                        // If thread id is 0
+                        if(tid==0) {
+
+                                // Validation mask counter is set to 0 at the beginning
+                                maskCounterV = 0;
+                                // The average validation error is set to 0.0 at the beginning
+                                m_averageTestValid=0.0;
+
+                        }
+
+	                for (kkV = 0; kkV<getNumbItValidation();) {
+
+                                // Set inputs of the neural network
+                                #pragma omp parallel for
+	                        for (int jj = 0; jj < m_numbInputs; ++jj) {
+                                                
+                                        // Id mask is the counter*patchArea + current point in patch
+                                        idMask = maskCounterV*m_imageWidth*m_imageHeight+jj%(m_imageWidth*m_imageHeight);
+
+                                        // Two masks overlap and hense the value is 0 if any of them is 0
+                                        maskValue = m_maskValidation[idMask]*m_maskTrain[idMask];
+                                        // Set the output of the neuralNetwork 0 - mini-batch, 0 - layer, jj - unit, value
+	                          	neuralNetwork->setLayerUOutput(0,0,jj,m_dataTestIn[kkV*m_numbInputs+jj]*maskValue);
+
+                                }
+
+                                
+                                // FeedForward function
+                        	neuralNetwork->feedforwardNodeParallel(0);
+
+                                // All threads synchronise here                                
+                                #pragma omp barrier
+
+                                // If the thread id is 0
+                                if (tid == 0) {
+
+                                        // Iterate over all the inputs in the neural network 
+                          		for (int jj = 0; jj < m_numbInputs; ++jj) {
+
+                                                // Id mask is the counter*patchArea + current point in patch
+                                                idMask = maskCounterV*m_imageWidth*m_imageHeight+jj%(m_imageWidth*m_imageHeight);
+
+                                                // Target is the ideal value
+                                                double target = m_dataTestIn[kkV*m_numbOutputs+jj];
+
+                                                // Predicted is the value obtained from the neural network
+                                                double predicted =  neuralNetwork->getLayer(0,neuralNetwork->getNumbLayers()-1)->getUnitOutput(jj);
+
+                                                // Calculate the squared error error 
+                                                outunit = neuralNetwork->getLSError(target,predicted,jj);
+
+                                                // Add to the current validation error
+                                                m_averageTestValid +=outunit*(1.0-m_maskValidation[idMask]);
+                          		}
+
+                                        // Update the validation counter and mask validation counter
+                                        updateCounters(&kkV,&maskCounterV);
+                                }
+
+                                // All threads wait
+                                #pragma omp barrier
+                        }
+
+                        // If thread id is 0 
+                        if (tid == 0) {
+
+                                // Update the learning rate basing on the slop of the validation
+                                updateValidation(error,neuralNetwork);
+                        }
+                }
+
+                // Threads wait
+                #pragma omp barrier
+ 
+                // If the thread id is 0
+                if (tid == 0) {        
+
+                        // Mask counter is 0
+                        maskCounter=0;
+
+                        // Epoch counter ++
+                        ++ii;
+
+                        // flag - weight freezing, updating lr, according to annealing, weight freeze and shuffling the data
+                        flag = updateTrainingParameters(ii,neuralNetwork->getMiniBatch()); 
+                }
+                #pragma omp barrier   
+        }//End epochs 
+
+}//End of parallel region
+
+        std::cout<<"Time feedforward: "<<(m_timeFeedForward)<<std::endl;
+        std::cout<<"Time deltacompute: "<<(m_timeDeltaCompute)<<std::endl;
+        std::cout<<"Time backpropagate: "<<(m_timeBackPropagate)<<std::endl;
+	return 0;
+}
+
+
+void TrainingAlgorithm::testNeuralNetwork(NeuralNetwork * neuralNetwork){
+
+        double outunit     = 0.0;
+        int maskCounter    = 0;
+        int numberLayers   = neuralNetwork->getNumbLayers();
+        int idMask;
+        double val;
+
+        // Run through the test examples
+        vector<double>().swap(m_outputTest);
+
+        // Run through all test examples        
+        for (int kk = 0; kk<getNumbItTest();++kk) {
+
+                // Set inputs of the neural network
+          	for (int ii = 0; ii < m_numbInputs; ++ii) {
+                        idMask = maskCounter*m_imageWidth*m_imageHeight+ii%(m_imageWidth*m_imageHeight);
+                        val = m_dataTestIn[kk*m_numbInputs+ii]*m_maskTest[idMask];                
+          		neuralNetwork->setLayerUOutput(0,0,ii,val);
+                }
+
+                neuralNetwork->feedforward(0);
+
+                // Find the error
+                for (int ii = 0; ii < m_numbOutputs; ++ii) {
+  			outunit = neuralNetwork->getLayer(0,numberLayers-1)->getUnitOutput(ii);
+                        m_outputTest.push_back(outunit);
+  		}
+
+                maskCounter++;
+                        
+                // If the mask counter is outside the mask boundary, start the mask counter fresh
+                if(m_imageHeight*m_imageWidth*maskCounter>=static_cast<int>(m_maskTest.size())) {
+                        maskCounter = 0;
+                }
+
+        }
+
+}
+
+void TrainingAlgorithm::polishing(NeuralNetwork * neuralNetwork){
+
+        double outunit     = 0.0;
+        int maskCounter    = 0;
+        int numberLayers   = neuralNetwork->getNumbLayers();
+        int idMask;
+        double val;
+
+
+        // Run through all test examples        
+        for (int kk = 0; kk<getNumbItTest();++kk) {
+
+                // Set inputs of the neural network
+          	for (int ii = 0; ii < m_numbInputs; ++ii) {
+                        idMask = maskCounter*m_imageWidth*m_imageHeight+ii%(m_imageWidth*m_imageHeight);
+                        val = m_outputTest[kk*m_numbInputs+ii]*(1.0-m_maskTest[idMask])+m_dataTestIn[kk*m_numbInputs+ii]*m_maskTest[idMask];                
+          		neuralNetwork->setLayerUOutput(0,0,ii,val);
+                }
+
+                neuralNetwork->feedforward(0);
+
+                // Find the error
+                for (int ii = 0; ii < m_numbOutputs; ++ii) {
+                        m_outputTest[kk*m_numbInputs+ii]=neuralNetwork->getLayer(0,numberLayers-1)->getUnitOutput(ii);
+  		}
+
+                maskCounter++;
+                        
+                // If the mask counter is outside the mask boundary, start the mask counter fresh
+
+                if(m_imageHeight*m_imageWidth*maskCounter>=static_cast<int>(m_maskTest.size())) {
+                        maskCounter = 0;
+                }
+
+        }
+
+
+}
+
+
+int TrainingAlgorithm::consistencyTest(NeuralNetwork *neuralNetwork) {
+
+	int flag=0;
+
+	if(neuralNetwork->getLayerNumbU(0) != m_numbInputs) {
+
+		std::cout<<"Inputs are inconsistent\n";
+		flag = 1;
+
+	}
+	if (neuralNetwork->getLayerNumbU(neuralNetwork->getNumbLayers()-1) != m_numbOutputs) {
+
+		std::cout<<"Outputs are inconsistent\n";
+		flag = 1;
+
+	}
+	if (flag == 1) {
+
+		exit(0);
+
+	}
+	return 0;
+}
+
+
+
+int TrainingAlgorithm::initialise(ParamsInit parameters)
+{
+
+        m_saveFolder           = parameters.saveFolder;
+        m_numbEpoches          = parameters.numbEpoches;
+        m_numbItTrain          = parameters.numbItTrain;
+        m_numbItTest           = parameters.numbItTest;
+        m_learningRate         = parameters.learningRate;
+        m_lambda               = parameters.lambda;
+        m_annealing            = parameters.annealing;
+        m_shuffleFlag          = (parameters.shuffleFlag == 0) ? disabled : enabled;
+        m_currIterations       = parameters.miniBatch;
+        m_freezeFractionEpochs = parameters.freezeFractionEpochs;
+        m_weightFreezeFlag     = static_cast<FlagWeightsFreeze>(parameters.weightFreezeFlag);
+        m_numbItValidation     = parameters.numbItValidation;
+        m_spraceFlag           = disabled;
+        m_imageWidth           = parameters.patchX;
+        m_imageHeight          = parameters.patchY;
+        m_imageDepth           = parameters.patchZ;
+        m_learningRateUpper    = parameters.learningRateUpper;
+        m_learningRateLower    = parameters.learningRateLower;
+        
+        if(parameters.polishing==1){
+                m_polishing = enabled;
+        } else {
+                m_polishing = disabled;
+        }
+
+        if (parameters.sparse != 0.0) {
+                m_spraceFlag = enabled;        
+        }else{
+                m_spraceFlag = disabled;
+        }
+
+        dataReader.initialise(parameters);
+
+        dataReader.readDataTrain(&m_dataTrainIn,
+                                 &m_numbInputs,
+                                 &m_numbItTrain,
+                                 &m_maskTrain,
+                                 &m_dataWidth,
+                                 &m_dataHeight,
+                                 &m_maskValidation);
+
+        dataReader.readDataTest(&m_dataTestIn,
+                                &m_numbItTest,
+                                &m_maskTest);
+
+        m_numbOutputs = m_numbInputs;
+
+        for (int ii = 0; ii < m_numbItTrain; ++ii) {
+                m_orderTraining.push_back(ii);
+        }
+
+  	return 0;
+}
+
+
+void TrainingAlgorithm::writeOutput(std::string path){
+
+        std::string nameOut  = path+"/testoutCube.dat";
+        dataReader.writeDataCubePrediction(m_dataTestIn,m_outputTest,nameOut);
+
+        nameOut = path+"/testinCubeNoize.dat";
+        dataReader.writeDataCube(m_dataTestIn,nameOut,1.0);
+
+        nameOut = path+"/testinCubeClean.dat";
+        dataReader.writeDataCube(m_dataTestIn,nameOut,0.0);
+
+        nameOut = path+"/qualityMSEQm.dat";
+        dataReader.calculateSNR(m_dataTestIn,m_outputTest,nameOut);
+}
+
+TrainingAlgorithm::~TrainingAlgorithm(){
+
+}

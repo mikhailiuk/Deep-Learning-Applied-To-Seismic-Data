@@ -1,0 +1,259 @@
+\hypertarget{classLayer}{}\section{Layer Class Reference}
+\label{classLayer}\index{Layer@{Layer}}
+
+
+Encapsulates information and functions associated with layers.  
+
+
+
+
+{\ttfamily \#include \char`\"{}Layer.\+h\char`\"{}}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classLayer_a3bfd0aa7e6ecd9c017d271e316ca632d}{Layer} (int numb, int activation)
+\item 
+\hyperlink{classLayer_a1b1ba4804451dfe6cc357194e42762ae}{$\sim$\+Layer} ()
+\begin{DoxyCompactList}\small\item\em Destructor. \end{DoxyCompactList}\item 
+void \hyperlink{classLayer_ad557f21443c82b6f9527881b4040a251}{set\+Layer\+U\+Out\+Prop} (int unit\+Id, double value)
+\item 
+double \hyperlink{classLayer_aaf6502d5971225e2c2ddc45e4f7fc7ff}{unit\+Back\+Propagate} (int ii)
+\item 
+void \hyperlink{classLayer_a55b20e4d3a98a3ec660d8777c7fae170}{set\+Unit\+Output} (int ii, double value)
+\item 
+void \hyperlink{classLayer_af9116e59830024fb9862577f2043706a}{set\+Unit\+Delta} (int ii, double value)
+\item 
+void \hyperlink{classLayer_a530d7d38d135f5ebe4183c587c0343ab}{set\+Activation} (int activation)
+\item 
+void \hyperlink{classLayer_a15e429b9b73a7b561fbb1235ccb2cf65}{set\+Numb\+Units} (int number\+Of\+Units)
+\item 
+double \hyperlink{classLayer_a0ff31aa9649a66a964320e5811c4886e}{get\+Unit\+Output} (int ii) const 
+\item 
+double \hyperlink{classLayer_aebf994c02ba2069edddc31ea286cafb5}{get\+Unit\+Delta} (int ii) const 
+\item 
+int \hyperlink{classLayer_a317562411932be9533c13d20c2890596}{get\+Numb\+Units} () const 
+\item 
+double \hyperlink{classLayer_a586ea1cdda469415557b195dafa65afa}{get\+Activation} () const 
+\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{classLayer_a523555bfccf9941e1419f14477b10d4e}{m\+\_\+activation}
+\begin{DoxyCompactList}\small\item\em Id of the activation function if the same for all units in the layer. \end{DoxyCompactList}\item 
+int \hyperlink{classLayer_afd16f1597c67bcdee0d7f41d1354ed83}{m\+\_\+number\+Of\+Units}
+\begin{DoxyCompactList}\small\item\em Number of units. \end{DoxyCompactList}\item 
+vector$<$ \hyperlink{classUnit}{Unit} $>$ \hyperlink{classLayer_af9769c2565629a59ee832f45b50e2324}{m\+\_\+layer}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Encapsulates information and functions associated with layers. 
+
+\hyperlink{classLayer}{Layer} is composed of Units (Neurons) has associated activation funciton (if all the neurons within this layer share the same). 
+
+Definition at line 19 of file Layer.\+h.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Layer@{Layer}!Layer@{Layer}}
+\index{Layer@{Layer}!Layer@{Layer}}
+\subsubsection[{\texorpdfstring{Layer(int numb, int activation)}{Layer(int numb, int activation)}}]{\setlength{\rightskip}{0pt plus 5cm}Layer\+::\+Layer (
+\begin{DoxyParamCaption}
+\item[{int}]{numb, }
+\item[{int}]{activation}
+\end{DoxyParamCaption}
+)}\hypertarget{classLayer_a3bfd0aa7e6ecd9c017d271e316ca632d}{}\label{classLayer_a3bfd0aa7e6ecd9c017d271e316ca632d}
+Constructor 
+\begin{DoxyParams}{Parameters}
+{\em numb} & -\/ number of units with bias \\
+\hline
+{\em act} & -\/ activation function \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 4 of file layer.\+cpp.
+
+\index{Layer@{Layer}!````~Layer@{$\sim$\+Layer}}
+\index{````~Layer@{$\sim$\+Layer}!Layer@{Layer}}
+\subsubsection[{\texorpdfstring{$\sim$\+Layer()}{~Layer()}}]{\setlength{\rightskip}{0pt plus 5cm}Layer\+::$\sim$\+Layer (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classLayer_a1b1ba4804451dfe6cc357194e42762ae}{}\label{classLayer_a1b1ba4804451dfe6cc357194e42762ae}
+
+
+Destructor. 
+
+
+
+Definition at line 32 of file layer.\+cpp.
+
+
+
+\subsection{Member Function Documentation}
+\index{Layer@{Layer}!get\+Activation@{get\+Activation}}
+\index{get\+Activation@{get\+Activation}!Layer@{Layer}}
+\subsubsection[{\texorpdfstring{get\+Activation() const }{getActivation() const }}]{\setlength{\rightskip}{0pt plus 5cm}double Layer\+::get\+Activation (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classLayer_a586ea1cdda469415557b195dafa65afa}{}\label{classLayer_a586ea1cdda469415557b195dafa65afa}
+
+
+Definition at line 65 of file Layer.\+h.
+
+\index{Layer@{Layer}!get\+Numb\+Units@{get\+Numb\+Units}}
+\index{get\+Numb\+Units@{get\+Numb\+Units}!Layer@{Layer}}
+\subsubsection[{\texorpdfstring{get\+Numb\+Units() const }{getNumbUnits() const }}]{\setlength{\rightskip}{0pt plus 5cm}int Layer\+::get\+Numb\+Units (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classLayer_a317562411932be9533c13d20c2890596}{}\label{classLayer_a317562411932be9533c13d20c2890596}
+
+
+Definition at line 63 of file Layer.\+h.
+
+\index{Layer@{Layer}!get\+Unit\+Delta@{get\+Unit\+Delta}}
+\index{get\+Unit\+Delta@{get\+Unit\+Delta}!Layer@{Layer}}
+\subsubsection[{\texorpdfstring{get\+Unit\+Delta(int ii) const }{getUnitDelta(int ii) const }}]{\setlength{\rightskip}{0pt plus 5cm}double Layer\+::get\+Unit\+Delta (
+\begin{DoxyParamCaption}
+\item[{int}]{ii}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classLayer_aebf994c02ba2069edddc31ea286cafb5}{}\label{classLayer_aebf994c02ba2069edddc31ea286cafb5}
+
+
+Definition at line 61 of file Layer.\+h.
+
+\index{Layer@{Layer}!get\+Unit\+Output@{get\+Unit\+Output}}
+\index{get\+Unit\+Output@{get\+Unit\+Output}!Layer@{Layer}}
+\subsubsection[{\texorpdfstring{get\+Unit\+Output(int ii) const }{getUnitOutput(int ii) const }}]{\setlength{\rightskip}{0pt plus 5cm}double Layer\+::get\+Unit\+Output (
+\begin{DoxyParamCaption}
+\item[{int}]{ii}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classLayer_a0ff31aa9649a66a964320e5811c4886e}{}\label{classLayer_a0ff31aa9649a66a964320e5811c4886e}
+
+
+Definition at line 59 of file Layer.\+h.
+
+\index{Layer@{Layer}!set\+Activation@{set\+Activation}}
+\index{set\+Activation@{set\+Activation}!Layer@{Layer}}
+\subsubsection[{\texorpdfstring{set\+Activation(int activation)}{setActivation(int activation)}}]{\setlength{\rightskip}{0pt plus 5cm}void Layer\+::set\+Activation (
+\begin{DoxyParamCaption}
+\item[{int}]{activation}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classLayer_a530d7d38d135f5ebe4183c587c0343ab}{}\label{classLayer_a530d7d38d135f5ebe4183c587c0343ab}
+
+
+Definition at line 55 of file Layer.\+h.
+
+\index{Layer@{Layer}!set\+Layer\+U\+Out\+Prop@{set\+Layer\+U\+Out\+Prop}}
+\index{set\+Layer\+U\+Out\+Prop@{set\+Layer\+U\+Out\+Prop}!Layer@{Layer}}
+\subsubsection[{\texorpdfstring{set\+Layer\+U\+Out\+Prop(int unit\+Id, double value)}{setLayerUOutProp(int unitId, double value)}}]{\setlength{\rightskip}{0pt plus 5cm}void Layer\+::set\+Layer\+U\+Out\+Prop (
+\begin{DoxyParamCaption}
+\item[{int}]{unit\+Id, }
+\item[{double}]{value}
+\end{DoxyParamCaption}
+)}\hypertarget{classLayer_ad557f21443c82b6f9527881b4040a251}{}\label{classLayer_ad557f21443c82b6f9527881b4040a251}
+Function set the value of the unit and feedforward it 
+\begin{DoxyParams}{Parameters}
+{\em unit\+Id} & -\/ id of a unit \\
+\hline
+{\em value} & -\/ value set as an input to the unit \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 25 of file layer.\+cpp.
+
+\index{Layer@{Layer}!set\+Numb\+Units@{set\+Numb\+Units}}
+\index{set\+Numb\+Units@{set\+Numb\+Units}!Layer@{Layer}}
+\subsubsection[{\texorpdfstring{set\+Numb\+Units(int number\+Of\+Units)}{setNumbUnits(int numberOfUnits)}}]{\setlength{\rightskip}{0pt plus 5cm}void Layer\+::set\+Numb\+Units (
+\begin{DoxyParamCaption}
+\item[{int}]{number\+Of\+Units}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classLayer_a15e429b9b73a7b561fbb1235ccb2cf65}{}\label{classLayer_a15e429b9b73a7b561fbb1235ccb2cf65}
+
+
+Definition at line 57 of file Layer.\+h.
+
+\index{Layer@{Layer}!set\+Unit\+Delta@{set\+Unit\+Delta}}
+\index{set\+Unit\+Delta@{set\+Unit\+Delta}!Layer@{Layer}}
+\subsubsection[{\texorpdfstring{set\+Unit\+Delta(int ii, double value)}{setUnitDelta(int ii, double value)}}]{\setlength{\rightskip}{0pt plus 5cm}void Layer\+::set\+Unit\+Delta (
+\begin{DoxyParamCaption}
+\item[{int}]{ii, }
+\item[{double}]{value}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classLayer_af9116e59830024fb9862577f2043706a}{}\label{classLayer_af9116e59830024fb9862577f2043706a}
+
+
+Definition at line 53 of file Layer.\+h.
+
+\index{Layer@{Layer}!set\+Unit\+Output@{set\+Unit\+Output}}
+\index{set\+Unit\+Output@{set\+Unit\+Output}!Layer@{Layer}}
+\subsubsection[{\texorpdfstring{set\+Unit\+Output(int ii, double value)}{setUnitOutput(int ii, double value)}}]{\setlength{\rightskip}{0pt plus 5cm}void Layer\+::set\+Unit\+Output (
+\begin{DoxyParamCaption}
+\item[{int}]{ii, }
+\item[{double}]{value}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classLayer_a55b20e4d3a98a3ec660d8777c7fae170}{}\label{classLayer_a55b20e4d3a98a3ec660d8777c7fae170}
+
+
+Definition at line 51 of file Layer.\+h.
+
+\index{Layer@{Layer}!unit\+Back\+Propagate@{unit\+Back\+Propagate}}
+\index{unit\+Back\+Propagate@{unit\+Back\+Propagate}!Layer@{Layer}}
+\subsubsection[{\texorpdfstring{unit\+Back\+Propagate(int ii)}{unitBackPropagate(int ii)}}]{\setlength{\rightskip}{0pt plus 5cm}double Layer\+::unit\+Back\+Propagate (
+\begin{DoxyParamCaption}
+\item[{int}]{ii}
+\end{DoxyParamCaption}
+)}\hypertarget{classLayer_aaf6502d5971225e2c2ddc45e4f7fc7ff}{}\label{classLayer_aaf6502d5971225e2c2ddc45e4f7fc7ff}
+Function to pass the value of the unit in the backpropagation algorith 
+\begin{DoxyParams}{Parameters}
+{\em unit} & id \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 19 of file layer.\+cpp.
+
+
+
+\subsection{Member Data Documentation}
+\index{Layer@{Layer}!m\+\_\+activation@{m\+\_\+activation}}
+\index{m\+\_\+activation@{m\+\_\+activation}!Layer@{Layer}}
+\subsubsection[{\texorpdfstring{m\+\_\+activation}{m_activation}}]{\setlength{\rightskip}{0pt plus 5cm}int Layer\+::m\+\_\+activation\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classLayer_a523555bfccf9941e1419f14477b10d4e}{}\label{classLayer_a523555bfccf9941e1419f14477b10d4e}
+
+
+Id of the activation function if the same for all units in the layer. 
+
+
+
+Definition at line 24 of file Layer.\+h.
+
+\index{Layer@{Layer}!m\+\_\+layer@{m\+\_\+layer}}
+\index{m\+\_\+layer@{m\+\_\+layer}!Layer@{Layer}}
+\subsubsection[{\texorpdfstring{m\+\_\+layer}{m_layer}}]{\setlength{\rightskip}{0pt plus 5cm}vector$<${\bf Unit}$>$ Layer\+::m\+\_\+layer\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classLayer_af9769c2565629a59ee832f45b50e2324}{}\label{classLayer_af9769c2565629a59ee832f45b50e2324}
+
+
+Definition at line 30 of file Layer.\+h.
+
+\index{Layer@{Layer}!m\+\_\+number\+Of\+Units@{m\+\_\+number\+Of\+Units}}
+\index{m\+\_\+number\+Of\+Units@{m\+\_\+number\+Of\+Units}!Layer@{Layer}}
+\subsubsection[{\texorpdfstring{m\+\_\+number\+Of\+Units}{m_numberOfUnits}}]{\setlength{\rightskip}{0pt plus 5cm}int Layer\+::m\+\_\+number\+Of\+Units\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classLayer_afd16f1597c67bcdee0d7f41d1354ed83}{}\label{classLayer_afd16f1597c67bcdee0d7f41d1354ed83}
+
+
+Number of units. 
+
+
+
+Definition at line 27 of file Layer.\+h.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/headers/\hyperlink{Layer_8h}{Layer.\+h}\item 
+src/cpp/\hyperlink{layer_8cpp}{layer.\+cpp}\end{DoxyCompactItemize}

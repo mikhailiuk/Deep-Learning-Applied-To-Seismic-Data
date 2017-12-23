@@ -1,0 +1,197 @@
+\hypertarget{classAutoencoder}{}\section{Autoencoder Class Reference}
+\label{classAutoencoder}\index{Autoencoder@{Autoencoder}}
+
+
+Class inherits functionality from Neural Network.  
+
+
+
+
+{\ttfamily \#include \char`\"{}Autoencoder.\+h\char`\"{}}
+
+Inheritance diagram for Autoencoder\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classAutoencoder}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classAutoencoder_a8749324f51cade4a1a21284f47097384}{$\sim$\+Autoencoder} ()
+\item 
+int \hyperlink{classAutoencoder_a4730a37272e51bef6c1a50efc9322fbe}{update\+Weights} (int ii, int jj, int kk, double learning\+Rate, double penalty)
+\item 
+int \hyperlink{classAutoencoder_aba5d429d35741aadbaf350364f64af7c}{update\+Weights\+Fast} (int ii, int jj, int kk, double learning\+Rate, double penalty)
+\item 
+int \hyperlink{classAutoencoder_a1a52083d0822fec947b93edf0797880f}{backpropagate} (double learning\+Rate, double lambda)
+\item 
+int \hyperlink{classAutoencoder_aa5832a7ff94e5af13d6fa41489796d82}{backpropagate\+Node\+Parallel} (double learning\+Rate, double lambda, int flag\+Release)
+\item 
+std\+::string \hyperlink{classAutoencoder_a0a306ad1b822c63cdcfe99a33233f7ea}{type} () const 
+\begin{DoxyCompactList}\small\item\em Returns the type (string) of the autoencoder. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+Class inherits functionality from Neural Network. 
+
+Simple autoencoder. 
+
+Definition at line 14 of file Autoencoder.\+h.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Autoencoder@{Autoencoder}!````~Autoencoder@{$\sim$\+Autoencoder}}
+\index{````~Autoencoder@{$\sim$\+Autoencoder}!Autoencoder@{Autoencoder}}
+\subsubsection[{\texorpdfstring{$\sim$\+Autoencoder()}{~Autoencoder()}}]{\setlength{\rightskip}{0pt plus 5cm}Autoencoder\+::$\sim$\+Autoencoder (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classAutoencoder_a8749324f51cade4a1a21284f47097384}{}\label{classAutoencoder_a8749324f51cade4a1a21284f47097384}
+
+
+Definition at line 108 of file autoencoder.\+cpp.
+
+
+
+\subsection{Member Function Documentation}
+\index{Autoencoder@{Autoencoder}!backpropagate@{backpropagate}}
+\index{backpropagate@{backpropagate}!Autoencoder@{Autoencoder}}
+\subsubsection[{\texorpdfstring{backpropagate(double learning\+Rate, double lambda)}{backpropagate(double learningRate, double lambda)}}]{\setlength{\rightskip}{0pt plus 5cm}int Autoencoder\+::backpropagate (
+\begin{DoxyParamCaption}
+\item[{double}]{learning\+Rate, }
+\item[{double}]{lambda}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{classAutoencoder_a1a52083d0822fec947b93edf0797880f}{}\label{classAutoencoder_a1a52083d0822fec947b93edf0797880f}
+The backpropagation algorithm 
+\begin{DoxyParams}{Parameters}
+{\em learning\+Rate} & -\/ the learning rate \\
+\hline
+{\em lambda} & -\/ the contractive autoencoder parameter \\
+\hline
+\end{DoxyParams}
+
+
+Implements \hyperlink{classNeuralNetwork_af21bec3f1affe1a95346a57fd332f734}{Neural\+Network}.
+
+
+
+Definition at line 4 of file autoencoder.\+cpp.
+
+\index{Autoencoder@{Autoencoder}!backpropagate\+Node\+Parallel@{backpropagate\+Node\+Parallel}}
+\index{backpropagate\+Node\+Parallel@{backpropagate\+Node\+Parallel}!Autoencoder@{Autoencoder}}
+\subsubsection[{\texorpdfstring{backpropagate\+Node\+Parallel(double learning\+Rate, double lambda, int flag\+Release)}{backpropagateNodeParallel(double learningRate, double lambda, int flagRelease)}}]{\setlength{\rightskip}{0pt plus 5cm}int Autoencoder\+::backpropagate\+Node\+Parallel (
+\begin{DoxyParamCaption}
+\item[{double}]{learning\+Rate, }
+\item[{double}]{lambda, }
+\item[{int}]{flag\+Release}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{classAutoencoder_aa5832a7ff94e5af13d6fa41489796d82}{}\label{classAutoencoder_aa5832a7ff94e5af13d6fa41489796d82}
+The backpropagation algorithm with parallel nodes 
+\begin{DoxyParams}{Parameters}
+{\em learning\+Rate} & -\/ the learning rate \\
+\hline
+{\em lambda} & -\/ the contractive autoencoder parameter \\
+\hline
+{\em flag\+Release} & -\/ 0 if the weights are to be released \\
+\hline
+\end{DoxyParams}
+
+
+Implements \hyperlink{classNeuralNetwork_a01f72adec49e446ad4305bd6ad9859da}{Neural\+Network}.
+
+
+
+Definition at line 20 of file autoencoder.\+cpp.
+
+\index{Autoencoder@{Autoencoder}!type@{type}}
+\index{type@{type}!Autoencoder@{Autoencoder}}
+\subsubsection[{\texorpdfstring{type() const }{type() const }}]{\setlength{\rightskip}{0pt plus 5cm}std\+::string Autoencoder\+::type (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}\hypertarget{classAutoencoder_a0a306ad1b822c63cdcfe99a33233f7ea}{}\label{classAutoencoder_a0a306ad1b822c63cdcfe99a33233f7ea}
+
+
+Returns the type (string) of the autoencoder. 
+
+
+
+Implements \hyperlink{classNeuralNetwork_aa3edc74bdbc4d8730c0fcc935dad2af0}{Neural\+Network}.
+
+
+
+Definition at line 48 of file Autoencoder.\+h.
+
+\index{Autoencoder@{Autoencoder}!update\+Weights@{update\+Weights}}
+\index{update\+Weights@{update\+Weights}!Autoencoder@{Autoencoder}}
+\subsubsection[{\texorpdfstring{update\+Weights(int ii, int jj, int kk, double learning\+Rate, double penalty)}{updateWeights(int ii, int jj, int kk, double learningRate, double penalty)}}]{\setlength{\rightskip}{0pt plus 5cm}int Autoencoder\+::update\+Weights (
+\begin{DoxyParamCaption}
+\item[{int}]{ii, }
+\item[{int}]{jj, }
+\item[{int}]{kk, }
+\item[{double}]{learning\+Rate, }
+\item[{double}]{penalty}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}\hypertarget{classAutoencoder_a4730a37272e51bef6c1a50efc9322fbe}{}\label{classAutoencoder_a4730a37272e51bef6c1a50efc9322fbe}
+A function to update the weights with the gradient 
+\begin{DoxyParams}{Parameters}
+{\em ii} & layer \\
+\hline
+{\em jj} & node in the current layer \\
+\hline
+{\em kk} & node in the previous layer \\
+\hline
+{\em learning\+Rate} & learning rate \\
+\hline
+{\em penalty} & lambda for the contractive autoencoder \\
+\hline
+\end{DoxyParams}
+
+
+Implements \hyperlink{classNeuralNetwork_acd83d73dbae85f80c1173bdb53e37726}{Neural\+Network}.
+
+
+
+Definition at line 89 of file autoencoder.\+cpp.
+
+\index{Autoencoder@{Autoencoder}!update\+Weights\+Fast@{update\+Weights\+Fast}}
+\index{update\+Weights\+Fast@{update\+Weights\+Fast}!Autoencoder@{Autoencoder}}
+\subsubsection[{\texorpdfstring{update\+Weights\+Fast(int ii, int jj, int kk, double learning\+Rate, double penalty)}{updateWeightsFast(int ii, int jj, int kk, double learningRate, double penalty)}}]{\setlength{\rightskip}{0pt plus 5cm}int Autoencoder\+::update\+Weights\+Fast (
+\begin{DoxyParamCaption}
+\item[{int}]{ii, }
+\item[{int}]{jj, }
+\item[{int}]{kk, }
+\item[{double}]{learning\+Rate, }
+\item[{double}]{penalty}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}\hypertarget{classAutoencoder_aba5d429d35741aadbaf350364f64af7c}{}\label{classAutoencoder_aba5d429d35741aadbaf350364f64af7c}
+A function to update the weights with the gradient (fast, no redundunt calculations for momentum and ada\+Grad if both are not used) 
+\begin{DoxyParams}{Parameters}
+{\em ii} & layer \\
+\hline
+{\em jj} & node in the current layer \\
+\hline
+{\em kk} & node in the previous layer \\
+\hline
+{\em learning\+Rate} & learning rate \\
+\hline
+{\em penalty} & lambda for the contractive autoencoder \\
+\hline
+\end{DoxyParams}
+
+
+Implements \hyperlink{classNeuralNetwork_a1bc1c063c3048b0551ae92352b553060}{Neural\+Network}.
+
+
+
+Definition at line 78 of file autoencoder.\+cpp.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/headers/\hyperlink{Autoencoder_8h}{Autoencoder.\+h}\item 
+src/cpp/\hyperlink{autoencoder_8cpp}{autoencoder.\+cpp}\end{DoxyCompactItemize}

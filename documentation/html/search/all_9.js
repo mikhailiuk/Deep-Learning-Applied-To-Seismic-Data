@@ -1,0 +1,20 @@
+var searchData=
+[
+  ['lambda',['lambda',['../classParamsInit.html#a7f0aab2366101f688a811824b60c1cc9',1,'ParamsInit']]],
+  ['layer',['Layer',['../classLayer.html',1,'Layer'],['../classUnit.html#a834e4e869446be644f61b4b456604f31',1,'Unit::Layer()'],['../classLayer.html#a3bfd0aa7e6ecd9c017d271e316ca632d',1,'Layer::Layer()']]],
+  ['layer_2ecpp',['layer.cpp',['../layer_8cpp.html',1,'']]],
+  ['layer_2eh',['Layer.h',['../Layer_8h.html',1,'']]],
+  ['layersvec',['layersVec',['../classParamsInit.html#aeee8365494660fa642a057d5497d46e1',1,'ParamsInit']]],
+  ['leariningratecontrol',['leariningRateControl',['../classTrainingAlgorithm.html#aca653a3e888ee8e5f4084617f2bc5a9d',1,'TrainingAlgorithm']]],
+  ['learningrate',['learningRate',['../classParamsInit.html#a357170aa7b277285467a6a5c8e073a9c',1,'ParamsInit']]],
+  ['learningratelower',['learningRateLower',['../classParamsInit.html#a5d17698322bd5df72c2040594810e6b0',1,'ParamsInit']]],
+  ['learningrateupper',['learningRateUpper',['../classParamsInit.html#ae6e008da84ddff1c1114eb2e196f3801',1,'ParamsInit']]],
+  ['leastsquares',['leastSquares',['../classObjective.html#ac2cb31fca71c5a4b99b35c879742644ca205a754a7295726fb0a2ed5411d441db',1,'Objective']]],
+  ['leastsquaresder',['leastSquaresDer',['../classObjective.html#ab966b25d12083a76d11ac3f6e5c711ef',1,'Objective']]],
+  ['leastsquareserror',['leastSquaresError',['../classObjective.html#a8746cd7f37fc8a0ce8a31b51a51823b5',1,'Objective']]],
+  ['linef',['linef',['../classActivation.html#ad226ba33b77633d0c6f7135a31bcc655',1,'Activation']]],
+  ['linefder',['linefder',['../classActivation.html#af3c02c76ebc566d579dc92ec84c93a87',1,'Activation']]],
+  ['lonenorm',['lOneNorm',['../classObjective.html#ac2cb31fca71c5a4b99b35c879742644ca1d16b67c79d69d3ab4255e9bf0bc7c03',1,'Objective']]],
+  ['lonenormder',['lOneNormDer',['../classObjective.html#a6c7dc399840df1c856f20b10a5a1569d',1,'Objective']]],
+  ['lonenormerror',['lOneNormError',['../classObjective.html#aac52d1f8fd934f996c4bf533170b23bf',1,'Objective']]]
+];

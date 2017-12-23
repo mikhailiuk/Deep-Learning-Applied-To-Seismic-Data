@@ -1,0 +1,21 @@
+#!/bin/bash
+#Script to run through all the folders in the output and
+# copy data in to the datafile.txt from the settings file
+
+for d in ../../output/*/ ; do
+
+    settingspath=$d'settings.txt'
+
+    timetaken=$(sed '5!d' $settingspath)
+    numberlayers=$(sed '15!d' $settingspath) 
+    #errortest=$(sed '9!d' $settingspath)
+    #batchsize=$(sed '11!d' $settingspath)
+
+    linetoprint=$timetaken' '$numberlayers
+
+   echo $linetoprint >>../../output/datafile.txt
+
+
+done
+
+

@@ -1,0 +1,11 @@
+i=1
+linetoprint='epoch error'
+echo $linetoprint >>./201.dat
+
+while read line; do    
+    
+    linetoprint=$i' '$line
+    i=`expr $i + 1`
+    echo $i
+    echo $linetoprint >>./201.dat
+done < 20.dat

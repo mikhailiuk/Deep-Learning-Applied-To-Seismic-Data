@@ -1,0 +1,320 @@
+#include "../headers/Initialiser.h"
+
+
+int Initialiser::initialise(NeuralNetwork *&neuralNetwork,TrainingAlgorithm *Alg){
+        
+
+
+        Config cfg;
+        ParamsInit parameters;
+
+        // Open config file, check for errors
+        try{
+                cfg.readFile("./config/config.cfg");
+        } catch(const FileIOException &fioex) {
+                std::cerr << "I/O error while reading file." << std::endl;
+                return(EXIT_FAILURE);
+        }catch(const ParseException &pex){
+            std::cerr << "Parse error at " << pex.getFile() << ":" << pex.getLine()
+                      << " - " << pex.getError() << std::endl;
+            return(EXIT_FAILURE);
+        }
+
+        // Look up arrays
+	Setting& actFunctions = cfg.lookup("neuralnetwork.actFunctions");
+        Setting& layers = cfg.lookup("neuralnetwork.layers");
+        Setting& patch = cfg.lookup("neuralnetwork.patch");
+        Setting& shiftTest = cfg.lookup("neuralnetwork.shiftTest");
+        Setting& shiftTrain = cfg.lookup("neuralnetwork.shiftTrain");
+        Setting& dynamicLearningRate = cfg.lookup("neuralnetwork.dynamicLearningR");
+
+
+        // Look up individual values
+        try{
+                cfg.lookupValue("neuralnetwork.weightedErrorFlag",parameters.weightedErrorFlag);
+        }catch(const SettingNotFoundException &nfex){
+                std::cerr << "No 'weightedErrorFlag' setting in configuration file." << std::endl;
+        }
+
+        try{
+                cfg.lookupValue("neuralnetwork.augment",parameters.augment);
+        }catch(const SettingNotFoundException &nfex){
+                std::cerr << "No 'augment' setting in configuration file." << std::endl;
+        }
+
+        try{
+                parameters.weightsInit = (const char *)cfg.lookup("neuralnetwork.weightsInit");
+        }catch(const SettingNotFoundException &nfex){
+                std::cerr << "No 'weightsInit' setting in configuration file." << std::endl;
+        }
+
+        try{
+                parameters.nameDataTrainIn = (const char *)cfg.lookup("neuralnetwork.nameTrainIn");
+        }catch(const SettingNotFoundException &nfex){
+                std::cerr << "No 'nameDataTrainIn' setting in configuration file." << std::endl;
+        }
+
+        try{
+                parameters.nameDataTestIn = (const char *)cfg.lookup("neuralnetwork.nameTestIn");
+        }catch(const SettingNotFoundException &nfex){
+                std::cerr << "No 'nameDataTestIn' setting in configuration file." << std::endl;
+        }
+
+        try{
+                parameters.nameMaskTest = (const char *)cfg.lookup("neuralnetwork.nameMaskTest");
+        }catch(const SettingNotFoundException &nfex){
+                std::cerr << "No 'nameMask' setting in configuration file." << std::endl;
+        }
+
+        try{
+                parameters.nameMaskValidation = (const char *)cfg.lookup("neuralnetwork.nameMaskValidation");
+        }catch(const SettingNotFoundException &nfex){
+                std::cerr << "No 'nameMask' setting in configuration file." << std::endl;
+        }
+
+        try{
+                parameters.saveFolder = (const char *)cfg.lookup("neuralnetwork.saveFolder");
+        }catch(const SettingNotFoundException &nfex){
+                std::cerr << "No 'saveFolder' setting in configuration file." << std::endl;
+        }
+
+        try{
+                cfg.lookupValue("neuralnetwork.weightMagnitude",parameters.weightMagnitude);
+        }catch(const SettingNotFoundException &nfex){
+                std::cerr << "No 'weightMagnitude' setting in configuration file." << std::endl;
+        }
+
+        try{
+                cfg.lookupValue("neuralnetwork.weightsInitFlag",parameters.weightsInitFlag);
+        }catch(const SettingNotFoundException &nfex){
+                std::cerr << "No 'weightsInitFlag' setting in configuration file." << std::endl;
+        }
+
+        try{
+                cfg.lookupValue("neuralnetwork.numbEpoches",parameters.numbEpoches);
+        }catch(const SettingNotFoundException &nfex){
+                std::cerr << "No 'numbEpoches' setting in configuration file." << std::endl;
+        }
+        try{
+                cfg.lookupValue("neuralnetwork.numbItTest",parameters.numbItTest);
+        }catch(const SettingNotFoundException &nfex){
+                std::cerr << "No 'numbItTest' setting in configuration file." << std::endl;
+        }
+
+        try{
+                cfg.lookupValue("neuralnetwork.numbItValidation",parameters.numbItValidation);
+        }catch(const SettingNotFoundException &nfex){
+                std::cerr << "No 'numbItValidation' setting in configuration file." << std::endl;
+        }
+
+        try{
+                cfg.lookupValue("neuralnetwork.numbItTrain",parameters.numbItTrain);
+        }catch(const SettingNotFoundException &nfex){
+                std::cerr << "No 'numbItTrain' setting in configuration file." << std::endl;
+        }
+        try{        
+                cfg.lookupValue("neuralnetwork.numbLayers",parameters.numbLayers);
+        }catch(const SettingNotFoundException &nfex){
+                std::cerr << "No 'numbLayers' setting in configuration file." << std::endl;
+        }
+
+        try{
+                cfg.lookupValue("neuralnetwork.miniBatch",parameters.miniBatch);
+        }catch(const SettingNotFoundException &nfex){
+                std::cerr << "No 'miniBatch' setting in configuration file." << std::endl;
+        }
+
+        try{
+                cfg.lookupValue("neuralnetwork.lambda",parameters.lambda);
+        }catch(const SettingNotFoundException &nfex){
+                std::cerr << "No 'lambda' setting in configuration file." << std::endl;
+        }        
+
+        try{
+                cfg.lookupValue("neuralnetwork.learningRate",parameters.learningRate);
+        }catch(const SettingNotFoundException &nfex){
+                std::cerr << "No 'learningRate' setting in configuration file." << std::endl;
+        }
+
+        try{
+                cfg.lookupValue("neuralnetwork.annealing",parameters.annealing);
+        }catch(const SettingNotFoundException &nfex){
+                std::cerr << "No 'annealing' setting in configuration file." << std::endl;
+        }
+
+        try{
+                cfg.lookupValue("neuralnetwork.bias",parameters.bias);
+        }catch(const SettingNotFoundException &nfex){
+                std::cerr << "No 'bias' setting in configuration file." << std::endl;
+        }
+
+        try{
+                cfg.lookupValue("neuralnetwork.randomFlag",parameters.randomFlag);
+        }catch(const SettingNotFoundException &nfex){
+                std::cerr << "No 'randomFlag' setting in configuration file." << std::endl;
+        }
+
+        try{
+                cfg.lookupValue("neuralnetwork.objective",parameters.objective);
+        }catch(const SettingNotFoundException &nfex){
+                std::cerr << "No 'objective' setting in configuration file." << std::endl;
+        }
+
+        try{
+                cfg.lookupValue("neuralnetwork.huberDelta",parameters.huberDelta);
+        }catch(const SettingNotFoundException &nfex){
+                std::cerr << "No 'huberDelta' setting in configuration file." << std::endl;
+        }
+
+        try{
+                cfg.lookupValue("neuralnetwork.momentum",parameters.momentum);
+        }catch(const SettingNotFoundException &nfex){
+                std::cerr << "No 'momentum' setting in configuration file." << std::endl;
+        }
+
+        try{
+                cfg.lookupValue("neuralnetwork.adaGrad",parameters.adaGrad);
+        }catch(const SettingNotFoundException &nfex){
+                std::cerr << "No 'adaGrad' setting in configuration file." << std::endl;
+        }
+
+        try{
+                cfg.lookupValue("neuralnetwork.curriculum",parameters.curriculum);
+        }catch(const SettingNotFoundException &nfex){
+                std::cerr << "No 'curriculum' setting in configuration file." << std::endl;
+        }
+
+        try{
+                cfg.lookupValue("neuralnetwork.maskFlagValidation",parameters.maskFlagValidation);
+        }catch(const SettingNotFoundException &nfex){
+                std::cerr << "No 'maskFlagValidation' setting in configuration file." << std::endl;
+        }
+
+        try{
+                cfg.lookupValue("neuralnetwork.maskFlagTest",parameters.maskFlagTest);
+        }catch(const SettingNotFoundException &nfex){
+                std::cerr << "No 'maskFlagTest' setting in configuration file." << std::endl;
+        }
+
+        try{
+                cfg.lookupValue("neuralnetwork.statsFlag",parameters.statsFlag);
+        }catch(const SettingNotFoundException &nfex){
+                std::cerr << "No 'statsFlag' setting in configuration file." << std::endl;
+        }
+
+        try{
+                cfg.lookupValue("neuralnetwork.freezeFractionEpochs",parameters.freezeFractionEpochs);
+        }catch(const SettingNotFoundException &nfex){
+                std::cerr << "No 'freezeFractionEpochs' setting in configuration file." << std::endl;
+        }
+
+        try{
+                cfg.lookupValue("neuralnetwork.weightFreezeFlag",parameters.weightFreezeFlag);
+        }catch(const SettingNotFoundException &nfex){
+                std::cerr << "No 'weightFreezeFlag' setting in configuration file." << std::endl;
+        }
+
+        try{
+                cfg.lookupValue("neuralnetwork.shuffleFlag",parameters.shuffleFlag);
+        }catch(const SettingNotFoundException &nfex){
+                std::cerr << "No 'shuffleFlag' setting in configuration file." << std::endl;
+        }
+
+        try{
+                cfg.lookupValue("neuralnetwork.dropOut",parameters.dropOut);
+        }catch(const SettingNotFoundException &nfex){
+                std::cerr << "No 'dropOut' setting in configuration file." << std::endl;
+        }
+
+        try{
+                cfg.lookupValue("neuralnetwork.inputScale",parameters.inputScale);
+        }catch(const SettingNotFoundException &nfex){
+                std::cerr << "No 'inputScale' setting in configuration file." << std::endl;
+        }
+
+        try{
+                cfg.lookupValue("neuralnetwork.sparsityParameter",parameters.sparsityParameter);
+        }catch(const SettingNotFoundException &nfex){
+                std::cerr << "No 'sparsityParameter' setting in configuration file." << std::endl;
+        }
+
+        try{
+                cfg.lookupValue("neuralnetwork.sparse",parameters.sparse);
+        }catch(const SettingNotFoundException &nfex){
+                std::cerr << "No 'sparse' setting in configuration file." << std::endl;
+        }
+
+        try{
+                cfg.lookupValue("neuralnetwork.polishing",parameters.polishing);
+        }catch(const SettingNotFoundException &nfex){
+                std::cerr << "No 'polishing' setting in configuration file." << std::endl;
+        }
+        
+        // Copy read arrays into the parameters variables
+        parameters.patchZ=(int)patch[0];
+        parameters.patchY=(int)patch[1];
+        parameters.patchX =(int)patch[2];
+
+        parameters.shiftZTest=(int)shiftTest[0];
+        parameters.shiftYTest=(int)shiftTest[1];
+        parameters.shiftXTest=(int)shiftTest[2];
+
+        parameters.shiftZTrain=(int)shiftTrain[0];
+        parameters.shiftYTrain=(int)shiftTrain[1];
+        parameters.shiftXTrain=(int)shiftTrain[2];
+        
+        parameters.learningRateLower = dynamicLearningRate[0];
+        parameters.learningRateUpper = dynamicLearningRate[1];
+
+        
+        // Check whether the number of layers in the array is the same as specified
+        // copy the sizes of the layers to the parameters array
+        if (layers.getLength()==parameters.numbLayers){
+	        for (int ii = 0; ii < parameters.numbLayers; ii++) {
+                        parameters.layersVec.push_back((int)layers[ii]);
+	        }
+        } else {
+                std::cout<<"Settings numbLayers and size of Array do not match\n";
+                exit(0);    
+        }
+
+        // Check whether the number of activations in the array is the same as specified
+        // copy the sizes of the activations to the parameters array       
+        if (actFunctions.getLength()==parameters.numbLayers){
+	        for (int ii = 0; ii < parameters.numbLayers; ii++) {
+                        parameters.actVec.push_back((int)actFunctions[ii]);
+	        }
+        } else {
+                std::cout<<"Settings numbLayers and size of Act Array do not match\n";
+                exit(0);       
+        }
+        
+        // If lambda is not 0, then the contractive is used
+        if (parameters.lambda!= 0.0){
+                neuralNetwork = new ContractiveAutoencoder();
+
+        // Otherwise a simple autoencoder is used
+        }else {
+                neuralNetwork = new Autoencoder();
+        }
+
+        // Check the values of the parameters in the sanity check
+        parameters.sanityCheck();
+
+        // Update the size of the patches
+        parameters.updatePatchSize();
+        //printf("here1\n");
+
+        // Initialise the neural netowork
+        neuralNetwork->initialise(parameters);
+        //printf("here2\n");
+        // Initialise the algorithm
+        Alg->initialise(parameters);
+        //printf("here3\n");
+        // If the user wants to init weights from a file, then do it
+        if (parameters.weightsInitFlag==1){
+                neuralNetwork->initWeightsFromFile(parameters.weightsInit);
+        }
+        //printf("here4\n");
+        return 0;
+}

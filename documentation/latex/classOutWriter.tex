@@ -1,0 +1,203 @@
+\hypertarget{classOutWriter}{}\section{Out\+Writer Class Reference}
+\label{classOutWriter}\index{Out\+Writer@{Out\+Writer}}
+
+
+Class responsible for ouput folder and its contents.  
+
+
+
+
+{\ttfamily \#include \char`\"{}Out\+Writer.\+h\char`\"{}}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{classOutWriter_a2a180305b7da8b317dafc9a9071e191c}{write} (\hyperlink{classNeuralNetwork}{Neural\+Network} $\ast$, \hyperlink{classTrainingAlgorithm}{Training\+Algorithm} $\ast$, double time, std\+::string mark)
+\begin{DoxyCompactList}\small\item\em Function which is called from the main. \end{DoxyCompactList}\item 
+int \hyperlink{classOutWriter_a4d9f70ec3695f10de7d21c70ffe3a298}{write\+Learning\+Rate} (\hyperlink{classTrainingAlgorithm}{Training\+Algorithm} $\ast$Alg)
+\begin{DoxyCompactList}\small\item\em Function writes out learning rate versus iteration (learning rate changes if annealing is used) \end{DoxyCompactList}\item 
+int \hyperlink{classOutWriter_afbb71947cf92b3a37f03139bfb88d445}{get\+Folder\+Name} ()
+\begin{DoxyCompactList}\small\item\em Function to generate a folder name. \end{DoxyCompactList}\item 
+int \hyperlink{classOutWriter_a37eabfd7d351e4077225a933976db409}{write\+Error\+Train} (\hyperlink{classTrainingAlgorithm}{Training\+Algorithm} $\ast$Alg)
+\begin{DoxyCompactList}\small\item\em Funtion to write the training error (loss function vs iteration) \end{DoxyCompactList}\item 
+int \hyperlink{classOutWriter_adaddf5f3ca232f83a077e1ea6256ea42}{write\+Error\+Validation} (\hyperlink{classTrainingAlgorithm}{Training\+Algorithm} $\ast$Alg)
+\begin{DoxyCompactList}\small\item\em Funtion to write the test error (loss function vs iteration) \end{DoxyCompactList}\item 
+int \hyperlink{classOutWriter_a1727aa374e26a570e65cb2a6e65be824}{write\+Ratio} (\hyperlink{classTrainingAlgorithm}{Training\+Algorithm} $\ast$Alg)
+\item 
+int \hyperlink{classOutWriter_a485c7ad7d1430a57c1c405ac8c2799c2}{write\+Weights} (\hyperlink{classNeuralNetwork}{Neural\+Network} $\ast$NN, \hyperlink{classTrainingAlgorithm}{Training\+Algorithm} $\ast$Alg)
+\begin{DoxyCompactList}\small\item\em Funtion to write the weights. \end{DoxyCompactList}\item 
+int \hyperlink{classOutWriter_a7a90b49d2b4c0e5e5574dd737415ef11}{write\+Time\+Info} (\hyperlink{classNeuralNetwork}{Neural\+Network} $\ast$NN, \hyperlink{classTrainingAlgorithm}{Training\+Algorithm} $\ast$Alg, double time)
+\begin{DoxyCompactList}\small\item\em Function writes summary of the time. \end{DoxyCompactList}\item 
+int \hyperlink{classOutWriter_afdc9e47d8cf0e485a678d79cd0491519}{write\+Stats} (\hyperlink{classNeuralNetwork}{Neural\+Network} $\ast$NN, \hyperlink{classTrainingAlgorithm}{Training\+Algorithm} $\ast$Alg)
+\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::string \hyperlink{classOutWriter_a940fc333f7793f43438e0a89afa225d4}{folder\+Name}
+\begin{DoxyCompactList}\small\item\em Name of the folder to write in. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Class responsible for ouput folder and its contents. 
+
+Writes out data collected by neural network 
+
+Definition at line 22 of file Out\+Writer.\+h.
+
+
+
+\subsection{Member Function Documentation}
+\index{Out\+Writer@{Out\+Writer}!get\+Folder\+Name@{get\+Folder\+Name}}
+\index{get\+Folder\+Name@{get\+Folder\+Name}!Out\+Writer@{Out\+Writer}}
+\subsubsection[{\texorpdfstring{get\+Folder\+Name()}{getFolderName()}}]{\setlength{\rightskip}{0pt plus 5cm}int Out\+Writer\+::get\+Folder\+Name (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classOutWriter_afbb71947cf92b3a37f03139bfb88d445}{}\label{classOutWriter_afbb71947cf92b3a37f03139bfb88d445}
+
+
+Function to generate a folder name. 
+
+
+
+Definition at line 107 of file outwriter.\+cpp.
+
+\index{Out\+Writer@{Out\+Writer}!write@{write}}
+\index{write@{write}!Out\+Writer@{Out\+Writer}}
+\subsubsection[{\texorpdfstring{write(\+Neural\+Network $\ast$, Training\+Algorithm $\ast$, double time, std\+::string mark)}{write(NeuralNetwork *, TrainingAlgorithm *, double time, std::string mark)}}]{\setlength{\rightskip}{0pt plus 5cm}int Out\+Writer\+::write (
+\begin{DoxyParamCaption}
+\item[{{\bf Neural\+Network} $\ast$}]{NN, }
+\item[{{\bf Training\+Algorithm} $\ast$}]{Alg, }
+\item[{double}]{time, }
+\item[{std\+::string}]{mark}
+\end{DoxyParamCaption}
+)}\hypertarget{classOutWriter_a2a180305b7da8b317dafc9a9071e191c}{}\label{classOutWriter_a2a180305b7da8b317dafc9a9071e191c}
+
+
+Function which is called from the main. 
+
+
+
+Definition at line 4 of file outwriter.\+cpp.
+
+\index{Out\+Writer@{Out\+Writer}!write\+Error\+Train@{write\+Error\+Train}}
+\index{write\+Error\+Train@{write\+Error\+Train}!Out\+Writer@{Out\+Writer}}
+\subsubsection[{\texorpdfstring{write\+Error\+Train(\+Training\+Algorithm $\ast$\+Alg)}{writeErrorTrain(TrainingAlgorithm *Alg)}}]{\setlength{\rightskip}{0pt plus 5cm}int Out\+Writer\+::write\+Error\+Train (
+\begin{DoxyParamCaption}
+\item[{{\bf Training\+Algorithm} $\ast$}]{Alg}
+\end{DoxyParamCaption}
+)}\hypertarget{classOutWriter_a37eabfd7d351e4077225a933976db409}{}\label{classOutWriter_a37eabfd7d351e4077225a933976db409}
+
+
+Funtion to write the training error (loss function vs iteration) 
+
+
+
+Definition at line 150 of file outwriter.\+cpp.
+
+\index{Out\+Writer@{Out\+Writer}!write\+Error\+Validation@{write\+Error\+Validation}}
+\index{write\+Error\+Validation@{write\+Error\+Validation}!Out\+Writer@{Out\+Writer}}
+\subsubsection[{\texorpdfstring{write\+Error\+Validation(\+Training\+Algorithm $\ast$\+Alg)}{writeErrorValidation(TrainingAlgorithm *Alg)}}]{\setlength{\rightskip}{0pt plus 5cm}int Out\+Writer\+::write\+Error\+Validation (
+\begin{DoxyParamCaption}
+\item[{{\bf Training\+Algorithm} $\ast$}]{Alg}
+\end{DoxyParamCaption}
+)}\hypertarget{classOutWriter_adaddf5f3ca232f83a077e1ea6256ea42}{}\label{classOutWriter_adaddf5f3ca232f83a077e1ea6256ea42}
+
+
+Funtion to write the test error (loss function vs iteration) 
+
+
+
+Definition at line 132 of file outwriter.\+cpp.
+
+\index{Out\+Writer@{Out\+Writer}!write\+Learning\+Rate@{write\+Learning\+Rate}}
+\index{write\+Learning\+Rate@{write\+Learning\+Rate}!Out\+Writer@{Out\+Writer}}
+\subsubsection[{\texorpdfstring{write\+Learning\+Rate(\+Training\+Algorithm $\ast$\+Alg)}{writeLearningRate(TrainingAlgorithm *Alg)}}]{\setlength{\rightskip}{0pt plus 5cm}int Out\+Writer\+::write\+Learning\+Rate (
+\begin{DoxyParamCaption}
+\item[{{\bf Training\+Algorithm} $\ast$}]{Alg}
+\end{DoxyParamCaption}
+)}\hypertarget{classOutWriter_a4d9f70ec3695f10de7d21c70ffe3a298}{}\label{classOutWriter_a4d9f70ec3695f10de7d21c70ffe3a298}
+
+
+Function writes out learning rate versus iteration (learning rate changes if annealing is used) 
+
+
+
+Definition at line 87 of file outwriter.\+cpp.
+
+\index{Out\+Writer@{Out\+Writer}!write\+Ratio@{write\+Ratio}}
+\index{write\+Ratio@{write\+Ratio}!Out\+Writer@{Out\+Writer}}
+\subsubsection[{\texorpdfstring{write\+Ratio(\+Training\+Algorithm $\ast$\+Alg)}{writeRatio(TrainingAlgorithm *Alg)}}]{\setlength{\rightskip}{0pt plus 5cm}int Out\+Writer\+::write\+Ratio (
+\begin{DoxyParamCaption}
+\item[{{\bf Training\+Algorithm} $\ast$}]{Alg}
+\end{DoxyParamCaption}
+)}\hypertarget{classOutWriter_a1727aa374e26a570e65cb2a6e65be824}{}\label{classOutWriter_a1727aa374e26a570e65cb2a6e65be824}
+
+
+Definition at line 167 of file outwriter.\+cpp.
+
+\index{Out\+Writer@{Out\+Writer}!write\+Stats@{write\+Stats}}
+\index{write\+Stats@{write\+Stats}!Out\+Writer@{Out\+Writer}}
+\subsubsection[{\texorpdfstring{write\+Stats(\+Neural\+Network $\ast$\+N\+N, Training\+Algorithm $\ast$\+Alg)}{writeStats(NeuralNetwork *NN, TrainingAlgorithm *Alg)}}]{\setlength{\rightskip}{0pt plus 5cm}int Out\+Writer\+::write\+Stats (
+\begin{DoxyParamCaption}
+\item[{{\bf Neural\+Network} $\ast$}]{NN, }
+\item[{{\bf Training\+Algorithm} $\ast$}]{Alg}
+\end{DoxyParamCaption}
+)}\hypertarget{classOutWriter_afdc9e47d8cf0e485a678d79cd0491519}{}\label{classOutWriter_afdc9e47d8cf0e485a678d79cd0491519}
+
+
+Definition at line 184 of file outwriter.\+cpp.
+
+\index{Out\+Writer@{Out\+Writer}!write\+Time\+Info@{write\+Time\+Info}}
+\index{write\+Time\+Info@{write\+Time\+Info}!Out\+Writer@{Out\+Writer}}
+\subsubsection[{\texorpdfstring{write\+Time\+Info(\+Neural\+Network $\ast$\+N\+N, Training\+Algorithm $\ast$\+Alg, double time)}{writeTimeInfo(NeuralNetwork *NN, TrainingAlgorithm *Alg, double time)}}]{\setlength{\rightskip}{0pt plus 5cm}int Out\+Writer\+::write\+Time\+Info (
+\begin{DoxyParamCaption}
+\item[{{\bf Neural\+Network} $\ast$}]{NN, }
+\item[{{\bf Training\+Algorithm} $\ast$}]{Alg, }
+\item[{double}]{time}
+\end{DoxyParamCaption}
+)}\hypertarget{classOutWriter_a7a90b49d2b4c0e5e5574dd737415ef11}{}\label{classOutWriter_a7a90b49d2b4c0e5e5574dd737415ef11}
+
+
+Function writes summary of the time. 
+
+
+
+Definition at line 59 of file outwriter.\+cpp.
+
+\index{Out\+Writer@{Out\+Writer}!write\+Weights@{write\+Weights}}
+\index{write\+Weights@{write\+Weights}!Out\+Writer@{Out\+Writer}}
+\subsubsection[{\texorpdfstring{write\+Weights(\+Neural\+Network $\ast$\+N\+N, Training\+Algorithm $\ast$\+Alg)}{writeWeights(NeuralNetwork *NN, TrainingAlgorithm *Alg)}}]{\setlength{\rightskip}{0pt plus 5cm}int Out\+Writer\+::write\+Weights (
+\begin{DoxyParamCaption}
+\item[{{\bf Neural\+Network} $\ast$}]{NN, }
+\item[{{\bf Training\+Algorithm} $\ast$}]{Alg}
+\end{DoxyParamCaption}
+)}\hypertarget{classOutWriter_a485c7ad7d1430a57c1c405ac8c2799c2}{}\label{classOutWriter_a485c7ad7d1430a57c1c405ac8c2799c2}
+
+
+Funtion to write the weights. 
+
+
+
+Definition at line 216 of file outwriter.\+cpp.
+
+
+
+\subsection{Member Data Documentation}
+\index{Out\+Writer@{Out\+Writer}!folder\+Name@{folder\+Name}}
+\index{folder\+Name@{folder\+Name}!Out\+Writer@{Out\+Writer}}
+\subsubsection[{\texorpdfstring{folder\+Name}{folderName}}]{\setlength{\rightskip}{0pt plus 5cm}std\+::string Out\+Writer\+::folder\+Name\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classOutWriter_a940fc333f7793f43438e0a89afa225d4}{}\label{classOutWriter_a940fc333f7793f43438e0a89afa225d4}
+
+
+Name of the folder to write in. 
+
+
+
+Definition at line 26 of file Out\+Writer.\+h.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/headers/\hyperlink{OutWriter_8h}{Out\+Writer.\+h}\item 
+src/cpp/\hyperlink{outwriter_8cpp}{outwriter.\+cpp}\end{DoxyCompactItemize}

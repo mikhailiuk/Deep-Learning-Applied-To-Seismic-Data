@@ -1,0 +1,93 @@
+n#!/bin/bash
+
+echo "MB LR HU AVCORRE AVCORRDE CROSSCORR MSE SNR LOCMIN CONV" >> /local/data/public/am2442/seismic/output/results/shot/tanh/data.csv
+
+#Declaring arrays of the parameters we want to test
+declare -a hiddenLayers=(16 32 64 128 256 384 448)
+declare -a learningRate=(0.001 0.01 0.1)
+declare -a batch=(4 8 16 32 64 128)
+
+#Iterate through batch array
+for k in `seq 0 1 $[${#batch[@]}-1]`
+do      
+
+        #Iterate through learning rate array
+        for j in `seq 0 1 $[${#learningRate[@]}-1]`
+        do
+
+                #Iterate through hidden layers
+                for i in `seq 0 1 $[${#hiddenLayers[@]}-1]`
+                do
+                        #Set the path to a new directory
+                        openDir="/local/data/public/am2442/seismic/output/results/shot/tanh/${batch[k]}/${learningRate[j]}/${hiddenLayers[i]}/"
+                        echo $openDir
+
+                        lineToPrint="${batch[k]} ${learningRate[j]} ${hiddenLayers[i]} "
+
+                        dirlist=(`ls -d $openDir*/`)
+                        qty=${#dirlist[@]};
+
+                        line="0.0 0.0"
+                        MSE="0.0"
+                        Q="0.0"
+                        val=0
+                        converged=1
+                        localMin=nan
+                        #if the only fully trained result is in
+                        if [ "$qty" -eq "1" ]
+                        then
+                                converged=0
+                                tmp=${dirlist[0]}
+                                tmp+="corrEncDec"
+                                if [ -e $tmp ]; then
+                                        line="`sed -n 1p $tmp`"
+                                fi
+                                tmp=${dirlist[0]}
+                                tmp+="qualityMSEQm.dat"
+                                if [ -e $tmp ]; then
+                                        MSE="`sed -n 1p $tmp`"
+                                        Q="`sed -n 2p $tmp`"
+                                fi
+                        #if there are two folders with early stop
+                        else
+                                for t in `seq 0 1 $qty`
+                                do          
+                                if [[ ${dirlist[t]} == *"es"* ]]; then
+                                        tmp=${dirlist[t]}
+                                        tmp+="corrEncDec"
+                                        if [ -e $tmp ]; then
+                                                line="`sed -n 1p $tmp`"
+                                        fi
+                                        tmp=${dirlist[t]}
+                                        tmp+="qualityMSEQm.dat"
+
+                                        if [ -e $tmp ]; then
+                                                MSE="`sed -n 1p $tmp`"
+                                                Q="`sed -n 2p $tmp`"
+                                        fi
+
+                                        tmp=${dirlist[t]}
+                                        tmp+="ratio.dat"
+                                        c=0
+                                        val=0
+                                        while read name
+                                        do
+                                                if [[ $name == "0" ]]
+                                                then
+                                                        val=$c
+                                                fi
+                                                c=$[$c +1]
+                                        done < "$tmp"
+
+                                        
+                                fi                       
+                                done
+                        fi
+                        line+=" $MSE $Q $val "
+                        lineToPrint+=$line
+                        lineToPrint+=$converged
+                        echo $lineToPrint  >> /local/data/public/am2442/seismic/output/results/shot/tanh/data.csv
+                done
+        done
+done
+

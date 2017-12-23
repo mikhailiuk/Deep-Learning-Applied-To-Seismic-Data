@@ -1,0 +1,497 @@
+\hypertarget{classObjective}{}\section{Objective Class Reference}
+\label{classObjective}\index{Objective@{Objective}}
+
+
+Encapsulates objective functinos.  
+
+
+
+
+{\ttfamily \#include \char`\"{}Objective.\+h\char`\"{}}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{classObjective_a2241206a261b91770ff4f58385becf57}{initialise} (\hyperlink{classParamsInit}{Params\+Init} parameters)
+\item 
+void \hyperlink{classObjective_a0b06d92b076ffff26af8c5918da736ee}{initialise\+Weights\+From\+Center} (\hyperlink{classParamsInit}{Params\+Init} parameters)
+\item 
+double \hyperlink{classObjective_a8746cd7f37fc8a0ce8a31b51a51823b5}{least\+Squares\+Error} (double target, double predicted)
+\item 
+double \hyperlink{classObjective_ab966b25d12083a76d11ac3f6e5c711ef}{least\+Squares\+Der} (double target, double predicted)
+\item 
+double \hyperlink{classObjective_aac52d1f8fd934f996c4bf533170b23bf}{l\+One\+Norm\+Error} (double target, double predicted)
+\item 
+double \hyperlink{classObjective_a6c7dc399840df1c856f20b10a5a1569d}{l\+One\+Norm\+Der} (double target, double predicted)
+\item 
+double \hyperlink{classObjective_a30db6b8fbe36af5088d34f2541ec28e5}{huber\+Loss\+Error} (double target, double predicted)
+\item 
+double \hyperlink{classObjective_af43f0162ad03be85f91a3502904b58ae}{huber\+Loss\+Der} (double target, double predicted)
+\item 
+double \hyperlink{classObjective_ad1f68e7b56fcc12766769c420b7efffa}{q\+Measure\+Error} (double target, double predicted)
+\item 
+double \hyperlink{classObjective_af54bf7846f506e37dd0113efc261e13a}{mean\+Var\+Covar\+Qmeasure} (vector$<$ double $>$ target, vector$<$ double $>$ predicted, vector$<$ double $>$ mask)
+\item 
+double \hyperlink{classObjective_a83f3cc1fe6d1fefe00b06eb5d27b4e6e}{objective} (int stage, double target, double predicted)
+\item 
+double \hyperlink{classObjective_a9f011366c3a1401e11afed8e9620bcb0}{objective} (int stage, int position, double target, double predicted)
+\item 
+double \hyperlink{classObjective_a91b745efca74c55eb1415bdc101c0c8c}{get\+L\+S\+Error} (double target, double predicted, int position)
+\end{DoxyCompactItemize}
+\subsection*{Private Types}
+\begin{DoxyCompactItemize}
+\item 
+enum \hyperlink{classObjective_ac2cb31fca71c5a4b99b35c879742644c}{Objective\+Name} \{ \hyperlink{classObjective_ac2cb31fca71c5a4b99b35c879742644ca205a754a7295726fb0a2ed5411d441db}{least\+Squares}, 
+\hyperlink{classObjective_ac2cb31fca71c5a4b99b35c879742644ca5bd3f1f14a20e6a7c1657b530c4ec570}{huber\+Loss}, 
+\hyperlink{classObjective_ac2cb31fca71c5a4b99b35c879742644ca1d16b67c79d69d3ab4255e9bf0bc7c03}{l\+One\+Norm}, 
+\hyperlink{classObjective_ac2cb31fca71c5a4b99b35c879742644ca85b3185f17ead6c164f096c2f337ed79}{q\+Measure}
+ \}\begin{DoxyCompactList}\small\item\em The enum to hold objective functions. \end{DoxyCompactList}
+\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classObjective_ac2cb31fca71c5a4b99b35c879742644c}{Objective\+Name} \hyperlink{classObjective_a51987f37a05068aba28866a967eb4e67}{m\+\_\+objective}
+\begin{DoxyCompactList}\small\item\em The name of the objective function (one of 4 in the enum) \end{DoxyCompactList}\item 
+double \hyperlink{classObjective_a324b9129dd2d2c4bdc868587883e35b9}{m\+\_\+huber\+Delta}
+\begin{DoxyCompactList}\small\item\em The delta in the huber delta objective function. \end{DoxyCompactList}\item 
+double \hyperlink{classObjective_a64f93d50b1443c29b50dfb7b451b62d1}{m\+\_\+sum\+Mask}
+\begin{DoxyCompactList}\small\item\em Number of non-\/zero elements in the mask. \end{DoxyCompactList}\item 
+double \hyperlink{classObjective_a4d7819d119c36c2aa8aac0baf79c961a}{m\+\_\+mean\+Target}
+\begin{DoxyCompactList}\small\item\em Mean of the target values in the patch. \end{DoxyCompactList}\item 
+double \hyperlink{classObjective_a2b7cdd589578394f2c5a847a0a9aff61}{m\+\_\+mean\+Predicted}
+\begin{DoxyCompactList}\small\item\em Mean of the predicted values in the patch. \end{DoxyCompactList}\item 
+double \hyperlink{classObjective_a7344fafbba4c5c3aa51b3fea7f209e32}{m\+\_\+variance\+Target}
+\begin{DoxyCompactList}\small\item\em Variance target. \end{DoxyCompactList}\item 
+double \hyperlink{classObjective_a82366bcac1547f5709b6452d168d3e16}{m\+\_\+variance\+Predicted}
+\begin{DoxyCompactList}\small\item\em Predicted variance. \end{DoxyCompactList}\item 
+double \hyperlink{classObjective_ac48b9550f4153a2cb72606f1bab7f024}{m\+\_\+mean\+Dev\+Target}
+\begin{DoxyCompactList}\small\item\em Average standard deviation target. \end{DoxyCompactList}\item 
+double \hyperlink{classObjective_adaebe7ea3f61983ad40915331c665097}{m\+\_\+mean\+Dev\+Predicted}
+\begin{DoxyCompactList}\small\item\em Average standard deviation predicted. \end{DoxyCompactList}\item 
+double \hyperlink{classObjective_a37cee3bff8dbebd5399bfabf5434f4d0}{m\+\_\+covariance}
+\begin{DoxyCompactList}\small\item\em Covariance in the target and predicted values. \end{DoxyCompactList}\item 
+vector$<$ float $>$ \hyperlink{classObjective_a762220972dd5dcf5c6051b39ba417682}{m\+\_\+dist\+From\+Center}
+\begin{DoxyCompactList}\small\item\em The vector to hold distances of the values from the center. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Encapsulates objective functinos. 
+
+Definition at line 23 of file Objective.\+h.
+
+
+
+\subsection{Member Enumeration Documentation}
+\index{Objective@{Objective}!Objective\+Name@{Objective\+Name}}
+\index{Objective\+Name@{Objective\+Name}!Objective@{Objective}}
+\subsubsection[{\texorpdfstring{Objective\+Name}{ObjectiveName}}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf Objective\+::\+Objective\+Name}\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classObjective_ac2cb31fca71c5a4b99b35c879742644c}{}\label{classObjective_ac2cb31fca71c5a4b99b35c879742644c}
+
+
+The enum to hold objective functions. 
+
+\begin{Desc}
+\item[Enumerator]\par
+\begin{description}
+\index{least\+Squares@{least\+Squares}!Objective@{Objective}}\index{Objective@{Objective}!least\+Squares@{least\+Squares}}\item[{\em 
+least\+Squares\hypertarget{classObjective_ac2cb31fca71c5a4b99b35c879742644ca205a754a7295726fb0a2ed5411d441db}{}\label{classObjective_ac2cb31fca71c5a4b99b35c879742644ca205a754a7295726fb0a2ed5411d441db}
+}]\index{huber\+Loss@{huber\+Loss}!Objective@{Objective}}\index{Objective@{Objective}!huber\+Loss@{huber\+Loss}}\item[{\em 
+huber\+Loss\hypertarget{classObjective_ac2cb31fca71c5a4b99b35c879742644ca5bd3f1f14a20e6a7c1657b530c4ec570}{}\label{classObjective_ac2cb31fca71c5a4b99b35c879742644ca5bd3f1f14a20e6a7c1657b530c4ec570}
+}]\index{l\+One\+Norm@{l\+One\+Norm}!Objective@{Objective}}\index{Objective@{Objective}!l\+One\+Norm@{l\+One\+Norm}}\item[{\em 
+l\+One\+Norm\hypertarget{classObjective_ac2cb31fca71c5a4b99b35c879742644ca1d16b67c79d69d3ab4255e9bf0bc7c03}{}\label{classObjective_ac2cb31fca71c5a4b99b35c879742644ca1d16b67c79d69d3ab4255e9bf0bc7c03}
+}]\index{q\+Measure@{q\+Measure}!Objective@{Objective}}\index{Objective@{Objective}!q\+Measure@{q\+Measure}}\item[{\em 
+q\+Measure\hypertarget{classObjective_ac2cb31fca71c5a4b99b35c879742644ca85b3185f17ead6c164f096c2f337ed79}{}\label{classObjective_ac2cb31fca71c5a4b99b35c879742644ca85b3185f17ead6c164f096c2f337ed79}
+}]\end{description}
+\end{Desc}
+
+
+Definition at line 29 of file Objective.\+h.
+
+
+
+\subsection{Member Function Documentation}
+\index{Objective@{Objective}!get\+L\+S\+Error@{get\+L\+S\+Error}}
+\index{get\+L\+S\+Error@{get\+L\+S\+Error}!Objective@{Objective}}
+\subsubsection[{\texorpdfstring{get\+L\+S\+Error(double target, double predicted, int position)}{getLSError(double target, double predicted, int position)}}]{\setlength{\rightskip}{0pt plus 5cm}double Objective\+::get\+L\+S\+Error (
+\begin{DoxyParamCaption}
+\item[{double}]{target, }
+\item[{double}]{predicted, }
+\item[{int}]{position}
+\end{DoxyParamCaption}
+)}\hypertarget{classObjective_a91b745efca74c55eb1415bdc101c0c8c}{}\label{classObjective_a91b745efca74c55eb1415bdc101c0c8c}
+A function used to give a scaled value for the Squared Error depending on the distance from the center of the patch 
+\begin{DoxyParams}{Parameters}
+{\em position} & in the neural network output layer (used to calculate the distance from the patch) \\
+\hline
+{\em target} & -\/ a target value \\
+\hline
+{\em predicted} & -\/ a predicted value \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 133 of file objective.\+cpp.
+
+\index{Objective@{Objective}!huber\+Loss\+Der@{huber\+Loss\+Der}}
+\index{huber\+Loss\+Der@{huber\+Loss\+Der}!Objective@{Objective}}
+\subsubsection[{\texorpdfstring{huber\+Loss\+Der(double target, double predicted)}{huberLossDer(double target, double predicted)}}]{\setlength{\rightskip}{0pt plus 5cm}double Objective\+::huber\+Loss\+Der (
+\begin{DoxyParamCaption}
+\item[{double}]{target, }
+\item[{double}]{predicted}
+\end{DoxyParamCaption}
+)}\hypertarget{classObjective_af43f0162ad03be85f91a3502904b58ae}{}\label{classObjective_af43f0162ad03be85f91a3502904b58ae}
+A function to get the derivative for huber loss 
+\begin{DoxyParams}{Parameters}
+{\em target} & -\/ a target value \\
+\hline
+{\em predicted} & -\/ a predicted value \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 169 of file objective.\+cpp.
+
+\index{Objective@{Objective}!huber\+Loss\+Error@{huber\+Loss\+Error}}
+\index{huber\+Loss\+Error@{huber\+Loss\+Error}!Objective@{Objective}}
+\subsubsection[{\texorpdfstring{huber\+Loss\+Error(double target, double predicted)}{huberLossError(double target, double predicted)}}]{\setlength{\rightskip}{0pt plus 5cm}double Objective\+::huber\+Loss\+Error (
+\begin{DoxyParamCaption}
+\item[{double}]{target, }
+\item[{double}]{predicted}
+\end{DoxyParamCaption}
+)}\hypertarget{classObjective_a30db6b8fbe36af5088d34f2541ec28e5}{}\label{classObjective_a30db6b8fbe36af5088d34f2541ec28e5}
+A function to get the huber loss error 
+\begin{DoxyParams}{Parameters}
+{\em target} & -\/ a target value \\
+\hline
+{\em predicted} & -\/ a predicted value \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 158 of file objective.\+cpp.
+
+\index{Objective@{Objective}!initialise@{initialise}}
+\index{initialise@{initialise}!Objective@{Objective}}
+\subsubsection[{\texorpdfstring{initialise(\+Params\+Init parameters)}{initialise(ParamsInit parameters)}}]{\setlength{\rightskip}{0pt plus 5cm}void Objective\+::initialise (
+\begin{DoxyParamCaption}
+\item[{{\bf Params\+Init}}]{parameters}
+\end{DoxyParamCaption}
+)}\hypertarget{classObjective_a2241206a261b91770ff4f58385becf57}{}\label{classObjective_a2241206a261b91770ff4f58385becf57}
+A function to initialise 
+\begin{DoxyParams}{Parameters}
+{\em parameters} & -\/ stores values from the config file \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 3 of file objective.\+cpp.
+
+\index{Objective@{Objective}!initialise\+Weights\+From\+Center@{initialise\+Weights\+From\+Center}}
+\index{initialise\+Weights\+From\+Center@{initialise\+Weights\+From\+Center}!Objective@{Objective}}
+\subsubsection[{\texorpdfstring{initialise\+Weights\+From\+Center(\+Params\+Init parameters)}{initialiseWeightsFromCenter(ParamsInit parameters)}}]{\setlength{\rightskip}{0pt plus 5cm}void Objective\+::initialise\+Weights\+From\+Center (
+\begin{DoxyParamCaption}
+\item[{{\bf Params\+Init}}]{parameters}
+\end{DoxyParamCaption}
+)}\hypertarget{classObjective_a0b06d92b076ffff26af8c5918da736ee}{}\label{classObjective_a0b06d92b076ffff26af8c5918da736ee}
+A function to initialise m\+\_\+dist\+From\+Center 
+\begin{DoxyParams}{Parameters}
+{\em parameters} & -\/ stores values from the config file \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 15 of file objective.\+cpp.
+
+\index{Objective@{Objective}!least\+Squares\+Der@{least\+Squares\+Der}}
+\index{least\+Squares\+Der@{least\+Squares\+Der}!Objective@{Objective}}
+\subsubsection[{\texorpdfstring{least\+Squares\+Der(double target, double predicted)}{leastSquaresDer(double target, double predicted)}}]{\setlength{\rightskip}{0pt plus 5cm}double Objective\+::least\+Squares\+Der (
+\begin{DoxyParamCaption}
+\item[{double}]{target, }
+\item[{double}]{predicted}
+\end{DoxyParamCaption}
+)}\hypertarget{classObjective_ab966b25d12083a76d11ac3f6e5c711ef}{}\label{classObjective_ab966b25d12083a76d11ac3f6e5c711ef}
+A function to get the derivative of the Squared Error 
+\begin{DoxyParams}{Parameters}
+{\em target} & -\/ a target value \\
+\hline
+{\em predicted} & -\/ a predicted value \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 143 of file objective.\+cpp.
+
+\index{Objective@{Objective}!least\+Squares\+Error@{least\+Squares\+Error}}
+\index{least\+Squares\+Error@{least\+Squares\+Error}!Objective@{Objective}}
+\subsubsection[{\texorpdfstring{least\+Squares\+Error(double target, double predicted)}{leastSquaresError(double target, double predicted)}}]{\setlength{\rightskip}{0pt plus 5cm}double Objective\+::least\+Squares\+Error (
+\begin{DoxyParamCaption}
+\item[{double}]{target, }
+\item[{double}]{predicted}
+\end{DoxyParamCaption}
+)}\hypertarget{classObjective_a8746cd7f37fc8a0ce8a31b51a51823b5}{}\label{classObjective_a8746cd7f37fc8a0ce8a31b51a51823b5}
+A function to get the Squared Error 
+\begin{DoxyParams}{Parameters}
+{\em target} & -\/ a target value \\
+\hline
+{\em predicted} & -\/ a predicted value \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 139 of file objective.\+cpp.
+
+\index{Objective@{Objective}!l\+One\+Norm\+Der@{l\+One\+Norm\+Der}}
+\index{l\+One\+Norm\+Der@{l\+One\+Norm\+Der}!Objective@{Objective}}
+\subsubsection[{\texorpdfstring{l\+One\+Norm\+Der(double target, double predicted)}{lOneNormDer(double target, double predicted)}}]{\setlength{\rightskip}{0pt plus 5cm}double Objective\+::l\+One\+Norm\+Der (
+\begin{DoxyParamCaption}
+\item[{double}]{target, }
+\item[{double}]{predicted}
+\end{DoxyParamCaption}
+)}\hypertarget{classObjective_a6c7dc399840df1c856f20b10a5a1569d}{}\label{classObjective_a6c7dc399840df1c856f20b10a5a1569d}
+A function to get the derivative of the L1 norm 
+\begin{DoxyParams}{Parameters}
+{\em target} & -\/ a target value \\
+\hline
+{\em predicted} & -\/ a predicted value \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 151 of file objective.\+cpp.
+
+\index{Objective@{Objective}!l\+One\+Norm\+Error@{l\+One\+Norm\+Error}}
+\index{l\+One\+Norm\+Error@{l\+One\+Norm\+Error}!Objective@{Objective}}
+\subsubsection[{\texorpdfstring{l\+One\+Norm\+Error(double target, double predicted)}{lOneNormError(double target, double predicted)}}]{\setlength{\rightskip}{0pt plus 5cm}double Objective\+::l\+One\+Norm\+Error (
+\begin{DoxyParamCaption}
+\item[{double}]{target, }
+\item[{double}]{predicted}
+\end{DoxyParamCaption}
+)}\hypertarget{classObjective_aac52d1f8fd934f996c4bf533170b23bf}{}\label{classObjective_aac52d1f8fd934f996c4bf533170b23bf}
+A function to get the error of the L1 norm 
+\begin{DoxyParams}{Parameters}
+{\em target} & -\/ a target value \\
+\hline
+{\em predicted} & -\/ a predicted value \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 147 of file objective.\+cpp.
+
+\index{Objective@{Objective}!mean\+Var\+Covar\+Qmeasure@{mean\+Var\+Covar\+Qmeasure}}
+\index{mean\+Var\+Covar\+Qmeasure@{mean\+Var\+Covar\+Qmeasure}!Objective@{Objective}}
+\subsubsection[{\texorpdfstring{mean\+Var\+Covar\+Qmeasure(vector$<$ double $>$ target, vector$<$ double $>$ predicted, vector$<$ double $>$ mask)}{meanVarCovarQmeasure(vector< double > target, vector< double > predicted, vector< double > mask)}}]{\setlength{\rightskip}{0pt plus 5cm}double Objective\+::mean\+Var\+Covar\+Qmeasure (
+\begin{DoxyParamCaption}
+\item[{vector$<$ double $>$}]{target, }
+\item[{vector$<$ double $>$}]{predicted, }
+\item[{vector$<$ double $>$}]{mask}
+\end{DoxyParamCaption}
+)}\hypertarget{classObjective_af54bf7846f506e37dd0113efc261e13a}{}\label{classObjective_af54bf7846f506e37dd0113efc261e13a}
+A function to calculate parameters for the S\+S\+IM error 
+\begin{DoxyParams}{Parameters}
+{\em target} & -\/ a target patch \\
+\hline
+{\em predicted} & -\/ a predicted patch \\
+\hline
+{\em mask} & -\/ mask \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 178 of file objective.\+cpp.
+
+\index{Objective@{Objective}!objective@{objective}}
+\index{objective@{objective}!Objective@{Objective}}
+\subsubsection[{\texorpdfstring{objective(int stage, double target, double predicted)}{objective(int stage, double target, double predicted)}}]{\setlength{\rightskip}{0pt plus 5cm}double Objective\+::objective (
+\begin{DoxyParamCaption}
+\item[{int}]{stage, }
+\item[{double}]{target, }
+\item[{double}]{predicted}
+\end{DoxyParamCaption}
+)}\hypertarget{classObjective_a83f3cc1fe6d1fefe00b06eb5d27b4e6e}{}\label{classObjective_a83f3cc1fe6d1fefe00b06eb5d27b4e6e}
+A function returning the value of the chosen objective function or its derivative 
+\begin{DoxyParams}{Parameters}
+{\em stage} & -\/ 0 for feedforward, 1 for backpropagate \\
+\hline
+{\em target} & -\/ a target value \\
+\hline
+{\em predicted} & -\/ a predicted value \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 96 of file objective.\+cpp.
+
+\index{Objective@{Objective}!objective@{objective}}
+\index{objective@{objective}!Objective@{Objective}}
+\subsubsection[{\texorpdfstring{objective(int stage, int position, double target, double predicted)}{objective(int stage, int position, double target, double predicted)}}]{\setlength{\rightskip}{0pt plus 5cm}double Objective\+::objective (
+\begin{DoxyParamCaption}
+\item[{int}]{stage, }
+\item[{int}]{position, }
+\item[{double}]{target, }
+\item[{double}]{predicted}
+\end{DoxyParamCaption}
+)}\hypertarget{classObjective_a9f011366c3a1401e11afed8e9620bcb0}{}\label{classObjective_a9f011366c3a1401e11afed8e9620bcb0}
+A function returning the value of the chosen objective function or its derivative 
+\begin{DoxyParams}{Parameters}
+{\em stage} & -\/ 0 for feedforward, 1 for backpropagate \\
+\hline
+{\em position} & in the neural network output layer (used to calculate the distance from the patch) \\
+\hline
+{\em target} & -\/ a target value \\
+\hline
+{\em predicted} & -\/ a predicted value \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 55 of file objective.\+cpp.
+
+\index{Objective@{Objective}!q\+Measure\+Error@{q\+Measure\+Error}}
+\index{q\+Measure\+Error@{q\+Measure\+Error}!Objective@{Objective}}
+\subsubsection[{\texorpdfstring{q\+Measure\+Error(double target, double predicted)}{qMeasureError(double target, double predicted)}}]{\setlength{\rightskip}{0pt plus 5cm}double Objective\+::q\+Measure\+Error (
+\begin{DoxyParamCaption}
+\item[{double}]{target, }
+\item[{double}]{predicted}
+\end{DoxyParamCaption}
+)}\hypertarget{classObjective_ad1f68e7b56fcc12766769c420b7efffa}{}\label{classObjective_ad1f68e7b56fcc12766769c420b7efffa}
+A function to calculate the S\+S\+IM error 
+\begin{DoxyParams}{Parameters}
+{\em target} & -\/ a target value \\
+\hline
+{\em predicted} & -\/ a predicted value \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 241 of file objective.\+cpp.
+
+
+
+\subsection{Member Data Documentation}
+\index{Objective@{Objective}!m\+\_\+covariance@{m\+\_\+covariance}}
+\index{m\+\_\+covariance@{m\+\_\+covariance}!Objective@{Objective}}
+\subsubsection[{\texorpdfstring{m\+\_\+covariance}{m_covariance}}]{\setlength{\rightskip}{0pt plus 5cm}double Objective\+::m\+\_\+covariance\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classObjective_a37cee3bff8dbebd5399bfabf5434f4d0}{}\label{classObjective_a37cee3bff8dbebd5399bfabf5434f4d0}
+
+
+Covariance in the target and predicted values. 
+
+
+
+Definition at line 59 of file Objective.\+h.
+
+\index{Objective@{Objective}!m\+\_\+dist\+From\+Center@{m\+\_\+dist\+From\+Center}}
+\index{m\+\_\+dist\+From\+Center@{m\+\_\+dist\+From\+Center}!Objective@{Objective}}
+\subsubsection[{\texorpdfstring{m\+\_\+dist\+From\+Center}{m_distFromCenter}}]{\setlength{\rightskip}{0pt plus 5cm}vector$<$ float $>$ Objective\+::m\+\_\+dist\+From\+Center\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classObjective_a762220972dd5dcf5c6051b39ba417682}{}\label{classObjective_a762220972dd5dcf5c6051b39ba417682}
+
+
+The vector to hold distances of the values from the center. 
+
+
+
+Definition at line 62 of file Objective.\+h.
+
+\index{Objective@{Objective}!m\+\_\+huber\+Delta@{m\+\_\+huber\+Delta}}
+\index{m\+\_\+huber\+Delta@{m\+\_\+huber\+Delta}!Objective@{Objective}}
+\subsubsection[{\texorpdfstring{m\+\_\+huber\+Delta}{m_huberDelta}}]{\setlength{\rightskip}{0pt plus 5cm}double Objective\+::m\+\_\+huber\+Delta\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classObjective_a324b9129dd2d2c4bdc868587883e35b9}{}\label{classObjective_a324b9129dd2d2c4bdc868587883e35b9}
+
+
+The delta in the huber delta objective function. 
+
+
+
+Definition at line 35 of file Objective.\+h.
+
+\index{Objective@{Objective}!m\+\_\+mean\+Dev\+Predicted@{m\+\_\+mean\+Dev\+Predicted}}
+\index{m\+\_\+mean\+Dev\+Predicted@{m\+\_\+mean\+Dev\+Predicted}!Objective@{Objective}}
+\subsubsection[{\texorpdfstring{m\+\_\+mean\+Dev\+Predicted}{m_meanDevPredicted}}]{\setlength{\rightskip}{0pt plus 5cm}double Objective\+::m\+\_\+mean\+Dev\+Predicted\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classObjective_adaebe7ea3f61983ad40915331c665097}{}\label{classObjective_adaebe7ea3f61983ad40915331c665097}
+
+
+Average standard deviation predicted. 
+
+
+
+Definition at line 56 of file Objective.\+h.
+
+\index{Objective@{Objective}!m\+\_\+mean\+Dev\+Target@{m\+\_\+mean\+Dev\+Target}}
+\index{m\+\_\+mean\+Dev\+Target@{m\+\_\+mean\+Dev\+Target}!Objective@{Objective}}
+\subsubsection[{\texorpdfstring{m\+\_\+mean\+Dev\+Target}{m_meanDevTarget}}]{\setlength{\rightskip}{0pt plus 5cm}double Objective\+::m\+\_\+mean\+Dev\+Target\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classObjective_ac48b9550f4153a2cb72606f1bab7f024}{}\label{classObjective_ac48b9550f4153a2cb72606f1bab7f024}
+
+
+Average standard deviation target. 
+
+
+
+Definition at line 53 of file Objective.\+h.
+
+\index{Objective@{Objective}!m\+\_\+mean\+Predicted@{m\+\_\+mean\+Predicted}}
+\index{m\+\_\+mean\+Predicted@{m\+\_\+mean\+Predicted}!Objective@{Objective}}
+\subsubsection[{\texorpdfstring{m\+\_\+mean\+Predicted}{m_meanPredicted}}]{\setlength{\rightskip}{0pt plus 5cm}double Objective\+::m\+\_\+mean\+Predicted\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classObjective_a2b7cdd589578394f2c5a847a0a9aff61}{}\label{classObjective_a2b7cdd589578394f2c5a847a0a9aff61}
+
+
+Mean of the predicted values in the patch. 
+
+
+
+Definition at line 44 of file Objective.\+h.
+
+\index{Objective@{Objective}!m\+\_\+mean\+Target@{m\+\_\+mean\+Target}}
+\index{m\+\_\+mean\+Target@{m\+\_\+mean\+Target}!Objective@{Objective}}
+\subsubsection[{\texorpdfstring{m\+\_\+mean\+Target}{m_meanTarget}}]{\setlength{\rightskip}{0pt plus 5cm}double Objective\+::m\+\_\+mean\+Target\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classObjective_a4d7819d119c36c2aa8aac0baf79c961a}{}\label{classObjective_a4d7819d119c36c2aa8aac0baf79c961a}
+
+
+Mean of the target values in the patch. 
+
+
+
+Definition at line 41 of file Objective.\+h.
+
+\index{Objective@{Objective}!m\+\_\+objective@{m\+\_\+objective}}
+\index{m\+\_\+objective@{m\+\_\+objective}!Objective@{Objective}}
+\subsubsection[{\texorpdfstring{m\+\_\+objective}{m_objective}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Objective\+Name} Objective\+::m\+\_\+objective\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classObjective_a51987f37a05068aba28866a967eb4e67}{}\label{classObjective_a51987f37a05068aba28866a967eb4e67}
+
+
+The name of the objective function (one of 4 in the enum) 
+
+
+
+Definition at line 32 of file Objective.\+h.
+
+\index{Objective@{Objective}!m\+\_\+sum\+Mask@{m\+\_\+sum\+Mask}}
+\index{m\+\_\+sum\+Mask@{m\+\_\+sum\+Mask}!Objective@{Objective}}
+\subsubsection[{\texorpdfstring{m\+\_\+sum\+Mask}{m_sumMask}}]{\setlength{\rightskip}{0pt plus 5cm}double Objective\+::m\+\_\+sum\+Mask\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classObjective_a64f93d50b1443c29b50dfb7b451b62d1}{}\label{classObjective_a64f93d50b1443c29b50dfb7b451b62d1}
+
+
+Number of non-\/zero elements in the mask. 
+
+
+
+Definition at line 38 of file Objective.\+h.
+
+\index{Objective@{Objective}!m\+\_\+variance\+Predicted@{m\+\_\+variance\+Predicted}}
+\index{m\+\_\+variance\+Predicted@{m\+\_\+variance\+Predicted}!Objective@{Objective}}
+\subsubsection[{\texorpdfstring{m\+\_\+variance\+Predicted}{m_variancePredicted}}]{\setlength{\rightskip}{0pt plus 5cm}double Objective\+::m\+\_\+variance\+Predicted\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classObjective_a82366bcac1547f5709b6452d168d3e16}{}\label{classObjective_a82366bcac1547f5709b6452d168d3e16}
+
+
+Predicted variance. 
+
+
+
+Definition at line 50 of file Objective.\+h.
+
+\index{Objective@{Objective}!m\+\_\+variance\+Target@{m\+\_\+variance\+Target}}
+\index{m\+\_\+variance\+Target@{m\+\_\+variance\+Target}!Objective@{Objective}}
+\subsubsection[{\texorpdfstring{m\+\_\+variance\+Target}{m_varianceTarget}}]{\setlength{\rightskip}{0pt plus 5cm}double Objective\+::m\+\_\+variance\+Target\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classObjective_a7344fafbba4c5c3aa51b3fea7f209e32}{}\label{classObjective_a7344fafbba4c5c3aa51b3fea7f209e32}
+
+
+Variance target. 
+
+
+
+Definition at line 47 of file Objective.\+h.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/headers/\hyperlink{Objective_8h}{Objective.\+h}\item 
+src/cpp/\hyperlink{objective_8cpp}{objective.\+cpp}\end{DoxyCompactItemize}

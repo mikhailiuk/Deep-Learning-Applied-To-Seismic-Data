@@ -1,0 +1,1217 @@
+\hypertarget{classTrainingAlgorithm}{}\section{Training\+Algorithm Class Reference}
+\label{classTrainingAlgorithm}\index{Training\+Algorithm@{Training\+Algorithm}}
+
+
+Encapsulates functionality associated with reading and writing the Seismic Data.  
+
+
+
+
+{\ttfamily \#include \char`\"{}Training\+Algorithm.\+h\char`\"{}}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classTrainingAlgorithm_a5f0707670ca944ac8ffe2c8a4d9cafca}{Training\+Algorithm} ()
+\begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\item 
+\hyperlink{classTrainingAlgorithm_ac763e820148f7b31ecb9c7f9855b6399}{$\sim$\+Training\+Algorithm} ()
+\begin{DoxyCompactList}\small\item\em Destructor. \end{DoxyCompactList}\item 
+int \hyperlink{classTrainingAlgorithm_af535697499b4d26ac4375f2798b953df}{initialise} (\hyperlink{classParamsInit}{Params\+Init} parameters)
+\item 
+int \hyperlink{classTrainingAlgorithm_acf440cd131e39bebb1e2ce773516dab6}{train\+Neural\+Network\+Task\+Parallel} (\hyperlink{classNeuralNetwork}{Neural\+Network} $\ast$neural\+Network)
+\item 
+void \hyperlink{classTrainingAlgorithm_a309d3d7d6e19c9e8830a63c9824bb750}{test\+Neural\+Network} (\hyperlink{classNeuralNetwork}{Neural\+Network} $\ast$neural\+Network)
+\item 
+int \hyperlink{classTrainingAlgorithm_a733b9c2d4ad344a77d447b4e81a470a4}{consistency\+Test} (\hyperlink{classNeuralNetwork}{Neural\+Network} $\ast$neural\+Network)
+\item 
+void \hyperlink{classTrainingAlgorithm_aebd53f578737ebbf04406000af69ba57}{write\+Output} (std\+::string path)
+\item 
+int \hyperlink{classTrainingAlgorithm_ab851f054fd5d2e8841e01a5f580f2732}{update\+Training\+Parameters} (int ii, int mb)
+\item 
+int \hyperlink{classTrainingAlgorithm_ad2f5c257023e633ec41113d249c43ba6}{update\+Validation} (double error, \hyperlink{classNeuralNetwork}{Neural\+Network} $\ast$neural\+Network)
+\item 
+int \hyperlink{classTrainingAlgorithm_abc1b34e633f7e8dd99a6e35240fdce83}{weight\+Freeze\+Update} (int ii)
+\item 
+int \hyperlink{classTrainingAlgorithm_ab26a602d2459842b11bb37c35a3fb59a}{update\+Shuffle} (int mb)
+\item 
+int \hyperlink{classTrainingAlgorithm_a52c9b99dcf9bcf1ddd32450672e706bf}{update\+Learning\+Rate} (int ii)
+\item 
+int \hyperlink{classTrainingAlgorithm_aca653a3e888ee8e5f4084617f2bc5a9d}{learining\+Rate\+Control} (double change)
+\item 
+void \hyperlink{classTrainingAlgorithm_a8be859e1ba4f6021f117898f17f2dff1}{copy\+Data\+To\+NN} (int kk, int ff, int mask\+Counter, \hyperlink{classNeuralNetwork}{Neural\+Network} $\ast$neural\+Network)
+\item 
+int \hyperlink{classTrainingAlgorithm_ae12d856f083e41259724bad87cc52626}{update\+Counters} (int $\ast$ff, int $\ast$mask\+Counter)
+\item 
+double \hyperlink{classTrainingAlgorithm_a1d8fe723cbbee0957952efe26b3e924c}{get\+Out\+Tst} (int ii) const 
+\item 
+double \hyperlink{classTrainingAlgorithm_a60bcfabab30187a4383772c645751b8b}{get\+Learning\+Rate} () const 
+\item 
+double \hyperlink{classTrainingAlgorithm_afb4f0fd58ae4728e54f4142dbcbcb93f}{get\+Learning\+Rate\+Arr} (int ii) const 
+\item 
+int \hyperlink{classTrainingAlgorithm_a318302372014d527da236a422dae285c}{get\+Learning\+Rate\+Arr\+Size} () const 
+\item 
+double \hyperlink{classTrainingAlgorithm_a93545fcc39bad8ea91d308de3f459bf3}{get\+Error\+Train} (int id) const 
+\item 
+int \hyperlink{classTrainingAlgorithm_a3bc47eea4ef973100277fecced49a28e}{get\+Error\+Train\+Size} () const 
+\item 
+double \hyperlink{classTrainingAlgorithm_ad1daaf48f27b0a0c311818c400e4e85c}{get\+Error\+Validation} (int ii) const 
+\item 
+int \hyperlink{classTrainingAlgorithm_a3c3dacccaefdf289a130d0ab32dee305}{get\+Error\+Validation\+Size} () const 
+\item 
+double \hyperlink{classTrainingAlgorithm_afa922b894aeaf819cf8bb1155d6233c8}{get\+Ratio} (int ii) const 
+\item 
+int \hyperlink{classTrainingAlgorithm_ae91e4d6bd3c208e747e51c06b1edcad2}{get\+Ratio\+Size} () const 
+\item 
+double \hyperlink{classTrainingAlgorithm_a830cc287f64f100a75d60bc7a77b2691}{get\+Lambda} () const 
+\item 
+double \hyperlink{classTrainingAlgorithm_a0a915038dcec14278377768cab608e00}{get\+Annealing} () const 
+\item 
+int \hyperlink{classTrainingAlgorithm_ab6e1844ff62e71e1f2e1d6b853984ef0}{get\+Numb\+Epoches} () const 
+\item 
+int \hyperlink{classTrainingAlgorithm_acdac819358acaf6233b10e16d490917f}{get\+Numb\+It\+Train} () const 
+\item 
+int \hyperlink{classTrainingAlgorithm_a9fb4f8755f0801dd2101a58fd1412c09}{get\+Numb\+It\+Validation} () const 
+\item 
+int \hyperlink{classTrainingAlgorithm_a45da51f783c766bb412d15d78b3596d5}{get\+Numb\+It\+Curr} () const 
+\item 
+int \hyperlink{classTrainingAlgorithm_afa82bedc9f44a37c60d17e1da4f47211}{get\+Numb\+It\+Test} () const 
+\item 
+int \hyperlink{classTrainingAlgorithm_af19cd7f9c42cdaf0ba45c864b89599e0}{get\+Numb\+Outputs} () const 
+\item 
+std\+::string \hyperlink{classTrainingAlgorithm_a56bdf74071286a3c9838071c71ec5593}{get\+Name\+Save\+Folder} () const 
+\item 
+double \hyperlink{classTrainingAlgorithm_a0fb07c2b4f2ef9b8a3c0976cea94ed48}{get\+Time\+Feed\+Forward} () const 
+\item 
+double \hyperlink{classTrainingAlgorithm_ac5401b7de0c1abdafe733168b68fdb54}{get\+Time\+Backpropagate} () const 
+\item 
+double \hyperlink{classTrainingAlgorithm_a2321a9441a33ec5122e78f052b045e09}{get\+Time\+Delta\+Compute} () const 
+\item 
+int \hyperlink{classTrainingAlgorithm_a6c961411d7b333b1ba94463188bd2cd9}{get\+Image\+Height} () const 
+\item 
+int \hyperlink{classTrainingAlgorithm_ac47fae920f286efb15e743e1b2a3d6f3}{get\+Image\+Width} () const 
+\item 
+int \hyperlink{classTrainingAlgorithm_a7b47be7181071d9336677faea47922ac}{get\+Image\+Depth} () const 
+\end{DoxyCompactItemize}
+\subsection*{Private Types}
+\begin{DoxyCompactItemize}
+\item 
+enum \hyperlink{classTrainingAlgorithm_ad160a74aa55053d54ab4c25840d778a2}{Flag\+Weights\+Freeze} \{ \hyperlink{classTrainingAlgorithm_ad160a74aa55053d54ab4c25840d778a2a528c8ea90218afabcf161039e8a24ccd}{none}, 
+\hyperlink{classTrainingAlgorithm_ad160a74aa55053d54ab4c25840d778a2ab5e9a247e93659ff0d44e924c952f95e}{encoder}, 
+\hyperlink{classTrainingAlgorithm_ad160a74aa55053d54ab4c25840d778a2a50348a32b16afaa5f7465dc92ed86996}{decoder}, 
+\hyperlink{classTrainingAlgorithm_ad160a74aa55053d54ab4c25840d778a2accca580b7ae382a2ee290086e5c8a60d}{decoder\+Encoder}
+ \}
+\item 
+enum \hyperlink{classTrainingAlgorithm_acf5a98433c4e0a2fa4ab3d294b343752}{Flag} \{ \hyperlink{classTrainingAlgorithm_acf5a98433c4e0a2fa4ab3d294b343752a40cfd88d1eb7d6a523bdc6cd7c503ba5}{disabled}, 
+\hyperlink{classTrainingAlgorithm_acf5a98433c4e0a2fa4ab3d294b343752ad382f863feed374ed65178f49843d5b7}{enabled}
+ \}
+\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classObjective}{Objective} \hyperlink{classTrainingAlgorithm_af9cc77a25cd1c116fb12f89a04d704a6}{m\+\_\+objective}
+\item 
+\hyperlink{classTrainingAlgorithm_ad160a74aa55053d54ab4c25840d778a2}{Flag\+Weights\+Freeze} \hyperlink{classTrainingAlgorithm_a19383d774b744bb32c092c7892c92998}{m\+\_\+weight\+Freeze\+Flag}
+\item 
+\hyperlink{classTrainingAlgorithm_acf5a98433c4e0a2fa4ab3d294b343752}{Flag} \hyperlink{classTrainingAlgorithm_a22d150f15f730ae139a8267cea153a3e}{m\+\_\+sprace\+Flag}
+\item 
+\hyperlink{classTrainingAlgorithm_acf5a98433c4e0a2fa4ab3d294b343752}{Flag} \hyperlink{classTrainingAlgorithm_a2c5345e01d68a30577105f0f82014585}{m\+\_\+shuffle\+Flag}
+\item 
+\hyperlink{classDataReader}{Data\+Reader} \hyperlink{classTrainingAlgorithm_a79d1135058e08e7f0bc2ca3d7fabd777}{data\+Reader}
+\item 
+double \hyperlink{classTrainingAlgorithm_abcc97ba6220839e3f24a5692e8fdd2b3}{m\+\_\+learning\+Rate}
+\begin{DoxyCompactList}\small\item\em Learning rate. \end{DoxyCompactList}\item 
+double \hyperlink{classTrainingAlgorithm_a774f82d6c26effaa909c40c9e24b8e48}{m\+\_\+lambda}
+\begin{DoxyCompactList}\small\item\em Lambda -\/ magnitude of the penalty in the Contractive \hyperlink{classAutoencoder}{Autoencoder}. \end{DoxyCompactList}\item 
+double \hyperlink{classTrainingAlgorithm_a6a3f866fd846b14fa8065d18287e93a9}{m\+\_\+annealing}
+\begin{DoxyCompactList}\small\item\em Annealin, used for learning\+Rate = learning\+Rate$\ast$(1.\+0/(1.\+0+annealing$\ast$iteration));. \end{DoxyCompactList}\item 
+double \hyperlink{classTrainingAlgorithm_a33cb16c48262985040967e045c75bff3}{m\+\_\+average\+Test\+Valid}
+\begin{DoxyCompactList}\small\item\em The average error of the validation iteration. \end{DoxyCompactList}\item 
+double \hyperlink{classTrainingAlgorithm_a317c3e0ba32fa6984f8dece4bafa0ae6}{m\+\_\+min\+Value\+Validation}
+\begin{DoxyCompactList}\small\item\em Minimum validation error over all iterations. \end{DoxyCompactList}\item 
+float \hyperlink{classTrainingAlgorithm_a7d5e69b50a5321abc2c0f56b61d58732}{m\+\_\+freeze\+Fraction\+Epochs}
+\begin{DoxyCompactList}\small\item\em Number of epochs for which the weights will be frozen. \end{DoxyCompactList}\item 
+double \hyperlink{classTrainingAlgorithm_a5c1b96170a1ea80c6f717195dcfb88f1}{m\+\_\+time\+Feed\+Forward}
+\begin{DoxyCompactList}\small\item\em Time in the feed\+Forward. \end{DoxyCompactList}\item 
+double \hyperlink{classTrainingAlgorithm_aac9f0a53ea2677e3796af8b32d701b83}{m\+\_\+time\+Delta\+Compute}
+\begin{DoxyCompactList}\small\item\em Time in the delta\+Compute. \end{DoxyCompactList}\item 
+double \hyperlink{classTrainingAlgorithm_a38a66c5c61c0f060572c966e88827f48}{m\+\_\+time\+Back\+Propagate}
+\begin{DoxyCompactList}\small\item\em Time in the back\+Propagation. \end{DoxyCompactList}\item 
+double \hyperlink{classTrainingAlgorithm_a420db73ebb56b3c910a3117f91a7e5a0}{m\+\_\+learning\+Rate\+Upper}
+\begin{DoxyCompactList}\small\item\em The upper limit of the learning rate when dynamic learning rate depending on validation is used. \end{DoxyCompactList}\item 
+double \hyperlink{classTrainingAlgorithm_ac4432def3c47e16c1be6fd0a921b9fb0}{m\+\_\+learning\+Rate\+Lower}
+\begin{DoxyCompactList}\small\item\em The lower limit of the learning rate when dynamic learning rate depending on validation is used. \end{DoxyCompactList}\item 
+int \hyperlink{classTrainingAlgorithm_aca4ca80f4bab494a8de2ea99c79b30d1}{m\+\_\+numb\+Epoches}
+\begin{DoxyCompactList}\small\item\em The number of training epoches. \end{DoxyCompactList}\item 
+int \hyperlink{classTrainingAlgorithm_ac00da5dcd2bf50277ef44e1543b9d919}{m\+\_\+curriculum}
+\begin{DoxyCompactList}\small\item\em Flag eigther 1 or 0. It 1, the number of training iterations is increased by one in every subsequent epoch. \end{DoxyCompactList}\item 
+int \hyperlink{classTrainingAlgorithm_a0b9caeb8ebd28c40838d1bd8b554d296}{m\+\_\+curr\+Iterations}
+\begin{DoxyCompactList}\small\item\em The current number of iterations. \end{DoxyCompactList}\item 
+int \hyperlink{classTrainingAlgorithm_a2f247e588d2c35a31f664a20b282ed8e}{m\+\_\+numb\+It\+Test}
+\begin{DoxyCompactList}\small\item\em The number of test iterations. \end{DoxyCompactList}\item 
+int \hyperlink{classTrainingAlgorithm_accfc8c76b580d4beb2c4a153ee2758da}{m\+\_\+numb\+It\+Validation}
+\begin{DoxyCompactList}\small\item\em The number of validation iterations. \end{DoxyCompactList}\item 
+int \hyperlink{classTrainingAlgorithm_ae41346aa8b69752db8db8a6ebbaeb375}{m\+\_\+numb\+It\+Train}
+\begin{DoxyCompactList}\small\item\em The number of training iterations. \end{DoxyCompactList}\item 
+int \hyperlink{classTrainingAlgorithm_a9b599ede34f6e22fb267f9056cb21925}{m\+\_\+numb\+Inputs}
+\begin{DoxyCompactList}\small\item\em The number of inputs to the neural network. \end{DoxyCompactList}\item 
+int \hyperlink{classTrainingAlgorithm_ad9c37bc8f0a93867bbb506a1dc2310f4}{m\+\_\+numb\+Outputs}
+\begin{DoxyCompactList}\small\item\em The number of outputs of the neural network. \end{DoxyCompactList}\item 
+int \hyperlink{classTrainingAlgorithm_a9e14a50086b4cd73974dab62cd74c722}{m\+\_\+image\+Height}
+\begin{DoxyCompactList}\small\item\em The image height (patchY) \end{DoxyCompactList}\item 
+int \hyperlink{classTrainingAlgorithm_a9f4488e51911884ae49107bb853099c6}{m\+\_\+image\+Width}
+\begin{DoxyCompactList}\small\item\em The image height (patchX) \end{DoxyCompactList}\item 
+int \hyperlink{classTrainingAlgorithm_ab3aacb07912b0cd0cc4147b4c0851b1a}{m\+\_\+image\+Depth}
+\begin{DoxyCompactList}\small\item\em The image height (patchZ) \end{DoxyCompactList}\item 
+int \hyperlink{classTrainingAlgorithm_a48fc87fac249f686265d603f94e16a05}{m\+\_\+data\+Width}
+\begin{DoxyCompactList}\small\item\em Dimentions of the data cube in X. \end{DoxyCompactList}\item 
+int \hyperlink{classTrainingAlgorithm_ac367cb8900241c4c817d6e5b7f212c4c}{m\+\_\+data\+Height}
+\begin{DoxyCompactList}\small\item\em Dimentions of the data cube in Y. \end{DoxyCompactList}\item 
+std\+::string \hyperlink{classTrainingAlgorithm_aeff62baa6799a9d12f24a74805b46eea}{m\+\_\+save\+Folder}
+\begin{DoxyCompactList}\small\item\em The name of the folder where the results are saved. \end{DoxyCompactList}\item 
+vector$<$ int $>$ \hyperlink{classTrainingAlgorithm_acde0233f75f362afcd56890bd9cf3552}{m\+\_\+order\+Training}
+\begin{DoxyCompactList}\small\item\em The array to hold the order in which the training examples are fed into the network. \end{DoxyCompactList}\item 
+vector$<$ double $>$ \hyperlink{classTrainingAlgorithm_a906835e7f43946669af7137eb982d237}{m\+\_\+learning\+Rate\+Arr}
+\begin{DoxyCompactList}\small\item\em The array to hold values of the learning rate. \end{DoxyCompactList}\item 
+vector$<$ double $>$ \hyperlink{classTrainingAlgorithm_a1e91ea3d8b4285bab8c6dcbb4e9d89b2}{m\+\_\+output\+Test}
+\begin{DoxyCompactList}\small\item\em The array to hold the output of the testing (prediction values) \end{DoxyCompactList}\item 
+vector$<$ double $>$ \hyperlink{classTrainingAlgorithm_aeac2031120727ea87473eeb08a0d2386}{m\+\_\+data\+Train\+In}
+\begin{DoxyCompactList}\small\item\em The array to hold training input. \end{DoxyCompactList}\item 
+vector$<$ double $>$ \hyperlink{classTrainingAlgorithm_ad92157e128c9165861ef003216621039}{m\+\_\+data\+Test\+In}
+\begin{DoxyCompactList}\small\item\em The array to hold test input. \end{DoxyCompactList}\item 
+vector$<$ double $>$ \hyperlink{classTrainingAlgorithm_acad03968ff1bf0e172f35a1f14c20db3}{m\+\_\+mask\+Test}
+\begin{DoxyCompactList}\small\item\em The test mask. \end{DoxyCompactList}\item 
+vector$<$ double $>$ \hyperlink{classTrainingAlgorithm_a66d4930727c81f03fd28e75eb0c89947}{m\+\_\+mask\+Train}
+\begin{DoxyCompactList}\small\item\em The training mask. \end{DoxyCompactList}\item 
+vector$<$ double $>$ \hyperlink{classTrainingAlgorithm_a92a2cee29169fb2e4d92089ffcd2f73b}{m\+\_\+mask\+Validation}
+\begin{DoxyCompactList}\small\item\em The validation mask. \end{DoxyCompactList}\item 
+vector$<$ double $>$ \hyperlink{classTrainingAlgorithm_a4e1bc94ebf1991d93123ef7ac6d76dd3}{m\+\_\+error\+Train}
+\begin{DoxyCompactList}\small\item\em The training error. \end{DoxyCompactList}\item 
+vector$<$ double $>$ \hyperlink{classTrainingAlgorithm_abb9b3684f519dc1e262921b9ea4e5c95}{m\+\_\+error\+Validation}
+\begin{DoxyCompactList}\small\item\em The validation error. \end{DoxyCompactList}\item 
+vector$<$ double $>$ \hyperlink{classTrainingAlgorithm_aefb64ecb3d81de7dacab09cb5e1e2be3}{m\+\_\+ratio\+Of\+Errors}
+\begin{DoxyCompactList}\small\item\em The ratio of the errors. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Encapsulates functionality associated with reading and writing the Seismic Data. 
+
+The algorithm feeds the data into the networks and envokes functions of the backpropagation algorithm. 
+
+Definition at line 30 of file Training\+Algorithm.\+h.
+
+
+
+\subsection{Member Enumeration Documentation}
+\index{Training\+Algorithm@{Training\+Algorithm}!Flag@{Flag}}
+\index{Flag@{Flag}!Training\+Algorithm@{Training\+Algorithm}}
+\subsubsection[{\texorpdfstring{Flag}{Flag}}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf Training\+Algorithm\+::\+Flag}\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classTrainingAlgorithm_acf5a98433c4e0a2fa4ab3d294b343752}{}\label{classTrainingAlgorithm_acf5a98433c4e0a2fa4ab3d294b343752}
+\begin{Desc}
+\item[Enumerator]\par
+\begin{description}
+\index{disabled@{disabled}!Training\+Algorithm@{Training\+Algorithm}}\index{Training\+Algorithm@{Training\+Algorithm}!disabled@{disabled}}\item[{\em 
+disabled\hypertarget{classTrainingAlgorithm_acf5a98433c4e0a2fa4ab3d294b343752a40cfd88d1eb7d6a523bdc6cd7c503ba5}{}\label{classTrainingAlgorithm_acf5a98433c4e0a2fa4ab3d294b343752a40cfd88d1eb7d6a523bdc6cd7c503ba5}
+}]\index{enabled@{enabled}!Training\+Algorithm@{Training\+Algorithm}}\index{Training\+Algorithm@{Training\+Algorithm}!enabled@{enabled}}\item[{\em 
+enabled\hypertarget{classTrainingAlgorithm_acf5a98433c4e0a2fa4ab3d294b343752ad382f863feed374ed65178f49843d5b7}{}\label{classTrainingAlgorithm_acf5a98433c4e0a2fa4ab3d294b343752ad382f863feed374ed65178f49843d5b7}
+}]\end{description}
+\end{Desc}
+
+
+Definition at line 39 of file Training\+Algorithm.\+h.
+
+\index{Training\+Algorithm@{Training\+Algorithm}!Flag\+Weights\+Freeze@{Flag\+Weights\+Freeze}}
+\index{Flag\+Weights\+Freeze@{Flag\+Weights\+Freeze}!Training\+Algorithm@{Training\+Algorithm}}
+\subsubsection[{\texorpdfstring{Flag\+Weights\+Freeze}{FlagWeightsFreeze}}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf Training\+Algorithm\+::\+Flag\+Weights\+Freeze}\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classTrainingAlgorithm_ad160a74aa55053d54ab4c25840d778a2}{}\label{classTrainingAlgorithm_ad160a74aa55053d54ab4c25840d778a2}
+\begin{Desc}
+\item[Enumerator]\par
+\begin{description}
+\index{none@{none}!Training\+Algorithm@{Training\+Algorithm}}\index{Training\+Algorithm@{Training\+Algorithm}!none@{none}}\item[{\em 
+none\hypertarget{classTrainingAlgorithm_ad160a74aa55053d54ab4c25840d778a2a528c8ea90218afabcf161039e8a24ccd}{}\label{classTrainingAlgorithm_ad160a74aa55053d54ab4c25840d778a2a528c8ea90218afabcf161039e8a24ccd}
+}]\index{encoder@{encoder}!Training\+Algorithm@{Training\+Algorithm}}\index{Training\+Algorithm@{Training\+Algorithm}!encoder@{encoder}}\item[{\em 
+encoder\hypertarget{classTrainingAlgorithm_ad160a74aa55053d54ab4c25840d778a2ab5e9a247e93659ff0d44e924c952f95e}{}\label{classTrainingAlgorithm_ad160a74aa55053d54ab4c25840d778a2ab5e9a247e93659ff0d44e924c952f95e}
+}]\index{decoder@{decoder}!Training\+Algorithm@{Training\+Algorithm}}\index{Training\+Algorithm@{Training\+Algorithm}!decoder@{decoder}}\item[{\em 
+decoder\hypertarget{classTrainingAlgorithm_ad160a74aa55053d54ab4c25840d778a2a50348a32b16afaa5f7465dc92ed86996}{}\label{classTrainingAlgorithm_ad160a74aa55053d54ab4c25840d778a2a50348a32b16afaa5f7465dc92ed86996}
+}]\index{decoder\+Encoder@{decoder\+Encoder}!Training\+Algorithm@{Training\+Algorithm}}\index{Training\+Algorithm@{Training\+Algorithm}!decoder\+Encoder@{decoder\+Encoder}}\item[{\em 
+decoder\+Encoder\hypertarget{classTrainingAlgorithm_ad160a74aa55053d54ab4c25840d778a2accca580b7ae382a2ee290086e5c8a60d}{}\label{classTrainingAlgorithm_ad160a74aa55053d54ab4c25840d778a2accca580b7ae382a2ee290086e5c8a60d}
+}]\end{description}
+\end{Desc}
+
+
+Definition at line 35 of file Training\+Algorithm.\+h.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Training\+Algorithm@{Training\+Algorithm}!Training\+Algorithm@{Training\+Algorithm}}
+\index{Training\+Algorithm@{Training\+Algorithm}!Training\+Algorithm@{Training\+Algorithm}}
+\subsubsection[{\texorpdfstring{Training\+Algorithm()}{TrainingAlgorithm()}}]{\setlength{\rightskip}{0pt plus 5cm}Training\+Algorithm\+::\+Training\+Algorithm (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classTrainingAlgorithm_a5f0707670ca944ac8ffe2c8a4d9cafca}{}\label{classTrainingAlgorithm_a5f0707670ca944ac8ffe2c8a4d9cafca}
+
+
+Constructor. 
+
+
+
+Definition at line 4 of file trainingalgorithm.\+cpp.
+
+\index{Training\+Algorithm@{Training\+Algorithm}!````~Training\+Algorithm@{$\sim$\+Training\+Algorithm}}
+\index{````~Training\+Algorithm@{$\sim$\+Training\+Algorithm}!Training\+Algorithm@{Training\+Algorithm}}
+\subsubsection[{\texorpdfstring{$\sim$\+Training\+Algorithm()}{~TrainingAlgorithm()}}]{\setlength{\rightskip}{0pt plus 5cm}Training\+Algorithm\+::$\sim$\+Training\+Algorithm (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classTrainingAlgorithm_ac763e820148f7b31ecb9c7f9855b6399}{}\label{classTrainingAlgorithm_ac763e820148f7b31ecb9c7f9855b6399}
+
+
+Destructor. 
+
+
+
+Definition at line 669 of file trainingalgorithm.\+cpp.
+
+
+
+\subsection{Member Function Documentation}
+\index{Training\+Algorithm@{Training\+Algorithm}!consistency\+Test@{consistency\+Test}}
+\index{consistency\+Test@{consistency\+Test}!Training\+Algorithm@{Training\+Algorithm}}
+\subsubsection[{\texorpdfstring{consistency\+Test(\+Neural\+Network $\ast$neural\+Network)}{consistencyTest(NeuralNetwork *neuralNetwork)}}]{\setlength{\rightskip}{0pt plus 5cm}int Training\+Algorithm\+::consistency\+Test (
+\begin{DoxyParamCaption}
+\item[{{\bf Neural\+Network} $\ast$}]{neural\+Network}
+\end{DoxyParamCaption}
+)}\hypertarget{classTrainingAlgorithm_a733b9c2d4ad344a77d447b4e81a470a4}{}\label{classTrainingAlgorithm_a733b9c2d4ad344a77d447b4e81a470a4}
+The function for sanity check, compares the number of inputs set in the neural network to the number of inputs specified in the config file 
+\begin{DoxyParams}{Parameters}
+{\em neural\+Network} & neural network \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 578 of file trainingalgorithm.\+cpp.
+
+\index{Training\+Algorithm@{Training\+Algorithm}!copy\+Data\+To\+NN@{copy\+Data\+To\+NN}}
+\index{copy\+Data\+To\+NN@{copy\+Data\+To\+NN}!Training\+Algorithm@{Training\+Algorithm}}
+\subsubsection[{\texorpdfstring{copy\+Data\+To\+N\+N(int kk, int ff, int mask\+Counter, Neural\+Network $\ast$neural\+Network)}{copyDataToNN(int kk, int ff, int maskCounter, NeuralNetwork *neuralNetwork)}}]{\setlength{\rightskip}{0pt plus 5cm}void Training\+Algorithm\+::copy\+Data\+To\+NN (
+\begin{DoxyParamCaption}
+\item[{int}]{kk, }
+\item[{int}]{ff, }
+\item[{int}]{mask\+Counter, }
+\item[{{\bf Neural\+Network} $\ast$}]{neural\+Network}
+\end{DoxyParamCaption}
+)}\hypertarget{classTrainingAlgorithm_a8be859e1ba4f6021f117898f17f2dff1}{}\label{classTrainingAlgorithm_a8be859e1ba4f6021f117898f17f2dff1}
+The function to set the inputs of the neural network 
+\begin{DoxyParams}{Parameters}
+{\em kk} & -\/ training iteration counter \\
+\hline
+{\em ff} & -\/ mini-\/batch counter \\
+\hline
+{\em mask\+Counter} & starting point for the next patch in the mask \\
+\hline
+{\em neural\+Network} & neural network \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 265 of file trainingalgorithm.\+cpp.
+
+\index{Training\+Algorithm@{Training\+Algorithm}!get\+Annealing@{get\+Annealing}}
+\index{get\+Annealing@{get\+Annealing}!Training\+Algorithm@{Training\+Algorithm}}
+\subsubsection[{\texorpdfstring{get\+Annealing() const }{getAnnealing() const }}]{\setlength{\rightskip}{0pt plus 5cm}double Training\+Algorithm\+::get\+Annealing (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classTrainingAlgorithm_a0a915038dcec14278377768cab608e00}{}\label{classTrainingAlgorithm_a0a915038dcec14278377768cab608e00}
+
+
+Definition at line 243 of file Training\+Algorithm.\+h.
+
+\index{Training\+Algorithm@{Training\+Algorithm}!get\+Error\+Train@{get\+Error\+Train}}
+\index{get\+Error\+Train@{get\+Error\+Train}!Training\+Algorithm@{Training\+Algorithm}}
+\subsubsection[{\texorpdfstring{get\+Error\+Train(int id) const }{getErrorTrain(int id) const }}]{\setlength{\rightskip}{0pt plus 5cm}double Training\+Algorithm\+::get\+Error\+Train (
+\begin{DoxyParamCaption}
+\item[{int}]{id}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classTrainingAlgorithm_a93545fcc39bad8ea91d308de3f459bf3}{}\label{classTrainingAlgorithm_a93545fcc39bad8ea91d308de3f459bf3}
+
+
+Definition at line 229 of file Training\+Algorithm.\+h.
+
+\index{Training\+Algorithm@{Training\+Algorithm}!get\+Error\+Train\+Size@{get\+Error\+Train\+Size}}
+\index{get\+Error\+Train\+Size@{get\+Error\+Train\+Size}!Training\+Algorithm@{Training\+Algorithm}}
+\subsubsection[{\texorpdfstring{get\+Error\+Train\+Size() const }{getErrorTrainSize() const }}]{\setlength{\rightskip}{0pt plus 5cm}int Training\+Algorithm\+::get\+Error\+Train\+Size (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classTrainingAlgorithm_a3bc47eea4ef973100277fecced49a28e}{}\label{classTrainingAlgorithm_a3bc47eea4ef973100277fecced49a28e}
+
+
+Definition at line 231 of file Training\+Algorithm.\+h.
+
+\index{Training\+Algorithm@{Training\+Algorithm}!get\+Error\+Validation@{get\+Error\+Validation}}
+\index{get\+Error\+Validation@{get\+Error\+Validation}!Training\+Algorithm@{Training\+Algorithm}}
+\subsubsection[{\texorpdfstring{get\+Error\+Validation(int ii) const }{getErrorValidation(int ii) const }}]{\setlength{\rightskip}{0pt plus 5cm}double Training\+Algorithm\+::get\+Error\+Validation (
+\begin{DoxyParamCaption}
+\item[{int}]{ii}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classTrainingAlgorithm_ad1daaf48f27b0a0c311818c400e4e85c}{}\label{classTrainingAlgorithm_ad1daaf48f27b0a0c311818c400e4e85c}
+
+
+Definition at line 233 of file Training\+Algorithm.\+h.
+
+\index{Training\+Algorithm@{Training\+Algorithm}!get\+Error\+Validation\+Size@{get\+Error\+Validation\+Size}}
+\index{get\+Error\+Validation\+Size@{get\+Error\+Validation\+Size}!Training\+Algorithm@{Training\+Algorithm}}
+\subsubsection[{\texorpdfstring{get\+Error\+Validation\+Size() const }{getErrorValidationSize() const }}]{\setlength{\rightskip}{0pt plus 5cm}int Training\+Algorithm\+::get\+Error\+Validation\+Size (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classTrainingAlgorithm_a3c3dacccaefdf289a130d0ab32dee305}{}\label{classTrainingAlgorithm_a3c3dacccaefdf289a130d0ab32dee305}
+
+
+Definition at line 235 of file Training\+Algorithm.\+h.
+
+\index{Training\+Algorithm@{Training\+Algorithm}!get\+Image\+Depth@{get\+Image\+Depth}}
+\index{get\+Image\+Depth@{get\+Image\+Depth}!Training\+Algorithm@{Training\+Algorithm}}
+\subsubsection[{\texorpdfstring{get\+Image\+Depth() const }{getImageDepth() const }}]{\setlength{\rightskip}{0pt plus 5cm}int Training\+Algorithm\+::get\+Image\+Depth (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classTrainingAlgorithm_a7b47be7181071d9336677faea47922ac}{}\label{classTrainingAlgorithm_a7b47be7181071d9336677faea47922ac}
+
+
+Definition at line 269 of file Training\+Algorithm.\+h.
+
+\index{Training\+Algorithm@{Training\+Algorithm}!get\+Image\+Height@{get\+Image\+Height}}
+\index{get\+Image\+Height@{get\+Image\+Height}!Training\+Algorithm@{Training\+Algorithm}}
+\subsubsection[{\texorpdfstring{get\+Image\+Height() const }{getImageHeight() const }}]{\setlength{\rightskip}{0pt plus 5cm}int Training\+Algorithm\+::get\+Image\+Height (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classTrainingAlgorithm_a6c961411d7b333b1ba94463188bd2cd9}{}\label{classTrainingAlgorithm_a6c961411d7b333b1ba94463188bd2cd9}
+
+
+Definition at line 265 of file Training\+Algorithm.\+h.
+
+\index{Training\+Algorithm@{Training\+Algorithm}!get\+Image\+Width@{get\+Image\+Width}}
+\index{get\+Image\+Width@{get\+Image\+Width}!Training\+Algorithm@{Training\+Algorithm}}
+\subsubsection[{\texorpdfstring{get\+Image\+Width() const }{getImageWidth() const }}]{\setlength{\rightskip}{0pt plus 5cm}int Training\+Algorithm\+::get\+Image\+Width (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classTrainingAlgorithm_ac47fae920f286efb15e743e1b2a3d6f3}{}\label{classTrainingAlgorithm_ac47fae920f286efb15e743e1b2a3d6f3}
+
+
+Definition at line 267 of file Training\+Algorithm.\+h.
+
+\index{Training\+Algorithm@{Training\+Algorithm}!get\+Lambda@{get\+Lambda}}
+\index{get\+Lambda@{get\+Lambda}!Training\+Algorithm@{Training\+Algorithm}}
+\subsubsection[{\texorpdfstring{get\+Lambda() const }{getLambda() const }}]{\setlength{\rightskip}{0pt plus 5cm}double Training\+Algorithm\+::get\+Lambda (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classTrainingAlgorithm_a830cc287f64f100a75d60bc7a77b2691}{}\label{classTrainingAlgorithm_a830cc287f64f100a75d60bc7a77b2691}
+
+
+Definition at line 241 of file Training\+Algorithm.\+h.
+
+\index{Training\+Algorithm@{Training\+Algorithm}!get\+Learning\+Rate@{get\+Learning\+Rate}}
+\index{get\+Learning\+Rate@{get\+Learning\+Rate}!Training\+Algorithm@{Training\+Algorithm}}
+\subsubsection[{\texorpdfstring{get\+Learning\+Rate() const }{getLearningRate() const }}]{\setlength{\rightskip}{0pt plus 5cm}double Training\+Algorithm\+::get\+Learning\+Rate (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classTrainingAlgorithm_a60bcfabab30187a4383772c645751b8b}{}\label{classTrainingAlgorithm_a60bcfabab30187a4383772c645751b8b}
+
+
+Definition at line 223 of file Training\+Algorithm.\+h.
+
+\index{Training\+Algorithm@{Training\+Algorithm}!get\+Learning\+Rate\+Arr@{get\+Learning\+Rate\+Arr}}
+\index{get\+Learning\+Rate\+Arr@{get\+Learning\+Rate\+Arr}!Training\+Algorithm@{Training\+Algorithm}}
+\subsubsection[{\texorpdfstring{get\+Learning\+Rate\+Arr(int ii) const }{getLearningRateArr(int ii) const }}]{\setlength{\rightskip}{0pt plus 5cm}double Training\+Algorithm\+::get\+Learning\+Rate\+Arr (
+\begin{DoxyParamCaption}
+\item[{int}]{ii}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classTrainingAlgorithm_afb4f0fd58ae4728e54f4142dbcbcb93f}{}\label{classTrainingAlgorithm_afb4f0fd58ae4728e54f4142dbcbcb93f}
+
+
+Definition at line 225 of file Training\+Algorithm.\+h.
+
+\index{Training\+Algorithm@{Training\+Algorithm}!get\+Learning\+Rate\+Arr\+Size@{get\+Learning\+Rate\+Arr\+Size}}
+\index{get\+Learning\+Rate\+Arr\+Size@{get\+Learning\+Rate\+Arr\+Size}!Training\+Algorithm@{Training\+Algorithm}}
+\subsubsection[{\texorpdfstring{get\+Learning\+Rate\+Arr\+Size() const }{getLearningRateArrSize() const }}]{\setlength{\rightskip}{0pt plus 5cm}int Training\+Algorithm\+::get\+Learning\+Rate\+Arr\+Size (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classTrainingAlgorithm_a318302372014d527da236a422dae285c}{}\label{classTrainingAlgorithm_a318302372014d527da236a422dae285c}
+
+
+Definition at line 227 of file Training\+Algorithm.\+h.
+
+\index{Training\+Algorithm@{Training\+Algorithm}!get\+Name\+Save\+Folder@{get\+Name\+Save\+Folder}}
+\index{get\+Name\+Save\+Folder@{get\+Name\+Save\+Folder}!Training\+Algorithm@{Training\+Algorithm}}
+\subsubsection[{\texorpdfstring{get\+Name\+Save\+Folder() const }{getNameSaveFolder() const }}]{\setlength{\rightskip}{0pt plus 5cm}std\+::string Training\+Algorithm\+::get\+Name\+Save\+Folder (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classTrainingAlgorithm_a56bdf74071286a3c9838071c71ec5593}{}\label{classTrainingAlgorithm_a56bdf74071286a3c9838071c71ec5593}
+
+
+Definition at line 257 of file Training\+Algorithm.\+h.
+
+\index{Training\+Algorithm@{Training\+Algorithm}!get\+Numb\+Epoches@{get\+Numb\+Epoches}}
+\index{get\+Numb\+Epoches@{get\+Numb\+Epoches}!Training\+Algorithm@{Training\+Algorithm}}
+\subsubsection[{\texorpdfstring{get\+Numb\+Epoches() const }{getNumbEpoches() const }}]{\setlength{\rightskip}{0pt plus 5cm}int Training\+Algorithm\+::get\+Numb\+Epoches (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classTrainingAlgorithm_ab6e1844ff62e71e1f2e1d6b853984ef0}{}\label{classTrainingAlgorithm_ab6e1844ff62e71e1f2e1d6b853984ef0}
+
+
+Definition at line 245 of file Training\+Algorithm.\+h.
+
+\index{Training\+Algorithm@{Training\+Algorithm}!get\+Numb\+It\+Curr@{get\+Numb\+It\+Curr}}
+\index{get\+Numb\+It\+Curr@{get\+Numb\+It\+Curr}!Training\+Algorithm@{Training\+Algorithm}}
+\subsubsection[{\texorpdfstring{get\+Numb\+It\+Curr() const }{getNumbItCurr() const }}]{\setlength{\rightskip}{0pt plus 5cm}int Training\+Algorithm\+::get\+Numb\+It\+Curr (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classTrainingAlgorithm_a45da51f783c766bb412d15d78b3596d5}{}\label{classTrainingAlgorithm_a45da51f783c766bb412d15d78b3596d5}
+
+
+Definition at line 251 of file Training\+Algorithm.\+h.
+
+\index{Training\+Algorithm@{Training\+Algorithm}!get\+Numb\+It\+Test@{get\+Numb\+It\+Test}}
+\index{get\+Numb\+It\+Test@{get\+Numb\+It\+Test}!Training\+Algorithm@{Training\+Algorithm}}
+\subsubsection[{\texorpdfstring{get\+Numb\+It\+Test() const }{getNumbItTest() const }}]{\setlength{\rightskip}{0pt plus 5cm}int Training\+Algorithm\+::get\+Numb\+It\+Test (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classTrainingAlgorithm_afa82bedc9f44a37c60d17e1da4f47211}{}\label{classTrainingAlgorithm_afa82bedc9f44a37c60d17e1da4f47211}
+
+
+Definition at line 253 of file Training\+Algorithm.\+h.
+
+\index{Training\+Algorithm@{Training\+Algorithm}!get\+Numb\+It\+Train@{get\+Numb\+It\+Train}}
+\index{get\+Numb\+It\+Train@{get\+Numb\+It\+Train}!Training\+Algorithm@{Training\+Algorithm}}
+\subsubsection[{\texorpdfstring{get\+Numb\+It\+Train() const }{getNumbItTrain() const }}]{\setlength{\rightskip}{0pt plus 5cm}int Training\+Algorithm\+::get\+Numb\+It\+Train (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classTrainingAlgorithm_acdac819358acaf6233b10e16d490917f}{}\label{classTrainingAlgorithm_acdac819358acaf6233b10e16d490917f}
+
+
+Definition at line 247 of file Training\+Algorithm.\+h.
+
+\index{Training\+Algorithm@{Training\+Algorithm}!get\+Numb\+It\+Validation@{get\+Numb\+It\+Validation}}
+\index{get\+Numb\+It\+Validation@{get\+Numb\+It\+Validation}!Training\+Algorithm@{Training\+Algorithm}}
+\subsubsection[{\texorpdfstring{get\+Numb\+It\+Validation() const }{getNumbItValidation() const }}]{\setlength{\rightskip}{0pt plus 5cm}int Training\+Algorithm\+::get\+Numb\+It\+Validation (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classTrainingAlgorithm_a9fb4f8755f0801dd2101a58fd1412c09}{}\label{classTrainingAlgorithm_a9fb4f8755f0801dd2101a58fd1412c09}
+
+
+Definition at line 249 of file Training\+Algorithm.\+h.
+
+\index{Training\+Algorithm@{Training\+Algorithm}!get\+Numb\+Outputs@{get\+Numb\+Outputs}}
+\index{get\+Numb\+Outputs@{get\+Numb\+Outputs}!Training\+Algorithm@{Training\+Algorithm}}
+\subsubsection[{\texorpdfstring{get\+Numb\+Outputs() const }{getNumbOutputs() const }}]{\setlength{\rightskip}{0pt plus 5cm}int Training\+Algorithm\+::get\+Numb\+Outputs (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classTrainingAlgorithm_af19cd7f9c42cdaf0ba45c864b89599e0}{}\label{classTrainingAlgorithm_af19cd7f9c42cdaf0ba45c864b89599e0}
+
+
+Definition at line 255 of file Training\+Algorithm.\+h.
+
+\index{Training\+Algorithm@{Training\+Algorithm}!get\+Out\+Tst@{get\+Out\+Tst}}
+\index{get\+Out\+Tst@{get\+Out\+Tst}!Training\+Algorithm@{Training\+Algorithm}}
+\subsubsection[{\texorpdfstring{get\+Out\+Tst(int ii) const }{getOutTst(int ii) const }}]{\setlength{\rightskip}{0pt plus 5cm}double Training\+Algorithm\+::get\+Out\+Tst (
+\begin{DoxyParamCaption}
+\item[{int}]{ii}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classTrainingAlgorithm_a1d8fe723cbbee0957952efe26b3e924c}{}\label{classTrainingAlgorithm_a1d8fe723cbbee0957952efe26b3e924c}
+
+
+Definition at line 221 of file Training\+Algorithm.\+h.
+
+\index{Training\+Algorithm@{Training\+Algorithm}!get\+Ratio@{get\+Ratio}}
+\index{get\+Ratio@{get\+Ratio}!Training\+Algorithm@{Training\+Algorithm}}
+\subsubsection[{\texorpdfstring{get\+Ratio(int ii) const }{getRatio(int ii) const }}]{\setlength{\rightskip}{0pt plus 5cm}double Training\+Algorithm\+::get\+Ratio (
+\begin{DoxyParamCaption}
+\item[{int}]{ii}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classTrainingAlgorithm_afa922b894aeaf819cf8bb1155d6233c8}{}\label{classTrainingAlgorithm_afa922b894aeaf819cf8bb1155d6233c8}
+
+
+Definition at line 237 of file Training\+Algorithm.\+h.
+
+\index{Training\+Algorithm@{Training\+Algorithm}!get\+Ratio\+Size@{get\+Ratio\+Size}}
+\index{get\+Ratio\+Size@{get\+Ratio\+Size}!Training\+Algorithm@{Training\+Algorithm}}
+\subsubsection[{\texorpdfstring{get\+Ratio\+Size() const }{getRatioSize() const }}]{\setlength{\rightskip}{0pt plus 5cm}int Training\+Algorithm\+::get\+Ratio\+Size (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classTrainingAlgorithm_ae91e4d6bd3c208e747e51c06b1edcad2}{}\label{classTrainingAlgorithm_ae91e4d6bd3c208e747e51c06b1edcad2}
+
+
+Definition at line 239 of file Training\+Algorithm.\+h.
+
+\index{Training\+Algorithm@{Training\+Algorithm}!get\+Time\+Backpropagate@{get\+Time\+Backpropagate}}
+\index{get\+Time\+Backpropagate@{get\+Time\+Backpropagate}!Training\+Algorithm@{Training\+Algorithm}}
+\subsubsection[{\texorpdfstring{get\+Time\+Backpropagate() const }{getTimeBackpropagate() const }}]{\setlength{\rightskip}{0pt plus 5cm}double Training\+Algorithm\+::get\+Time\+Backpropagate (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classTrainingAlgorithm_ac5401b7de0c1abdafe733168b68fdb54}{}\label{classTrainingAlgorithm_ac5401b7de0c1abdafe733168b68fdb54}
+
+
+Definition at line 261 of file Training\+Algorithm.\+h.
+
+\index{Training\+Algorithm@{Training\+Algorithm}!get\+Time\+Delta\+Compute@{get\+Time\+Delta\+Compute}}
+\index{get\+Time\+Delta\+Compute@{get\+Time\+Delta\+Compute}!Training\+Algorithm@{Training\+Algorithm}}
+\subsubsection[{\texorpdfstring{get\+Time\+Delta\+Compute() const }{getTimeDeltaCompute() const }}]{\setlength{\rightskip}{0pt plus 5cm}double Training\+Algorithm\+::get\+Time\+Delta\+Compute (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classTrainingAlgorithm_a2321a9441a33ec5122e78f052b045e09}{}\label{classTrainingAlgorithm_a2321a9441a33ec5122e78f052b045e09}
+
+
+Definition at line 263 of file Training\+Algorithm.\+h.
+
+\index{Training\+Algorithm@{Training\+Algorithm}!get\+Time\+Feed\+Forward@{get\+Time\+Feed\+Forward}}
+\index{get\+Time\+Feed\+Forward@{get\+Time\+Feed\+Forward}!Training\+Algorithm@{Training\+Algorithm}}
+\subsubsection[{\texorpdfstring{get\+Time\+Feed\+Forward() const }{getTimeFeedForward() const }}]{\setlength{\rightskip}{0pt plus 5cm}double Training\+Algorithm\+::get\+Time\+Feed\+Forward (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classTrainingAlgorithm_a0fb07c2b4f2ef9b8a3c0976cea94ed48}{}\label{classTrainingAlgorithm_a0fb07c2b4f2ef9b8a3c0976cea94ed48}
+
+
+Definition at line 259 of file Training\+Algorithm.\+h.
+
+\index{Training\+Algorithm@{Training\+Algorithm}!initialise@{initialise}}
+\index{initialise@{initialise}!Training\+Algorithm@{Training\+Algorithm}}
+\subsubsection[{\texorpdfstring{initialise(\+Params\+Init parameters)}{initialise(ParamsInit parameters)}}]{\setlength{\rightskip}{0pt plus 5cm}int Training\+Algorithm\+::initialise (
+\begin{DoxyParamCaption}
+\item[{{\bf Params\+Init}}]{parameters}
+\end{DoxyParamCaption}
+)}\hypertarget{classTrainingAlgorithm_af535697499b4d26ac4375f2798b953df}{}\label{classTrainingAlgorithm_af535697499b4d26ac4375f2798b953df}
+The function to initialise private fields of the class 
+\begin{DoxyParams}{Parameters}
+{\em parameters} & holds the values read from the config file \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 604 of file trainingalgorithm.\+cpp.
+
+\index{Training\+Algorithm@{Training\+Algorithm}!learining\+Rate\+Control@{learining\+Rate\+Control}}
+\index{learining\+Rate\+Control@{learining\+Rate\+Control}!Training\+Algorithm@{Training\+Algorithm}}
+\subsubsection[{\texorpdfstring{learining\+Rate\+Control(double change)}{leariningRateControl(double change)}}]{\setlength{\rightskip}{0pt plus 5cm}int Training\+Algorithm\+::learining\+Rate\+Control (
+\begin{DoxyParamCaption}
+\item[{double}]{change}
+\end{DoxyParamCaption}
+)}\hypertarget{classTrainingAlgorithm_aca653a3e888ee8e5f4084617f2bc5a9d}{}\label{classTrainingAlgorithm_aca653a3e888ee8e5f4084617f2bc5a9d}
+The function to control the learning rate depending on the slope of the validation error 
+\begin{DoxyParams}{Parameters}
+{\em change} & learning\+Rate=learning\+Rate$\ast$change \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 15 of file trainingalgorithm.\+cpp.
+
+\index{Training\+Algorithm@{Training\+Algorithm}!test\+Neural\+Network@{test\+Neural\+Network}}
+\index{test\+Neural\+Network@{test\+Neural\+Network}!Training\+Algorithm@{Training\+Algorithm}}
+\subsubsection[{\texorpdfstring{test\+Neural\+Network(\+Neural\+Network $\ast$neural\+Network)}{testNeuralNetwork(NeuralNetwork *neuralNetwork)}}]{\setlength{\rightskip}{0pt plus 5cm}void Training\+Algorithm\+::test\+Neural\+Network (
+\begin{DoxyParamCaption}
+\item[{{\bf Neural\+Network} $\ast$}]{neural\+Network}
+\end{DoxyParamCaption}
+)}\hypertarget{classTrainingAlgorithm_a309d3d7d6e19c9e8830a63c9824bb750}{}\label{classTrainingAlgorithm_a309d3d7d6e19c9e8830a63c9824bb750}
+The function to test the neural network, feeds the data in and gets the prediction for the missing values 
+\begin{DoxyParams}{Parameters}
+{\em neural\+Network} & neural network \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 532 of file trainingalgorithm.\+cpp.
+
+\index{Training\+Algorithm@{Training\+Algorithm}!train\+Neural\+Network\+Task\+Parallel@{train\+Neural\+Network\+Task\+Parallel}}
+\index{train\+Neural\+Network\+Task\+Parallel@{train\+Neural\+Network\+Task\+Parallel}!Training\+Algorithm@{Training\+Algorithm}}
+\subsubsection[{\texorpdfstring{train\+Neural\+Network\+Task\+Parallel(\+Neural\+Network $\ast$neural\+Network)}{trainNeuralNetworkTaskParallel(NeuralNetwork *neuralNetwork)}}]{\setlength{\rightskip}{0pt plus 5cm}int Training\+Algorithm\+::train\+Neural\+Network\+Task\+Parallel (
+\begin{DoxyParamCaption}
+\item[{{\bf Neural\+Network} $\ast$}]{neural\+Network}
+\end{DoxyParamCaption}
+)}\hypertarget{classTrainingAlgorithm_acf440cd131e39bebb1e2ce773516dab6}{}\label{classTrainingAlgorithm_acf440cd131e39bebb1e2ce773516dab6}
+The function iterating over the training examples and setting the backpropagation in the NN 
+\begin{DoxyParams}{Parameters}
+{\em neural\+Network} & neural network \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 300 of file trainingalgorithm.\+cpp.
+
+\index{Training\+Algorithm@{Training\+Algorithm}!update\+Counters@{update\+Counters}}
+\index{update\+Counters@{update\+Counters}!Training\+Algorithm@{Training\+Algorithm}}
+\subsubsection[{\texorpdfstring{update\+Counters(int $\ast$ff, int $\ast$mask\+Counter)}{updateCounters(int *ff, int *maskCounter)}}]{\setlength{\rightskip}{0pt plus 5cm}int Training\+Algorithm\+::update\+Counters (
+\begin{DoxyParamCaption}
+\item[{int $\ast$}]{ff, }
+\item[{int $\ast$}]{mask\+Counter}
+\end{DoxyParamCaption}
+)}\hypertarget{classTrainingAlgorithm_ae12d856f083e41259724bad87cc52626}{}\label{classTrainingAlgorithm_ae12d856f083e41259724bad87cc52626}
+The function to update the counters after every training iteration 
+\begin{DoxyParams}{Parameters}
+{\em ff} & mini-\/batch counter \\
+\hline
+{\em mask\+Counter} & starting point for the next patch in the mask \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 166 of file trainingalgorithm.\+cpp.
+
+\index{Training\+Algorithm@{Training\+Algorithm}!update\+Learning\+Rate@{update\+Learning\+Rate}}
+\index{update\+Learning\+Rate@{update\+Learning\+Rate}!Training\+Algorithm@{Training\+Algorithm}}
+\subsubsection[{\texorpdfstring{update\+Learning\+Rate(int ii)}{updateLearningRate(int ii)}}]{\setlength{\rightskip}{0pt plus 5cm}int Training\+Algorithm\+::update\+Learning\+Rate (
+\begin{DoxyParamCaption}
+\item[{int}]{ii}
+\end{DoxyParamCaption}
+)}\hypertarget{classTrainingAlgorithm_a52c9b99dcf9bcf1ddd32450672e706bf}{}\label{classTrainingAlgorithm_a52c9b99dcf9bcf1ddd32450672e706bf}
+The function to update the learning rate with annealing 
+\begin{DoxyParams}{Parameters}
+{\em ii} & current epoch \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 132 of file trainingalgorithm.\+cpp.
+
+\index{Training\+Algorithm@{Training\+Algorithm}!update\+Shuffle@{update\+Shuffle}}
+\index{update\+Shuffle@{update\+Shuffle}!Training\+Algorithm@{Training\+Algorithm}}
+\subsubsection[{\texorpdfstring{update\+Shuffle(int mb)}{updateShuffle(int mb)}}]{\setlength{\rightskip}{0pt plus 5cm}int Training\+Algorithm\+::update\+Shuffle (
+\begin{DoxyParamCaption}
+\item[{int}]{mb}
+\end{DoxyParamCaption}
+)}\hypertarget{classTrainingAlgorithm_ab26a602d2459842b11bb37c35a3fb59a}{}\label{classTrainingAlgorithm_ab26a602d2459842b11bb37c35a3fb59a}
+The function to shuffle the data before the next epoch 
+\begin{DoxyParams}{Parameters}
+{\em mb} & mini-\/batch \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 109 of file trainingalgorithm.\+cpp.
+
+\index{Training\+Algorithm@{Training\+Algorithm}!update\+Training\+Parameters@{update\+Training\+Parameters}}
+\index{update\+Training\+Parameters@{update\+Training\+Parameters}!Training\+Algorithm@{Training\+Algorithm}}
+\subsubsection[{\texorpdfstring{update\+Training\+Parameters(int ii, int mb)}{updateTrainingParameters(int ii, int mb)}}]{\setlength{\rightskip}{0pt plus 5cm}int Training\+Algorithm\+::update\+Training\+Parameters (
+\begin{DoxyParamCaption}
+\item[{int}]{ii, }
+\item[{int}]{mb}
+\end{DoxyParamCaption}
+)}\hypertarget{classTrainingAlgorithm_ab851f054fd5d2e8841e01a5f580f2732}{}\label{classTrainingAlgorithm_ab851f054fd5d2e8841e01a5f580f2732}
+The function called in every training epoch to update the parameters 
+\begin{DoxyParams}{Parameters}
+{\em ii} & current epoch \\
+\hline
+{\em mb} & mini-\/batch size \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 154 of file trainingalgorithm.\+cpp.
+
+\index{Training\+Algorithm@{Training\+Algorithm}!update\+Validation@{update\+Validation}}
+\index{update\+Validation@{update\+Validation}!Training\+Algorithm@{Training\+Algorithm}}
+\subsubsection[{\texorpdfstring{update\+Validation(double error, Neural\+Network $\ast$neural\+Network)}{updateValidation(double error, NeuralNetwork *neuralNetwork)}}]{\setlength{\rightskip}{0pt plus 5cm}int Training\+Algorithm\+::update\+Validation (
+\begin{DoxyParamCaption}
+\item[{double}]{error, }
+\item[{{\bf Neural\+Network} $\ast$}]{neural\+Network}
+\end{DoxyParamCaption}
+)}\hypertarget{classTrainingAlgorithm_ad2f5c257023e633ec41113d249c43ba6}{}\label{classTrainingAlgorithm_ad2f5c257023e633ec41113d249c43ba6}
+The function for the sliding window on the validation error, triggers learining\+Rate\+Control 
+\begin{DoxyParams}{Parameters}
+{\em error} & validation error in the current epoch \\
+\hline
+{\em neural\+Network} & neural network \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 182 of file trainingalgorithm.\+cpp.
+
+\index{Training\+Algorithm@{Training\+Algorithm}!weight\+Freeze\+Update@{weight\+Freeze\+Update}}
+\index{weight\+Freeze\+Update@{weight\+Freeze\+Update}!Training\+Algorithm@{Training\+Algorithm}}
+\subsubsection[{\texorpdfstring{weight\+Freeze\+Update(int ii)}{weightFreezeUpdate(int ii)}}]{\setlength{\rightskip}{0pt plus 5cm}int Training\+Algorithm\+::weight\+Freeze\+Update (
+\begin{DoxyParamCaption}
+\item[{int}]{ii}
+\end{DoxyParamCaption}
+)}\hypertarget{classTrainingAlgorithm_abc1b34e633f7e8dd99a6e35240fdce83}{}\label{classTrainingAlgorithm_abc1b34e633f7e8dd99a6e35240fdce83}
+The function to update the weight freezing flag 
+\begin{DoxyParams}{Parameters}
+{\em ii} & current epoch \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 38 of file trainingalgorithm.\+cpp.
+
+\index{Training\+Algorithm@{Training\+Algorithm}!write\+Output@{write\+Output}}
+\index{write\+Output@{write\+Output}!Training\+Algorithm@{Training\+Algorithm}}
+\subsubsection[{\texorpdfstring{write\+Output(std\+::string path)}{writeOutput(std::string path)}}]{\setlength{\rightskip}{0pt plus 5cm}void Training\+Algorithm\+::write\+Output (
+\begin{DoxyParamCaption}
+\item[{std\+::string}]{path}
+\end{DoxyParamCaption}
+)}\hypertarget{classTrainingAlgorithm_aebd53f578737ebbf04406000af69ba57}{}\label{classTrainingAlgorithm_aebd53f578737ebbf04406000af69ba57}
+The function which envoken when the results are written to a result folder 
+\begin{DoxyParams}{Parameters}
+{\em path} & to the output folder \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 654 of file trainingalgorithm.\+cpp.
+
+
+
+\subsection{Member Data Documentation}
+\index{Training\+Algorithm@{Training\+Algorithm}!data\+Reader@{data\+Reader}}
+\index{data\+Reader@{data\+Reader}!Training\+Algorithm@{Training\+Algorithm}}
+\subsubsection[{\texorpdfstring{data\+Reader}{dataReader}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Data\+Reader} Training\+Algorithm\+::data\+Reader\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classTrainingAlgorithm_a79d1135058e08e7f0bc2ca3d7fabd777}{}\label{classTrainingAlgorithm_a79d1135058e08e7f0bc2ca3d7fabd777}
+
+
+Definition at line 45 of file Training\+Algorithm.\+h.
+
+\index{Training\+Algorithm@{Training\+Algorithm}!m\+\_\+annealing@{m\+\_\+annealing}}
+\index{m\+\_\+annealing@{m\+\_\+annealing}!Training\+Algorithm@{Training\+Algorithm}}
+\subsubsection[{\texorpdfstring{m\+\_\+annealing}{m_annealing}}]{\setlength{\rightskip}{0pt plus 5cm}double Training\+Algorithm\+::m\+\_\+annealing\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classTrainingAlgorithm_a6a3f866fd846b14fa8065d18287e93a9}{}\label{classTrainingAlgorithm_a6a3f866fd846b14fa8065d18287e93a9}
+
+
+Annealin, used for learning\+Rate = learning\+Rate$\ast$(1.\+0/(1.\+0+annealing$\ast$iteration));. 
+
+
+
+Definition at line 55 of file Training\+Algorithm.\+h.
+
+\index{Training\+Algorithm@{Training\+Algorithm}!m\+\_\+average\+Test\+Valid@{m\+\_\+average\+Test\+Valid}}
+\index{m\+\_\+average\+Test\+Valid@{m\+\_\+average\+Test\+Valid}!Training\+Algorithm@{Training\+Algorithm}}
+\subsubsection[{\texorpdfstring{m\+\_\+average\+Test\+Valid}{m_averageTestValid}}]{\setlength{\rightskip}{0pt plus 5cm}double Training\+Algorithm\+::m\+\_\+average\+Test\+Valid\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classTrainingAlgorithm_a33cb16c48262985040967e045c75bff3}{}\label{classTrainingAlgorithm_a33cb16c48262985040967e045c75bff3}
+
+
+The average error of the validation iteration. 
+
+
+
+Definition at line 58 of file Training\+Algorithm.\+h.
+
+\index{Training\+Algorithm@{Training\+Algorithm}!m\+\_\+curriculum@{m\+\_\+curriculum}}
+\index{m\+\_\+curriculum@{m\+\_\+curriculum}!Training\+Algorithm@{Training\+Algorithm}}
+\subsubsection[{\texorpdfstring{m\+\_\+curriculum}{m_curriculum}}]{\setlength{\rightskip}{0pt plus 5cm}int Training\+Algorithm\+::m\+\_\+curriculum\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classTrainingAlgorithm_ac00da5dcd2bf50277ef44e1543b9d919}{}\label{classTrainingAlgorithm_ac00da5dcd2bf50277ef44e1543b9d919}
+
+
+Flag eigther 1 or 0. It 1, the number of training iterations is increased by one in every subsequent epoch. 
+
+
+
+Definition at line 85 of file Training\+Algorithm.\+h.
+
+\index{Training\+Algorithm@{Training\+Algorithm}!m\+\_\+curr\+Iterations@{m\+\_\+curr\+Iterations}}
+\index{m\+\_\+curr\+Iterations@{m\+\_\+curr\+Iterations}!Training\+Algorithm@{Training\+Algorithm}}
+\subsubsection[{\texorpdfstring{m\+\_\+curr\+Iterations}{m_currIterations}}]{\setlength{\rightskip}{0pt plus 5cm}int Training\+Algorithm\+::m\+\_\+curr\+Iterations\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classTrainingAlgorithm_a0b9caeb8ebd28c40838d1bd8b554d296}{}\label{classTrainingAlgorithm_a0b9caeb8ebd28c40838d1bd8b554d296}
+
+
+The current number of iterations. 
+
+
+
+Definition at line 88 of file Training\+Algorithm.\+h.
+
+\index{Training\+Algorithm@{Training\+Algorithm}!m\+\_\+data\+Height@{m\+\_\+data\+Height}}
+\index{m\+\_\+data\+Height@{m\+\_\+data\+Height}!Training\+Algorithm@{Training\+Algorithm}}
+\subsubsection[{\texorpdfstring{m\+\_\+data\+Height}{m_dataHeight}}]{\setlength{\rightskip}{0pt plus 5cm}int Training\+Algorithm\+::m\+\_\+data\+Height\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classTrainingAlgorithm_ac367cb8900241c4c817d6e5b7f212c4c}{}\label{classTrainingAlgorithm_ac367cb8900241c4c817d6e5b7f212c4c}
+
+
+Dimentions of the data cube in Y. 
+
+
+
+Definition at line 118 of file Training\+Algorithm.\+h.
+
+\index{Training\+Algorithm@{Training\+Algorithm}!m\+\_\+data\+Test\+In@{m\+\_\+data\+Test\+In}}
+\index{m\+\_\+data\+Test\+In@{m\+\_\+data\+Test\+In}!Training\+Algorithm@{Training\+Algorithm}}
+\subsubsection[{\texorpdfstring{m\+\_\+data\+Test\+In}{m_dataTestIn}}]{\setlength{\rightskip}{0pt plus 5cm}vector$<$ double $>$ Training\+Algorithm\+::m\+\_\+data\+Test\+In\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classTrainingAlgorithm_ad92157e128c9165861ef003216621039}{}\label{classTrainingAlgorithm_ad92157e128c9165861ef003216621039}
+
+
+The array to hold test input. 
+
+
+
+Definition at line 136 of file Training\+Algorithm.\+h.
+
+\index{Training\+Algorithm@{Training\+Algorithm}!m\+\_\+data\+Train\+In@{m\+\_\+data\+Train\+In}}
+\index{m\+\_\+data\+Train\+In@{m\+\_\+data\+Train\+In}!Training\+Algorithm@{Training\+Algorithm}}
+\subsubsection[{\texorpdfstring{m\+\_\+data\+Train\+In}{m_dataTrainIn}}]{\setlength{\rightskip}{0pt plus 5cm}vector$<$ double $>$ Training\+Algorithm\+::m\+\_\+data\+Train\+In\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classTrainingAlgorithm_aeac2031120727ea87473eeb08a0d2386}{}\label{classTrainingAlgorithm_aeac2031120727ea87473eeb08a0d2386}
+
+
+The array to hold training input. 
+
+
+
+Definition at line 133 of file Training\+Algorithm.\+h.
+
+\index{Training\+Algorithm@{Training\+Algorithm}!m\+\_\+data\+Width@{m\+\_\+data\+Width}}
+\index{m\+\_\+data\+Width@{m\+\_\+data\+Width}!Training\+Algorithm@{Training\+Algorithm}}
+\subsubsection[{\texorpdfstring{m\+\_\+data\+Width}{m_dataWidth}}]{\setlength{\rightskip}{0pt plus 5cm}int Training\+Algorithm\+::m\+\_\+data\+Width\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classTrainingAlgorithm_a48fc87fac249f686265d603f94e16a05}{}\label{classTrainingAlgorithm_a48fc87fac249f686265d603f94e16a05}
+
+
+Dimentions of the data cube in X. 
+
+
+
+Definition at line 115 of file Training\+Algorithm.\+h.
+
+\index{Training\+Algorithm@{Training\+Algorithm}!m\+\_\+error\+Train@{m\+\_\+error\+Train}}
+\index{m\+\_\+error\+Train@{m\+\_\+error\+Train}!Training\+Algorithm@{Training\+Algorithm}}
+\subsubsection[{\texorpdfstring{m\+\_\+error\+Train}{m_errorTrain}}]{\setlength{\rightskip}{0pt plus 5cm}vector$<$ double $>$ Training\+Algorithm\+::m\+\_\+error\+Train\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classTrainingAlgorithm_a4e1bc94ebf1991d93123ef7ac6d76dd3}{}\label{classTrainingAlgorithm_a4e1bc94ebf1991d93123ef7ac6d76dd3}
+
+
+The training error. 
+
+
+
+Definition at line 148 of file Training\+Algorithm.\+h.
+
+\index{Training\+Algorithm@{Training\+Algorithm}!m\+\_\+error\+Validation@{m\+\_\+error\+Validation}}
+\index{m\+\_\+error\+Validation@{m\+\_\+error\+Validation}!Training\+Algorithm@{Training\+Algorithm}}
+\subsubsection[{\texorpdfstring{m\+\_\+error\+Validation}{m_errorValidation}}]{\setlength{\rightskip}{0pt plus 5cm}vector$<$ double $>$ Training\+Algorithm\+::m\+\_\+error\+Validation\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classTrainingAlgorithm_abb9b3684f519dc1e262921b9ea4e5c95}{}\label{classTrainingAlgorithm_abb9b3684f519dc1e262921b9ea4e5c95}
+
+
+The validation error. 
+
+
+
+Definition at line 151 of file Training\+Algorithm.\+h.
+
+\index{Training\+Algorithm@{Training\+Algorithm}!m\+\_\+freeze\+Fraction\+Epochs@{m\+\_\+freeze\+Fraction\+Epochs}}
+\index{m\+\_\+freeze\+Fraction\+Epochs@{m\+\_\+freeze\+Fraction\+Epochs}!Training\+Algorithm@{Training\+Algorithm}}
+\subsubsection[{\texorpdfstring{m\+\_\+freeze\+Fraction\+Epochs}{m_freezeFractionEpochs}}]{\setlength{\rightskip}{0pt plus 5cm}float Training\+Algorithm\+::m\+\_\+freeze\+Fraction\+Epochs\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classTrainingAlgorithm_a7d5e69b50a5321abc2c0f56b61d58732}{}\label{classTrainingAlgorithm_a7d5e69b50a5321abc2c0f56b61d58732}
+
+
+Number of epochs for which the weights will be frozen. 
+
+
+
+Definition at line 64 of file Training\+Algorithm.\+h.
+
+\index{Training\+Algorithm@{Training\+Algorithm}!m\+\_\+image\+Depth@{m\+\_\+image\+Depth}}
+\index{m\+\_\+image\+Depth@{m\+\_\+image\+Depth}!Training\+Algorithm@{Training\+Algorithm}}
+\subsubsection[{\texorpdfstring{m\+\_\+image\+Depth}{m_imageDepth}}]{\setlength{\rightskip}{0pt plus 5cm}int Training\+Algorithm\+::m\+\_\+image\+Depth\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classTrainingAlgorithm_ab3aacb07912b0cd0cc4147b4c0851b1a}{}\label{classTrainingAlgorithm_ab3aacb07912b0cd0cc4147b4c0851b1a}
+
+
+The image height (patchZ) 
+
+
+
+Definition at line 112 of file Training\+Algorithm.\+h.
+
+\index{Training\+Algorithm@{Training\+Algorithm}!m\+\_\+image\+Height@{m\+\_\+image\+Height}}
+\index{m\+\_\+image\+Height@{m\+\_\+image\+Height}!Training\+Algorithm@{Training\+Algorithm}}
+\subsubsection[{\texorpdfstring{m\+\_\+image\+Height}{m_imageHeight}}]{\setlength{\rightskip}{0pt plus 5cm}int Training\+Algorithm\+::m\+\_\+image\+Height\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classTrainingAlgorithm_a9e14a50086b4cd73974dab62cd74c722}{}\label{classTrainingAlgorithm_a9e14a50086b4cd73974dab62cd74c722}
+
+
+The image height (patchY) 
+
+
+
+Definition at line 106 of file Training\+Algorithm.\+h.
+
+\index{Training\+Algorithm@{Training\+Algorithm}!m\+\_\+image\+Width@{m\+\_\+image\+Width}}
+\index{m\+\_\+image\+Width@{m\+\_\+image\+Width}!Training\+Algorithm@{Training\+Algorithm}}
+\subsubsection[{\texorpdfstring{m\+\_\+image\+Width}{m_imageWidth}}]{\setlength{\rightskip}{0pt plus 5cm}int Training\+Algorithm\+::m\+\_\+image\+Width\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classTrainingAlgorithm_a9f4488e51911884ae49107bb853099c6}{}\label{classTrainingAlgorithm_a9f4488e51911884ae49107bb853099c6}
+
+
+The image height (patchX) 
+
+
+
+Definition at line 109 of file Training\+Algorithm.\+h.
+
+\index{Training\+Algorithm@{Training\+Algorithm}!m\+\_\+lambda@{m\+\_\+lambda}}
+\index{m\+\_\+lambda@{m\+\_\+lambda}!Training\+Algorithm@{Training\+Algorithm}}
+\subsubsection[{\texorpdfstring{m\+\_\+lambda}{m_lambda}}]{\setlength{\rightskip}{0pt plus 5cm}double Training\+Algorithm\+::m\+\_\+lambda\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classTrainingAlgorithm_a774f82d6c26effaa909c40c9e24b8e48}{}\label{classTrainingAlgorithm_a774f82d6c26effaa909c40c9e24b8e48}
+
+
+Lambda -\/ magnitude of the penalty in the Contractive \hyperlink{classAutoencoder}{Autoencoder}. 
+
+
+
+Definition at line 52 of file Training\+Algorithm.\+h.
+
+\index{Training\+Algorithm@{Training\+Algorithm}!m\+\_\+learning\+Rate@{m\+\_\+learning\+Rate}}
+\index{m\+\_\+learning\+Rate@{m\+\_\+learning\+Rate}!Training\+Algorithm@{Training\+Algorithm}}
+\subsubsection[{\texorpdfstring{m\+\_\+learning\+Rate}{m_learningRate}}]{\setlength{\rightskip}{0pt plus 5cm}double Training\+Algorithm\+::m\+\_\+learning\+Rate\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classTrainingAlgorithm_abcc97ba6220839e3f24a5692e8fdd2b3}{}\label{classTrainingAlgorithm_abcc97ba6220839e3f24a5692e8fdd2b3}
+
+
+Learning rate. 
+
+
+
+Definition at line 49 of file Training\+Algorithm.\+h.
+
+\index{Training\+Algorithm@{Training\+Algorithm}!m\+\_\+learning\+Rate\+Arr@{m\+\_\+learning\+Rate\+Arr}}
+\index{m\+\_\+learning\+Rate\+Arr@{m\+\_\+learning\+Rate\+Arr}!Training\+Algorithm@{Training\+Algorithm}}
+\subsubsection[{\texorpdfstring{m\+\_\+learning\+Rate\+Arr}{m_learningRateArr}}]{\setlength{\rightskip}{0pt plus 5cm}vector$<$ double $>$ Training\+Algorithm\+::m\+\_\+learning\+Rate\+Arr\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classTrainingAlgorithm_a906835e7f43946669af7137eb982d237}{}\label{classTrainingAlgorithm_a906835e7f43946669af7137eb982d237}
+
+
+The array to hold values of the learning rate. 
+
+
+
+Definition at line 127 of file Training\+Algorithm.\+h.
+
+\index{Training\+Algorithm@{Training\+Algorithm}!m\+\_\+learning\+Rate\+Lower@{m\+\_\+learning\+Rate\+Lower}}
+\index{m\+\_\+learning\+Rate\+Lower@{m\+\_\+learning\+Rate\+Lower}!Training\+Algorithm@{Training\+Algorithm}}
+\subsubsection[{\texorpdfstring{m\+\_\+learning\+Rate\+Lower}{m_learningRateLower}}]{\setlength{\rightskip}{0pt plus 5cm}double Training\+Algorithm\+::m\+\_\+learning\+Rate\+Lower\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classTrainingAlgorithm_ac4432def3c47e16c1be6fd0a921b9fb0}{}\label{classTrainingAlgorithm_ac4432def3c47e16c1be6fd0a921b9fb0}
+
+
+The lower limit of the learning rate when dynamic learning rate depending on validation is used. 
+
+
+
+Definition at line 79 of file Training\+Algorithm.\+h.
+
+\index{Training\+Algorithm@{Training\+Algorithm}!m\+\_\+learning\+Rate\+Upper@{m\+\_\+learning\+Rate\+Upper}}
+\index{m\+\_\+learning\+Rate\+Upper@{m\+\_\+learning\+Rate\+Upper}!Training\+Algorithm@{Training\+Algorithm}}
+\subsubsection[{\texorpdfstring{m\+\_\+learning\+Rate\+Upper}{m_learningRateUpper}}]{\setlength{\rightskip}{0pt plus 5cm}double Training\+Algorithm\+::m\+\_\+learning\+Rate\+Upper\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classTrainingAlgorithm_a420db73ebb56b3c910a3117f91a7e5a0}{}\label{classTrainingAlgorithm_a420db73ebb56b3c910a3117f91a7e5a0}
+
+
+The upper limit of the learning rate when dynamic learning rate depending on validation is used. 
+
+
+
+Definition at line 76 of file Training\+Algorithm.\+h.
+
+\index{Training\+Algorithm@{Training\+Algorithm}!m\+\_\+mask\+Test@{m\+\_\+mask\+Test}}
+\index{m\+\_\+mask\+Test@{m\+\_\+mask\+Test}!Training\+Algorithm@{Training\+Algorithm}}
+\subsubsection[{\texorpdfstring{m\+\_\+mask\+Test}{m_maskTest}}]{\setlength{\rightskip}{0pt plus 5cm}vector$<$ double $>$ Training\+Algorithm\+::m\+\_\+mask\+Test\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classTrainingAlgorithm_acad03968ff1bf0e172f35a1f14c20db3}{}\label{classTrainingAlgorithm_acad03968ff1bf0e172f35a1f14c20db3}
+
+
+The test mask. 
+
+
+
+Definition at line 139 of file Training\+Algorithm.\+h.
+
+\index{Training\+Algorithm@{Training\+Algorithm}!m\+\_\+mask\+Train@{m\+\_\+mask\+Train}}
+\index{m\+\_\+mask\+Train@{m\+\_\+mask\+Train}!Training\+Algorithm@{Training\+Algorithm}}
+\subsubsection[{\texorpdfstring{m\+\_\+mask\+Train}{m_maskTrain}}]{\setlength{\rightskip}{0pt plus 5cm}vector$<$ double $>$ Training\+Algorithm\+::m\+\_\+mask\+Train\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classTrainingAlgorithm_a66d4930727c81f03fd28e75eb0c89947}{}\label{classTrainingAlgorithm_a66d4930727c81f03fd28e75eb0c89947}
+
+
+The training mask. 
+
+
+
+Definition at line 142 of file Training\+Algorithm.\+h.
+
+\index{Training\+Algorithm@{Training\+Algorithm}!m\+\_\+mask\+Validation@{m\+\_\+mask\+Validation}}
+\index{m\+\_\+mask\+Validation@{m\+\_\+mask\+Validation}!Training\+Algorithm@{Training\+Algorithm}}
+\subsubsection[{\texorpdfstring{m\+\_\+mask\+Validation}{m_maskValidation}}]{\setlength{\rightskip}{0pt plus 5cm}vector$<$ double $>$ Training\+Algorithm\+::m\+\_\+mask\+Validation\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classTrainingAlgorithm_a92a2cee29169fb2e4d92089ffcd2f73b}{}\label{classTrainingAlgorithm_a92a2cee29169fb2e4d92089ffcd2f73b}
+
+
+The validation mask. 
+
+
+
+Definition at line 145 of file Training\+Algorithm.\+h.
+
+\index{Training\+Algorithm@{Training\+Algorithm}!m\+\_\+min\+Value\+Validation@{m\+\_\+min\+Value\+Validation}}
+\index{m\+\_\+min\+Value\+Validation@{m\+\_\+min\+Value\+Validation}!Training\+Algorithm@{Training\+Algorithm}}
+\subsubsection[{\texorpdfstring{m\+\_\+min\+Value\+Validation}{m_minValueValidation}}]{\setlength{\rightskip}{0pt plus 5cm}double Training\+Algorithm\+::m\+\_\+min\+Value\+Validation\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classTrainingAlgorithm_a317c3e0ba32fa6984f8dece4bafa0ae6}{}\label{classTrainingAlgorithm_a317c3e0ba32fa6984f8dece4bafa0ae6}
+
+
+Minimum validation error over all iterations. 
+
+
+
+Definition at line 61 of file Training\+Algorithm.\+h.
+
+\index{Training\+Algorithm@{Training\+Algorithm}!m\+\_\+numb\+Epoches@{m\+\_\+numb\+Epoches}}
+\index{m\+\_\+numb\+Epoches@{m\+\_\+numb\+Epoches}!Training\+Algorithm@{Training\+Algorithm}}
+\subsubsection[{\texorpdfstring{m\+\_\+numb\+Epoches}{m_numbEpoches}}]{\setlength{\rightskip}{0pt plus 5cm}int Training\+Algorithm\+::m\+\_\+numb\+Epoches\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classTrainingAlgorithm_aca4ca80f4bab494a8de2ea99c79b30d1}{}\label{classTrainingAlgorithm_aca4ca80f4bab494a8de2ea99c79b30d1}
+
+
+The number of training epoches. 
+
+
+
+Definition at line 82 of file Training\+Algorithm.\+h.
+
+\index{Training\+Algorithm@{Training\+Algorithm}!m\+\_\+numb\+Inputs@{m\+\_\+numb\+Inputs}}
+\index{m\+\_\+numb\+Inputs@{m\+\_\+numb\+Inputs}!Training\+Algorithm@{Training\+Algorithm}}
+\subsubsection[{\texorpdfstring{m\+\_\+numb\+Inputs}{m_numbInputs}}]{\setlength{\rightskip}{0pt plus 5cm}int Training\+Algorithm\+::m\+\_\+numb\+Inputs\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classTrainingAlgorithm_a9b599ede34f6e22fb267f9056cb21925}{}\label{classTrainingAlgorithm_a9b599ede34f6e22fb267f9056cb21925}
+
+
+The number of inputs to the neural network. 
+
+
+
+Definition at line 100 of file Training\+Algorithm.\+h.
+
+\index{Training\+Algorithm@{Training\+Algorithm}!m\+\_\+numb\+It\+Test@{m\+\_\+numb\+It\+Test}}
+\index{m\+\_\+numb\+It\+Test@{m\+\_\+numb\+It\+Test}!Training\+Algorithm@{Training\+Algorithm}}
+\subsubsection[{\texorpdfstring{m\+\_\+numb\+It\+Test}{m_numbItTest}}]{\setlength{\rightskip}{0pt plus 5cm}int Training\+Algorithm\+::m\+\_\+numb\+It\+Test\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classTrainingAlgorithm_a2f247e588d2c35a31f664a20b282ed8e}{}\label{classTrainingAlgorithm_a2f247e588d2c35a31f664a20b282ed8e}
+
+
+The number of test iterations. 
+
+
+
+Definition at line 91 of file Training\+Algorithm.\+h.
+
+\index{Training\+Algorithm@{Training\+Algorithm}!m\+\_\+numb\+It\+Train@{m\+\_\+numb\+It\+Train}}
+\index{m\+\_\+numb\+It\+Train@{m\+\_\+numb\+It\+Train}!Training\+Algorithm@{Training\+Algorithm}}
+\subsubsection[{\texorpdfstring{m\+\_\+numb\+It\+Train}{m_numbItTrain}}]{\setlength{\rightskip}{0pt plus 5cm}int Training\+Algorithm\+::m\+\_\+numb\+It\+Train\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classTrainingAlgorithm_ae41346aa8b69752db8db8a6ebbaeb375}{}\label{classTrainingAlgorithm_ae41346aa8b69752db8db8a6ebbaeb375}
+
+
+The number of training iterations. 
+
+
+
+Definition at line 97 of file Training\+Algorithm.\+h.
+
+\index{Training\+Algorithm@{Training\+Algorithm}!m\+\_\+numb\+It\+Validation@{m\+\_\+numb\+It\+Validation}}
+\index{m\+\_\+numb\+It\+Validation@{m\+\_\+numb\+It\+Validation}!Training\+Algorithm@{Training\+Algorithm}}
+\subsubsection[{\texorpdfstring{m\+\_\+numb\+It\+Validation}{m_numbItValidation}}]{\setlength{\rightskip}{0pt plus 5cm}int Training\+Algorithm\+::m\+\_\+numb\+It\+Validation\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classTrainingAlgorithm_accfc8c76b580d4beb2c4a153ee2758da}{}\label{classTrainingAlgorithm_accfc8c76b580d4beb2c4a153ee2758da}
+
+
+The number of validation iterations. 
+
+
+
+Definition at line 94 of file Training\+Algorithm.\+h.
+
+\index{Training\+Algorithm@{Training\+Algorithm}!m\+\_\+numb\+Outputs@{m\+\_\+numb\+Outputs}}
+\index{m\+\_\+numb\+Outputs@{m\+\_\+numb\+Outputs}!Training\+Algorithm@{Training\+Algorithm}}
+\subsubsection[{\texorpdfstring{m\+\_\+numb\+Outputs}{m_numbOutputs}}]{\setlength{\rightskip}{0pt plus 5cm}int Training\+Algorithm\+::m\+\_\+numb\+Outputs\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classTrainingAlgorithm_ad9c37bc8f0a93867bbb506a1dc2310f4}{}\label{classTrainingAlgorithm_ad9c37bc8f0a93867bbb506a1dc2310f4}
+
+
+The number of outputs of the neural network. 
+
+
+
+Definition at line 103 of file Training\+Algorithm.\+h.
+
+\index{Training\+Algorithm@{Training\+Algorithm}!m\+\_\+objective@{m\+\_\+objective}}
+\index{m\+\_\+objective@{m\+\_\+objective}!Training\+Algorithm@{Training\+Algorithm}}
+\subsubsection[{\texorpdfstring{m\+\_\+objective}{m_objective}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Objective} Training\+Algorithm\+::m\+\_\+objective\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classTrainingAlgorithm_af9cc77a25cd1c116fb12f89a04d704a6}{}\label{classTrainingAlgorithm_af9cc77a25cd1c116fb12f89a04d704a6}
+
+
+Definition at line 34 of file Training\+Algorithm.\+h.
+
+\index{Training\+Algorithm@{Training\+Algorithm}!m\+\_\+order\+Training@{m\+\_\+order\+Training}}
+\index{m\+\_\+order\+Training@{m\+\_\+order\+Training}!Training\+Algorithm@{Training\+Algorithm}}
+\subsubsection[{\texorpdfstring{m\+\_\+order\+Training}{m_orderTraining}}]{\setlength{\rightskip}{0pt plus 5cm}vector$<$ int $>$ Training\+Algorithm\+::m\+\_\+order\+Training\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classTrainingAlgorithm_acde0233f75f362afcd56890bd9cf3552}{}\label{classTrainingAlgorithm_acde0233f75f362afcd56890bd9cf3552}
+
+
+The array to hold the order in which the training examples are fed into the network. 
+
+
+
+Definition at line 124 of file Training\+Algorithm.\+h.
+
+\index{Training\+Algorithm@{Training\+Algorithm}!m\+\_\+output\+Test@{m\+\_\+output\+Test}}
+\index{m\+\_\+output\+Test@{m\+\_\+output\+Test}!Training\+Algorithm@{Training\+Algorithm}}
+\subsubsection[{\texorpdfstring{m\+\_\+output\+Test}{m_outputTest}}]{\setlength{\rightskip}{0pt plus 5cm}vector$<$ double $>$ Training\+Algorithm\+::m\+\_\+output\+Test\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classTrainingAlgorithm_a1e91ea3d8b4285bab8c6dcbb4e9d89b2}{}\label{classTrainingAlgorithm_a1e91ea3d8b4285bab8c6dcbb4e9d89b2}
+
+
+The array to hold the output of the testing (prediction values) 
+
+
+
+Definition at line 130 of file Training\+Algorithm.\+h.
+
+\index{Training\+Algorithm@{Training\+Algorithm}!m\+\_\+ratio\+Of\+Errors@{m\+\_\+ratio\+Of\+Errors}}
+\index{m\+\_\+ratio\+Of\+Errors@{m\+\_\+ratio\+Of\+Errors}!Training\+Algorithm@{Training\+Algorithm}}
+\subsubsection[{\texorpdfstring{m\+\_\+ratio\+Of\+Errors}{m_ratioOfErrors}}]{\setlength{\rightskip}{0pt plus 5cm}vector$<$ double $>$ Training\+Algorithm\+::m\+\_\+ratio\+Of\+Errors\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classTrainingAlgorithm_aefb64ecb3d81de7dacab09cb5e1e2be3}{}\label{classTrainingAlgorithm_aefb64ecb3d81de7dacab09cb5e1e2be3}
+
+
+The ratio of the errors. 
+
+
+
+Definition at line 154 of file Training\+Algorithm.\+h.
+
+\index{Training\+Algorithm@{Training\+Algorithm}!m\+\_\+save\+Folder@{m\+\_\+save\+Folder}}
+\index{m\+\_\+save\+Folder@{m\+\_\+save\+Folder}!Training\+Algorithm@{Training\+Algorithm}}
+\subsubsection[{\texorpdfstring{m\+\_\+save\+Folder}{m_saveFolder}}]{\setlength{\rightskip}{0pt plus 5cm}std\+::string Training\+Algorithm\+::m\+\_\+save\+Folder\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classTrainingAlgorithm_aeff62baa6799a9d12f24a74805b46eea}{}\label{classTrainingAlgorithm_aeff62baa6799a9d12f24a74805b46eea}
+
+
+The name of the folder where the results are saved. 
+
+
+
+Definition at line 121 of file Training\+Algorithm.\+h.
+
+\index{Training\+Algorithm@{Training\+Algorithm}!m\+\_\+shuffle\+Flag@{m\+\_\+shuffle\+Flag}}
+\index{m\+\_\+shuffle\+Flag@{m\+\_\+shuffle\+Flag}!Training\+Algorithm@{Training\+Algorithm}}
+\subsubsection[{\texorpdfstring{m\+\_\+shuffle\+Flag}{m_shuffleFlag}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Flag} Training\+Algorithm\+::m\+\_\+shuffle\+Flag\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classTrainingAlgorithm_a2c5345e01d68a30577105f0f82014585}{}\label{classTrainingAlgorithm_a2c5345e01d68a30577105f0f82014585}
+
+
+Definition at line 43 of file Training\+Algorithm.\+h.
+
+\index{Training\+Algorithm@{Training\+Algorithm}!m\+\_\+sprace\+Flag@{m\+\_\+sprace\+Flag}}
+\index{m\+\_\+sprace\+Flag@{m\+\_\+sprace\+Flag}!Training\+Algorithm@{Training\+Algorithm}}
+\subsubsection[{\texorpdfstring{m\+\_\+sprace\+Flag}{m_spraceFlag}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Flag} Training\+Algorithm\+::m\+\_\+sprace\+Flag\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classTrainingAlgorithm_a22d150f15f730ae139a8267cea153a3e}{}\label{classTrainingAlgorithm_a22d150f15f730ae139a8267cea153a3e}
+
+
+Definition at line 41 of file Training\+Algorithm.\+h.
+
+\index{Training\+Algorithm@{Training\+Algorithm}!m\+\_\+time\+Back\+Propagate@{m\+\_\+time\+Back\+Propagate}}
+\index{m\+\_\+time\+Back\+Propagate@{m\+\_\+time\+Back\+Propagate}!Training\+Algorithm@{Training\+Algorithm}}
+\subsubsection[{\texorpdfstring{m\+\_\+time\+Back\+Propagate}{m_timeBackPropagate}}]{\setlength{\rightskip}{0pt plus 5cm}double Training\+Algorithm\+::m\+\_\+time\+Back\+Propagate\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classTrainingAlgorithm_a38a66c5c61c0f060572c966e88827f48}{}\label{classTrainingAlgorithm_a38a66c5c61c0f060572c966e88827f48}
+
+
+Time in the back\+Propagation. 
+
+
+
+Definition at line 73 of file Training\+Algorithm.\+h.
+
+\index{Training\+Algorithm@{Training\+Algorithm}!m\+\_\+time\+Delta\+Compute@{m\+\_\+time\+Delta\+Compute}}
+\index{m\+\_\+time\+Delta\+Compute@{m\+\_\+time\+Delta\+Compute}!Training\+Algorithm@{Training\+Algorithm}}
+\subsubsection[{\texorpdfstring{m\+\_\+time\+Delta\+Compute}{m_timeDeltaCompute}}]{\setlength{\rightskip}{0pt plus 5cm}double Training\+Algorithm\+::m\+\_\+time\+Delta\+Compute\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classTrainingAlgorithm_aac9f0a53ea2677e3796af8b32d701b83}{}\label{classTrainingAlgorithm_aac9f0a53ea2677e3796af8b32d701b83}
+
+
+Time in the delta\+Compute. 
+
+
+
+Definition at line 70 of file Training\+Algorithm.\+h.
+
+\index{Training\+Algorithm@{Training\+Algorithm}!m\+\_\+time\+Feed\+Forward@{m\+\_\+time\+Feed\+Forward}}
+\index{m\+\_\+time\+Feed\+Forward@{m\+\_\+time\+Feed\+Forward}!Training\+Algorithm@{Training\+Algorithm}}
+\subsubsection[{\texorpdfstring{m\+\_\+time\+Feed\+Forward}{m_timeFeedForward}}]{\setlength{\rightskip}{0pt plus 5cm}double Training\+Algorithm\+::m\+\_\+time\+Feed\+Forward\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classTrainingAlgorithm_a5c1b96170a1ea80c6f717195dcfb88f1}{}\label{classTrainingAlgorithm_a5c1b96170a1ea80c6f717195dcfb88f1}
+
+
+Time in the feed\+Forward. 
+
+
+
+Definition at line 67 of file Training\+Algorithm.\+h.
+
+\index{Training\+Algorithm@{Training\+Algorithm}!m\+\_\+weight\+Freeze\+Flag@{m\+\_\+weight\+Freeze\+Flag}}
+\index{m\+\_\+weight\+Freeze\+Flag@{m\+\_\+weight\+Freeze\+Flag}!Training\+Algorithm@{Training\+Algorithm}}
+\subsubsection[{\texorpdfstring{m\+\_\+weight\+Freeze\+Flag}{m_weightFreezeFlag}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Flag\+Weights\+Freeze} Training\+Algorithm\+::m\+\_\+weight\+Freeze\+Flag\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classTrainingAlgorithm_a19383d774b744bb32c092c7892c92998}{}\label{classTrainingAlgorithm_a19383d774b744bb32c092c7892c92998}
+
+
+Definition at line 37 of file Training\+Algorithm.\+h.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/headers/\hyperlink{TrainingAlgorithm_8h}{Training\+Algorithm.\+h}\item 
+src/cpp/\hyperlink{trainingalgorithm_8cpp}{trainingalgorithm.\+cpp}\end{DoxyCompactItemize}

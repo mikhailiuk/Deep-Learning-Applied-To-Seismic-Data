@@ -1,0 +1,20 @@
+o#!/bin/bash
+cd ../../
+# Script to run through the hidden layer sizes (alters config file and runs the algorithm)
+
+for i in `seq 1 1 300`
+do      
+        echo $i
+	varold='        layers = [784,'$i',784];'
+	#varold='784 '$i' 784'
+	sed -i.bu '16 s/.*/'"$varold"'/' ./config/config.cfg
+	make run
+	#for j in `seq 1 20 100`
+	#do
+	#	echo "number of layers $i batch size $j"
+	#	sed -i.bu '1 s/.*/'"$j"'/' config/conf_nn.txt
+
+	#done
+done
+
+
