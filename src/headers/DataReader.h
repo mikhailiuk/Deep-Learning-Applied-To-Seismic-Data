@@ -1,3 +1,5 @@
+// Author: Aliaksei Mikhailiuk, 2017.
+
 #ifndef DATAREADER_H
 #define DATAREADER_H
 

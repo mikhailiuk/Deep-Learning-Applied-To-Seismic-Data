@@ -1,3 +1,5 @@
+// Author: Aliaksei Mikhailiuk, 2017.
+
 #ifndef LAYER_H
 #define LAYER_H
  

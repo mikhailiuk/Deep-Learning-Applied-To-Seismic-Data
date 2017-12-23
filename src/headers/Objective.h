@@ -1,3 +1,5 @@
+// Author: Aliaksei Mikhailiuk, 2017.
+
 #ifndef OBJECTIVE_H
 #define OBJECTIVE_H
 

@@ -1,3 +1,5 @@
+// Author: Aliaksei Mikhailiuk, 2017.
+
 #ifndef TIMER_H
 #define TIMER_H
 

@@ -1,3 +1,5 @@
+// Author: Aliaksei Mikhailiuk, 2017.
+
 #ifndef NEURALNETWORK_H
 #define NEURALNETWORK_H
 

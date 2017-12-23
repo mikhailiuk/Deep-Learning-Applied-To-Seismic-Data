@@ -1,3 +1,5 @@
+// Author: Aliaksei Mikhailiuk, 2017.
+
 #ifndef PARAMSINIT_H
 #define PARAMSINIT_H
 

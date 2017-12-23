@@ -1,3 +1,5 @@
+// Author: Aliaksei Mikhailiuk, 2017.
+
 #ifndef ACTIVATION_H
 #define ACTIVATION_H
 

@@ -1,3 +1,5 @@
+// Author: Aliaksei Mikhailiuk, 2017.
+
 #ifndef TRAININGALGORITHM_H
 #define TRAININGALGORITHM_H
 

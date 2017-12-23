@@ -2,7 +2,7 @@
 ============================================================================================
 Author: Aliaksei Mikhailiuk
 Date: 20.07.2017
-Contains: MPhil project, Deep Learning and Parallelisation.
+Contains: Deep Learning and Parallelisation applied to seismic data.
 ============================================================================================
 ============================================================================================
 The enclosed program contains an implementaitoin of a neural network in C++ and OpenMP.
@@ -18,7 +18,7 @@ output: folder for an output of the algorithm (contains exmaple output - running
         one ending with fu and another with es. Fu - fully trained (not in the minimum of 
         the validation error (2000 epochs)), es - early stop (when the network reaches
         the minima))
-scripts: suplementary scripts for postprocessing of the results
+scripts: supplementary scripts for postprocessing of the results
 src: folder with the source code of the algorithm
 documentation: folder with documentation produced with doxygen containing code description. 
                to view the documentation go to the ./documentation/html/ and open index.html
@@ -70,22 +70,16 @@ omp.h
 Implementation details:
 ============================================================================================
 
-The implementation procedure comprised a number of steps. First a theoretical model was 
-developed. Secondly a prototype of this model was written in MatLab. This allowed 
-flexibility in visualisation and evaluation of the results. And finally a C++ implementation 
-was produced following the object oriented approach. The implemented algorithms include: 
-simple autoencoder with one hidden layer, two regularised autoencoders i.e. denoizing and 
-contractive, and a deep autoencoder with a variable number and size of the hidden layers. 
-The final implementation allows the user to specify the model parameters in a configuration 
-file. A detailed output is produced in the output folder. The key results written in the 
-.dat files can be visualised using a MatLab script. Furthermore model parameters are saved 
-along with the output results. Thus a new model can be initialised from the saved parameters 
-and training can be continued. Saved features can also be reused for other tasks - e.g. 
-classification. In order to automate the process of results collection a number of bash 
-scripts was written. The tensor flow tutorial on classification was followed in order to 
-build the classifier for the digits, which is used to evaluate the performance. The code was
-profiled using valgrind. It was documented using doxygen and a detailed description of 
-files and functions is placed in index.html in the html folder. Detailed documentation on 
+The implemented algorithms include: simple autoencoder with one hidden layer, two regularised 
+autoencoders i.e. denoizing and contractive, and a deep autoencoder with a variable number and 
+size of the hidden layers. The final implementation allows the user to specify the model 
+parameters in a configuration file. A detailed output is produced in the output folder. The 
+key results written in the .dat files can be visualised using a MatLab script. Furthermore 
+model parameters are saved along with the output results. Thus a new model can be initialised 
+from the saved parameters and training can be continued. Saved features can also be reused 
+for other tasks - e.g. classification. In order to automate the process of results collection 
+a number of bash scripts was written. T is documented using doxygen and a detailed description 
+of files and functions is placed in index.html in the html folder. Detailed documentation on 
 usage and scripts is given in the readme file in the head folder.
 
 OpenMP:

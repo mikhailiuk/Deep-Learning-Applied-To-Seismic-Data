@@ -1,3 +1,5 @@
+// Author: Aliaksei Mikhailiuk, 2017.
+
 #ifndef CONTRACTIVEAUTOENCODER_H
 #define CONTRACTIVEAUTOENCODER_H
 

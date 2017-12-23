@@ -1,3 +1,6 @@
+// Author: Aliaksei Mikhailiuk, 2017.
+
+
 #include "../headers/ParamsInit.h"
 
 void ParamsInit::updatePatchSize(){

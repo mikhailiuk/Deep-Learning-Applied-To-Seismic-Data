@@ -1,3 +1,4 @@
+// Author: Aliaksei Mikhailiuk, 2017.
 
 #include "../headers/OutWriter.h"
 

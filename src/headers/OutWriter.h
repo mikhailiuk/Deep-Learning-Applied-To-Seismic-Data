@@ -1,3 +1,5 @@
+// Author: Aliaksei Mikhailiuk, 2017.
+
 #ifndef OUTWRITER_H
 #define OUTWRITER_H
 

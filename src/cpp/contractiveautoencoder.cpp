@@ -1,3 +1,5 @@
+// Author: Aliaksei Mikhailiuk, 2017.
+
 #include "../headers/ContractiveAutoencoder.h"
 
 
