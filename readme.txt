@@ -1,3 +1,8 @@
+Please cite as:
+
+Mikhailiuk A. and Faul A. 2018. "Deep Learning Applied To Seismic Signal Interpolation". EAGE2018.
+
+
 ============================================================================================
 ============================================================================================
 Author: Aliaksei Mikhailiuk
