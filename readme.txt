@@ -1,6 +1,7 @@
-Please cite as:
+If using the project, please cite as follows:
 
-Mikhailiuk A. and Faul A. 2018. "Deep Learning Applied To Seismic Signal Interpolation". EAGE2018.
+Mikhailiuk A. and Faul A. 2018. "Deep Learning Applied To Seismic Signal Interpolation". 
+EAGE2018.
 
 
 ============================================================================================
